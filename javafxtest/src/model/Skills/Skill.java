@@ -23,9 +23,10 @@ public abstract class Skill {
     protected ArrayList<Cell> path;
     protected SkillStatus status;
     protected BufferedImage icon;
+    protected String SE;
     public Skill() {
     }
-    protected Skill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon) {
+    protected Skill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE) {
         this.range = range;
         this.name = name;
         isStun = stun;
@@ -37,6 +38,11 @@ public abstract class Skill {
         path=new ArrayList<Cell>();
         status = SkillStatus.before;
         this.icon=icon;
+        this.SE = SE;
+    }
+
+    public String getSE() {
+        return SE;
     }
 
     public int getDamage() {

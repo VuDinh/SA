@@ -1,4 +1,3 @@
-package Ingame;
 
 import sun.audio.AudioPlayer;
 import sun.audio.ContinuousAudioDataStream;

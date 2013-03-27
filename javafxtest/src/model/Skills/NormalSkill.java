@@ -17,8 +17,8 @@ import java.util.Iterator;
  * To change this template use File | Settings | File Templates.
  */
 public class NormalSkill extends Skill {
-    public NormalSkill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon) {
-        super(range, name, stun, slow, images, ID, damage,icon);
+    public NormalSkill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE) {
+        super(range, name, stun, slow, images, ID, damage, icon, SE);
     }
 
     public void calculatePath(Hero to) {

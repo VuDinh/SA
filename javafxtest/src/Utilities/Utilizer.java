@@ -2,8 +2,16 @@ package Utilities;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import sun.audio.AudioPlayer;
+import sun.audio.ContinuousAudioDataStream;
 
 import javax.imageio.ImageIO;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequence;
+import javax.sound.midi.Sequencer;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
@@ -51,6 +59,15 @@ public class Utilizer {
     public static final String SKILL1 = "Images/Animation/icon2.png";
     public static final String SKILL2 = "Images/Animation/skill3.png";
     public static final String TURN = "Images/Animation/turn.png";
+
+    public static final String SOUND_ATTACK = "Sounds/attack.wav";
+    public static final String SOUND_FIRE = "Sounds/fire.wav";
+    public static final String SOUND_EARTH = "Sounds/earth.wav";
+    public static final String SOUND_WIND = "Sounds/wind.wav";
+    public static final String SOUND_THUNDER = "Sounds/thunder.wav";
+    public static final String SOUND_VICTORY = "Sounds/Victory.mid";
+    public static final String SOUND_DEFEAT = "Sounds/Defeated.mid";
+    public static final String SOUND_THEME = "Sounds/RPGTheme.mid";
 
     public static BufferedImage IMG_CONTROL1 = null;
     public static BufferedImage IMG_CONTROL2 = null;
@@ -305,5 +322,45 @@ public class Utilizer {
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
+    }
+
+    public static void playWAV(String fileName, int loopCount) {
+        AudioPlayer BGP = AudioPlayer.player;
+        ContinuousAudioDataStream loop = null;
+        try {
+            AudioInputStream audio = AudioSystem.getAudioInputStream(new File(fileName));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audio);
+            //repeat times
+            clip.loop(loopCount);
+            clip.start();
+
+        } catch (Exception e) {
+            //e.printStackTrace();
+        }
+        BGP.start(loop);
+
+    }
+
+    //Play.mid files
+    public static void playMIDI(String fileName, int loopCount) {
+        AudioPlayer BGP = AudioPlayer.player;
+        ContinuousAudioDataStream loop = null;
+        try {
+            File inputFile = new File(fileName);
+            Sequence seq;
+            Sequencer sequencer;
+            sequencer = MidiSystem.getSequencer();
+            seq = MidiSystem.getSequence(inputFile);
+            sequencer.setSequence(seq);
+            //repeat times
+            sequencer.setLoopCount(loopCount);
+            sequencer.open();
+            sequencer.start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        BGP.start(loop);
     }
 }
