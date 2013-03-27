@@ -3,9 +3,7 @@ package MainMenu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -21,13 +19,25 @@ import javafx.scene.layout.VBox;
 public class ChatPane extends BorderPane {
     public ChatPane()
     {
+        //radio Buttons
+        VBox vB0=new VBox();
+        ToggleGroup tGroup=new ToggleGroup();
+        RadioButton radAll=new RadioButton("All");
+        RadioButton radTeam=new RadioButton("Team");
+        RadioButton radDefault=new RadioButton("Default");
+        radAll.setToggleGroup(tGroup);
+        radDefault.setToggleGroup(tGroup);
+        radTeam.setToggleGroup(tGroup);
+        vB0.getChildren().addAll(radAll,radTeam,radDefault);
+        setLeft(vB0);
+        //chat main
         VBox vB=new VBox();
-
         setPadding(new Insets(10, 12, 10, 12));
         TextArea taDialog=new TextArea();
         TextField txtChat=new TextField();
         taDialog.setPrefColumnCount(100);
-        taDialog.setPrefRowCount(10);
+        taDialog.setPrefRowCount(6);
+        taDialog.setEditable(false);
         vB.getChildren().addAll(taDialog,txtChat);
         setCenter(vB);
 
@@ -37,6 +47,7 @@ public class ChatPane extends BorderPane {
         vB2.setSpacing(10);
         ListView<String> lstPlayers=new ListView<String>();
         lstPlayers.setPrefHeight(190);
+        lstPlayers.setPrefWidth(150);
         ObservableList<String> players = FXCollections.observableArrayList("longhero3","dota223","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121");
         lstPlayers.setItems(players);
         vB2.getChildren().add(lstPlayers);
