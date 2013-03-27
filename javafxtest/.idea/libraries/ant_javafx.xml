@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ant-javafx">
+    <CLASSES>
+      <root url="jar://C:/Program Files/Oracle/JavaFX 2.1 SDK/lib/ant-javafx.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

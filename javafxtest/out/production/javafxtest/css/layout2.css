@@ -1,0 +1,18 @@
+#header
+{
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
+#nav .hyperlink
+{
+    -fx-alignment:center;
+    -fx-text-alignment:center;
+    -fx-content-display:center;
+    -fx-wrap-text:true;
+    -fx-text-fill:GREEN;
+}
+#nav
+{
+    -fx-background-color: linear-gradient(#e2ecfe, #99bcfd);
+    -fx-alignment:top-center;
+    -fx-background-radius: 20;
+}
