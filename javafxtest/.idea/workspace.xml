@@ -57,6 +57,7 @@
     <file path="$PROJECT_DIR$/../New folder/javafxtest/src/model/Skills/SkillFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364308413414" ignored="false" />
     <file path="$PROJECT_DIR$/../New folder/javafxtest/src/model/HeroSystem/HeroFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364312037106" ignored="false" />
     <file path="/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366298873" ignored="false" />
+    <file path="$PROJECT_DIR$/../../test/SA/javafxtest/src/Ingame/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366838463" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +175,7 @@
       <file leaf-file-name="GameMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ingame/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="61" selection-start="930" selection-end="930" vertical-scroll-proportion="0.66855526">
+            <state line="179" column="48" selection-start="6511" selection-end="6511" vertical-scroll-proportion="0.6147309">
               <folding />
             </state>
           </provider>
@@ -451,7 +452,7 @@
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../test/SA/javafxtest" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -861,7 +862,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ingame/GameMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="61" selection-start="930" selection-end="930" vertical-scroll-proportion="0.66855526">
+        <state line="179" column="48" selection-start="6511" selection-end="6511" vertical-scroll-proportion="0.6147309">
           <folding />
         </state>
       </provider>
