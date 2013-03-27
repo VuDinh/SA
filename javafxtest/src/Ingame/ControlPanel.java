@@ -19,21 +19,29 @@ public class ControlPanel extends JPanel {
     static JPanel miniMap = null;
     static JPanel avatar = null;
     static JPanel stats = null;
-    static JPanel chatPanel = null;
+
     static int x, y;
     static Hero hero = null;
     static Hero dummy = new HeroFactory().createHero(1);
+    ChatPanel chatPanel;
 
     public static BufferedImage image;
 
-    public ControlPanel()
-    {
+    public ControlPanel(){
         this.setPreferredSize(new Dimension(1280,150));
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+
+                chatPanel = new ChatPanel();
+                setLayout(new BorderLayout());
+                add(chatPanel,BorderLayout.EAST);
+            }
+        });
     }
 
     @Override
-    public void paintComponent(Graphics g)
-    {
+    public void paintComponent(Graphics g){
         hero = dummy;
             g.fillRect(0,0,getWidth(),getHeight());
 
