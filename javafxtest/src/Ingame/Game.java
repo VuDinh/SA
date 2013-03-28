@@ -18,14 +18,20 @@ public class Game extends JFrame {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GameMap drawP = new GameMap();
-        Graphics g;
-        ControlPanel control = new ControlPanel();
         TurnPanel turn = new TurnPanel();
+        ControlPanel control = new ControlPanel();
+
         frame.add(BorderLayout.CENTER, drawP);
-        frame.add(BorderLayout.SOUTH, control);
         frame.add(BorderLayout.NORTH, turn);
+        frame.add(BorderLayout.SOUTH, control);
+
         frame.setSize(1280, 720);
         frame.setVisible(true);
+
+        drawP.setFocusable(true);
+        control.setFocusable(true);
+        drawP.requestFocusInWindow();
+        drawP.requestFocus();
         frame.setResizable(true);
     }
 

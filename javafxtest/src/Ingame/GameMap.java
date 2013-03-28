@@ -37,7 +37,7 @@ public class GameMap extends JPanel {
         addMouseListener(listener);
         addMouseMotionListener(listener);
         addKeyListener(scroller);
-        setFocusable(true);
+
 
         //test a hero
         HeroFactory hF = new HeroFactory();

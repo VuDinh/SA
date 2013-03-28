@@ -43,6 +43,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
         y=y*Utilizer.TILE_SIZE;
         selectCell.setY(y);
         temp.setSelectedCell(selectCell);
+        panel.requestFocus();
         if(e.isMetaDown()){
             panel.getHero().setIsChosen(false);
         }
