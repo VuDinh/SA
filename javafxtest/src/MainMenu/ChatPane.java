@@ -53,5 +53,10 @@ public class ChatPane extends BorderPane {
         vB2.getChildren().add(lstPlayers);
         setRight(vB2);
 
+        taDialog.setId("dialog");
+        txtChat.setId("field");
+        lstPlayers.setId("list");
+        txtChat.setMouseTransparent(false);
+
     }
 }

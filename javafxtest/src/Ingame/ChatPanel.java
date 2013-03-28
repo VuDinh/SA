@@ -30,6 +30,7 @@ public class ChatPanel extends JFXPanel {
             public void run() {
                 Scene scene=new Scene(chatPane, 500,150);
                 setScene(scene);
+                scene.getStylesheets().add(ChatPanel.class.getResource("/css/chatLayout.css").toExternalForm());
             }
         });
     }
