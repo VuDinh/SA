@@ -61,5 +61,6 @@ public class ChatPane extends BorderPane {
         txtChat.setMouseTransparent(false);
         taDialog.setMouseTransparent(false);
 
+
     }
 }
