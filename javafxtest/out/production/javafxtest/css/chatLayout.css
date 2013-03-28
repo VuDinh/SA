@@ -1,0 +1,23 @@
+
+#dialog
+{
+    -fx-background-color: DARKGRAY;
+    -fx-text-fill: white;
+}
+
+#field
+{
+    -fx-background-color: DARKGRAY;
+    -fx-text-fill: white;
+}
+
+#list
+{
+    -fx-background-color: GRAY;
+    -fx-text-fill: white;
+}
+
+.root
+{
+    -fx-background-color: GRAY;
+}

@@ -75,10 +75,10 @@ public class ControlPanel extends JPanel {
         g.setColor(Color.white);
         g.drawString(hero.getHP()+"",470,17);
         g.drawString("/",490,17);
-        g.drawString(hero.getHP()+"",495,17);
+        g.drawString(hero.getMaxHP()+"",495,17);
         g.drawString(hero.getAP()+"",470,42);
         g.drawString("/",490,42);
-        g.drawString(hero.getAP()+"",495,42);
+        g.drawString(hero.getMaxAP()+"",495,42);
 
     }
                     public static void main(String args[]){

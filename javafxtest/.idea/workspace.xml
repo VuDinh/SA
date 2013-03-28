@@ -40,7 +40,6 @@
     <file path="/HeroLibrary.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363541043211" ignored="false" />
     <file path="/HeroFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364312180463" ignored="false" />
     <file path="/Monster.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363625666639" ignored="false" />
-    <file path="$PROJECT_DIR$/src/MainMenu/MainMenuGUI.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364016178495" ignored="false" />
     <file path="/server-context.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364138470981" ignored="false" />
     <file path="/HeroMoveThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364058205331" ignored="false" />
     <file path="/HeroStandThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364057810122" ignored="false" />
@@ -144,13 +143,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="8" selection-start="340" selection-end="340" vertical-scroll-proportion="0.83247423">
+            <state line="19" column="8" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatPanel.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ingame/ChatPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="10" selection-start="995" selection-end="995" vertical-scroll-proportion="0.6056701">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -185,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Ingame/Cell.java" />
         <option value="$PROJECT_DIR$/src/Ingame/ScrollListener.java" />
         <option value="$PROJECT_DIR$/src/Sounds.java" />
         <option value="$PROJECT_DIR$/src/Utilities/Utilizer.java" />
@@ -201,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/Chat/Account.java" />
         <option value="$PROJECT_DIR$/src/Ingame/GameMap.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Ingame/ChatPanel.java" />
       </list>
     </option>
   </component>
@@ -366,6 +374,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HeroSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javafxtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javafxtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MainMenu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -780,11 +806,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Images/Animation/turn.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="13" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
@@ -887,10 +908,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="8" selection-start="340" selection-end="340" vertical-scroll-proportion="0.83247423">
+        <state line="19" column="8" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ingame/ChatPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="10" selection-start="995" selection-end="995" vertical-scroll-proportion="0.6056701">
+          <folding />
         </state>
       </provider>
     </entry>

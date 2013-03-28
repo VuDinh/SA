@@ -19,7 +19,7 @@ public class ChatPanel extends JFXPanel {
 
     private TextArea chatTxt = new TextArea();
     private TextField chatField = new TextField();
-    private JComboBox mode = new JComboBox(new String[]{"Team","Alll"});
+    private JComboBox mode = new JComboBox(new String[]{"Team","All"});
     ChatPane chatPane;
     public ChatPanel(){
         setLayout(new BorderLayout());
@@ -30,6 +30,7 @@ public class ChatPanel extends JFXPanel {
             public void run() {
                 Scene scene=new Scene(chatPane, 500,150);
                 setScene(scene);
+                scene.getStylesheets().add(ChatPanel.class.getResource("/css/chatLayout.css").toExternalForm());
             }
         });
     }
