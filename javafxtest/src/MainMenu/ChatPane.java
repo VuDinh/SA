@@ -28,10 +28,12 @@ public class ChatPane extends BorderPane {
         radAll.setToggleGroup(tGroup);
         radDefault.setToggleGroup(tGroup);
         radTeam.setToggleGroup(tGroup);
+        radTeam.setSelected(true);
         vB0.getChildren().addAll(radAll,radTeam,radDefault);
         setLeft(vB0);
         //chat main
         VBox vB=new VBox();
+        vB.setSpacing(5);
         setPadding(new Insets(10, 12, 10, 12));
         TextArea taDialog=new TextArea();
         TextField txtChat=new TextField();
@@ -57,6 +59,7 @@ public class ChatPane extends BorderPane {
         txtChat.setId("field");
         lstPlayers.setId("list");
         txtChat.setMouseTransparent(false);
+        taDialog.setMouseTransparent(false);
 
     }
 }

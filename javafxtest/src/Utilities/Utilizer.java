@@ -67,7 +67,8 @@ public class Utilizer {
     public static final String SOUND_THUNDER = "Sounds/thunder.wav";
     public static final String SOUND_VICTORY = "Sounds/Victory.mid";
     public static final String SOUND_DEFEAT = "Sounds/Defeated.mid";
-    public static final String SOUND_THEME = "Sounds/RPGTheme.mid";
+    public static final String SOUND_THEME1 = "Sounds/RPGTheme.mid";
+    public static final String SOUND_THEME2 = "Sounds/TacicsTheme.mid";
 
     public static BufferedImage IMG_CONTROL1 = null;
     public static BufferedImage IMG_CONTROL2 = null;

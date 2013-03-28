@@ -27,7 +27,7 @@ public class GameMap extends JPanel {
     Hero hero;
 
     public GameMap() {
-        Utilizer.playMIDI(Utilizer.SOUND_THEME,1000);
+        Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
         //set the start viewing position
         scrollX = 0;
         scrollY = 0;
