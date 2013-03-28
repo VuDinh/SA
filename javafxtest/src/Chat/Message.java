@@ -1,5 +1,7 @@
 package Chat;
 
+import model.Account;
+
 import java.io.Serializable;
 
 /**

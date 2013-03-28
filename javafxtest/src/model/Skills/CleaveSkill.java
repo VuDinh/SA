@@ -1,7 +1,7 @@
 package model.Skills;
 
-import Ingame.Cell;
-import Ingame.GameMap;
+import View.Ingame.Cell;
+import View.Ingame.GameMap;
 import Utilities.Utilizer;
 import model.HeroSystem.Hero;
 

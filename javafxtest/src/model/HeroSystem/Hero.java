@@ -1,5 +1,5 @@
 package model.HeroSystem;
-import Ingame.Cell;
+import View.Ingame.Cell;
 import Utilities.Utilizer;
 import model.Character;
 import model.ItemSystem.Item;

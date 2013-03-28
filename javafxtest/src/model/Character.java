@@ -1,12 +1,10 @@
 package model;
 
-import Ingame.GameMap;
+import View.Ingame.GameMap;
 import Utilities.Utilizer;
-import model.ItemSystem.Item;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.

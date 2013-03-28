@@ -1,6 +1,6 @@
 package model.Skills;
 
-import Ingame.GameMap;
+import View.Ingame.GameMap;
 import Utilities.Utilizer;
 import model.HeroSystem.HeroStatus;
 

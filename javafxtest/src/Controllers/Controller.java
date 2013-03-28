@@ -1,7 +1,7 @@
 package Controllers;
 
-import Chat.Account;
-import Ingame.Game;
+import model.Account;
+import View.Ingame.Game;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,6 +1,8 @@
 package Chat;
 
 
+import model.Account;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
