@@ -1,14 +1,17 @@
 package Ingame;
 
 import Utilities.Utilizer;
+import listeners.MapListener;
+import listeners.ScrollListener;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStandThread;
 import model.HeroSystem.HeroStatus;
-import model.Skills.SkillStatus;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -110,6 +113,14 @@ public class GameMap extends JPanel {
         else scrollY = 0;
     }
 
+    public int getScrollX() {
+        return scrollX;
+    }
+
+    public int getScrollY() {
+        return scrollY;
+    }
+
     void paintSelectedNormal(Graphics g){
         g.clearRect(selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
         g.drawImage(Utilizer.selectArray[0], selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, this);
@@ -180,5 +191,11 @@ public class GameMap extends JPanel {
         frame.setResizable(true);
 
 
+    }
+    public void addMapListener(MouseListener e){
+        this.addMouseListener(e);
+    }
+    public void addScrollListener(KeyListener e){
+        this.addKeyListener(e);
     }
 }

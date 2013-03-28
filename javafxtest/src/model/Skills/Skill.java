@@ -93,6 +93,14 @@ public abstract class Skill {
         this.status = status;
     }
 
+    public ArrayList<Cell> getPath() {
+        return path;
+    }
+
+    public void setPath(ArrayList<Cell> path) {
+        this.path = path;
+    }
+
     public void nextSprite(){
         if(currentSprite % 4 == 3) currentSprite-=3;
         else currentSprite++;

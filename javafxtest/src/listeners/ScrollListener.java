@@ -1,5 +1,6 @@
-package Ingame;
+package listeners;
 
+import Ingame.GameMap;
 import model.HeroSystem.HeroStatus;
 import model.Skills.SkillStatus;
 
