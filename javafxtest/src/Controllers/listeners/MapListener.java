@@ -8,8 +8,10 @@ import model.HeroSystem.HeroStatus;
 import model.Skills.SkillStatus;
 import model.Skills.SkillThread;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -61,8 +63,11 @@ public class MapListener implements MouseListener,MouseMotionListener {
             t.start();
 
         }
-        else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking) && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before) ){
+        else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
+                && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
+                && panel.getHero().getCurrentSkill().getPath().contains(selectCell)){
             panel.getHero().getCurrentSkill().setStatus(SkillStatus.after);
+            Utilizer.playWAV(panel.getHero().getCurrentSkill().getSE(),0);
             SkillThread t=new SkillThread(panel,panel.getHero().getCurrentSkill());
             t.start();
         }

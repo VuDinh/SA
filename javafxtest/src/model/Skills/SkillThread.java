@@ -19,7 +19,7 @@ public class SkillThread extends Thread {
         this.panel=panel;
     }
     public void run(){
-        Utilizer.playWAV(skill.getSE(),0);
+
         for(int i=0;i< Utilizer.SKILL_SIZE;i++){
             skill.nextSprite();
             panel.repaint();

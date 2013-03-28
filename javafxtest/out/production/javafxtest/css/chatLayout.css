@@ -1,23 +1,56 @@
 
 #dialog
 {
-    -fx-background-color: DARKGRAY;
+    -fx-background-color: GRAY;
     -fx-text-fill: white;
 }
 
 #field
 {
-    -fx-background-color: DARKGRAY;
+    -fx-background-color: GRAY;
     -fx-text-fill: white;
 }
 
 #list
 {
-    -fx-background-color: GRAY;
+    -fx-background-color: DARKGRAY;
+    -fx-text-fill: white;
+    -fx-text-fill: black;
+
+}
+.list-cell {
+          -fx-background-color: GRAY;
+          -fx-padding: 10 10 10 10;
+          -fx-border-color: white white white white;
+      }
+.list-cell:selected {
+    -fx-background-color: DARKGRAY;
     -fx-text-fill: white;
 }
 
+.list-view *.scroll-bar:vertical *.thumb {
+    -fx-background-color: #333333;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.list-view *.scroll-bar:vertical {
+    -fx-background-color: DARKGRAY;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0 0 0 0;
+}
+.list-view *.scroll-bar:horizontal *.track {
+    -fx-background-color: DARKGRAY;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
 .root
 {
-    -fx-background-color: GRAY;
+    -fx-background-color: #333333;
+}
+.radio-button
+{
+-fx-text-fill: white
 }
