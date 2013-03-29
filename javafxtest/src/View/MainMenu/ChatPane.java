@@ -6,7 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-
+import model.Account;
 
 
 /**
@@ -17,14 +17,20 @@ import javafx.scene.layout.VBox;
  * To change this template use File | Settings | File Templates.
  */
 public class ChatPane extends BorderPane {
+    RadioButton radAll;
+    RadioButton radTeam;
+    RadioButton radDefault;
+    TextArea taDialog;
+    TextField txtChat;
+    ListView<String> lstPlayers;
     public ChatPane()
     {
         //radio Buttons
         VBox vB0=new VBox();
         ToggleGroup tGroup=new ToggleGroup();
-        RadioButton radAll=new RadioButton("All");
-        RadioButton radTeam=new RadioButton("Team");
-        RadioButton radDefault=new RadioButton("Default");
+        radAll=new RadioButton("All");
+        radTeam=new RadioButton("Team");
+        radDefault=new RadioButton("Default");
         radAll.setToggleGroup(tGroup);
         radDefault.setToggleGroup(tGroup);
         radTeam.setToggleGroup(tGroup);
@@ -35,8 +41,8 @@ public class ChatPane extends BorderPane {
         VBox vB=new VBox();
         vB.setSpacing(5);
         setPadding(new Insets(10, 12, 10, 12));
-        TextArea taDialog=new TextArea();
-        TextField txtChat=new TextField();
+        taDialog=new TextArea();
+        txtChat=new TextField();
         taDialog.setPrefColumnCount(100);
         taDialog.setPrefRowCount(6);
         taDialog.setEditable(false);
@@ -47,7 +53,7 @@ public class ChatPane extends BorderPane {
         VBox vB2=new VBox();
         vB2.setPadding(new Insets(0,0,0,10));
         vB2.setSpacing(10);
-        ListView<String> lstPlayers=new ListView<String>();
+        lstPlayers=new ListView<String>();
         lstPlayers.setPrefHeight(190);
         lstPlayers.setPrefWidth(150);
         ObservableList<String> players = FXCollections.observableArrayList("longhero3","dota223","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121");
@@ -61,6 +67,33 @@ public class ChatPane extends BorderPane {
         txtChat.setMouseTransparent(false);
         taDialog.setMouseTransparent(false);
 
+
+    }
+    public String getSelectedOption(){
+        if(radAll.isSelected()){
+            return "All";
+        }
+        if(radTeam.isSelected()){
+            return "Default";
+        }
+        if(radTeam.isSelected()){
+            return "Team";
+        }
+        return null;
+    }
+    public String getChatMessage(){
+        return txtChat.getText();
+    }
+    public TextArea getChatDialog(){
+        return taDialog;
+    }
+    public void addChatMessage(String chatMessage){
+
+    }
+    public Account getSelectedAccount(){
+
+    }
+    public void addChatListener(){
 
     }
 }
