@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -129,8 +130,9 @@ public class GameMap extends JPanel {
 
     public void paintSelected(Graphics g) {
         if (status.equals("selected")) {
-
-            if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
+            if(hero.getIsChosen() && hero.getStatus().equals(HeroStatus.standing)){
+                hero.drawRange(g,scrollX,scrollY);
+            } else if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
                 hero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
             } else {
                 paintSelectedNormal(g);
@@ -138,7 +140,6 @@ public class GameMap extends JPanel {
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
             }
-
         }
     }
     void paintHoveredNormal(Graphics g){
@@ -198,4 +199,6 @@ public class GameMap extends JPanel {
     public void addScrollListener(KeyListener e){
         this.addKeyListener(e);
     }
+
+
 }

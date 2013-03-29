@@ -54,9 +54,12 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().setIsChosen(true);
             panel.getHero().setStatus(HeroStatus.standing);
             panel.getHero().resetPath();
+
+            panel.getHero().calculateRange(panel.getHero().getRow(),panel.getHero().getCol(),3);
         }
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing))
         {
+            panel.getHero().clearRange();
             panel.getHero().setStatus(HeroStatus.moving);
             panel.getHero().setShortestPathSelect(panel.getHero().getShortestpathHover());
             HeroMoveThread t=new HeroMoveThread(panel.getHero(), panel);
