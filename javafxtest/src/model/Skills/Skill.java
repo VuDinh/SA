@@ -1,7 +1,7 @@
 package model.Skills;
 
-import Ingame.Cell;
-import Ingame.GameMap;
+import View.Ingame.Cell;
+import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 
 import java.awt.*;
@@ -91,6 +91,14 @@ public abstract class Skill {
 
     public void setStatus(SkillStatus status) {
         this.status = status;
+    }
+
+    public ArrayList<Cell> getPath() {
+        return path;
+    }
+
+    public void setPath(ArrayList<Cell> path) {
+        this.path = path;
     }
 
     public void nextSprite(){

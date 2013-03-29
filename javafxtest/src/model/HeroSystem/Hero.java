@@ -1,5 +1,5 @@
 package model.HeroSystem;
-import Ingame.Cell;
+import View.Ingame.Cell;
 import Utilities.Utilizer;
 import model.Character;
 import model.ItemSystem.Item;
@@ -28,6 +28,7 @@ public class Hero extends Character {
     int currentSkill;
     HeroStatus status;
     BufferedImage icon;
+    private static ArrayList<Cell> range = new ArrayList<Cell>();
     protected Hero(int HP, int maxHP, int AP, int maxAP, int row, int col, BufferedImage[] image,BufferedImage avatar,String name,BufferedImage icon) {
         super(HP, maxHP, AP, maxAP, row, col, image,avatar,name);
         skills=new ArrayList<Skill>();
@@ -146,6 +147,7 @@ public class Hero extends Character {
         y+=dirY;
         distanceX-=Math.abs(dirX);
         distanceY-=Math.abs(dirY);
+        setAP(getAP()-0.5);
     }
 
     @Override
@@ -241,5 +243,37 @@ public class Hero extends Character {
     public void removeItemByIndex(int index){
         inventory.remove(index);
     }
+    public ArrayList<Cell> calculateRange(int x, int y, double remaining){
+        if(remaining == 0)
+            return range;
 
+        if(Utilizer.MOVEMAP[x][y] == 0)
+            range.add(new Cell(x,y));
+        else    return range;
+
+        if(y+1 < 40)
+            calculateRange(x, y + 1, remaining - 1); //up
+        if(x-1 > 0)
+            calculateRange(x - 1, y, remaining - 1); //left
+        if(y-1 > 0)
+            calculateRange(x, y - 1, remaining - 1); //down
+        if(x+1 < 40)
+            calculateRange(x + 1, y, remaining - 1); //right
+        return range;
+    }
+    public void drawRange(Graphics g,int scrollX,int scrollY){
+        ArrayList<Cell> cells=getRange();
+        for(Cell cell:cells){
+            g.clearRect(cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
+            g.drawImage(Utilizer.hoverArray[0], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
+            g.drawImage(Utilizer.hoverArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
+        }
+    }
+    public ArrayList<Cell> getRange(){
+        return range;
+    }
+    public void clearRange(){
+        System.out.println(range);
+        range.clear();
+    }
 }

@@ -1,6 +1,6 @@
 package model.HeroSystem;
 
-import Ingame.GameMap;
+import View.Ingame.GameMap;
 
 /**
  * Created with IntelliJ IDEA.

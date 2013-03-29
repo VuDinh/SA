@@ -1,12 +1,10 @@
 package model;
 
-import Ingame.GameMap;
+import View.Ingame.GameMap;
 import Utilities.Utilizer;
-import model.ItemSystem.Item;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +14,8 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Character {
-    protected int HP,maxHP,AP,maxAP,row,col,x,y,distanceX,distanceY;
+    protected int HP,maxHP,maxAP,row,col,x,y,distanceX,distanceY;
+    protected double AP;
     protected BufferedImage[] image;
     protected int dirX,dirY,currentSprite,currentMove;
     protected GameMap panel;
@@ -111,11 +110,11 @@ public abstract class Character {
         this.maxHP = maxHP;
     }
 
-    public int getAP() {
+    public double getAP() {
         return AP;
     }
 
-    public void setAP(int AP) {
+    public void setAP(double AP) {
         this.AP = AP;
     }
 

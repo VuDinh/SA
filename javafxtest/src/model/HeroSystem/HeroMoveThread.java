@@ -1,7 +1,7 @@
 package model.HeroSystem;
 
-import Ingame.Cell;
-import Ingame.GameMap;
+import View.Ingame.Cell;
+import View.Ingame.GameMap;
 
 import java.util.Iterator;
 

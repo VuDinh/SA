@@ -59,6 +59,8 @@ public class Utilizer {
     public static final String SKILL1 = "Images/Animation/icon2.png";
     public static final String SKILL2 = "Images/Animation/skill3.png";
     public static final String TURN = "Images/Animation/turn.png";
+    public static final String BAR = "Images/Animation/bar.png";
+    public static final String CHAT_BACK = "Images/Animation/chatBack.png";
 
     public static final String SOUND_ATTACK = "Sounds/attack.wav";
     public static final String SOUND_FIRE = "Sounds/fire.wav";
@@ -67,7 +69,8 @@ public class Utilizer {
     public static final String SOUND_THUNDER = "Sounds/thunder.wav";
     public static final String SOUND_VICTORY = "Sounds/Victory.mid";
     public static final String SOUND_DEFEAT = "Sounds/Defeated.mid";
-    public static final String SOUND_THEME = "Sounds/RPGTheme.mid";
+    public static final String SOUND_THEME1 = "Sounds/RPGTheme.mid";
+    public static final String SOUND_THEME2 = "Sounds/TacticsTheme.mid";
 
     public static BufferedImage IMG_CONTROL1 = null;
     public static BufferedImage IMG_CONTROL2 = null;
@@ -81,6 +84,8 @@ public class Utilizer {
     public static BufferedImage IMG_SKILL1 = null;
     public static BufferedImage IMG_SKILL2 = null;
     public static BufferedImage IMG_TURN = null;
+    public static BufferedImage IMG_BAR = null;
+    public static BufferedImage IMG_CHAT_BACK = null;
 
     public static ApplicationContext factoryContext;
     public static final int MAP[][] = {
@@ -199,6 +204,8 @@ public class Utilizer {
             IMG_SKILL1 = ImageIO.read(new File(SKILL1));
             IMG_SKILL2 = ImageIO.read(new File(SKILL2));
             IMG_TURN = ImageIO.read(new File(TURN));
+            IMG_BAR = ImageIO.read(new File(BAR));
+            IMG_CHAT_BACK = ImageIO.read(new File(CHAT_BACK));
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
