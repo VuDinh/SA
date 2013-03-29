@@ -147,6 +147,7 @@ public class Hero extends Character {
         y+=dirY;
         distanceX-=Math.abs(dirX);
         distanceY-=Math.abs(dirY);
+        setAP(getAP()-0.5);
     }
 
     @Override
@@ -242,7 +243,7 @@ public class Hero extends Character {
     public void removeItemByIndex(int index){
         inventory.remove(index);
     }
-    public ArrayList<Cell> calculateRange(int x, int y, int remaining){
+    public ArrayList<Cell> calculateRange(int x, int y, double remaining){
         if(remaining == 0)
             return range;
 
@@ -252,9 +253,9 @@ public class Hero extends Character {
 
         if(y+1 < 40)
             calculateRange(x, y + 1, remaining - 1); //up
-        if(x > 0)
+        if(x-1 > 0)
             calculateRange(x - 1, y, remaining - 1); //left
-        if(y > 0)
+        if(y-1 > 0)
             calculateRange(x, y - 1, remaining - 1); //down
         if(x+1 < 40)
             calculateRange(x + 1, y, remaining - 1); //right

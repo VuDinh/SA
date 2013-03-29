@@ -1,6 +1,8 @@
 package View.Ingame;
 
 import Utilities.Utilizer;
+import model.HeroSystem.Hero;
+import model.HeroSystem.HeroFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,11 +17,15 @@ import java.awt.*;
 public class Game extends JFrame {
     public Game(){
         Utilizer.load();
+
+        HeroFactory hF = new HeroFactory();
+        Hero hero = hF.createHero(1);
+
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GameMap drawP = new GameMap();
+        GameMap drawP = new GameMap(hero);
         Graphics g;
-        ControlPanel control = new ControlPanel();
+        ControlPanel control = new ControlPanel(hero);
         TurnPanel turn = new TurnPanel();
         frame.add(BorderLayout.CENTER, drawP);
         frame.add(BorderLayout.SOUTH, control);
