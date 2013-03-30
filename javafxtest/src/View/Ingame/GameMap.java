@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,7 +30,7 @@ public class GameMap extends JPanel {
     int startX, startY, maxX, maxY, scrollX, scrollY;
     Hero hero;
 
-    public GameMap() {
+    public GameMap(Hero hero) {
         Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
         //set the start viewing position
         scrollX = 0;
@@ -40,11 +41,12 @@ public class GameMap extends JPanel {
         addMouseListener(listener);
         addMouseMotionListener(listener);
         addKeyListener(scroller);
-        setFocusable(true);
+
 
         //test a hero
         HeroFactory hF = new HeroFactory();
-        hero = hF.createHero(1);
+        //hero = hF.createHero(1);
+        this.hero = hero;
         hero.setPanel(this);
         HeroStandThread t = new HeroStandThread(hero, this);
         t.start();
@@ -129,8 +131,9 @@ public class GameMap extends JPanel {
 
     public void paintSelected(Graphics g) {
         if (status.equals("selected")) {
-
-            if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
+            if(hero.getIsChosen() && hero.getStatus().equals(HeroStatus.standing)){
+                hero.drawRange(g,scrollX,scrollY);
+            } else if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
                 hero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
             } else {
                 paintSelectedNormal(g);
@@ -138,7 +141,6 @@ public class GameMap extends JPanel {
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
             }
-
         }
     }
     void paintHoveredNormal(Graphics g){
@@ -175,27 +177,29 @@ public class GameMap extends JPanel {
         return hero;
     }
 
-    public static void main(String args[]) {
-        Utilizer.load();
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GameMap drawP = new GameMap();
-        JScrollPane scroller = new JScrollPane();
-        scroller.setViewportView(drawP);
-        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-
-        frame.getContentPane().add(BorderLayout.CENTER, scroller);
-        frame.setSize(700, 700);
-        frame.setVisible(true);
-        frame.setResizable(true);
-
-
-    }
+//    public static void main(String args[]) {
+//        Utilizer.load();
+//        JFrame frame = new JFrame();
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        GameMap drawP = new GameMap();
+//        JScrollPane scroller = new JScrollPane();
+//        scroller.setViewportView(drawP);
+//        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+//        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+//
+//        frame.getContentPane().add(BorderLayout.CENTER, scroller);
+//        frame.setSize(700, 700);
+//        frame.setVisible(true);
+//        frame.setResizable(true);
+//
+//
+//    }
     public void addMapListener(MouseListener e){
         this.addMouseListener(e);
     }
     public void addScrollListener(KeyListener e){
         this.addKeyListener(e);
     }
+
+
 }

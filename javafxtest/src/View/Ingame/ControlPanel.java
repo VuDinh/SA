@@ -16,18 +16,15 @@ import java.awt.image.BufferedImage;
  * To change this template use File | Settings | File Templates.
  */
 public class ControlPanel extends JPanel {
-    static JPanel miniMap = null;
-    static JPanel avatar = null;
-    static JPanel stats = null;
 
-    static int x, y;
-    static Hero hero = null;
+    Hero hero;
     static Hero dummy = new HeroFactory().createHero(1);
     ChatPanel chatPanel;
 
     public static BufferedImage image;
 
-    public ControlPanel(){
+    public ControlPanel(Hero hero){
+        this.hero = hero;
         this.setPreferredSize(new Dimension(1280,150));
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -42,8 +39,8 @@ public class ControlPanel extends JPanel {
 
     @Override
     public void paintComponent(Graphics g){
-        hero = dummy;
-            g.fillRect(0,0,getWidth(),getHeight());
+            //g.drawImage(Utilizer.IMG_CHAT_BACK,0,0, this);
+        g.fillRect(0,0,getWidth(),getHeight());
 
             g.drawImage(Utilizer.IMG_MINI_MAP, 10, 10, this);
             g.drawImage(Utilizer.IMG_CONTROL1, 0,0, this);
@@ -64,31 +61,27 @@ public class ControlPanel extends JPanel {
     }
 
     public void drawHPAP(Graphics g){
+        int width = 361;
+        double no1 = hero.getAP();
+        double no2 = hero.getMaxAP();
+        double realWidth = (double)width * (no1/no2);
 
-        g.setColor(new Color(10,160,30));
-        g.fillRect(290,2,420,25);
-        g.setColor(new Color(20,150,180));
-        g.fillRect(290,28,420,15);
-        g.setColor(Color.lightGray);
-        g.drawRect(290, 2, 420, 25);
-        g.drawRect(290, 28, 420, 15);
+        g.drawImage(Utilizer.IMG_BAR,290,2,420,21,this);
+        g.drawImage(Utilizer.IMG_BAR,290,24,420,21,this);
+
+        g.setColor(new Color(10, 160, 30));
+        g.fillRect(320, 7, width, 11);
+        g.setColor(new Color(20, 150, 180));
+        g.fillRect(320, 29, (int)realWidth, 11);
+
         g.setColor(Color.white);
         g.drawString(hero.getHP()+"",470,17);
         g.drawString("/",490,17);
         g.drawString(hero.getMaxHP()+"",495,17);
-        g.drawString(hero.getAP()+"",470,42);
-        g.drawString("/",490,42);
-        g.drawString(hero.getMaxAP()+"",495,42);
+        g.drawString((int)hero.getAP()+"",470,40);
+        g.drawString("/",490,40);
+        g.drawString(hero.getMaxAP() + "", 495, 40);
 
     }
-                    public static void main(String args[]){
-                        JFrame frame = new JFrame();
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-                        ControlPanel control = new ControlPanel();
-                        frame.add(control);
-                        frame.setSize(new Dimension(1280,180));
-                        frame.setVisible(true);
-                        frame.setResizable(false);
-                    }
 }

@@ -8,10 +8,8 @@ import model.HeroSystem.HeroStatus;
 import model.Skills.SkillStatus;
 import model.Skills.SkillThread;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -54,9 +52,12 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().setIsChosen(true);
             panel.getHero().setStatus(HeroStatus.standing);
             panel.getHero().resetPath();
+
+            panel.getHero().calculateRange(panel.getHero().getRow(),panel.getHero().getCol(),(panel.getHero().getAP()/2) +1 );
         }
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing))
         {
+            panel.getHero().clearRange();
             panel.getHero().setStatus(HeroStatus.moving);
             panel.getHero().setShortestPathSelect(panel.getHero().getShortestpathHover());
             HeroMoveThread t=new HeroMoveThread(panel.getHero(), panel);
