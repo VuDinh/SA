@@ -15,11 +15,19 @@ public class Account implements Serializable,Comparable {
     private String username,password;
     private int team;
     private Hero hero;
-
+    private Status status;
     public Account(String username, String password,int team) {
         this.username = username;
         this.password = password;
         this.team=team;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public int getTeam() {
@@ -60,5 +68,9 @@ public class Account implements Serializable,Comparable {
     @Override
     public int compareTo(Object o) {
         return username.compareTo(((Account)o).getUsername());
+    }
+    @Override
+    public boolean equals(Object o){
+        return username.equals(((Account)o).getUsername());
     }
 }

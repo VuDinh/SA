@@ -2,11 +2,14 @@ package View.MainMenu;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import model.Account;
+import model.MessageStatus;
 
 
 /**
@@ -56,7 +59,7 @@ public class ChatPane extends BorderPane {
         lstPlayers=new ListView<String>();
         lstPlayers.setPrefHeight(190);
         lstPlayers.setPrefWidth(150);
-        ObservableList<String> players = FXCollections.observableArrayList("longhero3","dota223","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121","scuty121");
+        ObservableList<String> players = FXCollections.observableArrayList();
         lstPlayers.setItems(players);
         vB2.getChildren().add(lstPlayers);
         setRight(vB2);
@@ -69,15 +72,15 @@ public class ChatPane extends BorderPane {
 
 
     }
-    public String getSelectedOption(){
+    public MessageStatus getSelectedOption(){
         if(radAll.isSelected()){
-            return "All";
+            return MessageStatus.all;
         }
         if(radTeam.isSelected()){
-            return "Default";
+            return MessageStatus.team;
         }
-        if(radTeam.isSelected()){
-            return "Team";
+        if(radDefault.isSelected()){
+            return MessageStatus.def;
         }
         return null;
     }
@@ -87,13 +90,24 @@ public class ChatPane extends BorderPane {
     public TextArea getChatDialog(){
         return taDialog;
     }
-    public void addChatMessage(String chatMessage){
-
+    public void addChatMessage(String sender,String chatMessage){
+        taDialog.appendText(sender+":"+chatMessage+"\n");
+        txtChat.clear();
+    }
+    public void addStatusMessage(String message){
+        taDialog.appendText(message+"\n");
     }
     public Account getSelectedAccount(){
-
+     Account account=new Account(lstPlayers.getSelectionModel().getSelectedItem(),"",1);
+        return account;
     }
-    public void addChatListener(){
-
+    public void addChatListener(EventHandler<KeyEvent> e){
+        txtChat.setOnKeyPressed(e);
+    }
+    public void addUser(String username){
+        lstPlayers.getItems().add(username);
+    }
+    public void removeUser(String username){
+        lstPlayers.getItems().remove(username);
     }
 }

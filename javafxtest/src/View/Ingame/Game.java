@@ -1,6 +1,7 @@
 package View.Ingame;
 
 import Utilities.Utilizer;
+import model.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 
@@ -15,39 +16,46 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class Game extends JFrame {
-    public Game(){
-        Utilizer.load();
-
+    Account me;
+    GameMap drawP;
+    TurnPanel turn;
+    ControlPanel control;
+    public Game(Account me){
+        this.me=me;
         HeroFactory hF = new HeroFactory();
         Hero hero = hF.createHero(1);
-
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-<<<<<<< HEAD:javafxtest/src/Ingame/Game.java
-        GameMap drawP = new GameMap();
-=======
-        GameMap drawP = new GameMap(hero);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        drawP = new GameMap(hero);
         Graphics g;
-        ControlPanel control = new ControlPanel(hero);
->>>>>>> 02e86b0795825a1792df7a40fbb17958ab75b3c9:javafxtest/src/View/Ingame/Game.java
+        control = new ControlPanel(hero);
         TurnPanel turn = new TurnPanel();
-        ControlPanel control = new ControlPanel();
-
-        frame.add(BorderLayout.CENTER, drawP);
-        frame.add(BorderLayout.NORTH, turn);
-        frame.add(BorderLayout.SOUTH, control);
-
-        frame.setSize(1280, 720);
-        frame.setVisible(true);
+        this.add(BorderLayout.CENTER, drawP);
+        this.add(BorderLayout.NORTH, turn);
+        this.add(BorderLayout.SOUTH, control);
+        this.setSize(1280, 720);
 
         drawP.setFocusable(true);
         control.setFocusable(true);
         drawP.requestFocusInWindow();
         drawP.requestFocus();
-        frame.setResizable(true);
+        this.setResizable(true);
     }
 
     public static void main(String args[]){
-        Game game = new Game();
+    }
+    public GameMap getGameMap(){
+        return drawP;
+    }
+    public ControlPanel getControlPanel(){
+        return control;
+    }
+    public TurnPanel getTurnPanel(){
+        return turn;
+    }
+    public ChatPanel getChatPanel(){
+        return control.getChatPanel();
+    }
+    public Account getAccount(){
+        return me;
     }
 }

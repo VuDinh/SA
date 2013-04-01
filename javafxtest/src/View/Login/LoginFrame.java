@@ -5,6 +5,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import model.Account;
 
 import javax.swing.*;
 
@@ -18,13 +19,15 @@ import javax.swing.*;
 public class LoginFrame extends JFrame {
     LoginPane loginPane;
     JFXPanel tempPane;
-    public LoginFrame(){
+    Account me;
+    public LoginFrame(Account me){
+        this.me=me;
         setTitle("Login");
+        loginPane=new LoginPane();
+        tempPane=new JFXPanel();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                loginPane=new LoginPane();
-                tempPane=new JFXPanel();
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -36,6 +39,7 @@ public class LoginFrame extends JFrame {
                 add(tempPane);
             }
         });
+        setDefaultProperties();
     }
     public String getUsername(){
         return loginPane.getUsername();
@@ -54,10 +58,5 @@ public class LoginFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
-    }
-    public static void main(String[] args){
-        LoginFrame frame=new LoginFrame();
-        frame.setVisible(true);
-        frame.setDefaultProperties();
     }
 }

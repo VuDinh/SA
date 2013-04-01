@@ -35,14 +35,6 @@ public class GameMap extends JPanel {
         //set the start viewing position
         scrollX = 0;
         scrollY = 0;
-        //set the limit of hovering
-        MapListener listener = new MapListener(this);
-        ScrollListener scroller = new ScrollListener(this);
-        addMouseListener(listener);
-        addMouseMotionListener(listener);
-        addKeyListener(scroller);
-
-
         //test a hero
         HeroFactory hF = new HeroFactory();
         //hero = hF.createHero(1);
