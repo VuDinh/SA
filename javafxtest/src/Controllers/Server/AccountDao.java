@@ -1,6 +1,6 @@
 package Controllers.Server;
 
-import model.Account;
+import model.AccountSystem.Account;
 
 import java.util.List;
 
@@ -14,5 +14,5 @@ import java.util.List;
 public interface AccountDao {
     List<Account> allAccount();
 
-    Account getAccount(String username);
+    Account getAccount(Account account);
 }

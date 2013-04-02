@@ -58,10 +58,9 @@ public class GameMap extends JPanel {
 
         //paint the map
         paintMap(g);
-        paintHero(g);
         paintSelected(g);
         paintHovered(g);
-
+        paintHero(g);
     }
 
     public void paintMap(Graphics g) {
@@ -154,7 +153,7 @@ public class GameMap extends JPanel {
                 } else if(!getHero().getIsChosen() ) {
                     paintHoveredNormal(g);
                 } else if(getHero().getIsChosen()){
-                    paintHoveredInRange(g);
+                    //paintHoveredInRange(g);
                 }
 
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {

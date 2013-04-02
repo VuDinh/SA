@@ -6,7 +6,7 @@ import View.Login.LoginFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import model.Account;
+import model.AccountSystem.Account;
 
 
 

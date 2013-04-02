@@ -5,10 +5,9 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import model.Account;
-import model.MessageStatus;
+import model.AccountSystem.Account;
+import model.MessageSystem.MessageStatus;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
 package Chat;
 
-import model.Account;
+import model.AccountSystem.Account;
 
 import java.io.Serializable;
 import java.util.ArrayList;

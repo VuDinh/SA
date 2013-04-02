@@ -79,7 +79,6 @@ public class Hero extends Character implements Serializable {
     @Override
     public void draw(Graphics g,int scrollX,int scrollY) {
         //To change body of implemented methods use File | Settings | File Templates.
-        g.drawImage(getCurrentSprite(),getX()-scrollX,getY()-scrollY,getPanel());
         ArrayList<Cell> path=getShortestpathHover();
         if(isChosen && !path.isEmpty() && status==HeroStatus.standing){
             for(Iterator i=getShortestpathHover().iterator();i.hasNext();){
@@ -89,6 +88,7 @@ public class Hero extends Character implements Serializable {
                 g.drawImage(Utilizer.selectArray[Utilizer.MAP[temp.getRowPos()][temp.getColPos()] - 1],temp.getColPos()*Utilizer.TILE_SIZE - scrollX,temp.getRowPos()*Utilizer.TILE_SIZE - scrollY,getPanel());
             }
         }
+        g.drawImage(getCurrentSprite(),getX()-scrollX,getY()-scrollY,getPanel());
     }
 
     @Override

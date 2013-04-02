@@ -5,7 +5,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import model.Account;
+import model.AccountSystem.Account;
 
 import javax.swing.*;
 

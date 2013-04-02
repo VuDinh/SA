@@ -1,11 +1,11 @@
 package Controllers.Server;
 
 
-import model.Message;
-import model.MessageStatus;
-import model.Status;
+import model.MessageSystem.Message;
+import model.MessageSystem.MessageStatus;
+import model.AccountSystem.Status;
 import Controllers.Communicator;
-import model.Account;
+import model.AccountSystem.Account;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ public class ChatThread extends Thread {
         while (o != null) {
             if (o instanceof Account) {
                 Account t = (Account) o;
-                if (dao.getAccount(t.getUsername())!=null) {
+                if (dao.getAccount(t)!=null) {
                     t.setStatus(Status.pass);
                     com.write(t);
                     com.setAccount(t);

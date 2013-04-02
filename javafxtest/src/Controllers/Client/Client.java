@@ -7,10 +7,10 @@ import Controllers.listeners.MapListener;
 import Controllers.listeners.ScrollListener;
 import Utilities.Utilizer;
 import View.Login.LoginFrame;
-import model.Account;
+import model.AccountSystem.Account;
 import View.Ingame.Game;
 import model.HeroSystem.HeroFactory;
-import model.Status;
+import model.AccountSystem.Status;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -5,9 +5,9 @@ import View.Ingame.ChatPanel;
 import View.Ingame.Game;
 import View.Login.LoginFrame;
 import javafx.application.Platform;
-import model.Account;
-import model.Message;
-import model.Status;
+import model.AccountSystem.Account;
+import model.MessageSystem.Message;
+import model.AccountSystem.Status;
 
 import java.util.Iterator;
 import java.util.List;
