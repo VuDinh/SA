@@ -273,7 +273,6 @@ public class Hero extends Character {
         return range;
     }
     public void clearRange(){
-        System.out.println(range);
         range.clear();
     }
 }
