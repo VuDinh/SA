@@ -1,5 +1,6 @@
 package Utilities;
 
+import View.Ingame.Cell;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import sun.audio.AudioPlayer;
@@ -15,6 +16,7 @@ import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /**
@@ -40,7 +42,7 @@ public class Utilizer {
     public static final String THUNDER_SKILL = "Images/Skills/Thunder.png";
     public static final String WIND_SKILL = "Images/Skills/Wind.png";
     public static final String DEFAULT_SKILL = "Images/Skills/default.png";
-    public static final int SPRITE_ROWS = 4;
+    public static final int SPRITE_ROWS = 6;
     public static final int SPRITE_COLS = 4;
     public static final int SKILL_SIZE = 4;
     public static final int TILE_SIZE = 48;
@@ -281,7 +283,7 @@ public class Utilizer {
             thunderSkillArray = new BufferedImage[SKILL_SIZE];
             windSkillArray = new BufferedImage[SKILL_SIZE];
             defaultSkillArray = new BufferedImage[SKILL_SIZE];
-            for (int i = 0; i < SPRITE_ROWS; i++) {
+            for (int i = 0; i < SPRITE_COLS; i++) {
                 defaultSkillArray[i]= def.getSubimage(i * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE);
                 earthSkillArray[i] = earth.getSubimage(i * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE);
                 fireSkillArray[i] = fire.getSubimage(i * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE);
@@ -369,5 +371,14 @@ public class Utilizer {
             e.printStackTrace();
         }
         BGP.start(loop);
+    }
+
+    public static boolean inRange(Cell c, ArrayList<Cell> cells){
+        Iterator i = cells.iterator();
+        while(i.hasNext()){
+            Cell cell = (Cell)i.next();
+            if(c.getRowPos()==cell.getRowPos() && c.getColPos()==cell.getColPos())return true;
+        }
+        return false;
     }
 }

@@ -274,7 +274,6 @@ public class Hero extends Character implements Serializable {
         return range;
     }
     public void clearRange(){
-        System.out.println(range);
         range.clear();
     }
 }

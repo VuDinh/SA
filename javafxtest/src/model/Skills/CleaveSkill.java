@@ -18,8 +18,9 @@ import java.util.Iterator;
  */
 public class CleaveSkill extends Skill {
 
-    public CleaveSkill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE) {
-        super(range, name, stun, slow, images, ID, damage, icon, SE);
+    public CleaveSkill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,
+                       BufferedImage icon, String SE, int AP) {
+        super(range, name, stun, slow, images, ID, damage, icon, SE, AP);
     }
 
     public void calculatePath(Hero to) {

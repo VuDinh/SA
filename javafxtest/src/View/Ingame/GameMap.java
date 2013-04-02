@@ -146,7 +146,7 @@ public class GameMap extends JPanel {
                 if (getHero().getIsChosen() && getHero().getStatus().equals(HeroStatus.attacking)) {
                     getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
                     getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
-                } else if(!getHero().getIsChosen()) {
+                } else if(!getHero().getIsChosen() ) {
                     paintHoveredNormal(g);
                 }
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
@@ -159,6 +159,10 @@ public class GameMap extends JPanel {
 
     public void setSelectedCell(Cell selectedCell) {
         this.selectedCell = selectedCell;
+    }
+
+    public Cell getSelectedCell() {
+        return selectedCell;
     }
 
     public void setRangedCell(Cell rangeCell) {
