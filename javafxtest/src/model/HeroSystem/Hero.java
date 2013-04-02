@@ -266,8 +266,8 @@ public class Hero extends Character implements Serializable {
         ArrayList<Cell> cells=getRange();
         for(Cell cell:cells){
             g.clearRect(cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
-            g.drawImage(Utilizer.hoverArray[0], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
-            g.drawImage(Utilizer.hoverArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
+            g.drawImage(Utilizer.rangeArray[0], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
+            g.drawImage(Utilizer.rangeArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
         }
     }
     public ArrayList<Cell> getRange(){
