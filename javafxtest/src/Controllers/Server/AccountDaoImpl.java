@@ -1,7 +1,6 @@
 package Controllers.Server;
 
-import model.Account;
-import org.apache.commons.logging.LogFactory;
+import model.AccountSystem.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -37,11 +36,11 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public Account getAccount(String username) {
+    public Account getAccount(Account account) {
         List<Account> lst=allAccount();
         for(Iterator it=lst.iterator();it.hasNext();){
             Account temp=(Account)it.next();
-            if(temp.getUsername().equals(username)){
+            if(temp.getUsername().equals(account.getUsername())&&(temp.getPassword().equals(account.getPassword()))){
                 return temp;
             }
         }

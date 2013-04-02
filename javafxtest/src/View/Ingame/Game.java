@@ -1,7 +1,6 @@
 package View.Ingame;
 
-import Utilities.Utilizer;
-import model.Account;
+import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 

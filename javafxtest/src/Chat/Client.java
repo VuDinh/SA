@@ -1,7 +1,7 @@
 package Chat;
 
 
-import model.Account;
+import model.AccountSystem.Account;
 
 import javax.swing.*;
 import java.awt.*;

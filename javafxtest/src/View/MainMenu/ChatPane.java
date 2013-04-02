@@ -8,8 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import model.Account;
-import model.MessageStatus;
+import model.AccountSystem.Account;
+import model.MessageSystem.MessageStatus;
 
 
 /**

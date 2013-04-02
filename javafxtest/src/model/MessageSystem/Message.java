@@ -1,5 +1,7 @@
-package model;
+package model.MessageSystem;
 
+
+import model.AccountSystem.Account;
 
 import java.io.Serializable;
 

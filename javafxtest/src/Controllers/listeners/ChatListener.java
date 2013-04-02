@@ -6,8 +6,8 @@ import View.Ingame.Game;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import model.Account;
-import model.Message;
+import model.AccountSystem.Account;
+import model.MessageSystem.Message;
 
 /**
  * Created with IntelliJ IDEA.
