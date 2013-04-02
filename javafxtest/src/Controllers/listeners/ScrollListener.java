@@ -31,6 +31,9 @@ public class ScrollListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_END) {
+            panel.getHero().setAP(panel.getHero().getMaxAP());
+        }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 
             panel.increaseScrollY();

@@ -24,9 +24,10 @@ public abstract class Skill {
     protected SkillStatus status;
     protected BufferedImage icon;
     protected String SE;
+    protected int AP;
     public Skill() {
     }
-    protected Skill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE) {
+    protected Skill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE, int AP) {
         this.range = range;
         this.name = name;
         isStun = stun;
@@ -39,6 +40,11 @@ public abstract class Skill {
         status = SkillStatus.before;
         this.icon=icon;
         this.SE = SE;
+        this.AP = AP;
+    }
+
+    public int getAP() {
+        return AP;
     }
 
     public String getSE() {

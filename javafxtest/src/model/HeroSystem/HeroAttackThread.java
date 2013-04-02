@@ -20,7 +20,8 @@ public class HeroAttackThread extends Thread {
 
     public void run(){
         attack();
-        while(hero.getStatus().equals(HeroStatus.attacking)){
+        if(hero.getStatus().equals(HeroStatus.attacking)){
+            for(int i =0; i<4; i++){
             hero.nextSprite();
             panel.repaint();
             try {
@@ -28,15 +29,15 @@ public class HeroAttackThread extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
-        }
+            }
         reset();
-
+        }
     }
 
     public void attack(){
-        if(hero.getCurrentSpriteIndex()==4)
-            hero.setCurrentSprite(12);
-        else if(hero.getCurrentSpriteIndex()==8)hero.setCurrentSprite(16);
+        if(panel.getSelectedCell().getColPos() < hero.getCol())
+            hero.setCurrentSprite(16);
+        else hero.setCurrentSprite(20);
     }
 
     public void reset(){

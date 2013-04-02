@@ -56,11 +56,12 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().setStatus(HeroStatus.standing);
             panel.getHero().resetPath();
 
-            panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), (panel.getHero().getAP() / 2) + 1);
+            panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1);
         }
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
-                panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), (panel.getHero().getAP() / 2) + 1)))
+                panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1)))
         {
+
             panel.getHero().clearRange();
             panel.getHero().setStatus(HeroStatus.moving);
             panel.getHero().setShortestPathSelect(panel.getHero().getShortestpathHover());
@@ -70,13 +71,16 @@ public class MapListener implements MouseListener,MouseMotionListener {
         }
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
-                && panel.getHero().getCurrentSkill().getPath().contains(selectCell)){
+                && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
+                && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0){
             panel.getHero().getCurrentSkill().setStatus(SkillStatus.after);
             Utilizer.playWAV(panel.getHero().getCurrentSkill().getSE(),0);
             SkillThread t=new SkillThread(panel,panel.getHero().getCurrentSkill());
             t.start();
             HeroAttackThread t2 = new HeroAttackThread(panel.getHero(),panel);
             t2.start();
+            panel.getHero().clearRange();
+            panel.getHero().setAP(panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP());
         }
         panel.repaint();
 

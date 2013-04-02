@@ -161,6 +161,10 @@ public class GameMap extends JPanel {
         this.selectedCell = selectedCell;
     }
 
+    public Cell getSelectedCell() {
+        return selectedCell;
+    }
+
     public void setRangedCell(Cell rangeCell) {
         this.rangeCell = rangeCell;
     }
