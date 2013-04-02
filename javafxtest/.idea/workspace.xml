@@ -90,7 +90,7 @@
     <file path="/Client.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364881804513" ignored="false" />
     <file path="/ClientThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364830131677" ignored="false" />
     <file path="/Communicator.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364834882251" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364897955100" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364898542860" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +197,7 @@
       <file leaf-file-name="ChatListener.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/ChatListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="10" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.61559886">
+            <state line="35" column="10" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.5738162">
               <folding />
             </state>
           </provider>
@@ -782,7 +782,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -799,7 +799,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.70868826" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20984848" sideWeight="0.713799" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28620103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28620103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -974,7 +974,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/ChatListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="10" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.61559886">
+        <state line="35" column="10" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.5738162">
           <folding />
         </state>
       </provider>
