@@ -140,6 +140,11 @@ public class GameMap extends JPanel {
         g.drawImage(Utilizer.hoverArray[0], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
         g.drawImage(Utilizer.hoverArray[Utilizer.MAP[rangeCell.getRowPos()][rangeCell.getColPos()] - 1], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
     }
+    void paintHoveredInRange(Graphics g){
+        g.clearRect(rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
+        g.drawImage(Utilizer.selectArray[0], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
+        g.drawImage(Utilizer.selectArray[Utilizer.MAP[rangeCell.getRowPos()][rangeCell.getColPos()] - 1], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
+    }
     public void paintHovered(Graphics g) {
         if (true) {
             if (rangeCell != null) {
@@ -148,7 +153,10 @@ public class GameMap extends JPanel {
                     getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
                 } else if(!getHero().getIsChosen() ) {
                     paintHoveredNormal(g);
+                } else if(getHero().getIsChosen()){
+                    paintHoveredInRange(g);
                 }
+
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
                     g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
                 }
