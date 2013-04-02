@@ -7,6 +7,7 @@ import model.Skills.Skill;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -19,7 +20,7 @@ import java.util.PriorityQueue;
  * Time: 9:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Hero extends Character {
+public class Hero extends Character implements Serializable {
     ArrayList<Skill> skills;
     int skillCount;
     ArrayList<Item> inventory;

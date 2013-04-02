@@ -26,11 +26,12 @@ public class ControlPanel extends JPanel {
     public ControlPanel(Hero hero){
         this.hero = hero;
         this.setPreferredSize(new Dimension(1280,150));
+        chatPanel = new ChatPanel();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
 
-                chatPanel = new ChatPanel();
+
                 setLayout(new BorderLayout());
                 add(chatPanel,BorderLayout.EAST);
             }
@@ -83,5 +84,7 @@ public class ControlPanel extends JPanel {
         g.drawString(hero.getMaxAP() + "", 495, 40);
 
     }
-
+    public ChatPanel getChatPanel(){
+        return chatPanel;
+    }
 }

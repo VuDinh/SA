@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="socket" class="java.net.ServerSocket">
+        <!-- port number -->
+        <constructor-arg value="3800"/>
+    </bean>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.sqlite.JDBC" />
+        <property name="url" value="jdbc:sqlite:messages.db" />
+        <property name="initialSize" value="1" />
+        <property name="maxActive" value="1" />
+        <property name="maxIdle" value="1" />
+        <property name="poolPreparedStatements" value="true" />
+    </bean>
+    <bean id="dao" class="Controllers.Server.AccountDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="dbUtilities" class="Controllers.Server.DbUtilities">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="server" class="Controllers.Server.Server">
+        <property name="serverSocket" ref="socket"/>
+        <property name="db" ref="dbUtilities"/>
+    </bean>
+</beans>
