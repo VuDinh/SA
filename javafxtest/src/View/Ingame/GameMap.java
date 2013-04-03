@@ -8,6 +8,7 @@ import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStandThread;
 import model.HeroSystem.HeroStatus;
 import model.MonsterSystem.Monster;
+import model.MonsterSystem.MonsterStandThread;
 import model.Skills.AOESkill;
 
 import javax.swing.*;
@@ -46,6 +47,8 @@ public class GameMap extends JPanel {
         hero.setPanel(this);
         HeroStandThread t = new HeroStandThread(hero, this);
         t.start();
+        MonsterStandThread t2 = new MonsterStandThread(monster, this);
+        t2.start();
     }
 
     public void setStatus(String status) {
@@ -63,9 +66,9 @@ public class GameMap extends JPanel {
         //paint the map
         paintMap(g);
         paintHovered(g);
+        paintSelected(g);
         paintHero(g);
         paintMonster(g);
-        paintSelected(g);
     }
 
     public void paintMap(Graphics g) {
@@ -195,7 +198,11 @@ public class GameMap extends JPanel {
         return hero;
     }
 
-//    public static void main(String args[]) {
+    public Monster getMonster() {
+        return monster;
+    }
+
+    //    public static void main(String args[]) {
 //        Utilizer.load();
 //        JFrame frame = new JFrame();
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -20,7 +20,8 @@ public class MonsterStandThread extends  Thread {
     }
     @Override
     public void run(){
-        while(true){
+        while(monster.getHP()>0){
+            //System.out.println(monster.getHP());
             monster.nextSprite();
             panel.repaint();
             try {
@@ -28,6 +29,9 @@ public class MonsterStandThread extends  Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
+        }
+        if(monster.getHP()<0){
+            monster.setImageIndex(2);
         }
     }
 }
