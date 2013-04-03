@@ -64,8 +64,8 @@ public class GameMap extends JPanel {
         paintMap(g);
         paintHovered(g);
         paintHero(g);
-        paintSelected(g);
         paintMonster(g);
+        paintSelected(g);
     }
 
     public void paintMap(Graphics g) {
