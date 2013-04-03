@@ -55,6 +55,7 @@ public class Utilizer {
     public static final String FACE4 = "Images/Hero/face1.png";
     public static final String FACE5 = "Images/Hero/face2.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
+
     public static final String AVATAR1 = "Images/Hero/avatar1.png";
     public static final String AVATAR2 = "Images/Hero/avatar2.png";
     public static final String AVATAR3 = "Images/Hero/avatar3.png";
