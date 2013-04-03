@@ -2,7 +2,9 @@ package Controllers.listeners;
 
 import View.Ingame.GameMap;
 import model.HeroSystem.HeroStatus;
+import model.Skills.AOESkill;
 import model.Skills.SkillStatus;
+import sun.security.jca.GetInstance;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -56,16 +58,31 @@ public class ScrollListener implements KeyListener {
                 panel.getHero().setStatus(HeroStatus.attacking);
                 panel.getHero().getSkill(0).setStatus(SkillStatus.before);
                 panel.getHero().setCurrentSkill(0);
+                if(panel.getHero().getCurrentSkill() instanceof AOESkill){
+                    ((AOESkill) panel.getHero().getCurrentSkill()).calculateRange(panel.getHero().getRow(),
+                            panel.getHero().getCol(), panel.getHero().getCurrentSkill().getRange()+1);
+                    ((AOESkill) panel.getHero().getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_W) {
                 panel.getHero().setStatus(HeroStatus.attacking);
                 panel.getHero().getSkill(1).setStatus(SkillStatus.before);
                 panel.getHero().setCurrentSkill(1);
+                if(panel.getHero().getCurrentSkill() instanceof AOESkill){
+                    ((AOESkill) panel.getHero().getCurrentSkill()).calculateRange(panel.getHero().getRow(),
+                            panel.getHero().getCol(), panel.getHero().getCurrentSkill().getRange()+1);
+                    ((AOESkill) panel.getHero().getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_E) {
                 panel.getHero().setStatus(HeroStatus.attacking);
                 panel.getHero().getSkill(2).setStatus(SkillStatus.before);
                 panel.getHero().setCurrentSkill(2);
+                if(panel.getHero().getCurrentSkill() instanceof AOESkill){
+                    ((AOESkill) panel.getHero().getCurrentSkill()).calculateRange(panel.getHero().getRow(),
+                            panel.getHero().getCol(), panel.getHero().getCurrentSkill().getRange()+1);
+                    ((AOESkill) panel.getHero().getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
+                }
             }
         }
         panel.repaint();

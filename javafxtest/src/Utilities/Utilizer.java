@@ -15,9 +15,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -57,6 +55,7 @@ public class Utilizer {
     public static final String FACE4 = "Images/Hero/face1.png";
     public static final String FACE5 = "Images/Hero/face2.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
+
     public static final String AVATAR1 = "Images/Hero/avatar1.png";
     public static final String AVATAR2 = "Images/Hero/avatar2.png";
     public static final String AVATAR3 = "Images/Hero/avatar3.png";
@@ -95,7 +94,7 @@ public class Utilizer {
     public static BufferedImage IMG_CHAT_BACK = null;
 
     public static ApplicationContext factoryContext;
-    public static final int MAP[][] = {
+    public static int MAP[][] = {
             {1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1, 1, 1, 1, 1, 1, 1, 1489, 1490, 1491},
             {1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1, 1, 1, 1, 1, 1, 1, 1497, 1497, 1497},
             {1637, 1638, 826, 826, 826, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1505, 1506, 1507},
@@ -137,7 +136,7 @@ public class Utilizer {
             {1497, 1497, 1497, 1, 1, 1, 1, 1, 1, 1, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638},
             {1505, 1506, 1507, 1, 1, 1, 1, 1, 1, 1, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646}
     };
-    public static final int MOVEMAP[][] = {
+    public static int MOVEMAP[][] = {
             {1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 1637, 1638, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 1645, 1646, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {1637, 1638, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -320,6 +319,17 @@ public class Utilizer {
                     counter++;
                 }
             }
+            //generate movemap
+            Integer[] a={1,826,1489,1491,1497,1505,1506,1507};
+            List<Integer> movableTiles= Arrays.asList(a);
+            MOVEMAP = new int[MAP_ROWS][MAP_COLS];
+            for(int i=0;i<MAP_ROWS;i++)
+                for(int j=0;j<MAP_COLS;j++)
+                    if(movableTiles.contains(MAP[i][j]))
+                        MOVEMAP[i][j]=0;
+                    else
+                        MOVEMAP[i][j]=MAP[i][j];
+
 
         } catch (Exception e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

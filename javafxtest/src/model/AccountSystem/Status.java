@@ -11,5 +11,6 @@ public enum Status {
     fail,
     pass,
     friend,
-    quit
+    quit,
+    already
 }

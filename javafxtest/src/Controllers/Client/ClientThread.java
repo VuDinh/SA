@@ -89,7 +89,8 @@ public class ClientThread extends Thread {
                 });
                 //Setting up account and hero pos
                 if (temp.getStatus().equals(Status.pass)) {
-                    me.setUsername(temp.getUsername());
+                    me=temp;
+                    System.out.println(me.getUsername());
                     game.setVisible(true);
                 }
 
@@ -99,6 +100,9 @@ public class ClientThread extends Thread {
                 Status s = (Status) o;
                 if (s.equals(Status.fail)) {
                     login.setActionText("Invalid username or password!");
+                }
+                if(s.equals(Status.already)){
+                    login.setActionText("Account already in use!");
                 }
             }
             o = com.read();

@@ -31,7 +31,8 @@ public class ChatListener implements EventHandler<KeyEvent> {
             ChatPanel chatPanel=game.getChatPanel();
             Message mess=new Message(new Account(me.getUsername(),me.getPassword(), me.getTeam()),chatPanel.getSelectedAccount(),chatPanel.getChatMessage());
             mess.setStatus(chatPanel.getSelectedOption());
-            chatPanel.addChatMessage(game.getAccount().getUsername(),chatPanel.getChatMessage());
+            System.out.println(me.getUsername());
+            chatPanel.addChatMessage(me.getUsername(),chatPanel.getChatMessage());
             com.write(mess);
         }
     }

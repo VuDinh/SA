@@ -6,6 +6,7 @@ import Utilities.Utilizer;
 import model.HeroSystem.HeroAttackThread;
 import model.HeroSystem.HeroMoveThread;
 import model.HeroSystem.HeroStatus;
+import model.Skills.AOESkill;
 import model.Skills.SkillStatus;
 import model.Skills.SkillThread;
 
@@ -57,6 +58,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().resetPath();
 
             panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1);
+            if(( panel.getHero().getCurrentSkill())!=null){
+                if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();  }
         }
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1)))
@@ -72,7 +75,26 @@ public class MapListener implements MouseListener,MouseMotionListener {
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
-                && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0){
+                && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0
+                && Utilizer.inRange(selectCell,panel.getHero().getCurrentSkill().getRangeCell())){
+            panel.getHero().getCurrentSkill().setStatus(SkillStatus.after);
+            Utilizer.playWAV(panel.getHero().getCurrentSkill().getSE(),0);
+            SkillThread t=new SkillThread(panel,panel.getHero().getCurrentSkill());
+            t.start();
+            HeroAttackThread t2 = new HeroAttackThread(panel.getHero(),panel);
+            t2.start();
+            panel.getHero().clearRange();
+            panel.getHero().setAP(panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP());
+            if(Utilizer.inRange(new Cell(panel.getMonster().getCol(),panel.getMonster().getRow()),
+                    panel.getHero().getCurrentSkill().getPath())){
+                panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage());
+            }
+        }
+        else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
+                && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
+                && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
+                && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0
+                && ! (panel.getHero().getCurrentSkill() instanceof AOESkill)){
             panel.getHero().getCurrentSkill().setStatus(SkillStatus.after);
             Utilizer.playWAV(panel.getHero().getCurrentSkill().getSE(),0);
             SkillThread t=new SkillThread(panel,panel.getHero().getCurrentSkill());

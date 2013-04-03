@@ -36,7 +36,6 @@ public class LoginListener implements EventHandler<ActionEvent> {
         /*loginFrame.setVisible(false);
         inGame.setVisible(true);*/
         loginFrame.setActionText("Signing In ...");
-        System.out.println(loginFrame.getUsername());
         com.write(new Account(loginFrame.getUsername(),loginFrame.getPassword(),0));
         //valid account
     }

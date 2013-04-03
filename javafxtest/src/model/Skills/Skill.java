@@ -25,6 +25,8 @@ public abstract class Skill {
     protected int imageIndex;
     protected String SE;
     protected int AP;
+    protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
+    protected GameMap panel;
     protected int imgHeroIndex;
     public Skill() {
     }
@@ -41,6 +43,14 @@ public abstract class Skill {
         this.imageIndex = imageIndex;
         this.SE = SE;
         this.AP = AP;
+    }
+
+    public ArrayList<Cell> getRangeCell() {
+        return rangeCell;
+    }
+
+    public int getRange() {
+        return range;
     }
 
     public int getAP() {
@@ -116,4 +126,6 @@ public abstract class Skill {
     public abstract void drawPath(Graphics g,Cell to,int scrollX,int scrollY,GameMap panel);
     public abstract void drawPathOnHero(Graphics g,Hero hero,Cell to,int scrollX,int scrollY,GameMap panel);
     public abstract void drawSkillOnHero(Graphics g,Hero hero,int scrollX,int scrollY,GameMap panel);
+
+
 }

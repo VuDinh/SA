@@ -41,6 +41,10 @@ public abstract class Character {
         this.imageIndex=imageIndex;
     }
 
+    public void setImageIndex(int imageIndex) {
+        this.imageIndex = imageIndex;
+    }
+
     public String getName() {
         return name;
     }

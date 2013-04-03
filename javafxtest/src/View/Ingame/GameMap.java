@@ -7,6 +7,9 @@ import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStandThread;
 import model.HeroSystem.HeroStatus;
+import model.MonsterSystem.Monster;
+import model.MonsterSystem.MonsterStandThread;
+import model.Skills.AOESkill;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,8 +32,9 @@ public class GameMap extends JPanel {
     Cell selectedCell , rangeCell;
     int startX, startY, maxX, maxY, scrollX, scrollY;
     Hero hero;
+    Monster monster;
 
-    public GameMap(Hero hero) {
+    public GameMap(Hero hero, Monster monster) {
         Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
         //set the start viewing position
         scrollX = 0;
@@ -39,9 +43,12 @@ public class GameMap extends JPanel {
         HeroFactory hF = new HeroFactory();
         //hero = hF.createHero(1);
         this.hero = hero;
+        this.monster= monster;
         hero.setPanel(this);
         HeroStandThread t = new HeroStandThread(hero, this);
         t.start();
+        MonsterStandThread t2 = new MonsterStandThread(monster, this);
+        t2.start();
     }
 
     public void setStatus(String status) {
@@ -58,9 +65,10 @@ public class GameMap extends JPanel {
 
         //paint the map
         paintMap(g);
-        paintSelected(g);
         paintHovered(g);
+        paintSelected(g);
         paintHero(g);
+        paintMonster(g);
     }
 
     public void paintMap(Graphics g) {
@@ -80,6 +88,10 @@ public class GameMap extends JPanel {
 
     public void paintHero(Graphics g) {
         hero.draw(g, scrollX, scrollY);
+    }
+
+    public void paintMonster(Graphics g){
+        monster.draw(g,scrollX,scrollY);
     }
 
     public void increaseScrollX() {
@@ -126,6 +138,8 @@ public class GameMap extends JPanel {
                 hero.drawRange(g,scrollX,scrollY);
             } else if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
                 hero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
+                getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
+                getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
             } else {
                 paintSelectedNormal(g);
             }
@@ -148,14 +162,18 @@ public class GameMap extends JPanel {
         if (true) {
             if (rangeCell != null) {
                 if (getHero().getIsChosen() && getHero().getStatus().equals(HeroStatus.attacking)) {
-                    getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
-                    getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
+                    //getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
+                    //getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
+
+                    if(getHero().getCurrentSkill() instanceof AOESkill){
+                        ((AOESkill) getHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
+                        //System.out.println(((AOESkill) getHero().getCurrentSkill()).getRangeCell());
+                    }
                 } else if(!getHero().getIsChosen() ) {
                     paintHoveredNormal(g);
                 } else if(getHero().getIsChosen()){
                     //paintHoveredInRange(g);
                 }
-
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
                     g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
                 }
@@ -180,7 +198,11 @@ public class GameMap extends JPanel {
         return hero;
     }
 
-//    public static void main(String args[]) {
+    public Monster getMonster() {
+        return monster;
+    }
+
+    //    public static void main(String args[]) {
 //        Utilizer.load();
 //        JFrame frame = new JFrame();
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
