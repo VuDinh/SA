@@ -1,27 +1,27 @@
-package model.Skills;
+package model.MonsterSystem;
 
 import View.Ingame.GameMap;
-import Utilities.Utilizer;
+import model.HeroSystem.Hero;
 import model.HeroSystem.HeroStatus;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Administrator
- * Date: 3/25/13
- * Time: 11:13 AM
+ * User: USER
+ * Date: 4/3/13
+ * Time: 1:53 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SkillThread extends Thread {
+public class MonsterStandThread extends  Thread {
+    Monster monster;
     GameMap panel;
-    Skill skill;
-    public SkillThread(GameMap panel,Skill skill){
-        this.skill = skill;
-        this.panel=panel;
+    public MonsterStandThread(Monster monster,GameMap panel){
+        this.monster = monster;
+        this.panel = panel;
     }
+    @Override
     public void run(){
-
-        for(int i=0;i< Utilizer.SKILL_SIZE;i++){
-            skill.nextSprite();
+        while(true){
+            monster.nextSprite();
             panel.repaint();
             try {
                 Thread.sleep(80);
@@ -29,8 +29,5 @@ public class SkillThread extends Thread {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
-        skill.setStatus(SkillStatus.none);
-        panel.getHero().setStatus(HeroStatus.standing);
-        panel.repaint();
     }
 }

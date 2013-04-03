@@ -1,5 +1,6 @@
 package model.Skills;
 
+import Utilities.Utilizer;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
@@ -25,6 +26,8 @@ public abstract class Skill {
     protected BufferedImage icon;
     protected String SE;
     protected int AP;
+    protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
+    protected GameMap panel;
     public Skill() {
     }
     protected Skill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE, int AP) {
@@ -41,6 +44,14 @@ public abstract class Skill {
         this.icon=icon;
         this.SE = SE;
         this.AP = AP;
+    }
+
+    public ArrayList<Cell> getRangeCell() {
+        return rangeCell;
+    }
+
+    public int getRange() {
+        return range;
     }
 
     public int getAP() {
@@ -118,4 +129,6 @@ public abstract class Skill {
     public abstract void drawPath(Graphics g,Cell to,int scrollX,int scrollY,GameMap panel);
     public abstract void drawPathOnHero(Graphics g,Hero hero,Cell to,int scrollX,int scrollY,GameMap panel);
     public abstract void drawSkillOnHero(Graphics g,Hero hero,int scrollX,int scrollY,GameMap panel);
+
+
 }

@@ -7,6 +7,7 @@ import model.HeroSystem.Hero;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -17,7 +18,6 @@ import java.util.Iterator;
  * To change this template use File | Settings | File Templates.
  */
 public class AOESkill extends Skill {
-
     public AOESkill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,
                     BufferedImage icon, String SE, int AP) {
         super(range, name, stun, slow, images, ID, damage, icon, SE, AP);
@@ -69,5 +69,37 @@ public class AOESkill extends Skill {
     @Override
     public void drawSkillOnHero(Graphics g, Hero hero, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public ArrayList<Cell> calculateRange(int x, int y, double remaining){
+        if(remaining == 0)
+            return rangeCell;
+
+        if(Utilizer.MOVEMAP[x][y] == 0)
+            rangeCell.add(new Cell(x,y));
+
+        if(y+1 < 40)
+            calculateRange(x, y + 1, remaining - 1); //up
+        if(x-1 > 0)
+            calculateRange(x - 1, y, remaining - 1); //left
+        if(y-1 > 0)
+            calculateRange(x, y - 1, remaining - 1); //down
+        if(x+1 < 40)
+            calculateRange(x + 1, y, remaining - 1); //right
+        return rangeCell;
+    }
+    public void drawRange(Graphics g,int scrollX,int scrollY){
+        ArrayList<Cell> cells=getRangeCell();
+        for(Cell cell:cells){
+            g.clearRect(cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
+            g.drawImage(Utilizer.selectArray[0], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
+            g.drawImage(Utilizer.selectArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
+        }
+    }
+    public ArrayList<Cell> getRangeCell(){
+        return rangeCell;
+    }
+    public void clearRangeCell(){
+        rangeCell.clear();
     }
 }

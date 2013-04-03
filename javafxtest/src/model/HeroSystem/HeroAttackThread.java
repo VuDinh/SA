@@ -31,6 +31,7 @@ public class HeroAttackThread extends Thread {
             }
             }
         reset();
+        hero.setStatus(HeroStatus.none);
         }
     }
 

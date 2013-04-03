@@ -7,6 +7,7 @@ import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStandThread;
 import model.HeroSystem.HeroStatus;
+import model.Skills.AOESkill;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,9 +59,9 @@ public class GameMap extends JPanel {
 
         //paint the map
         paintMap(g);
-        paintSelected(g);
         paintHovered(g);
         paintHero(g);
+        paintSelected(g);
     }
 
     public void paintMap(Graphics g) {
@@ -126,6 +127,8 @@ public class GameMap extends JPanel {
                 hero.drawRange(g,scrollX,scrollY);
             } else if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
                 hero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
+                getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
+                getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
             } else {
                 paintSelectedNormal(g);
             }
@@ -148,14 +151,18 @@ public class GameMap extends JPanel {
         if (true) {
             if (rangeCell != null) {
                 if (getHero().getIsChosen() && getHero().getStatus().equals(HeroStatus.attacking)) {
-                    getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
-                    getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
+                    //getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
+                    //getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
+
+                    if(getHero().getCurrentSkill() instanceof AOESkill){
+                        ((AOESkill) getHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
+                        //System.out.println(((AOESkill) getHero().getCurrentSkill()).getRangeCell());
+                    }
                 } else if(!getHero().getIsChosen() ) {
                     paintHoveredNormal(g);
                 } else if(getHero().getIsChosen()){
                     //paintHoveredInRange(g);
                 }
-
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
                     g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
                 }
