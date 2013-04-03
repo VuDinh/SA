@@ -82,6 +82,7 @@ public class ChatThread extends Thread {
         }
         announceQuitter();
         com.close();
+        handler.removeActiveAccount(com.getAccount());
         handler.removeCom(com);
     }
 

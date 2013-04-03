@@ -319,11 +319,11 @@ public class Utilizer {
                 }
             }
             //generate movemap
-            List<Integer> movableTiles= [0,1,2,3];
+            /*List<Integer> movableTiles= [0,1,2,3];
 
             for(int i=0;i<MAP_ROWS;i++)
                 for(int j=0;j<MAP_COLS;j++)
-                    if(MAP[i][j]==1 && MAP[i][j]==826)
+                    if(MAP[i][j]==1 && MAP[i][j]==826)*/
 
 
         } catch (Exception e) {

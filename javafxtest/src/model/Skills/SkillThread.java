@@ -12,8 +12,8 @@ import model.HeroSystem.HeroStatus;
  * To change this template use File | Settings | File Templates.
  */
 public class SkillThread extends Thread {
-    private GameMap panel;
-    private Skill skill;
+    GameMap panel;
+    Skill skill;
     public SkillThread(GameMap panel,Skill skill){
         this.skill = skill;
         this.panel=panel;

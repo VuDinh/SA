@@ -3,6 +3,8 @@ package View.Ingame;
 import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
+import model.MonsterSystem.Monster;
+import model.MonsterSystem.MonsterFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +25,8 @@ public class Game extends JFrame {
         this.me=me;
         HeroFactory hF = new HeroFactory();
         Hero hero = hF.createHero(1);
+        MonsterFactory mF = new MonsterFactory();
+        Monster monster = mF.createMonster(1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         drawP = new GameMap(hero);
         Graphics g;
