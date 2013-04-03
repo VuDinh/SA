@@ -28,7 +28,7 @@ public class Game extends JFrame {
         MonsterFactory mF = new MonsterFactory();
         Monster monster = mF.createMonster(1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        drawP = new GameMap(hero);
+        drawP = new GameMap(hero,monster);
         Graphics g;
         control = new ControlPanel(hero);
         TurnPanel turn = new TurnPanel();
