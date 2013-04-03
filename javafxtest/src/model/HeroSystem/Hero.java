@@ -228,6 +228,7 @@ public class Hero extends Character implements Serializable {
         return currentSkill;
     }
     public Skill getCurrentSkill(){
+        if(currentSkill<0)return null;
         return skills.get(currentSkill);
     }
     public void setCurrentSkill(int currentSkill) {

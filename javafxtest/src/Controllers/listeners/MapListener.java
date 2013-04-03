@@ -58,7 +58,9 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().resetPath();
 
             panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1);
-            ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
+            if(((AOESkill) panel.getHero().getCurrentSkill())!=null){
+                if(((AOESkill) panel.getHero().getCurrentSkill()) instanceof AOESkill)((AOESkill)
+                        panel.getHero().getCurrentSkill()).clearRangeCell();  }
         }
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1)))
