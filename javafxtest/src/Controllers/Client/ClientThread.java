@@ -100,6 +100,9 @@ public class ClientThread extends Thread {
                 if (s.equals(Status.fail)) {
                     login.setActionText("Invalid username or password!");
                 }
+                if(s.equals(Status.already)){
+                    login.setActionText("Account already in use!");
+                }
             }
             o = com.read();
         }

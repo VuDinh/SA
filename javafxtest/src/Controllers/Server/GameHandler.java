@@ -1,5 +1,7 @@
 package Controllers.Server;
 import Controllers.Communicator;
+import model.AccountSystem.Account;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -13,11 +15,12 @@ import java.util.Iterator;
  */
 public class GameHandler extends Thread {
     ArrayList<Communicator> coms;
+    ArrayList<Account> activeAccounts;
     AccountDao dao;
     Communicator currentCom;
     public GameHandler() {
         coms = new ArrayList<Communicator>();
-
+        activeAccounts=new ArrayList<Account>();
     }
 
     public void add(Communicator com) {
@@ -36,6 +39,21 @@ public class GameHandler extends Thread {
     }
     public void setDao(AccountDao dao){
         this.dao =dao;
+    }
+    public void addActiveAccount(Account account){
+        activeAccounts.add(account);
+    }
+    public void removeActiveAccount(Account account){
+        activeAccounts.remove(account);
+    }
+    public Account getActiveAccount(Account account){
+        for(Iterator it=activeAccounts.iterator();it.hasNext();){
+            Account active=(Account) it.next();
+            if(active.getUsername().equals(account.getUsername())){
+                return active;
+            }
+        }
+        return null;
     }
     @Override
     public void run() {

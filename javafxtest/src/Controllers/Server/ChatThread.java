@@ -23,15 +23,17 @@ public class ChatThread extends Thread {
     Communicator com;
     GameHandler handler;
     AccountDao dao;
+
     //static ApplicationContext ctx=new ClassPathXmlApplicationContext("server-context.xml");;
-    public ChatThread(AccountDao dao,Communicator com, GameHandler handler) {
+    public ChatThread(AccountDao dao, Communicator com, GameHandler handler) {
         this.com = com;
         this.handler = handler;
-       // dao=ctx.getBean("dao",AccountDaoImpl.class);
-        this.dao=dao;
+        // dao=ctx.getBean("dao",AccountDaoImpl.class);
+        this.dao = dao;
     }
-    public void setDao(AccountDao dao){
-        this.dao=dao;
+
+    public void setDao(AccountDao dao) {
+        this.dao = dao;
     }
 
     public void run() {
@@ -39,14 +41,15 @@ public class ChatThread extends Thread {
         while (o != null) {
             if (o instanceof Account) {
                 Account t = (Account) o;
-                if (dao.getAccount(t)!=null) {
+                if (dao.getAccount(t) != null && handler.getActiveAccount(t) == null) {
                     t.setStatus(Status.pass);
                     com.write(t);
                     com.setAccount(t);
-                    List<Account> list=new ArrayList<Account>();
-                    for(Iterator it=handler.getComs().iterator();it.hasNext();){
-                        Communicator tempCom=(Communicator) it.next();
-                        if(tempCom.getAccount()!=com.getAccount()){
+                    handler.addActiveAccount(t);
+                    List<Account> list = new ArrayList<Account>();
+                    for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+                        Communicator tempCom = (Communicator) it.next();
+                        if (tempCom.getAccount() != com.getAccount()) {
                             list.add(tempCom.getAccount());
                             t.setStatus(Status.friend);
                             tempCom.write(t);
@@ -54,19 +57,23 @@ public class ChatThread extends Thread {
                     }
                     com.write(list);
                 } else {
-                    System.out.println("fail");
-                    com.write(Status.fail);
+                    if (dao.getAccount(t) == null)
+                        com.write(Status.fail);
+                    else
+                        com.write(Status.already);
+                    o = com.read();
+                    continue;
                 }
             }
-            if(o instanceof Message){
-                Message mes=(Message) o;
-                if(mes.getStatus().equals(MessageStatus.all)) sendToAll(mes);
-                if(mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
-                if(mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
+            if (o instanceof Message) {
+                Message mes = (Message) o;
+                if (mes.getStatus().equals(MessageStatus.all)) sendToAll(mes);
+                if (mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
+                if (mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
             }
-            if(o instanceof Status ){
-                Status status=(Status) o;
-                if(status.equals(Status.quit)){
+            if (o instanceof Status) {
+                Status status = (Status) o;
+                if (status.equals(Status.quit)) {
                     System.out.println("Quit");
                     break;
                 }
@@ -77,36 +84,40 @@ public class ChatThread extends Thread {
         com.close();
         handler.removeCom(com);
     }
-    public void sendToAll(Message mes){
-        for(Iterator it=handler.getComs().iterator();it.hasNext();){
-            Communicator tempCom=(Communicator) it.next();
-            if(tempCom.getAccount()!=com.getAccount()){
+
+    public void sendToAll(Message mes) {
+        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+            Communicator tempCom = (Communicator) it.next();
+            if (tempCom.getAccount() != com.getAccount()) {
                 tempCom.write(mes);
             }
         }
     }
-    public void sendToTeam(Message mes){
-        for(Iterator it=handler.getComs().iterator();it.hasNext();){
-            Communicator tempCom=(Communicator) it.next();
-            if(tempCom.getAccount()!=com.getAccount() && tempCom.getAccount().getTeam()==com.getAccount().getTeam()){
+
+    public void sendToTeam(Message mes) {
+        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+            Communicator tempCom = (Communicator) it.next();
+            if (tempCom.getAccount() != com.getAccount() && tempCom.getAccount().getTeam() == com.getAccount().getTeam()) {
                 tempCom.write(mes);
             }
         }
     }
-    public void sendToOne(Message mes){
-        for(Iterator it=handler.getComs().iterator();it.hasNext();){
-            Communicator tempCom=(Communicator) it.next();
-            if(tempCom.getAccount().getUsername().equals(mes.getReceiver().getUsername())){
+
+    public void sendToOne(Message mes) {
+        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+            Communicator tempCom = (Communicator) it.next();
+            if (tempCom.getAccount().getUsername().equals(mes.getReceiver().getUsername())) {
                 tempCom.write(mes);
             }
         }
     }
-    public void announceQuitter(){
-        Account acc=new Account(com.getAccount().getUsername(), "unknown",com.getAccount().getTeam());
+
+    public void announceQuitter() {
+        Account acc = new Account(com.getAccount().getUsername(), "unknown", com.getAccount().getTeam());
         acc.setStatus(Status.quit);
-        for(Iterator it=handler.getComs().iterator();it.hasNext();){
-            Communicator tempCom=(Communicator) it.next();
-            if(tempCom.getAccount()!=com.getAccount()){
+        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+            Communicator tempCom = (Communicator) it.next();
+            if (tempCom.getAccount() != com.getAccount()) {
                 tempCom.write(acc);
             }
         }
