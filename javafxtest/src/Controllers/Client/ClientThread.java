@@ -89,7 +89,7 @@ public class ClientThread extends Thread {
                 });
                 //Setting up account and hero pos
                 if (temp.getStatus().equals(Status.pass)) {
-                    me.setUsername(temp.getUsername());
+                    me.setUsername(temp.getUsername());;
                     game.setVisible(true);
                 }
 

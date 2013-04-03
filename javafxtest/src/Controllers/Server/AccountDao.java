@@ -15,4 +15,5 @@ public interface AccountDao {
     List<Account> allAccount();
 
     Account getAccount(Account account);
+    void addAccount(Account account);
 }

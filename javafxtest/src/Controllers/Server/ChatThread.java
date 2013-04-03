@@ -49,13 +49,15 @@ public class ChatThread extends Thread {
                     List<Account> list = new ArrayList<Account>();
                     for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
                         Communicator tempCom = (Communicator) it.next();
-                        if (tempCom.getAccount() != com.getAccount()) {
-                            list.add(tempCom.getAccount());
-                            t.setStatus(Status.friend);
-                            tempCom.write(t);
-                        }
+                        if (tempCom.getAccount() != null)
+                            if (tempCom.getAccount() != com.getAccount()) {
+                                list.add(tempCom.getAccount());
+                                t.setStatus(Status.friend);
+                                tempCom.write(t);
+                            }
                     }
-                    com.write(list);
+                    if (!list.isEmpty())
+                        com.write(list);
                 } else {
                     if (dao.getAccount(t) == null)
                         com.write(Status.fail);
@@ -84,6 +86,9 @@ public class ChatThread extends Thread {
         com.close();
         handler.removeActiveAccount(com.getAccount());
         handler.removeCom(com);
+    }
+    public void validateAccount(Account t){
+
     }
 
     public void sendToAll(Message mes) {

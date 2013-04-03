@@ -46,4 +46,8 @@ public class AccountDaoImpl implements AccountDao {
         }
         return null;
     }
+    @Override
+    public void addAccount(Account account) {
+        jdbcTemplate.update("insert into accounts(username,password) values(?,?)", account.getUsername(),account.getPassword());
+    }
 }

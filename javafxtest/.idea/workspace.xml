@@ -1,97 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a738f362-0444-4976-b142-407a3f683449" name="Default" comment="" />
-    <ignored path="javafxtest.iws" />
+    <list default="true" id="cd641a80-0536-4406-b8a8-7f15685f7c48" name="Default" comment="" />
+    <ignored path="db-sample-1.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/LayoutTest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361695787006" ignored="false" />
-    <file path="/LayoutTest1.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361700379616" ignored="false" />
-    <file path="/layout1.css" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361701567039" ignored="false" />
-    <file path="/Layouttest2.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361803970175" ignored="false" />
-    <file path="/asd.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361779871006" ignored="false" />
-    <file path="/layout2.css" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361809037296" ignored="false" />
-    <file path="/LayoutTest2.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361807668166" ignored="false" />
-    <file path="/fragment.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364724865777" ignored="false" />
-    <file path="/MainMenuGUI.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361936617997" ignored="false" />
-    <file path="/Header.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361936103175" ignored="false" />
-    <file path="/Navigation.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361936439915" ignored="false" />
-    <file path="/ChatPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364806589990" ignored="false" />
-    <file path="/HeroChoosingGUI.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361943086294" ignored="false" />
-    <file path="/HeroChoosingHeader.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361942553660" ignored="false" />
-    <file path="/HeroPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362042707793" ignored="false" />
-    <file path="/MyLibgdxGame.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362065333724" ignored="false" />
-    <file path="/APanel.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362505688618" ignored="false" />
-    <file path="/Cell.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364319191101" ignored="false" />
-    <file path="/GameMap.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364978972175" ignored="false" />
-    <file path="/Utilities.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362502997003" ignored="false" />
-    <file path="/MapListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364979372901" ignored="false" />
-    <file path="/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364976017396" ignored="false" />
-    <file path="/Hero.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364830010375" ignored="false" />
-    <file path="/SchrollListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362887231450" ignored="false" />
-    <file path="/ScrollListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364319828319" ignored="false" />
-    <file path="/TestAlgorithm.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363194811627" ignored="false" />
-    <file path="/Location.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363194434290" ignored="false" />
-    <file path="/a.dummy" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363235034438" ignored="false" />
-    <file path="/Character.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364540738757" ignored="false" />
-    <file path="/Skill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364365954737" ignored="false" />
-    <file path="/Item.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363529810094" ignored="false" />
-    <file path="/Attribute.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363534002389" ignored="false" />
-    <file path="/Account.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364826253810" ignored="false" />
-    <file path="/HeroLibrary.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363541043211" ignored="false" />
-    <file path="/HeroFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364312180463" ignored="false" />
-    <file path="/Monster.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364978412545" ignored="false" />
-    <file path="/server-context.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364882333481" ignored="false" />
-    <file path="/HeroMoveThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364540635612" ignored="false" />
-    <file path="/HeroStandThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364057810122" ignored="false" />
-    <file path="/HeroStatus.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364054842826" ignored="false" />
-    <file path="/AOESkill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364973261729" ignored="false" />
-    <file path="/SkillStatus.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364198312574" ignored="false" />
-    <file path="/SkillFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366160733" ignored="false" />
-    <file path="/SkillThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366043576" ignored="false" />
-    <file path="/CleaveSkill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364365987696" ignored="false" />
-    <file path="/NormalSkill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366010252" ignored="false" />
-    <file path="/a.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364271551082" ignored="false" />
-    <file path="/sample.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364271550402" ignored="false" />
-    <file path="$PROJECT_DIR$/../New folder/javafxtest/src/Utilities/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364285919398" ignored="false" />
-    <file path="$PROJECT_DIR$/../New folder/javafxtest/src/model/Skills/SkillFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364308413414" ignored="false" />
-    <file path="$PROJECT_DIR$/../New folder/javafxtest/src/model/HeroSystem/HeroFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364312037106" ignored="false" />
-    <file path="/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364974603953" ignored="false" />
-    <file path="$PROJECT_DIR$/../../test/SA/javafxtest/src/Ingame/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366838463" ignored="false" />
-    <file path="/Controller.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364735148832" ignored="false" />
-    <file path="/LoginPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364448333008" ignored="false" />
-    <file path="/ControlPanel.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364629805843" ignored="false" />
-    <file path="/chatLayout.css" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364459602354" ignored="false" />
-    <file path="$PROJECT_DIR$/../../FlyWeight/src/Soldier.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364496081541" ignored="false" />
-    <file path="$PROJECT_DIR$/../../FlyWeight/src/SoldierImp.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364497526715" ignored="false" />
-    <file path="/SoldierImp.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364497515589" ignored="false" />
-    <file path="$PROJECT_DIR$/../../FlyWeight/src/SoldierFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364496138238" ignored="false" />
-    <file path="$PROJECT_DIR$/../../FlyWeight/src/SoldierClient.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364497059038" ignored="false" />
-    <file path="$PROJECT_DIR$/../../FlyWeight/src/Main.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364497428029" ignored="false" />
-    <file path="/Main.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364497394417" ignored="false" />
-    <file path="/SoldierClient.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364496520658" ignored="false" />
-    <file path="/HeroAttackThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364535013236" ignored="false" />
-    <file path="/LoginFrame.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364656606926" ignored="false" />
-    <file path="/LoginListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364805928302" ignored="false" />
-    <file path="/ChatPanel.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364806740744" ignored="false" />
-    <file path="/ChatListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364831585150" ignored="false" />
-    <file path="/Status.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364969844674" ignored="false" />
-    <file path="/Server.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364881308077" ignored="false" />
-    <file path="/GameHandler.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364969075812" ignored="false" />
-    <file path="/ChatThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364970791403" ignored="false" />
-    <file path="/DbUtilities.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364736162819" ignored="false" />
-    <file path="/accounts.sql" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364746189513" ignored="false" />
-    <file path="H:/Sem 7/demolab/db-sample-1/src/vn/edu/rmit/sadi/MessageDao.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364746213886" ignored="false" />
-    <file path="/AccountDao.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364876514580" ignored="false" />
-    <file path="/AccountDaoImpl.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364876553241" ignored="false" />
-    <file path="H:/Sem 7/demolab/db-sample-1/src/vn/edu/rmit/sadi/Main.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364754647828" ignored="false" />
-    <file path="/MessageStatus.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364800242009" ignored="false" />
-    <file path="/Message.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364800277038" ignored="false" />
-    <file path="/client-context.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364837823757" ignored="false" />
-    <file path="/Client.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364834438515" ignored="false" />
-    <file path="/ClientThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364970890785" ignored="false" />
-    <file path="/Communicator.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364834882251" ignored="false" />
-    <file path="/MonsterFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364973470389" ignored="false" />
-    <file path="/MonsterStandThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364979121013" ignored="false" />
+    <file path="/Main.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363830897754" ignored="false" />
+    <file path="/DbThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363851565119" ignored="false" />
+    <file path="/MessageDao.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363746340565" ignored="false" />
+    <file path="/MessageDaoImpl.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363850998288" ignored="false" />
+    <file path="/MessageDaoTest.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363831559132" ignored="false" />
+    <file path="/MessageDaoTest-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363830637632" ignored="false" />
+    <file path="/spring-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363850354332" ignored="false" />
+    <file path="/createdb.sql" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363831188421" ignored="false" />
+    <file path="/DbUtil.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1363830852252" ignored="false" />
+    <file path="/Client.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364834438515" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/HeroChoosing/HeroPane.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016178495" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/MainMenu/MainMenuGUI.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016178495" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/HeroChoosing/HeroChoosingGUI.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016178495" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/LayoutTest1.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016178495" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/LayoutTest2.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016178495" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/Server-context.xml.html" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016263151" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/server-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364016786651" ignored="false" />
+    <file path="/server-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364748895080" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/model/HeroSystem/HeroFactory.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364140946652" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/Utilities/Utilizer.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364140106131" ignored="false" />
+    <file path="/Utilizer.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364140080197" ignored="false" />
+    <file path="/HeroFactory.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364140280916" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/model/HeroSystem/Hero.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364149571682" ignored="false" />
+    <file path="/Hero.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364830010375" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/Ingame/GameMap.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364150384834" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/factory-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364141774098" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/Ingame/MapListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364143144571" ignored="false" />
+    <file path="/MapListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364143139699" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/Ingame/ScrollListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364149487396" ignored="false" />
+    <file path="/ScrollListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364149476344" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Sem 7/javafxtest/src/model/Skills/Skill.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364148097235" ignored="false" />
+    <file path="/GameMap.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364150382157" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/server-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364837423534" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/Server.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364825083572" ignored="false" />
+    <file path="/Server.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364797149244" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/GameHandler.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364833916503" ignored="false" />
+    <file path="/GameHandler.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364833915506" ignored="false" />
+    <file path="/fragment.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364724865777" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/ChatThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364834252337" ignored="false" />
+    <file path="/ChatThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364834172341" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/DbUtilities.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364824327479" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Client/Controller.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364802029164" ignored="false" />
+    <file path="/Controller.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364735148832" ignored="false" />
+    <file path="/LoginListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364805928302" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/listeners/LoginListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826179391" ignored="false" />
+    <file path="/DbUtilities.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364736162819" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/accounts.sql" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364746189975" ignored="false" />
+    <file path="/accounts.sql" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364746189513" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/AccountDao.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364997799792" ignored="false" />
+    <file path="/AccountDao.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364997799792" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Server/AccountDaoImpl.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364997981654" ignored="false" />
+    <file path="/AccountDaoImpl.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364997779482" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/model/Account.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826261723" ignored="false" />
+    <file path="/Account.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826253810" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/View/MainMenu/ChatPane.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826933907" ignored="false" />
+    <file path="/ChatPane.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364806589990" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/View/Ingame/ChatPanel.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364806742107" ignored="false" />
+    <file path="/ChatPanel.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364806740744" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/model/Message.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364800301344" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/model/MessageStatus.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364800256772" ignored="false" />
+    <file path="/MessageStatus.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364800242009" ignored="false" />
+    <file path="/Message.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364800277038" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/client-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364802532892" ignored="false" />
+    <file path="/client-context.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364802532401" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Client/Client.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364834438515" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/listeners/ChatListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364831586372" ignored="false" />
+    <file path="/ChatListener.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364831585150" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/View/Ingame/Game.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364804908252" ignored="false" />
+    <file path="/Game.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364804907889" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Client/ClientThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364830161474" ignored="false" />
+    <file path="/ClientThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364830131677" ignored="false" />
+    <file path="/Status.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826335779" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Client/Status.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826167025" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/View/Ingame/ControlPanel.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364824875339" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/model/Status.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364826336165" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/model/HeroSystem/Hero.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364830016300" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/src/Controllers/Communicator.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364834887562" ignored="false" />
+    <file path="/Communicator.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364834882251" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SA/javafxtest/.idea/workspace.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365005278559" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,97 +137,95 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="javafxtest" />
+    <favorites_list name="db-sample-1" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="99" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.0">
+            <state line="48" column="21" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/MapListener.java">
+      <file leaf-file-name="client-context.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client-context.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="141" selection-start="2861" selection-end="2861" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="425" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonsterStandThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/MonsterStandThread.java">
+      <file leaf-file-name="DbThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/DbThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="73" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
+            <state line="13" column="24" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hero.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
+      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="230" column="0" selection-start="8444" selection-end="8444" vertical-scroll-proportion="0.0">
+            <state line="59" column="35" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonsterFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/MonsterFactory.java">
+      <file leaf-file-name="MessageDaoImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/MessageDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="9" selection-start="599" selection-end="673" vertical-scroll-proportion="0.0">
+            <state line="39" column="4" selection-start="1250" selection-end="1459" vertical-scroll-proportion="0.5300668">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameMap.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
+      <file leaf-file-name="MessageDaoTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/vn/edu/rmit/sadi/MessageDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="9" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.516129">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utilizer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="416" column="8" selection-start="29743" selection-end="29743" vertical-scroll-proportion="0.0">
+            <state line="42" column="10" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Ingame/Game.java">
+      <file leaf-file-name="DbUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/DbUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="138" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0">
+            <state line="21" column="44" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Monster.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/Monster.java">
+      <file leaf-file-name="MessageDaoTest-context.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/vn/edu/rmit/sadi/MessageDaoTest-context.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="5" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0">
+            <state line="29" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Character.java">
+      <file leaf-file-name="MessageDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/MessageDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0">
+            <state line="6" column="19" selection-start="101" selection-end="110" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createdb.sql" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/createdb.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="97" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -252,33 +241,25 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/test/vn/edu/rmit/sadi/MessageDaoTest-context.xml" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/DbUtil.java" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/createdb.sql" />
+        <option value="$PROJECT_DIR$/test/vn/edu/rmit/sadi/MessageDaoTest.java" />
         <option value="$PROJECT_DIR$/src/client-context.xml" />
-        <option value="$PROJECT_DIR$/src/Controllers/Server/GameHandler.java" />
-        <option value="$PROJECT_DIR$/src/model/AccountSystem/Status.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Server/ChatThread.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Client/ClientThread.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Client/Client.java" />
-        <option value="$PROJECT_DIR$/src/model/Skills/Skill.java" />
-        <option value="$PROJECT_DIR$/src/model/Skills/AOESkill.java" />
-        <option value="$PROJECT_DIR$/src/model/MonsterSystem/MonsterFactory.java" />
-        <option value="$PROJECT_DIR$/src/View/Ingame/Game.java" />
-        <option value="$PROJECT_DIR$/src/Utilities/Utilizer.java" />
-        <option value="$PROJECT_DIR$/src/model/MonsterSystem/Monster.java" />
-        <option value="$PROJECT_DIR$/src/model/Character.java" />
-        <option value="$PROJECT_DIR$/src/model/MonsterSystem/MonsterStandThread.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/listeners/MapListener.java" />
-        <option value="$PROJECT_DIR$/src/View/Ingame/GameMap.java" />
+        <option value="$PROJECT_DIR$/src/spring-context.xml" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/MessageDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/DbThread.java" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/Client.java" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/MessageDao.java" />
+        <option value="$PROJECT_DIR$/src/vn/edu/rmit/sadi/Main.java" />
       </list>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -306,32 +287,49 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sadi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db-sample-1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -341,11 +339,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -353,291 +351,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MainMenu" />
+              <option name="myItemId" value="sadi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Login" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ingame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Utilities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Skills" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MonsterSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HeroSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AccountSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="listeners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
+              <option name="myItemId" value="db-sample-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -647,42 +385,81 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="preferences.general" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Controllers.Server" />
-      <recent name="Controllers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\SA\javafxtest\libs" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+      <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Client">
-    <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true">
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="View.Ingame.Game" />
+      <option name="MAIN_CLASS_NAME" value="vn.edu.rmit.sadi.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="db-sample-1" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MessageDaoTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="db-sample-1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vn.edu.rmit.sadi" />
+      <option name="MAIN_CLASS_NAME" value="vn.edu.rmit.sadi.MessageDaoTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Client" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="vn.edu.rmit.sadi.Client" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -691,74 +468,10 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="javafxtest" />
+      <module name="db-sample-1" />
       <envs />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="LayoutTest2" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="LayoutTest2" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="javafxtest" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ControlPanel" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="View.Ingame.ControlPanel" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="javafxtest" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="0" />
-      <option name="HEIGHT" value="0" />
-      <option name="POLICY_FILE" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -776,53 +489,36 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Client" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Controllers.Client.Client" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="javafxtest" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Server" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Controllers.Server.Server" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="javafxtest" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
       <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <patterns />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Server" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Game" />
-      <item index="3" class="java.lang.String" itemvalue="Application.LayoutTest2" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ControlPanel" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MessageDaoTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Client" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Server" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Game" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ControlPanel" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.Client" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MessageDaoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -832,38 +528,55 @@
       <AnalysisUIOptions />
     </option>
   </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a738f362-0444-4976-b142-407a3f683449" name="Default" comment="" />
-      <created>1361693652669</created>
-      <updated>1361693652669</updated>
+      <changelist id="cd641a80-0536-4406-b8a8-7f15685f7c48" name="Default" comment="" />
+      <created>1363744741745</created>
+      <updated>1363744741745</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2090909" sideWeight="0.43100512" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16666667" sideWeight="0.18739353" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.70868826" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2090909" sideWeight="0.55706984" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28279388" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1640625" sideWeight="0.6233766" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37662336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32027256" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -927,117 +640,111 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server-context.xml">
+    <entry file="file://$PROJECT_DIR$/src/spring-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="138" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+        <state line="18" column="64" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/AccountSystem/Status.java">
+    <entry file="file://$PROJECT_DIR$/src/client-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="11" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
+        <state line="12" column="26" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/ChatThread.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/createdb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="48" selection-start="2115" selection-end="2115" vertical-scroll-proportion="0.0">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
+    <entry file="jar://$PROJECT_DIR$/lib/spring-test-3.2.2.RELEASE.jar!/org/springframework/test/jdbc/JdbcTestUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="46" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
+        <state line="11" column="11" selection-start="401" selection-end="401" vertical-scroll-proportion="0.22156574" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-core-3.2.2.RELEASE.jar!/org/springframework/core/io/ClassPathResource.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="11" selection-start="394" selection-end="394" vertical-scroll-proportion="0.35384616" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/vn/edu/rmit/sadi/MessageDaoTest-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Skills/Skill.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/createdb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="64" selection-start="886" selection-end="886" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="97" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Skills/AOESkill.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/DbUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="63" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0">
+        <state line="21" column="44" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/MessageDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="99" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.0">
+        <state line="6" column="19" selection-start="101" selection-end="110" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Ingame/Game.java">
+    <entry file="file://$PROJECT_DIR$/test/vn/edu/rmit/sadi/MessageDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="138" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0">
+        <state line="42" column="10" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
+    <entry file="file://$PROJECT_DIR$/src/spring-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="0" selection-start="8444" selection-end="8444" vertical-scroll-proportion="0.0">
+        <state line="19" column="9" selection-start="879" selection-end="879" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/DbThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="416" column="8" selection-start="29743" selection-end="29743" vertical-scroll-proportion="0.0">
+        <state line="13" column="24" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/MonsterFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="9" selection-start="599" selection-end="673" vertical-scroll-proportion="0.0">
+        <state line="48" column="21" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/Monster.java">
+    <entry file="file://$PROJECT_DIR$/src/client-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="5" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="425" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/MonsterStandThread.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="73" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
+        <state line="59" column="35" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/MapListener.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/edu/rmit/sadi/MessageDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="141" selection-start="2861" selection-end="2861" vertical-scroll-proportion="0.0">
+        <state line="39" column="4" selection-start="1250" selection-end="1459" vertical-scroll-proportion="0.5300668">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="9" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.516129">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1093,7 +800,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>javafxtest</last-edited>
+          <last-edited>db-sample-1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1105,7 +812,6 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>ant-javafx</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
