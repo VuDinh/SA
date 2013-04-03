@@ -18,16 +18,11 @@ import java.util.Iterator;
  * To change this template use File | Settings | File Templates.
  */
 public class AOESkill extends Skill {
-<<<<<<< HEAD
-    public AOESkill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,
-                    BufferedImage icon, String SE, int AP) {
-        super(range, name, stun, slow, images, ID, damage, icon, SE, AP);
-=======
 
-    public AOESkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage
-            , String SE, int AP) {
-        super(range, name, stun, slow, imageIndex, ID, damage, SE, AP);
->>>>>>> 25b4bdfff14683d7580cb5e4dbf1230199a04d82
+    public AOESkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage,
+                    String SE, int AP) {
+        super(range,name,stun,slow,imageIndex,ID,damage,SE,AP);
+
     }
 
     public void calculatePath(Cell to) {

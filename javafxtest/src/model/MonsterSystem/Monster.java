@@ -14,8 +14,8 @@ import java.awt.image.BufferedImage;
  */
 public class Monster extends Character {
 
-    protected Monster(int HP, int maxHP, int AP, int maxAP, int row, int col, BufferedImage[] image,BufferedImage avatar, String name){
-        super(HP, maxHP, AP, maxAP, row, col, image,avatar,name);
+    protected Monster(int HP, int maxHP, int AP, int maxAP, int row, int col,int imageIndex,String name){
+        super(HP, maxHP, AP, maxAP, row, col, imageIndex,name);
     }
     @Override
     public void draw(Graphics g, int scrollX, int scrollY) {

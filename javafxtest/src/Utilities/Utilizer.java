@@ -57,14 +57,11 @@ public class Utilizer {
     public static final String FACE4 = "Images/Hero/face1.png";
     public static final String FACE5 = "Images/Hero/face2.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
-<<<<<<< HEAD
-    public static final String AVATAR = "Images/Hero/avatar1.png";
-=======
+
     public static final String AVATAR1 = "Images/Hero/avatar1.png";
     public static final String AVATAR2 = "Images/Hero/avatar2.png";
     public static final String AVATAR3 = "Images/Hero/avatar3.png";
 
->>>>>>> 25b4bdfff14683d7580cb5e4dbf1230199a04d82
     public static final String SKILL1 = "Images/Animation/icon2.png";
     public static final String SKILL2 = "Images/Animation/skill3.png";
     public static final String TURN = "Images/Animation/turn.png";

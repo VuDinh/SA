@@ -25,12 +25,9 @@ public abstract class Skill {
     protected int imageIndex;
     protected String SE;
     protected int AP;
-<<<<<<< HEAD
     protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
     protected GameMap panel;
-=======
     protected int imgHeroIndex;
->>>>>>> 25b4bdfff14683d7580cb5e4dbf1230199a04d82
     public Skill() {
     }
     protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage, String SE, int AP) {
