@@ -77,7 +77,6 @@ public class Client implements Runnable {
         ChatListener chatListener = new ChatListener(com, inGame, me);
         LoginListener loginListener = new LoginListener(com, login, inGame, me);
         login.addLoginListener(loginListener);
-        System.out.println(inGame.getChatPanel());
         inGame.getChatPanel().addChatListener(chatListener);
         inGame.getGameMap().addKeyListener(scrollListener);
         inGame.getGameMap().addMouseListener(mapListener);
