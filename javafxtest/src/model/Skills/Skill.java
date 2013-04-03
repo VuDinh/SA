@@ -20,28 +20,30 @@ public abstract class Skill {
     protected int ID,damage,currentSprite,range;
     protected String name;
     protected boolean isStun,isSlow;
-    protected BufferedImage[] images;
     protected ArrayList<Cell> path;
     protected SkillStatus status;
-    protected BufferedImage icon;
+    protected int imageIndex;
     protected String SE;
     protected int AP;
+<<<<<<< HEAD
     protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
     protected GameMap panel;
+=======
+    protected int imgHeroIndex;
+>>>>>>> 25b4bdfff14683d7580cb5e4dbf1230199a04d82
     public Skill() {
     }
-    protected Skill(int range, String name, boolean stun, boolean slow, BufferedImage[] images, int ID, int damage,BufferedImage icon, String SE, int AP) {
+    protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage, String SE, int AP) {
         this.range = range;
         this.name = name;
         isStun = stun;
         isSlow = slow;
-        this.images = images;
         this.ID = ID;
         this.damage = damage;
         currentSprite = 0;
         path=new ArrayList<Cell>();
         status = SkillStatus.before;
-        this.icon=icon;
+        this.imageIndex = imageIndex;
         this.SE = SE;
         this.AP = AP;
     }
@@ -69,7 +71,9 @@ public abstract class Skill {
     public void setDamage(int damage) {
         this.damage = damage;
     }
-
+    public void setImgHeroIndex(int imgHeroIndex){
+        this.imgHeroIndex = imgHeroIndex;
+    }
     public String getName() {
         return name;
     }
@@ -79,11 +83,7 @@ public abstract class Skill {
     }
 
     public BufferedImage getIcon() {
-        return icon;
-    }
-
-    public void setIcon(BufferedImage icon) {
-        this.icon = icon;
+        return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getIcon(imageIndex);
     }
 
     public boolean isStun() {
@@ -123,7 +123,7 @@ public abstract class Skill {
         else currentSprite++;
     }
     public BufferedImage getCurrentSprite(){
-        return images[currentSprite];
+        return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getSprite(imageIndex)[currentSprite];
     }
     public abstract void drawSkill(Graphics g,Cell to, int scrollX, int scrollY, GameMap panel);
     public abstract void drawPath(Graphics g,Cell to,int scrollX,int scrollY,GameMap panel);

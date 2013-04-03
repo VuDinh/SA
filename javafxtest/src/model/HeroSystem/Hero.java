@@ -28,10 +28,9 @@ public class Hero extends Character implements Serializable {
     ArrayList<Cell> shortestpathHover,shortestPathSelect;
     int currentSkill;
     HeroStatus status;
-    BufferedImage icon;
     private static ArrayList<Cell> range = new ArrayList<Cell>();
-    protected Hero(int HP, int maxHP, int AP, int maxAP, int row, int col, BufferedImage[] image,BufferedImage avatar,String name,BufferedImage icon) {
-        super(HP, maxHP, AP, maxAP, row, col, image,avatar,name);
+    protected Hero(int HP, int maxHP, int AP, int maxAP, int row, int col, int imageIndex ,String name) {
+        super(HP, maxHP, AP, maxAP, row, col, imageIndex ,name);
         skills=new ArrayList<Skill>();
         inventory=new ArrayList<Item>();
         skillCount = 0;
@@ -39,7 +38,6 @@ public class Hero extends Character implements Serializable {
         shortestpathHover=new ArrayList<Cell>();
         status=HeroStatus.standing;
         currentSkill = -1;
-        this.icon = icon;
     }
     protected Hero(){
         super();
@@ -217,6 +215,7 @@ public class Hero extends Character implements Serializable {
 
     public void addSkill(Skill skill){
         if(skillCount<3){
+            skill.setImgHeroIndex(imageIndex);
             skills.add(skill);
             skillCount++;
         }

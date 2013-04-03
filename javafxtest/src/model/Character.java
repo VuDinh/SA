@@ -16,16 +16,15 @@ import java.awt.image.BufferedImage;
 public abstract class Character {
     protected int HP,maxHP,maxAP,row,col,x,y,distanceX,distanceY;
     protected double AP;
-    protected BufferedImage[] image;
     protected int dirX,dirY,currentSprite,currentMove;
     protected GameMap panel;
     protected boolean isChosen;
-    protected BufferedImage avatar;
+    protected int imageIndex;
     protected String name;
     protected  Character() {
     }
 
-    protected Character(int HP, int maxHP, int AP, int maxAP, int row, int col, BufferedImage[] image,BufferedImage avatar,String name) {
+    protected Character(int HP, int maxHP, int AP, int maxAP, int row, int col,int imageIndex,String name) {
         this.HP = HP;
         this.maxHP = maxHP;
         this.AP = AP;
@@ -34,13 +33,12 @@ public abstract class Character {
         this.col = col;
         x= Utilizer.TILE_SIZE*row;
         y=Utilizer.TILE_SIZE*col;
-        this.image = image;
         isChosen=false;
         dirX=0;
         dirY=0;
         currentSprite = 0;
         this.name=name;
-        this.avatar=avatar;
+        this.imageIndex=imageIndex;
     }
 
     public String getName() {
@@ -52,15 +50,11 @@ public abstract class Character {
     }
 
     public BufferedImage getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(BufferedImage avatar) {
-        this.avatar = avatar;
+        return Utilizer.HEROIMAGEPACK.get(imageIndex).getAvatar();
     }
 
     public BufferedImage getCurrentSprite() {
-        return image[currentSprite];
+        return Utilizer.HEROIMAGEPACK.get(imageIndex).getSprite()[currentSprite];
     }
 
     public void setCurrentSprite(int currentSprite) {
@@ -159,11 +153,7 @@ public abstract class Character {
     }
 
     public BufferedImage[] getImage() {
-        return image;
-    }
-
-    public void setImage(BufferedImage[] image) {
-        this.image = image;
+        return Utilizer.HEROIMAGEPACK.get(imageIndex).getSprite();
     }
 
     public int getDistanceX() {

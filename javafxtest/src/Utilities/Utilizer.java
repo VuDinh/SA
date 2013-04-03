@@ -57,7 +57,14 @@ public class Utilizer {
     public static final String FACE4 = "Images/Hero/face1.png";
     public static final String FACE5 = "Images/Hero/face2.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
+<<<<<<< HEAD
     public static final String AVATAR = "Images/Hero/avatar1.png";
+=======
+    public static final String AVATAR1 = "Images/Hero/avatar1.png";
+    public static final String AVATAR2 = "Images/Hero/avatar2.png";
+    public static final String AVATAR3 = "Images/Hero/avatar3.png";
+
+>>>>>>> 25b4bdfff14683d7580cb5e4dbf1230199a04d82
     public static final String SKILL1 = "Images/Animation/icon2.png";
     public static final String SKILL2 = "Images/Animation/skill3.png";
     public static final String TURN = "Images/Animation/turn.png";
@@ -82,7 +89,9 @@ public class Utilizer {
     public static BufferedImage IMG_FACE4 = null;
     public static BufferedImage IMG_FACE5 = null;
     public static BufferedImage IMG_MINI_MAP = null;
-    public static BufferedImage IMG_AVATAR = null;
+    public static BufferedImage IMG_AVATAR1 = null;
+    public static BufferedImage IMG_AVATAR2 = null;
+    public static BufferedImage IMG_AVATAR3 = null;
     public static BufferedImage IMG_SKILL1 = null;
     public static BufferedImage IMG_SKILL2 = null;
     public static BufferedImage IMG_TURN = null;
@@ -178,7 +187,8 @@ public class Utilizer {
     public static final int MAP_COLS = MAP[0].length;
     public static BufferedImage[] normalArray, selectArray, hoverArray, fogArray, rangeArray, hero1Array, hero2Array, hero3Array, earthSkillArray, thunderSkillArray, windSkillArray, fireSkillArray, iceSkillArray, defaultSkillArray;
     public static int GRASS = 0, TREE = 1, FIRE = 2;
-
+    public static ArrayList<HeroImage> HEROIMAGEPACK;
+    public static ArrayList<SkillImage> SKILLIMAGEPACK;
     public static void load() {
         initializeContent();
         loadMap();
@@ -187,6 +197,8 @@ public class Utilizer {
         importHero();
         importSkill();
         prepareImg();
+        addingHeroImage();
+        addingSkillImage();
     }
 
     public static void initializeContent() {
@@ -194,7 +206,9 @@ public class Utilizer {
     }
     public static void prepareImg(){
         try {
-            IMG_AVATAR = ImageIO.read(new File(AVATAR));
+            IMG_AVATAR1 = ImageIO.read(new File(AVATAR1));
+            IMG_AVATAR2 = ImageIO.read(new File(AVATAR2));
+            IMG_AVATAR3 = ImageIO.read(new File(AVATAR3));
             IMG_CONTROL1 = ImageIO.read(new File(CONTROL1));
             IMG_CONTROL2 = ImageIO.read(new File(CONTROL2));
             IMG_FACE1 = ImageIO.read(new File(FACE1));
@@ -380,5 +394,22 @@ public class Utilizer {
             if(c.getRowPos()==cell.getRowPos() && c.getColPos()==cell.getColPos())return true;
         }
         return false;
+    }
+    public static void addingHeroImage(){
+        HEROIMAGEPACK =new ArrayList<HeroImage>();
+        HEROIMAGEPACK.add(new HeroImage(hero1Array,IMG_AVATAR1,IMG_FACE1));
+        HEROIMAGEPACK.add(new HeroImage(hero2Array,IMG_AVATAR2,IMG_FACE2));
+        HEROIMAGEPACK.add(new HeroImage(hero3Array,IMG_AVATAR3,IMG_FACE3));
+    }
+    public static void addingSkillImage(){
+        SKILLIMAGEPACK=new ArrayList<SkillImage>();
+        SkillImage skill1=new SkillImage();
+        skill1.addIcon(IMG_SKILL1);
+        skill1.addIcon(IMG_SKILL2);
+        skill1.addIcon(IMG_SKILL2);
+        skill1.addSprite(thunderSkillArray);
+        skill1.addSprite(thunderSkillArray);
+        skill1.addSprite(thunderSkillArray);
+        SKILLIMAGEPACK.add(skill1);
     }
 }
