@@ -1,12 +1,12 @@
 .root
 {
-    -fx-background-image: url("wall.jpg");
+    -fx-background-image: url("logo.png");
 }
 .label
 {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
-    -fx-text-fill: WHITE;
+    -fx-text-fill: GRAY;
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 .button
@@ -30,7 +30,7 @@
 }
 #action-text
 {
-    -fx-fill: GREEN;
+    -fx-fill: GRAY;
     -fx-font-weight:bold;
     -fx-effect:dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
