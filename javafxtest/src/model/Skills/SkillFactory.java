@@ -20,11 +20,11 @@ public class SkillFactory {
     public AOESkill createAOESkill(int type) {
         AOESkill skill = null;
         if (type == 1) {
-            skill = new AOESkill(4, "Storm", false, false, 0, 1, 200, Utilizer.SOUND_FIRE, 3);
+            skill = new AOESkill(4, "Storm", false, false, 1, 1, 200, Utilizer.SOUND_FIRE, 3);
         } else if (type == 2) {
-            skill = new AOESkill(2, "Fire", false, false, 1, 1, 200, Utilizer.SOUND_FIRE, 3);
+            skill = new AOESkill(2, "Fire", false, false, 2, 1, 200, Utilizer.SOUND_FIRE, 3);
         } else if (type == 3) {
-            skill = new AOESkill(2, "Ice", false, false, 2, 1, 200, Utilizer.SOUND_FIRE, 3);
+            skill = new AOESkill(2, "Ice", false, false, 3, 1, 200, Utilizer.SOUND_FIRE, 3);
         }
         return skill;
     }
@@ -38,7 +38,7 @@ public class SkillFactory {
     public CleaveSkill createCleaveSkill(int type){
         CleaveSkill skill=null;
         if(type==1){
-            skill=new CleaveSkill(4, "Light Wave", false, false, 0, 1, 200, Utilizer.SOUND_THUNDER, 4);
+            skill=new CleaveSkill(4, "Thunder Fall", false, false, 2, 1, 200, Utilizer.SOUND_THUNDER, 4);
         }
         return skill;
     }
