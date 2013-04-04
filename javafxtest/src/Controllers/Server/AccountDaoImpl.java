@@ -32,13 +32,7 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public Account getAccount(Account account) {
-        /*List<Account> lst=allAccount();
-        for(Iterator it=lst.iterator();it.hasNext();){
-            Account temp=(Account)it.next();
-            if(temp.getUsername().equals(account.getUsername())&&(temp.getPassword().equals(account.getPassword()))){
-                return temp;
-            }
-        }*/
+
         try {
             Account t = jdbcTemplate.queryForObject("select * from accounts where username=(?) and password=(?) limit 1"
                     , new AccountMapper(), account.getUsername(),account.getPassword());
