@@ -87,7 +87,8 @@ public class ChatThread extends Thread {
         handler.removeActiveAccount(com.getAccount());
         handler.removeCom(com);
     }
-    public void validateAccount(Account t){
+
+    public void validateAccount(Account t) {
 
     }
 
@@ -119,12 +120,14 @@ public class ChatThread extends Thread {
     }
 
     public void announceQuitter() {
-        Account acc = new Account(com.getAccount().getUsername(), "unknown", com.getAccount().getTeam());
-        acc.setStatus(Status.quit);
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
-            Communicator tempCom = (Communicator) it.next();
-            if (tempCom.getAccount() != com.getAccount()) {
-                tempCom.write(acc);
+        if (com.getAccount() != null) {
+            Account acc = new Account(com.getAccount().getUsername(), "unknown", com.getAccount().getTeam());
+            acc.setStatus(Status.quit);
+            for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+                Communicator tempCom = (Communicator) it.next();
+                if (tempCom.getAccount() != com.getAccount()) {
+                    tempCom.write(acc);
+                }
             }
         }
     }
