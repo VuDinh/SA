@@ -27,7 +27,7 @@ public class LoginPane extends GridPane {
     Button btnLogin;
     Text actionText;
     public LoginPane(){
-        setAlignment(Pos.CENTER);
+        setAlignment(Pos.TOP_LEFT);
 
         setHgap(10);
         setVgap(10);
