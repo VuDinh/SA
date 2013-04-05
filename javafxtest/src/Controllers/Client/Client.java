@@ -48,9 +48,9 @@ public class Client implements Runnable {
     public void execute() {
         initalize();
         addListeners();
-        settingup();
+        settingUp();
     }
-
+    //Connect to the server
     public void initalize() {
         Utilizer.load();
 
@@ -63,7 +63,7 @@ public class Client implements Runnable {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }
-
+    //add all needed listeners to all the frames
     public void addListeners() {
         //delete later
         Account acc = new Account("long", "123", 1);
@@ -81,6 +81,7 @@ public class Client implements Runnable {
         inGame.getGameMap().addKeyListener(scrollListener);
         inGame.getGameMap().addMouseListener(mapListener);
         inGame.getGameMap().addMouseMotionListener(mapListener);
+        //sending quitting status to the server when closing
         login.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
@@ -105,13 +106,13 @@ public class Client implements Runnable {
         });
 
     }
-
-    public void settingup() {
+    //running client thread
+    public void settingUp() {
         login.setVisible(true);
         ClientThread t = new ClientThread(me, com, login, inGame);
         t.start();
     }
-
+    //execute all actions
     public static void main(String[] args) {
         ctx = new ClassPathXmlApplicationContext("client-context.xml");
         Client con = ctx.getBean("client", Client.class);

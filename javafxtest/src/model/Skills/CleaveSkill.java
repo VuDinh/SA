@@ -60,6 +60,7 @@ public class CleaveSkill extends Skill {
 
     }*/
 
+    //calculate path of Cleave skill
     public void calculatePath(Hero to) {
         path.clear();
         int count;
@@ -77,6 +78,7 @@ public class CleaveSkill extends Skill {
 
     }
 
+    //draw skill animation sprite
     @Override
     public void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -95,6 +97,7 @@ public class CleaveSkill extends Skill {
 
     }
 
+    //draw path depends on the location of hero
     @Override
     public void drawPathOnHero(Graphics g, Hero hero, Cell to, int scrollX, int scrollY, GameMap panel) {
         if (status == SkillStatus.before) {

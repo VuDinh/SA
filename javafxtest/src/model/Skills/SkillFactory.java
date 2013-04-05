@@ -13,10 +13,9 @@ import org.omg.CORBA.PUBLIC_MEMBER;
 public class SkillFactory {
     private static final int AOE_SKILL = 1;
 
-    public SkillFactory() {
+    public SkillFactory() {}
 
-    }
-
+    //creates all skills
     public AOESkill createAOESkill(int type) {
         AOESkill skill = null;
         if (type == 1) {

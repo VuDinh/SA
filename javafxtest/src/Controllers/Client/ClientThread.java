@@ -33,7 +33,7 @@ public class ClientThread extends Thread {
         this.game = game;
         chatPanel = game.getChatPanel();
     }
-
+    //add all online accounts to the player list
     public void addAccountList(ChatPanel panel, List<Account> list) {
 
         for (Iterator it = list.iterator(); it.hasNext(); ) {
@@ -46,6 +46,7 @@ public class ClientThread extends Thread {
         Object o = com.read();
 
         while (o != null) {
+            //read all messages sent from the server to the current client
             if (o instanceof Message) {
                 final Message mes = (Message) o;
                 Platform.runLater(new Runnable() {
@@ -56,6 +57,7 @@ public class ClientThread extends Thread {
                     }
                 });
             }
+            //read all accounts connected to the server other than current one
             if (o instanceof List) {
                 final List<Account> list = (List<Account>) o;
                 Platform.runLater(new Runnable() {
@@ -68,6 +70,7 @@ public class ClientThread extends Thread {
                 });
 
             }
+            //read account sent from server based on server status
             if (o instanceof Account) {
                 final Account temp = (Account) o;
                 login.setActionText("Logged In successfully!");
@@ -77,10 +80,12 @@ public class ClientThread extends Thread {
                     @Override
                     public void run() {
                         //To change body of implemented methods use File | Settings | File Templates.
+                        //when someone enters the game
                         if (!temp.getStatus().equals(Status.quit)) {
                             chatPanel.addUser(temp.getUsername());
                             chatPanel.addStatusMessage(temp.getUsername() + " has joined the game!!!");
                         }
+                        //when someone leaves the game
                         else{
                             chatPanel.removeUser(temp.getUsername());
                             chatPanel.addStatusMessage(temp.getUsername() + " has left the game!!!");

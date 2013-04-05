@@ -36,17 +36,20 @@ public class ChatThread extends Thread {
         this.dao = dao;
     }
 
+    //run the client thread
     public void run() {
         Object o = com.read();
         while (o != null) {
             if (o instanceof Account) {
                 Account t = (Account) o;
+                //check if it is a valid account
                 if (dao.getAccount(t) != null && handler.getActiveAccount(t) == null) {
                     t.setStatus(Status.pass);
                     com.write(t);
                     com.setAccount(t);
                     handler.addActiveAccount(t);
                     List<Account> list = new ArrayList<Account>();
+                    //acknowledge the others about the current account
                     for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
                         Communicator tempCom = (Communicator) it.next();
                         if (tempCom.getAccount() != null)
@@ -67,12 +70,14 @@ public class ChatThread extends Thread {
                     continue;
                 }
             }
+            //sending message
             if (o instanceof Message) {
                 Message mes = (Message) o;
                 if (mes.getStatus().equals(MessageStatus.all)) sendToAll(mes);
                 if (mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
                 if (mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
             }
+            //quitting action
             if (o instanceof Status) {
                 Status status = (Status) o;
                 if (status.equals(Status.quit)) {
@@ -82,16 +87,15 @@ public class ChatThread extends Thread {
             }
             o = com.read();
         }
+        //inform to the others about the quitter
         announceQuitter();
         com.close();
         handler.removeActiveAccount(com.getAccount());
         handler.removeCom(com);
     }
 
-    public void validateAccount(Account t) {
 
-    }
-
+    //sending message to all
     public void sendToAll(Message mes) {
         for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
@@ -100,7 +104,7 @@ public class ChatThread extends Thread {
             }
         }
     }
-
+    //sending to the team
     public void sendToTeam(Message mes) {
         for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
@@ -109,7 +113,7 @@ public class ChatThread extends Thread {
             }
         }
     }
-
+    //sending to the one
     public void sendToOne(Message mes) {
         for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
@@ -118,7 +122,7 @@ public class ChatThread extends Thread {
             }
         }
     }
-
+    //warn the others about quitters
     public void announceQuitter() {
         if (com.getAccount() != null) {
             Account acc = new Account(com.getAccount().getUsername(), "unknown", com.getAccount().getTeam());

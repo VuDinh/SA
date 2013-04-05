@@ -13,9 +13,9 @@ import model.Skills.SkillFactory;
  */
 public class HeroFactory {
     SkillFactory skillFactory;
-    public HeroFactory(){
+    public HeroFactory(){}
 
-    }
+    //hero factory contains all heroes
     public Hero createHero(int type){
         Hero hero=null;
         skillFactory= Utilizer.factoryContext.getBean("skillFactory",SkillFactory.class);

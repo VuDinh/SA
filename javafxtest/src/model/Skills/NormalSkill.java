@@ -22,6 +22,7 @@ public class NormalSkill extends Skill {
         super(range, name, stun, slow, imageIndex, ID, damage, SE, AP);
     }
 
+    //calculate range of normal skill
     public void calculatePath(Hero to) {
         path.clear();
         if (to.getRow() > 0)
@@ -35,6 +36,7 @@ public class NormalSkill extends Skill {
 
     }
 
+    //draw skill animation sprite
     @Override
     public void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -48,6 +50,7 @@ public class NormalSkill extends Skill {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    //draw path depends on hero location
     @Override
     public void drawPathOnHero(Graphics g, Hero hero, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.

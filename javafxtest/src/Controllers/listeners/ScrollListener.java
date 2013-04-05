@@ -30,7 +30,7 @@ public class ScrollListener implements KeyListener {
         //To change body of implemented methods use File | Settings | File Templates.
 
     }
-
+    //scroll the map by arrow keys and skill casting and recover ap
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_END) {
