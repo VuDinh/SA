@@ -30,9 +30,13 @@ public class Utilizer {
     public static final String RANGED_TILE = "Images/MapRange.png";
     public static final String MAP_FOG = "Images/MapFog.png";
     public static final String MAP_HOVER = "Images/MapHover.png";
-    public static final String HERO_1 = "Images/hero01.png";
-    public static final String HERO_2 = "Images/hero02.png";
-    public static final String HERO_3 = "Images/hero03.png";
+    public static final String HERO_1 = "Images/Hero/hero01.png";
+    public static final String HERO_2 = "Images/Hero/hero02.png";
+    public static final String HERO_3 = "Images/Hero/hero03.png";
+    public static final String DIE = "Images/Hero/graves.png";
+    public static final String MONSTER_1 = "Images/Hero/monster01.png";
+    public static final String MONSTER_2 = "Images/Hero/monster02.png";
+    public static final String MONSTER_3 = "Images/Hero/monster03.png";
     public static final String MAP_FILE = "map.txt";
     public static final String EARTH_SKILL = "Images/Skills/Earth.png";
     public static final String FIRE_SKILL = "Images/Skills/Fire.png";
@@ -66,6 +70,11 @@ public class Utilizer {
     public static final String BAR = "Images/Animation/bar.png";
     public static final String CHAT_BACK = "Images/Animation/chatBack.png";
 
+    public static final String SKILL_ICON_FIRE = "Images/Skills/fire icon.png";
+    public static final String SKILL_ICON_THUNDER = "Images/Skills/thunder icon.png";
+    public static final String SKILL_ICON_WIND = "Images/Skills/wind icon.png";
+    public static final String SKILL_ICON_EARTH = "Images/Skills/earth icon.png";
+
     public static final String SOUND_ATTACK = "Sounds/attack.wav";
     public static final String SOUND_FIRE = "Sounds/fire.wav";
     public static final String SOUND_EARTH = "Sounds/earth.wav";
@@ -92,6 +101,10 @@ public class Utilizer {
     public static BufferedImage IMG_TURN = null;
     public static BufferedImage IMG_BAR = null;
     public static BufferedImage IMG_CHAT_BACK = null;
+    public static BufferedImage IMG_SKILL_ICON_FIRE = null;
+    public static BufferedImage IMG_SKILL_ICON_THUNDER = null;
+    public static BufferedImage IMG_SKILL_ICON_WIND = null;
+    public static BufferedImage IMG_SKILL_ICON_EARTH = null;
 
     public static ApplicationContext factoryContext;
     public static int MAP[][] = {
@@ -180,7 +193,7 @@ public class Utilizer {
     };
     public static final int MAP_ROWS = MAP.length;
     public static final int MAP_COLS = MAP[0].length;
-    public static BufferedImage[] normalArray, selectArray, hoverArray, fogArray, rangeArray, hero1Array, hero2Array, hero3Array, earthSkillArray, thunderSkillArray, windSkillArray, fireSkillArray, iceSkillArray, defaultSkillArray;
+    public static BufferedImage[] normalArray, selectArray, hoverArray, fogArray, rangeArray, dieArray, hero1Array, hero2Array, hero3Array, monster1Array,monster2Array, monster3Array, earthSkillArray, thunderSkillArray, windSkillArray, fireSkillArray, iceSkillArray, defaultSkillArray;
     public static int GRASS = 0, TREE = 1, FIRE = 2;
     public static ArrayList<HeroImage> HEROIMAGEPACK;
     public static ArrayList<SkillImage> SKILLIMAGEPACK;
@@ -217,6 +230,10 @@ public class Utilizer {
             IMG_TURN = ImageIO.read(new File(TURN));
             IMG_BAR = ImageIO.read(new File(BAR));
             IMG_CHAT_BACK = ImageIO.read(new File(CHAT_BACK));
+            IMG_SKILL_ICON_FIRE = ImageIO.read(new File(SKILL_ICON_FIRE));
+            IMG_SKILL_ICON_THUNDER = ImageIO.read(new File(SKILL_ICON_THUNDER));
+            IMG_SKILL_ICON_WIND = ImageIO.read(new File(SKILL_ICON_WIND));
+            IMG_SKILL_ICON_EARTH = ImageIO.read(new File(SKILL_ICON_EARTH));
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -263,15 +280,32 @@ public class Utilizer {
             BufferedImage hero1 = ImageIO.read(new File(HERO_1));
             BufferedImage hero2 = ImageIO.read(new File(HERO_2));
             BufferedImage hero3 = ImageIO.read(new File(HERO_3));
+            BufferedImage monster1 = ImageIO.read(new File(MONSTER_1));
+            BufferedImage monster2 = ImageIO.read(new File(MONSTER_2));
+            BufferedImage monster3 = ImageIO.read(new File(MONSTER_3));
+            BufferedImage die = ImageIO.read(new File(DIE));
             hero1Array = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             hero2Array = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             hero3Array = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
+            monster1Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            monster2Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            monster3Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            dieArray = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             for (int i = 0; i < SPRITE_ROWS; i++)
                 for (int j = 0; j < SPRITE_COLS; j++) {
                     int index = (i * SPRITE_COLS) + j;
                     hero1Array[index] = hero1.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     hero2Array[index] = hero2.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     hero3Array[index] = hero3.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                }
+            for (int i = 0; i < SPRITE_COLS; i++)
+                for (int j = 0; j < SPRITE_COLS; j++) {
+                    int index = (i * SPRITE_COLS) + j;
+                    monster1Array[index] = monster1.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                    monster2Array[index] = monster2.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                    monster3Array[index] = monster3.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                    dieArray[index]      =      die.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+
                 }
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -406,16 +440,44 @@ public class Utilizer {
         HEROIMAGEPACK.add(new HeroImage(hero1Array,IMG_AVATAR1,IMG_FACE1));
         HEROIMAGEPACK.add(new HeroImage(hero2Array,IMG_AVATAR2,IMG_FACE2));
         HEROIMAGEPACK.add(new HeroImage(hero3Array,IMG_AVATAR3,IMG_FACE3));
+        HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null));
+        HEROIMAGEPACK.add(new HeroImage(dieArray,null,null));
     }
     public static void addingSkillImage(){
         SKILLIMAGEPACK=new ArrayList<SkillImage>();
         SkillImage skill1=new SkillImage();
-        skill1.addIcon(IMG_SKILL1);
-        skill1.addIcon(IMG_SKILL2);
-        skill1.addIcon(IMG_SKILL2);
+        skill1.addIcon(IMG_SKILL_ICON_FIRE);
+        skill1.addIcon(IMG_SKILL_ICON_FIRE);
+        skill1.addIcon(IMG_SKILL_ICON_THUNDER);
+        skill1.addIcon(IMG_SKILL_ICON_WIND);
+        skill1.addIcon(IMG_SKILL_ICON_EARTH);
+        skill1.addSprite(defaultSkillArray);
+        skill1.addSprite(fireSkillArray);
         skill1.addSprite(thunderSkillArray);
-        skill1.addSprite(thunderSkillArray);
-        skill1.addSprite(thunderSkillArray);
+        skill1.addSprite(windSkillArray);
+        skill1.addSprite(earthSkillArray);
         SKILLIMAGEPACK.add(skill1);
     }
+
+    public static ArrayList<Cell> straightPath(Cell from, Cell to){
+        ArrayList<Cell> path = new ArrayList<Cell>();
+        if(from.getRowPos() == to.getRowPos()){
+            int range = Math.abs(from.getColPos()-to.getColPos());
+            if(from.getColPos()<to.getColPos())
+                for(int i = 0; i<=range; i++)path.add(new Cell(from.getColPos()+i,from.getRowPos()));
+            else
+                for(int i = 0; i<=range; i++)path.add(new Cell(from.getColPos()-i,from.getRowPos()));
+            return path;
+        }else if(from.getColPos() == to.getColPos()){
+            int range = Math.abs(from.getRowPos()-to.getRowPos());
+            if(from.getRowPos()<to.getRowPos())
+                for(int i = 0; i<=range; i++)path.add(new Cell(from.getColPos(),from.getRowPos()+i));
+            else
+                for(int i = 0; i<=range; i++)path.add(new Cell(from.getColPos(),from.getRowPos()-i));
+            return path;
+        }else return null;
+    }
+
 }

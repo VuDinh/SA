@@ -30,8 +30,8 @@ public class MonsterStandThread extends  Thread {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
-        if(monster.getHP()<0){
-            monster.setImageIndex(2);
+        if(monster.getHP()<=0){
+            monster.setImageIndex(6);
         }
     }
 }

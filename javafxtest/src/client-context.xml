@@ -7,8 +7,8 @@
 
 
     <bean id="client" class="Controllers.Client.Client">
-        <property name="port" value="3800"/>
-        <property name="host" value="localhost"/>
+        <property name="port" value="2378"/>
+        <property name="host" value="172.16.130.159"/>
     </bean>
 
 </beans>

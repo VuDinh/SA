@@ -48,8 +48,8 @@ public class ControlPanel extends JPanel {
             g.drawImage(Utilizer.IMG_CONTROL2, 275,0, this);
 
             g.drawImage(hero.getAvatar(), 190,50 , this);
-            g.drawImage(hero.getSkill(0).getIcon(), 530, 73, this);
-            g.drawImage(hero.getSkill(1).getIcon(), 645, 73, this);
+            g.drawImage(hero.getSkill(1).getIcon(), 520, 65, this);
+            g.drawImage(hero.getSkill(2).getIcon(), 635, 65, this);
             g.setColor(Color.WHITE);
             g.drawString(hero.getSkill(0).getDamage()+"",320, 75);
             g.drawString(hero.getMaxHP()+"",295, 140);

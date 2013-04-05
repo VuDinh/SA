@@ -22,7 +22,7 @@ public class CleaveSkill extends Skill {
             , String SE, int AP) {
         super(range, name, stun, slow, imageIndex, ID, damage, SE, AP);
     }
-
+/*
     public void calculatePath(Hero to) {
         path.clear();
         int count;
@@ -56,7 +56,24 @@ public class CleaveSkill extends Skill {
             path.addAll(to.calculateShortestPath(new Cell(count, to.getCol())));
         }
         if(!path.isEmpty())
-        path.remove(0);
+            path.remove(0);
+
+    }*/
+
+    public void calculatePath(Hero to) {
+        path.clear();
+        int count;
+        if (to.getCurrentSpriteIndex() / 4 == 0) {
+            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
+        } else if (to.getCurrentSpriteIndex() / 4 == 1) {
+            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()-range,to.getRow())));
+        } else if (to.getCurrentSpriteIndex() / 4 == 2) {
+            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()+range,to.getRow())));
+        } else if(to.getCurrentSpriteIndex() / 4 == 3){
+            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()-range)));
+        }
+        if(!path.isEmpty())
+            path.remove(0);
 
     }
 
