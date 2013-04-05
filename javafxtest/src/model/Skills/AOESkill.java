@@ -29,9 +29,12 @@ public class AOESkill extends Skill {
     public void calculatePath(Cell to) {
         path.clear();
         int startRow, endRow, startCol, endCol;
-
-        for (int i = to.getRowPos() - 1; i <= to.getRowPos() + 1; i++) {
-            for (int j = to.getColPos() - 1; j <= to.getColPos() + 1; j++)
+        startRow=Math.max(0,to.getRowPos()-1);
+        endRow=Math.min(Utilizer.MAP_ROWS-1,to.getRowPos()+1);
+        startCol=Math.max(0,to.getColPos()-1);
+        endCol=Math.min(Utilizer.MAP_COLS-1,to.getColPos()+1);
+        for (int i = startRow; i <= endRow; i++) {
+            for (int j = startCol; j <= endCol; j++)
                 if (Utilizer.MOVEMAP[i][j] == 0) {
                     path.add(new Cell(i, j));
                 }

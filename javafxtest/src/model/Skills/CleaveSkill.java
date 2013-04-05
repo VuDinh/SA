@@ -64,14 +64,19 @@ public class CleaveSkill extends Skill {
     public void calculatePath(Hero to) {
         path.clear();
         int count;
+
         if (to.getCurrentSpriteIndex() / 4 == 0) {
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
+            if(to.getRow()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),40)));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
         } else if (to.getCurrentSpriteIndex() / 4 == 1) {
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()-range,to.getRow())));
+            if(to.getCol()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(0,to.getRow())));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()-range,to.getRow())));
         } else if (to.getCurrentSpriteIndex() / 4 == 2) {
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()+range,to.getRow())));
+            if(to.getCol()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(40,to.getRow())));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()+range,to.getRow())));
         } else if(to.getCurrentSpriteIndex() / 4 == 3){
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()-range)));
+            if(to.getRow()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),0)));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()-range)));
         }
         if(!path.isEmpty())
             path.remove(0);
