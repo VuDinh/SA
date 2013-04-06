@@ -14,9 +14,9 @@ import java.sql.SQLException;
  * To change this template use File | Settings | File Templates.
  */
 public class AccountMapper implements RowMapper<Account> {
-    public  AccountMapper(){
+    public  AccountMapper(){}
 
-    }
+    //mapping the row of the database to one Account object
     @Override
     public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
         Account acc=new Account(rs.getString(1),rs.getString(2),0);

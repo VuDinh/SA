@@ -20,6 +20,8 @@ public class HeroMoveThread extends Thread {
         this.panel = panel;
         hero.setStatus(HeroStatus.moving);
     }
+
+    //run hero moving thread
     @Override
     public void run() {
         //To change body of implemented methods use File | Settings | File Templates.

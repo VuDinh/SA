@@ -16,6 +16,8 @@ public class HeroStandThread extends Thread {
         this.hero = hero;
         this.panel = panel;
     }
+
+    //run hero standing thread
     @Override
     public void run(){
         while(hero.getStatus().equals(HeroStatus.standing)){

@@ -30,7 +30,7 @@ public class LoginListener implements EventHandler<ActionEvent> {
         this.inGame = inGame;
         this.me=me;
     }
-
+    //sending username password to the server for validation and response
     @Override
     public void handle(ActionEvent e) {
         /*loginFrame.setVisible(false);

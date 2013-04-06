@@ -30,7 +30,7 @@ public class ScrollListener implements KeyListener {
         //To change body of implemented methods use File | Settings | File Templates.
 
     }
-
+    //scroll the map by arrow keys and skill casting and recover ap
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_END) {
@@ -53,7 +53,7 @@ public class ScrollListener implements KeyListener {
             panel.increaseScrollX();
             panel.getHero().setCurrentSprite(8);
         }
-        if (panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing)) {
+        if (panel.getHero().getIsChosen() && (panel.getHero().getStatus().equals(HeroStatus.standing) || panel.getHero().getStatus().equals(HeroStatus.attacking))) {
             if (e.getKeyCode() == KeyEvent.VK_Q) {
                 panel.getHero().setStatus(HeroStatus.attacking);
                 panel.getHero().getSkill(0).setStatus(SkillStatus.before);

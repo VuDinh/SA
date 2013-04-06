@@ -24,12 +24,14 @@ public class AccountDaoImpl implements AccountDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    //get all the accounts from the database
     @Override
     public List<Account> allAccount() {
         List<Account> messages = jdbcTemplate.query("select * from accounts", new AccountMapper());
         return messages;
     }
 
+    //get specified account from the database
     @Override
     public Account getAccount(Account account) {
 
@@ -43,6 +45,7 @@ public class AccountDaoImpl implements AccountDao {
         }
     }
 
+    // add new account to the database
     @Override
     public void addAccount(Account account) {
         jdbcTemplate.update("insert into accounts(username,password) values(?,?)"

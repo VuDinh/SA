@@ -50,8 +50,13 @@ public class Server  {
 
                 Communicator com=new Communicator(client,new ObjectInputStream(client.getInputStream())
                         ,new ObjectOutputStream(client.getOutputStream()));
+<<<<<<< HEAD
+=======
+                handler.setDao(dao);
+                //adding communicator to the handler
+>>>>>>> af220c489ce7954e48a8a1a1d94a7a352cd4e9c0
                 handler.add(com);
-
+                //starting handler thread
                 new Thread(handler).start();
             } catch (IOException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

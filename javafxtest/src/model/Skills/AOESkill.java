@@ -25,18 +25,23 @@ public class AOESkill extends Skill {
 
     }
 
+    //calculate path to a specific location
     public void calculatePath(Cell to) {
         path.clear();
         int startRow, endRow, startCol, endCol;
-
-        for (int i = to.getRowPos() - 1; i <= to.getRowPos() + 1; i++) {
-            for (int j = to.getColPos() - 1; j <= to.getColPos() + 1; j++)
+        startRow=Math.max(0,to.getRowPos()-1);
+        endRow=Math.min(Utilizer.MAP_ROWS-1,to.getRowPos()+1);
+        startCol=Math.max(0,to.getColPos()-1);
+        endCol=Math.min(Utilizer.MAP_COLS-1,to.getColPos()+1);
+        for (int i = startRow; i <= endRow; i++) {
+            for (int j = startCol; j <= endCol; j++)
                 if (Utilizer.MOVEMAP[i][j] == 0) {
                     path.add(new Cell(i, j));
                 }
         }
     }
 
+    //draw skill animation sprite
     @Override
     public void drawSkill(Graphics g,Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -49,6 +54,7 @@ public class AOESkill extends Skill {
         }
     }
 
+    //draw skill AOE
     @Override
     public void drawPath(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -73,6 +79,7 @@ public class AOESkill extends Skill {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    //calculate skill range
     public ArrayList<Cell> calculateRange(int x, int y, double remaining){
         if(remaining == 0)
             return rangeCell;
@@ -90,6 +97,8 @@ public class AOESkill extends Skill {
             calculateRange(x + 1, y, remaining - 1); //right
         return rangeCell;
     }
+
+    //draw skill range
     public void drawRange(Graphics g,int scrollX,int scrollY){
         ArrayList<Cell> cells=getRangeCell();
         for(Cell cell:cells){
