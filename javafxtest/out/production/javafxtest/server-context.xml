@@ -22,8 +22,12 @@
     <bean id="dbUtilities" class="Controllers.Server.DbUtilities">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <bean id="gameHandler" class="Controllers.Server.GameHandler">
+        <property name="dao" ref="dao"/>
+    </bean>
     <bean id="server" class="Controllers.Server.Server">
         <property name="serverSocket" ref="socket"/>
         <property name="db" ref="dbUtilities"/>
     </bean>
+
 </beans>

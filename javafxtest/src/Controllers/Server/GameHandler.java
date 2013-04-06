@@ -58,7 +58,6 @@ public class GameHandler extends Thread {
     @Override
     public void run() {
 
-        System.out.println(coms.size());
         /*for (Iterator i = coms.iterator(); i.hasNext(); ) {
             Communicator tempCom = (Communicator) i.next();
             new ChatThread(dao,tempCom,this).start();
