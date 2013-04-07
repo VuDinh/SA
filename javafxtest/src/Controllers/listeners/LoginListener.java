@@ -1,6 +1,7 @@
 package Controllers.listeners;
 
 import Controllers.Communicator;
+import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.Game;
 import View.Login.LoginFrame;
 import javafx.event.ActionEvent;
@@ -28,7 +29,7 @@ public class LoginListener implements EventHandler<ActionEvent> {
         this.com=com;
         this.loginFrame=loginFrame;
         this.inGame = inGame;
-        this.me=me;
+
     }
     //sending username password to the server for validation and response
     @Override

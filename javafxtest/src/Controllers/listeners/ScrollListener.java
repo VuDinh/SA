@@ -85,6 +85,7 @@ public class ScrollListener implements KeyListener {
                 }
             }
         }
+        //System.out.println(panel.getHero().getStatus());
         panel.repaint();
     }
 

@@ -1,9 +1,11 @@
 package Controllers.Client;
 
 import Controllers.Communicator;
+import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
 import View.Login.LoginFrame;
+import javafx.application.Application;
 import javafx.application.Platform;
 import model.AccountSystem.Account;
 import model.MessageSystem.Message;
@@ -25,12 +27,13 @@ public class ClientThread extends Thread {
     LoginFrame login;
     Game game;
     ChatPanel chatPanel;
-
-    public ClientThread(Account me, Communicator com, LoginFrame login, Game game) {
+    HeroChoosingGUI heroChoosingGUI;
+    public ClientThread(Account me, Communicator com, LoginFrame login,HeroChoosingGUI heroChoosingGUI, Game game) {
         this.me = me;
         this.com = com;
         this.login = login;
         this.game = game;
+        this.heroChoosingGUI=heroChoosingGUI;
         chatPanel = game.getChatPanel();
     }
     //add all online accounts to the player list
@@ -94,6 +97,7 @@ public class ClientThread extends Thread {
                 });
                 //Setting up account and hero pos
                 if (temp.getStatus().equals(Status.pass)) {
+                    Application.launch(heroChoosingGUI.getClass(),null);
                     me.setUsername(temp.getUsername());;
                     game.setVisible(true);
                 }

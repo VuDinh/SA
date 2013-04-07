@@ -141,7 +141,7 @@ public class GameMap extends JPanel {
                 getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
                 getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
             } else {
-                paintSelectedNormal(g);
+                //paintSelectedNormal(g);
             }
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
@@ -153,11 +153,7 @@ public class GameMap extends JPanel {
         g.drawImage(Utilizer.hoverArray[0], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
         g.drawImage(Utilizer.hoverArray[Utilizer.MAP[rangeCell.getRowPos()][rangeCell.getColPos()] - 1], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
     }
-    void paintHoveredInRange(Graphics g){
-        g.clearRect(rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
-        g.drawImage(Utilizer.selectArray[0], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
-        g.drawImage(Utilizer.selectArray[Utilizer.MAP[rangeCell.getRowPos()][rangeCell.getColPos()] - 1], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
-    }
+
     public void paintHovered(Graphics g) {
         if (true) {
             if (rangeCell != null) {
@@ -201,24 +197,6 @@ public class GameMap extends JPanel {
     public Monster getMonster() {
         return monster;
     }
-
-    //    public static void main(String args[]) {
-//        Utilizer.load();
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        GameMap drawP = new GameMap();
-//        JScrollPane scroller = new JScrollPane();
-//        scroller.setViewportView(drawP);
-//        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-//        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-//
-//        frame.getContentPane().add(BorderLayout.CENTER, scroller);
-//        frame.setSize(700, 700);
-//        frame.setVisible(true);
-//        frame.setResizable(true);
-//
-//
-//    }
     public void addMapListener(MouseListener e){
         this.addMouseListener(e);
     }
