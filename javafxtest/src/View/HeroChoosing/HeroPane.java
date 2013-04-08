@@ -1,15 +1,20 @@
 package View.HeroChoosing;
 
+import Utilities.Utilizer;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
+
+import java.awt.image.BufferedImage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,9 +67,11 @@ public class HeroPane extends BorderPane {
          pnlHeroList.setVgap(4);
          pnlHeroList.setPrefWrapLength(240);
          ImageView[] heroes=new ImageView[9];
+         Utilizer.load();
          for(int i=0;i<9;i++)
          {
-             heroes[i]=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/chart_"+(i+1)+".png")));
+             BufferedImage temp=Utilizer.HEROIMAGEPACK.get(0).getIcon();
+             heroes[i]=new ImageView(SwingFXUtils.toFXImage(temp,new WritableImage(temp.getWidth(),temp.getHeight())));
              pnlHeroList.getChildren().add(heroes[i]);
          }
          //set skill Panel

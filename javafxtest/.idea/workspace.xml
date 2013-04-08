@@ -81,6 +81,7 @@
     <file path="/MainMenuGUI.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365434826559" ignored="false" />
     <file path="/FindingMatchPane.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365433940665" ignored="false" />
     <file path="/Header.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365433587354" ignored="false" />
+    <file path="/HeroPane.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365439045204" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +162,7 @@
       <file leaf-file-name="HeroPane.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="9" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.41016334">
+            <state line="69" column="30" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.45553538">
               <folding />
             </state>
           </provider>
@@ -654,7 +655,7 @@
       <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainMenuGUI">
+  <component name="RunManager" selected="Application.HeroChoosingGUI">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="vn.edu.rmit.sadi.Main" />
@@ -807,9 +808,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainMenuGUI" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
-        <item index="2" class="java.lang.String" itemvalue="Application.HeroChoosingGUI" />
+        <item index="0" class="java.lang.String" itemvalue="Application.HeroChoosingGUI" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MainMenuGUI" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Server" />
         <item index="3" class="java.lang.String" itemvalue="Application.Client" />
         <item index="4" class="java.lang.String" itemvalue="Application.Server" />
       </list>
@@ -848,7 +849,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1055,7 +1056,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="9" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.41016334">
+        <state line="69" column="30" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.45553538">
           <folding />
         </state>
       </provider>
