@@ -19,6 +19,9 @@ import javafx.scene.control.Tooltip;
  * To change this template use File | Settings | File Templates.
  */
 public class HeroPane extends BorderPane {
+    TextArea taHeroDesc;
+    ImageView imgHero;
+    Text heroText;
     public HeroPane()
     {
         //set hero description Panel
@@ -27,7 +30,7 @@ public class HeroPane extends BorderPane {
          pnlLeft.setPadding(new Insets(12, 10, 12, 10));
          pnlLeft.setSpacing(10);
          pnlLeft.setAlignment(Pos.TOP_CENTER);
-         TextArea taHeroDesc=new TextArea();
+         taHeroDesc=new TextArea();
          taHeroDesc.setPrefColumnCount(20);
          taHeroDesc.setPrefRowCount(1);
          taHeroDesc.setWrapText(false);
@@ -41,10 +44,10 @@ public class HeroPane extends BorderPane {
          pnlRight.setPadding(new Insets(10,12,10,12));
          pnlRight.setSpacing(10);
          pnlRight.setAlignment(Pos.TOP_CENTER);
-         ImageView imgHero=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/lich.jpg")));
+         imgHero=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/lich.jpg")));
          imgHero.setFitHeight(200);
          imgHero.setFitWidth(150);;
-         Text heroText=new Text("Lich");
+         heroText=new Text("Lich");
          pnlRight.getChildren().addAll(heroText, imgHero);
          setRight(pnlRight);
         //set center Panel

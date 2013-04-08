@@ -22,14 +22,10 @@ import model.AccountSystem.Account;
 public class LoginListener implements EventHandler<ActionEvent> {
 
     LoginFrame loginFrame;
-    Game inGame;
     Communicator com;
-    Account me;
-    public LoginListener(Communicator com,LoginFrame loginFrame,Game inGame,Account me){
+    public LoginListener(Communicator com,LoginFrame loginFrame){
         this.com=com;
         this.loginFrame=loginFrame;
-        this.inGame = inGame;
-
     }
     //sending username password to the server for validation and response
     @Override

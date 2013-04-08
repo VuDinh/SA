@@ -7,10 +7,12 @@ import View.Ingame.Game;
 import View.Login.LoginFrame;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.stage.Stage;
 import model.AccountSystem.Account;
 import model.MessageSystem.Message;
 import model.AccountSystem.Status;
 
+import javax.swing.*;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,14 +30,16 @@ public class ClientThread extends Thread {
     Game game;
     ChatPanel chatPanel;
     HeroChoosingGUI heroChoosingGUI;
-    public ClientThread(Account me, Communicator com, LoginFrame login,HeroChoosingGUI heroChoosingGUI, Game game) {
+
+    public ClientThread(Account me, Communicator com, LoginFrame login, HeroChoosingGUI heroChoosingGUI, Game game) {
         this.me = me;
         this.com = com;
         this.login = login;
         this.game = game;
-        this.heroChoosingGUI=heroChoosingGUI;
+        this.heroChoosingGUI = heroChoosingGUI;
         chatPanel = game.getChatPanel();
     }
+
     //add all online accounts to the player list
     public void addAccountList(ChatPanel panel, List<Account> list) {
 
@@ -89,7 +93,7 @@ public class ClientThread extends Thread {
                             chatPanel.addStatusMessage(temp.getUsername() + " has joined the game!!!");
                         }
                         //when someone leaves the game
-                        else{
+                        else {
                             chatPanel.removeUser(temp.getUsername());
                             chatPanel.addStatusMessage(temp.getUsername() + " has left the game!!!");
                         }
@@ -97,9 +101,21 @@ public class ClientThread extends Thread {
                 });
                 //Setting up account and hero pos
                 if (temp.getStatus().equals(Status.pass)) {
-                    Application.launch(heroChoosingGUI.getClass(),null);
-                    me.setUsername(temp.getUsername());;
-                    game.setVisible(true);
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            //To change body of implemented methods use File | Settings | File Templates.
+                            Stage stage=new Stage();
+                            try {
+                                heroChoosingGUI.start(stage);
+                            } catch (Exception e) {
+                                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                            }
+                        }
+                    });
+
+                    //To change body of implemented methods use File | Settings | File Templates.
+                    me.setUsername(temp.getUsername());
                 }
 
             }
@@ -109,7 +125,7 @@ public class ClientThread extends Thread {
                 if (s.equals(Status.fail)) {
                     login.setActionText("Invalid username or password!");
                 }
-                if(s.equals(Status.already)){
+                if (s.equals(Status.already)) {
                     login.setActionText("Account already in use!");
                 }
             }

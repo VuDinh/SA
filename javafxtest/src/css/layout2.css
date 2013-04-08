@@ -14,5 +14,16 @@
 {
     -fx-background-color: linear-gradient(#e2ecfe, #99bcfd);
     -fx-alignment:top-center;
-    -fx-background-radius: 20;
+}
+#chatBorder
+{
+    -fx-alignment:top-center;
+}
+#background
+{
+        -fx-background-color: linear-gradient(#e2ecfe, #99bcfd);
+}
+#findingBorder
+{
+
 }
