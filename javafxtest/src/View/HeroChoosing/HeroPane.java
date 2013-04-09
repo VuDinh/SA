@@ -1,6 +1,8 @@
 package View.HeroChoosing;
 
 import Utilities.Utilizer;
+import View.MainMenu.ChatPane;
+import View.MainMenu.ChatPane2;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,9 +12,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
+import model.HeroSystem.Hero;
 
 import java.awt.image.BufferedImage;
 
@@ -27,61 +31,59 @@ public class HeroPane extends BorderPane {
     TextArea taHeroDesc;
     ImageView imgHero;
     Text heroText;
+    Text descText;
+    ChatPane2 chatPane;
+    ImageView[] skills;
+    ImageView[] heroes;
     public HeroPane()
     {
         //set hero description Panel
-         VBox pnlLeft=new VBox();
+         VBox pnlRight=new VBox();
          setPadding(new Insets(10, 12, 10, 12));
-         pnlLeft.setPadding(new Insets(12, 10, 12, 10));
-         pnlLeft.setSpacing(10);
-         pnlLeft.setAlignment(Pos.TOP_CENTER);
+         pnlRight.setPadding(new Insets(12, 10, 12, 10));
+         pnlRight.setSpacing(10);
+         pnlRight.setAlignment(Pos.TOP_CENTER);
          taHeroDesc=new TextArea();
          taHeroDesc.setPrefColumnCount(20);
          taHeroDesc.setPrefRowCount(1);
          taHeroDesc.setWrapText(false);
-         taHeroDesc.setMaxSize(200, 200);
-         taHeroDesc.setMinSize(200,200);
-         Text descText=new Text("Description");
-         pnlLeft.getChildren().addAll(descText, taHeroDesc);
-         setLeft(pnlLeft);
-         //set right description Panel
-         VBox pnlRight=new VBox();
-         pnlRight.setPadding(new Insets(10,12,10,12));
-         pnlRight.setSpacing(10);
-         pnlRight.setAlignment(Pos.TOP_CENTER);
+         taHeroDesc.setMaxSize(300, 250);
+         taHeroDesc.setMinSize(300,250);
+         descText=new Text("Description");
          imgHero=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/lich.jpg")));
          imgHero.setFitHeight(200);
          imgHero.setFitWidth(150);;
          heroText=new Text("Lich");
-         pnlRight.getChildren().addAll(heroText, imgHero);
+         pnlRight.getChildren().addAll(heroText, imgHero,descText, taHeroDesc);
          setRight(pnlRight);
+
         //set center Panel
          VBox pnlCenter=new VBox();
-         pnlCenter.setPadding(new Insets(5,120,5,120));
+         //pnlCenter.setPadding(new Insets(5,120,5,120));
          pnlCenter.setSpacing(20);
          pnlCenter.setAlignment(Pos.TOP_CENTER);
          //set hero list panel
-         FlowPane pnlHeroList=new FlowPane();
+         GridPane pnlHeroList=new GridPane();
          //pnlHeroList.setPadding(new Insets(5,100,5,100));
          pnlHeroList.setHgap(4);
          pnlHeroList.setVgap(4);
-         pnlHeroList.setPrefWrapLength(240);
-         ImageView[] heroes=new ImageView[9];
+         pnlHeroList.setAlignment(Pos.CENTER);
+         heroes=new ImageView[9];
          Utilizer.load();
          for(int i=0;i<9;i++)
          {
              BufferedImage temp=Utilizer.HEROIMAGEPACK.get(0).getIcon();
              heroes[i]=new ImageView(SwingFXUtils.toFXImage(temp,new WritableImage(temp.getWidth(),temp.getHeight())));
-             pnlHeroList.getChildren().add(heroes[i]);
+             pnlHeroList.add(heroes[i], i / 3, i % 3);
          }
          //set skill Panel
          FlowPane pnlSkill =new FlowPane();
          pnlSkill.setPrefWrapLength(240);
          pnlSkill.setHgap(10);
          pnlSkill.setVgap(10);
-         ImageView[] skills=new ImageView[3];
-         for(int i=0;i<3;i++)
-         {
+         pnlSkill.setAlignment(Pos.CENTER);
+         skills=new ImageView[3];
+         for(int i=0;i<3;i++){
             skills[i]=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/chart_"+(i+1)+".png")));
             Tooltip t=new Tooltip("haha");
 
@@ -90,7 +92,23 @@ public class HeroPane extends BorderPane {
          }
          Text lblHero=new Text("Heroes");
          Text lblSkill=new Text("model/Skills");
-         pnlCenter.getChildren().addAll(lblHero,pnlHeroList,lblSkill,pnlSkill);
+         chatPane=new ChatPane2();
+         pnlCenter.getChildren().addAll(lblHero,pnlHeroList,lblSkill,pnlSkill,chatPane);
          setCenter(pnlCenter);
+    }
+    //set Hero selected to the image, description
+    public void setHero(Hero hero){
+
+    }
+
+    public void setHeroIcon(int index){
+
+    }
+    public void setUnknownHero(){
+
+    }
+    //set already have heroes and their descriptions
+    public void initialise(){
+
     }
 }
