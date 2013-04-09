@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import model.AccountSystem.Account;
-
+import View.Login.LoginFrame;
 import javax.swing.*;
 
 /**
@@ -26,8 +26,10 @@ public class LoginFrame extends JFrame {
         loginPane=new LoginPane();
         tempPane=new JFXPanel();
         SwingUtilities.invokeLater(new Runnable() {
+
             @Override
             public void run() {
+
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {

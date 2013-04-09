@@ -2,6 +2,7 @@ package model.Skills;
 
 import View.Ingame.GameMap;
 import Utilities.Utilizer;
+import model.HeroSystem.Hero;
 import model.HeroSystem.HeroStatus;
 
 /**
@@ -13,9 +14,9 @@ import model.HeroSystem.HeroStatus;
  */
 public class SkillThread extends Thread {
     GameMap panel;
-    Skill skill;
-    public SkillThread(GameMap panel,Skill skill){
-        this.skill = skill;
+    Hero hero;
+    public SkillThread(GameMap panel,Hero hero){
+        this.hero = hero;
         this.panel=panel;
     }
 
@@ -23,7 +24,7 @@ public class SkillThread extends Thread {
     public void run(){
 
         for(int i=0;i< Utilizer.SKILL_SIZE;i++){
-            skill.nextSprite();
+            hero.getCurrentSkill().nextSprite();
             panel.repaint();
             try {
                 Thread.sleep(80);
@@ -31,8 +32,8 @@ public class SkillThread extends Thread {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
-        skill.setStatus(SkillStatus.none);
-        panel.getHero().setStatus(HeroStatus.standing);
+        hero.getCurrentSkill().setStatus(SkillStatus.none);
+        hero.setStatus(HeroStatus.standing);
         panel.repaint();
     }
 }

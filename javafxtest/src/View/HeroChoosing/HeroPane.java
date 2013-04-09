@@ -1,15 +1,20 @@
 package View.HeroChoosing;
 
+import Utilities.Utilizer;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
+
+import java.awt.image.BufferedImage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +24,9 @@ import javafx.scene.control.Tooltip;
  * To change this template use File | Settings | File Templates.
  */
 public class HeroPane extends BorderPane {
+    TextArea taHeroDesc;
+    ImageView imgHero;
+    Text heroText;
     public HeroPane()
     {
         //set hero description Panel
@@ -27,7 +35,7 @@ public class HeroPane extends BorderPane {
          pnlLeft.setPadding(new Insets(12, 10, 12, 10));
          pnlLeft.setSpacing(10);
          pnlLeft.setAlignment(Pos.TOP_CENTER);
-         TextArea taHeroDesc=new TextArea();
+         taHeroDesc=new TextArea();
          taHeroDesc.setPrefColumnCount(20);
          taHeroDesc.setPrefRowCount(1);
          taHeroDesc.setWrapText(false);
@@ -41,10 +49,10 @@ public class HeroPane extends BorderPane {
          pnlRight.setPadding(new Insets(10,12,10,12));
          pnlRight.setSpacing(10);
          pnlRight.setAlignment(Pos.TOP_CENTER);
-         ImageView imgHero=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/lich.jpg")));
+         imgHero=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/lich.jpg")));
          imgHero.setFitHeight(200);
          imgHero.setFitWidth(150);;
-         Text heroText=new Text("Lich");
+         heroText=new Text("Lich");
          pnlRight.getChildren().addAll(heroText, imgHero);
          setRight(pnlRight);
         //set center Panel
@@ -59,9 +67,11 @@ public class HeroPane extends BorderPane {
          pnlHeroList.setVgap(4);
          pnlHeroList.setPrefWrapLength(240);
          ImageView[] heroes=new ImageView[9];
+         Utilizer.load();
          for(int i=0;i<9;i++)
          {
-             heroes[i]=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/chart_"+(i+1)+".png")));
+             BufferedImage temp=Utilizer.HEROIMAGEPACK.get(0).getIcon();
+             heroes[i]=new ImageView(SwingFXUtils.toFXImage(temp,new WritableImage(temp.getWidth(),temp.getHeight())));
              pnlHeroList.getChildren().add(heroes[i]);
          }
          //set skill Panel

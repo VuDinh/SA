@@ -1,5 +1,7 @@
 package View.HeroChoosing;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -17,16 +19,21 @@ import javafx.scene.text.Text;
  * To change this template use File | Settings | File Templates.
  */
 public class HeroChoosingHeader extends HBox {
+    Button btnPlay;
+    Text lblCountdown;
     public HeroChoosingHeader()
     {
           setId("header");
           setPadding(new Insets(15,12,15,12));
           setSpacing(10);
           setAlignment(Pos.CENTER);
-          Text lblCountdown=new Text("0:30");
-          Button btnPlay=new Button("Play");
+          lblCountdown=new Text("0:30");
+          btnPlay=new Button("Play");
           lblCountdown.setFont(Font.font("Arial", FontWeight.BOLD,20));
           btnPlay.setPrefSize(100,20);
           getChildren().addAll(lblCountdown,btnPlay);
+    }
+    public void addBtnPlayListener(EventHandler<ActionEvent> e){
+        btnPlay.setOnAction(e);
     }
 }
