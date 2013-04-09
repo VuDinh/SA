@@ -38,7 +38,7 @@
     <file path="/GameMap.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364150382157" ignored="false" />
     <file path="/Server.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365135699134" ignored="false" />
     <file path="/GameHandler.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364833915506" ignored="false" />
-    <file path="/fragment.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365134873820" ignored="false" />
+    <file path="/fragment.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365332580120" ignored="false" />
     <file path="/ChatThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365135448950" ignored="false" />
     <file path="$PROJECT_DIR$/src/Controllers/Client/Controller.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364802029164" ignored="false" />
     <file path="/Controller.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1364735148832" ignored="false" />
@@ -79,6 +79,7 @@
     <file path="/NormalSkill.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365137417076" ignored="false" />
     <file path="/SkillFactory.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365137446991" ignored="false" />
     <file path="/SkillThread.java" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365137459591" ignored="false" />
+    <file path="$PROJECT_DIR$/../../BackUp/SA/OnlineTactics/.idea/workspace.xml" changelist="cd641a80-0536-4406-b8a8-7f15685f7c48" time="1365170943818" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +178,7 @@
       <file leaf-file-name="AOESkill.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Skills/AOESkill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="14" selection-start="993" selection-end="993" vertical-scroll-proportion="0.055555556">
+            <state line="110" column="20" selection-start="4565" selection-end="4565" vertical-scroll-proportion="1.0">
               <folding />
             </state>
           </provider>
@@ -204,7 +205,7 @@
       <file leaf-file-name="Hero.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="23" selection-start="8048" selection-end="8048" vertical-scroll-proportion="0.0">
+            <state line="223" column="36" selection-start="8206" selection-end="8206" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -292,6 +293,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -614,8 +617,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -627,7 +628,7 @@
     <property name="options.lastSelected" value="preferences.general" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Check/COSC2440_FreedomForever/OnlineTactics" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -805,7 +806,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -815,16 +816,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16136363" sideWeight="0.22998296" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.62350935" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16136363" sideWeight="0.62350935" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37649062" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37649062" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -959,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="20" selection-start="12789" selection-end="12789" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Skills/CleaveSkill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="72" selection-start="3125" selection-end="3125" vertical-scroll-proportion="0.0">
@@ -989,14 +983,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="23" selection-start="8048" selection-end="8048" vertical-scroll-proportion="0.0">
+        <state line="223" column="36" selection-start="8206" selection-end="8206" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="20" selection-start="12789" selection-end="12789" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Skills/AOESkill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="14" selection-start="993" selection-end="993" vertical-scroll-proportion="0.055555556">
+        <state line="110" column="20" selection-start="4565" selection-end="4565" vertical-scroll-proportion="1.0">
           <folding />
         </state>
       </provider>
