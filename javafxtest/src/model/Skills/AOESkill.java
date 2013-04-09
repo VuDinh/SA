@@ -58,7 +58,7 @@ public class AOESkill extends Skill {
     @Override
     public void drawPath(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
-        if (status == SkillStatus.before) {
+        if (status == SkillStatus.before || status==SkillStatus.none) {
             calculatePath(to);
             for (Iterator i = path.iterator(); i.hasNext(); ) {
                 Cell temp = (Cell) i.next();

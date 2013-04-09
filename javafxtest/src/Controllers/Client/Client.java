@@ -1,12 +1,11 @@
 package Controllers.Client;
 
 import Controllers.Communicator;
-import Controllers.listeners.ChatListener;
-import Controllers.listeners.LoginListener;
-import Controllers.listeners.MapListener;
-import Controllers.listeners.ScrollListener;
+import Controllers.listeners.*;
 import Utilities.Utilizer;
+import View.HeroChoosing.HeroChoosingGUI;
 import View.Login.LoginFrame;
+import javafx.application.Platform;
 import model.AccountSystem.Account;
 import View.Ingame.Game;
 import model.HeroSystem.HeroFactory;
@@ -32,6 +31,7 @@ public class Client implements Runnable {
     Account me;
     Game inGame;
     LoginFrame login;
+    HeroChoosingGUI heroChoosingGUI;
     Communicator com;
     int port;
     String host;
@@ -70,12 +70,21 @@ public class Client implements Runnable {
         HeroFactory hf = new HeroFactory();
         acc.setHero(hf.createHero(1));
         me = acc;
+        //initialize GUI
         inGame = new Game(me);
         login = new LoginFrame(me);
+        heroChoosingGUI = new HeroChoosingGUI();
+        heroChoosingGUI.init();
+
         MapListener mapListener = new MapListener(inGame.getGameMap());
         ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
         ChatListener chatListener = new ChatListener(com, inGame, me);
-        LoginListener loginListener = new LoginListener(com, login, inGame, me);
+        LoginListener loginListener = new LoginListener(com, login);
+
+
+        BtnPlayListener btnPlayListener=new BtnPlayListener(heroChoosingGUI, inGame);
+        heroChoosingGUI.addBtnPlayListener(btnPlayListener);
+
         login.addLoginListener(loginListener);
         inGame.getChatPanel().addChatListener(chatListener);
         inGame.getGameMap().addKeyListener(scrollListener);
@@ -109,7 +118,7 @@ public class Client implements Runnable {
     //running client thread
     public void settingUp() {
         login.setVisible(true);
-        ClientThread t = new ClientThread(me, com, login, inGame);
+        ClientThread t = new ClientThread(me, com, login,heroChoosingGUI, inGame);
         t.start();
     }
     //execute all actions

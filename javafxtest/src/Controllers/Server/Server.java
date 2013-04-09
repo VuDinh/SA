@@ -40,7 +40,7 @@ public class Server  {
         //create database
         db.createDb();
         System.out.println(" database created ");
-        GameHandler handler=new GameHandler();
+        GameHandler handler=ctx.getBean("gameHandler",GameHandler.class);
         //To change body of implemented methods use File | Settings | File Templates.
         while(true){
             try {
@@ -50,8 +50,7 @@ public class Server  {
 
                 Communicator com=new Communicator(client,new ObjectInputStream(client.getInputStream())
                         ,new ObjectOutputStream(client.getOutputStream()));
-                handler.setDao(dao);
-                //adding communicator to the handler
+
                 handler.add(com);
                 //starting handler thread
                 new Thread(handler).start();
