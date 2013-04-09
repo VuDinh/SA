@@ -12,6 +12,8 @@ import model.Skills.SkillFactory;
  * To change this template use File | Settings | File Templates.
  */
 public class MonsterFactory {
+
+    //monster factory contains all monsters
     public Monster createMonster(int type){
         Monster monster=null;
         if(type==1){

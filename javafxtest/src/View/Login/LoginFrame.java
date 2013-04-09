@@ -31,7 +31,7 @@ public class LoginFrame extends JFrame {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        Scene scene=new Scene(loginPane,300,300);
+                        Scene scene=new Scene(loginPane,475,280);
                         scene.getStylesheets().add(LoginFrame.class.getResource("/css/layout1.css").toExternalForm());
                         tempPane.setScene(scene);
                     }
@@ -54,7 +54,7 @@ public class LoginFrame extends JFrame {
         loginPane.setActionText(text);
     }
     public void setDefaultProperties(){
-        setSize(300,300);
+        setSize(475,280);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);

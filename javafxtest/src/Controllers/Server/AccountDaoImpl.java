@@ -19,35 +19,36 @@ import java.util.List;
  */
 public class AccountDaoImpl implements AccountDao {
     private JdbcTemplate jdbcTemplate;
-    public void setDataSource(DataSource dataSource){
-        jdbcTemplate=new JdbcTemplate(dataSource);
+
+    public void setDataSource(DataSource dataSource) {
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    //get all the accounts from the database
     @Override
     public List<Account> allAccount() {
-        List<Account> messages = jdbcTemplate.query("select * from accounts", new RowMapper<Account>() {
-            @Override
-            public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Account acc=new Account(rs.getString(1),rs.getString(2),0);
-                return acc;
-            }
-        });
+        List<Account> messages = jdbcTemplate.query("select * from accounts", new AccountMapper());
         return messages;
     }
 
+    //get specified account from the database
     @Override
     public Account getAccount(Account account) {
-        List<Account> lst=allAccount();
-        for(Iterator it=lst.iterator();it.hasNext();){
-            Account temp=(Account)it.next();
-            if(temp.getUsername().equals(account.getUsername())&&(temp.getPassword().equals(account.getPassword()))){
-                return temp;
-            }
+
+        try {
+            Account t = jdbcTemplate.queryForObject("select * from accounts where username=(?) and password=(?) limit 1"
+                    , new AccountMapper(), account.getUsername(),account.getPassword());
+            return t;
+        } catch (Exception ex) {
+            System.out.println("not found!!!");
+            return null;
         }
-        return null;
     }
+
+    // add new account to the database
     @Override
     public void addAccount(Account account) {
-        jdbcTemplate.update("insert into accounts(username,password) values(?,?)", account.getUsername(),account.getPassword());
+        jdbcTemplate.update("insert into accounts(username,password) values(?,?)"
+                , account.getUsername(), account.getPassword());
     }
 }

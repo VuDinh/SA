@@ -18,6 +18,7 @@ public class HeroAttackThread extends Thread {
         this.panel = panel;
     }
 
+    //run thread animation attack
     public void run(){
         attack();
         if(hero.getStatus().equals(HeroStatus.attacking)){
@@ -35,12 +36,14 @@ public class HeroAttackThread extends Thread {
         }
     }
 
+    //set current sprite to attack sprite
     public void attack(){
         if(panel.getSelectedCell().getColPos() < hero.getCol())
             hero.setCurrentSprite(16);
         else hero.setCurrentSprite(20);
     }
 
+    //reset sprite to standing sprite
     public void reset(){
         if(hero.getCurrentSpriteIndex()==16)
             hero.setCurrentSprite(4);

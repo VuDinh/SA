@@ -60,23 +60,30 @@ public class CleaveSkill extends Skill {
 
     }*/
 
+    //calculate path of Cleave skill
     public void calculatePath(Hero to) {
         path.clear();
         int count;
+
         if (to.getCurrentSpriteIndex() / 4 == 0) {
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
+            if(to.getRow()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),40)));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
         } else if (to.getCurrentSpriteIndex() / 4 == 1) {
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()-range,to.getRow())));
+            if(to.getCol()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(0,to.getRow())));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()-range,to.getRow())));
         } else if (to.getCurrentSpriteIndex() / 4 == 2) {
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()+range,to.getRow())));
+            if(to.getCol()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(40,to.getRow())));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()+range,to.getRow())));
         } else if(to.getCurrentSpriteIndex() / 4 == 3){
-            path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()-range)));
+            if(to.getRow()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),0)));
+            else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()-range)));
         }
         if(!path.isEmpty())
             path.remove(0);
 
     }
 
+    //draw skill animation sprite
     @Override
     public void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -95,6 +102,7 @@ public class CleaveSkill extends Skill {
 
     }
 
+    //draw path depends on the location of hero
     @Override
     public void drawPathOnHero(Graphics g, Hero hero, Cell to, int scrollX, int scrollY, GameMap panel) {
         if (status == SkillStatus.before) {

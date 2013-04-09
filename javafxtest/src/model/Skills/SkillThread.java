@@ -18,6 +18,8 @@ public class SkillThread extends Thread {
         this.skill = skill;
         this.panel=panel;
     }
+
+    //run skill animation
     public void run(){
 
         for(int i=0;i< Utilizer.SKILL_SIZE;i++){

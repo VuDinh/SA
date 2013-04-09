@@ -62,6 +62,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
             if(( panel.getHero().getCurrentSkill())!=null){
                 if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();  }
         }
+
+        //draw hero movement range
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1)))
         {
@@ -73,6 +75,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
             t.start();
 
         }
+
+        //cast AOE skill
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
@@ -92,6 +96,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage());
             }
         }
+
+        //cast cleave skill
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
@@ -111,6 +117,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage());
             }
         }
+
+        //cast normal skill
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
@@ -154,9 +162,9 @@ public class MapListener implements MouseListener,MouseMotionListener {
 
     }
 
+    // schroll the map using mouse
     @Override
     public void mouseDragged(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
         Point dragged= e.getPoint();
         int x=dragged.x-pressed.x;
         int y=dragged.y-pressed.y;
@@ -175,9 +183,10 @@ public class MapListener implements MouseListener,MouseMotionListener {
         panel.repaint();
     }
 
+    //reset shortest path algorithm when the cursor moves
     @Override
     public void mouseMoved(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        //set relative position of the cell that cursor points to base on actual map
         GameMap temp=(GameMap) panel;
         Cell rangeCell= new Cell();
         Point curPos=e.getPoint();

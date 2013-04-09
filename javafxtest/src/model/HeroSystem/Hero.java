@@ -74,6 +74,7 @@ public class Hero extends Character implements Serializable {
         this.status = status;
     }
 
+    //draw hero
     @Override
     public void draw(Graphics g,int scrollX,int scrollY) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -89,6 +90,7 @@ public class Hero extends Character implements Serializable {
         g.drawImage(getCurrentSprite(),getX()-scrollX,getY()-scrollY,getPanel());
     }
 
+    //set next sprite
     @Override
     public void nextSprite() {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -96,9 +98,10 @@ public class Hero extends Character implements Serializable {
         else currentSprite++;
     }
 
+    //move character to the specified location
     @Override
     public void moveCharacter(int col,int row) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        //move right
         if(col- this.col > 0 && row==this.row)
         {
             dirX=12;
@@ -139,6 +142,7 @@ public class Hero extends Character implements Serializable {
         resetPath();
     }
 
+    //move 1/4 cell and decrease ap
     @Override
     public void move() {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -149,9 +153,9 @@ public class Hero extends Character implements Serializable {
         setAP(getAP()-0.5);
     }
 
+    //reset the shortest path each time the hero moves
     @Override
     public void resetPath() {
-        //To change body of implemented methods use File | Settings | File Templates.
         for(int i=0;i<map.length;i++)
             for(int j=0;j<map[0].length;j++)
                 map[i][j]=new Cell(i,j);
@@ -200,6 +204,8 @@ public class Hero extends Character implements Serializable {
 
         }
     }
+
+    //calculate shortest path
     public ArrayList<Cell> calculateShortestPath(Cell to){
         if(Utilizer.MOVEMAP[to.getRowPos()][to.getColPos()]==0){
             ArrayList<Cell> path=new ArrayList<Cell>();
@@ -213,6 +219,7 @@ public class Hero extends Character implements Serializable {
         return null;
     }
 
+    //add skills
     public void addSkill(Skill skill){
         if(skillCount<3){
             skill.setImgHeroIndex(imageIndex);
@@ -244,6 +251,8 @@ public class Hero extends Character implements Serializable {
     public void removeItemByIndex(int index){
         inventory.remove(index);
     }
+
+    //calculate movement Range
     public ArrayList<Cell> calculateRange(int x, int y, double remaining){
         if(remaining == 0)
             return range;
@@ -262,6 +271,8 @@ public class Hero extends Character implements Serializable {
             calculateRange(x + 1, y, remaining - 1); //right
         return range;
     }
+
+    //draw movement range
     public void drawRange(Graphics g,int scrollX,int scrollY){
         ArrayList<Cell> cells=getRange();
         for(Cell cell:cells){

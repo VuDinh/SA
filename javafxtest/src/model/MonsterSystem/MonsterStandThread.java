@@ -18,6 +18,8 @@ public class MonsterStandThread extends  Thread {
         this.monster = monster;
         this.panel = panel;
     }
+
+    //run monster standing thread
     @Override
     public void run(){
         while(monster.getHP()>0){

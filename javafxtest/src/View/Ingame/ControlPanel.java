@@ -38,10 +38,11 @@ public class ControlPanel extends JPanel {
         });
     }
 
+    //paint components and hero's stat
     @Override
     public void paintComponent(Graphics g){
             //g.drawImage(Utilizer.IMG_CHAT_BACK,0,0, this);
-        g.fillRect(0,0,getWidth(),getHeight());
+            g.fillRect(0,0,getWidth(),getHeight());
 
             g.drawImage(Utilizer.IMG_MINI_MAP, 10, 10, this);
             g.drawImage(Utilizer.IMG_CONTROL1, 0,0, this);
@@ -61,6 +62,7 @@ public class ControlPanel extends JPanel {
 
     }
 
+    //draw HP, AP bar
     public void drawHPAP(Graphics g){
         int width = 361;
         double no1 = hero.getAP();
