@@ -6,6 +6,7 @@ import View.MainMenu.ChatPane2;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,6 +39,7 @@ public class HeroPane extends BorderPane {
     public HeroPane()
     {
         //set hero description Panel
+         setId("heroPane");
          VBox pnlRight=new VBox();
          setPadding(new Insets(10, 12, 10, 12));
          pnlRight.setPadding(new Insets(12, 10, 12, 10));
@@ -49,6 +51,8 @@ public class HeroPane extends BorderPane {
          taHeroDesc.setWrapText(false);
          taHeroDesc.setMaxSize(300, 250);
          taHeroDesc.setMinSize(300,250);
+         taHeroDesc.setEditable(false);
+         taHeroDesc.setMouseTransparent(false);
          descText=new Text("Description");
          imgHero=new ImageView(new Image(HeroPane.class.getResourceAsStream("/css/lich.jpg")));
          imgHero.setFitHeight(200);
@@ -64,17 +68,20 @@ public class HeroPane extends BorderPane {
          pnlCenter.setAlignment(Pos.TOP_CENTER);
          //set hero list panel
          GridPane pnlHeroList=new GridPane();
+         pnlHeroList.setId("heroList");
          //pnlHeroList.setPadding(new Insets(5,100,5,100));
          pnlHeroList.setHgap(4);
          pnlHeroList.setVgap(4);
          pnlHeroList.setAlignment(Pos.CENTER);
-         heroes=new ImageView[9];
+         heroes=new ImageView[8];
          Utilizer.load();
-         for(int i=0;i<9;i++)
+         for(int i=0;i<heroes.length;i++)
          {
-             BufferedImage temp=Utilizer.HEROIMAGEPACK.get(0).getIcon();
+             BufferedImage temp=Utilizer.HEROIMAGEPACK.get(i).getIcon();
              heroes[i]=new ImageView(SwingFXUtils.toFXImage(temp,new WritableImage(temp.getWidth(),temp.getHeight())));
-             pnlHeroList.add(heroes[i], i / 3, i % 3);
+             Button button=new Button();
+             button.setGraphic(heroes[i]);
+             pnlHeroList.add(button, i / 3, i % 3);
          }
          //set skill Panel
          FlowPane pnlSkill =new FlowPane();
@@ -95,6 +102,9 @@ public class HeroPane extends BorderPane {
          chatPane=new ChatPane2();
          pnlCenter.getChildren().addAll(lblHero,pnlHeroList,lblSkill,pnlSkill,chatPane);
          setCenter(pnlCenter);
+         chatPane.getTxtChat().setId("chatField");
+         chatPane.getTaDialog().setId("chatArea");
+         taHeroDesc.setId("description");
     }
     //set Hero selected to the image, description
     public void setHero(Hero hero){

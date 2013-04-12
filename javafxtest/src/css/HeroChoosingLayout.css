@@ -18,6 +18,27 @@
 }
 .imageView:hover
 {
-    -fx-border-color:BLUE;
-    -fx-border-width:1.0;
+}
+#heroPane
+{
+}
+#heroList
+{
+}
+#chatField{
+    -fx-background-color: GRAY;
+    -fx-text-fill: white;
+}
+#chatArea{
+    -fx-background-color: GRAY;
+    -fx-text-fill: white;
+}
+#description{
+    -fx-background-color: GRAY;
+    -fx-text-fill: white;
+}
+
+.root
+{
+    -fx-background-image: url("back1.png");
 }

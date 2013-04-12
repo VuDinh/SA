@@ -21,6 +21,15 @@ import model.MessageSystem.MessageStatus;
 public class ChatPane2 extends BorderPane {
     TextArea taDialog;
     TextField txtChat;
+
+    public TextArea getTaDialog() {
+        return taDialog;
+    }
+
+    public TextField getTxtChat() {
+        return txtChat;
+    }
+
     public ChatPane2()
     {
         setId("chatBorder");
@@ -31,7 +40,7 @@ public class ChatPane2 extends BorderPane {
         taDialog=new TextArea();
         txtChat=new TextField();
         taDialog.setPrefColumnCount(100);
-        taDialog.setPrefRowCount(9);
+        taDialog.setPrefRowCount(8);
         taDialog.setEditable(false);
         vB.getChildren().addAll(taDialog,txtChat);
         setCenter(vB);

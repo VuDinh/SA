@@ -21,8 +21,8 @@ public class AlliedHeroPane extends GridPane {
     ImageView[] images;
     ImageView imgUnknown;
     public AlliedHeroPane(){
-        Image unknown=SwingFXUtils.toFXImage(Utilizer.IMG_FACE1,new WritableImage(Utilizer.IMG_FACE1.getWidth()
-                ,Utilizer.IMG_FACE1.getHeight()));
+        Image unknown=SwingFXUtils.toFXImage(Utilizer.IMG_FACE8,new WritableImage(Utilizer.IMG_FACE8.getWidth()
+                ,Utilizer.IMG_FACE8.getHeight()));
         imgUnknown=new ImageView(unknown);
         setAlignment(Pos.CENTER);
         images=new ImageView[5];
