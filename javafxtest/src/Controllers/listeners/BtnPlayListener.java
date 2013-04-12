@@ -26,7 +26,6 @@ public class BtnPlayListener implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         //To change body of implemented methods use File | Settings | File Templates.
-        System.out.println("asdfsdf");
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

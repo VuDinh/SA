@@ -1,0 +1,27 @@
+package Controllers.listeners;
+
+import Controllers.Communicator;
+import View.MainMenu.MainMenuGUI;
+import com.sun.jmx.snmp.daemon.CommunicatorServer;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Administrator
+ * Date: 4/10/13
+ * Time: 9:16 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class BroadcastChatListener implements EventHandler<KeyEvent> {
+    private MainMenuGUI mainMenuGUI;
+    private Communicator com;
+    public BroadcastChatListener(MainMenuGUI mainMenuGUI,Communicator com){
+        this.com=com;
+        this.mainMenuGUI=mainMenuGUI;
+    }
+    @Override
+    public void handle(KeyEvent keyEvent) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+}

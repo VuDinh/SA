@@ -70,6 +70,7 @@ public class ChatThread extends Thread {
                     continue;
                 }
             }
+
             //sending message
             if (o instanceof Message) {
                 Message mes = (Message) o;
@@ -77,9 +78,14 @@ public class ChatThread extends Thread {
                 if (mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
                 if (mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
             }
-            //quitting action
+
             if (o instanceof Status) {
                 Status status = (Status) o;
+                //findingMatch action
+                if(status.equals(Status.findingMatch)){
+                    handler.getGameManager().addPlayer(com);
+                }
+                //quitting action
                 if (status.equals(Status.quit)) {
                     System.out.println("Quit");
                     break;
