@@ -16,8 +16,8 @@ import javafx.stage.Stage;
  */
 public class HeroChoosingGUI extends Application {
     HeroChoosingHeader header;
-    HeroPane heroPane;
     Stage stage;
+    AlliedHeroPane alliedHeroPane;
     public static void main(String[] args)
     {
         launch(args);
@@ -30,11 +30,13 @@ public class HeroChoosingGUI extends Application {
        this.stage = stage;
        stage.setTitle("Choosing Hero");
        BorderPane pnlMain=new BorderPane();
-       header= new HeroChoosingHeader();
+       //header= new HeroChoosingHeader();
        pnlMain.setTop(header);
-
-       pnlMain.setCenter(heroPane);
+       pnlMain.setCenter(new HeroPane());
+       alliedHeroPane=new AlliedHeroPane();
+       pnlMain.setLeft(alliedHeroPane);
        Scene scene=new Scene(pnlMain,960,600);
+       stage.setResizable(false);
        stage.setScene(scene);
        scene.getStylesheets().add(HeroChoosingGUI.class.getResource("/css/HeroChoosingLayout.css").toExternalForm());
        stage.show();

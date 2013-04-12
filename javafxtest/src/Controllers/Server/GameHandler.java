@@ -1,5 +1,6 @@
 package Controllers.Server;
 import Controllers.Communicator;
+import Controllers.Server.GameManager.GameManager;
 import model.AccountSystem.Account;
 
 import java.util.ArrayList;
@@ -18,9 +19,11 @@ public class GameHandler extends Thread {
     ArrayList<Account> activeAccounts;
     AccountDao dao;
     Communicator currentCom;
+    GameManager gameManager;
     public GameHandler() {
         coms = new ArrayList<Communicator>();
         activeAccounts=new ArrayList<Account>();
+        gameManager=new GameManager();
     }
 
     public void add(Communicator com) {
@@ -30,6 +33,9 @@ public class GameHandler extends Thread {
 
     public ArrayList<Communicator> getComs() {
         return coms;
+    }
+    public GameManager getGameManager(){
+        return gameManager;
     }
     public void removeCom(Communicator com){
         coms.remove(com);

@@ -5,6 +5,7 @@ import Controllers.listeners.*;
 import Utilities.Utilizer;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Login.LoginFrame;
+import View.MainMenu.MainMenuGUI;
 import javafx.application.Platform;
 import model.AccountSystem.Account;
 import View.Ingame.Game;
@@ -33,6 +34,7 @@ public class Client implements Runnable {
     LoginFrame login;
     HeroChoosingGUI heroChoosingGUI;
     Communicator com;
+    MainMenuGUI mainMenuGUI;
     int port;
     String host;
     private static ApplicationContext ctx;
@@ -73,15 +75,21 @@ public class Client implements Runnable {
         //initialize GUI
         inGame = new Game(me);
         login = new LoginFrame(me);
-        heroChoosingGUI = new HeroChoosingGUI();
-        heroChoosingGUI.init();
+
 
         MapListener mapListener = new MapListener(inGame.getGameMap());
         ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
         ChatListener chatListener = new ChatListener(com, inGame, me);
         LoginListener loginListener = new LoginListener(com, login);
 
+        mainMenuGUI=new MainMenuGUI();
+        mainMenuGUI.init();
+        System.out.println("asdf");
+        mainMenuGUI.addChatListener(new BroadcastChatListener(mainMenuGUI,com));
+        mainMenuGUI.addFindMatchListener(new FindingMatchListener(mainMenuGUI,com));
 
+        heroChoosingGUI = new HeroChoosingGUI();
+        heroChoosingGUI.init();
         BtnPlayListener btnPlayListener=new BtnPlayListener(heroChoosingGUI, inGame);
         heroChoosingGUI.addBtnPlayListener(btnPlayListener);
 
@@ -118,7 +126,7 @@ public class Client implements Runnable {
     //running client thread
     public void settingUp() {
         login.setVisible(true);
-        ClientThread t = new ClientThread(me, com, login,heroChoosingGUI, inGame);
+        ClientThread t = new ClientThread(me, com, login,mainMenuGUI,heroChoosingGUI, inGame);
         t.start();
     }
     //execute all actions

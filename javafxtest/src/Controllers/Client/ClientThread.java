@@ -1,10 +1,12 @@
 package Controllers.Client;
 
 import Controllers.Communicator;
+import Controllers.Requests.MatchRequest;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
 import View.Login.LoginFrame;
+import View.MainMenu.MainMenuGUI;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -30,13 +32,15 @@ public class ClientThread extends Thread {
     Game game;
     ChatPanel chatPanel;
     HeroChoosingGUI heroChoosingGUI;
+    MainMenuGUI mainMenuGUI;
 
-    public ClientThread(Account me, Communicator com, LoginFrame login, HeroChoosingGUI heroChoosingGUI, Game game) {
+    public ClientThread(Account me, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
         this.me = me;
         this.com = com;
         this.login = login;
         this.game = game;
         this.heroChoosingGUI = heroChoosingGUI;
+        this.mainMenuGUI=mainMenuGUI;
         chatPanel = game.getChatPanel();
     }
 
@@ -65,7 +69,7 @@ public class ClientThread extends Thread {
                 });
             }
             //read all accounts connected to the server other than current one
-            if (o instanceof List) {
+            else if (o instanceof List) {
                 final List<Account> list = (List<Account>) o;
                 Platform.runLater(new Runnable() {
                     @Override
@@ -78,7 +82,7 @@ public class ClientThread extends Thread {
 
             }
             //read account sent from server based on server status
-            if (o instanceof Account) {
+            else if (o instanceof Account) {
                 final Account temp = (Account) o;
                 login.setActionText("Logged In successfully!");
                 login.setVisible(false);
@@ -86,7 +90,6 @@ public class ClientThread extends Thread {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        //To change body of implemented methods use File | Settings | File Templates.
                         //when someone enters the game
                         if (!temp.getStatus().equals(Status.quit)) {
                             chatPanel.addUser(temp.getUsername());
@@ -104,23 +107,29 @@ public class ClientThread extends Thread {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            //To change body of implemented methods use File | Settings | File Templates.
                             Stage stage=new Stage();
                             try {
-                                heroChoosingGUI.start(stage);
+                                mainMenuGUI.start(stage);
                             } catch (Exception e) {
                                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                             }
                         }
                     });
-
-                    //To change body of implemented methods use File | Settings | File Templates.
                     me.setUsername(temp.getUsername());
                 }
+            }
+            else if(o instanceof MatchRequest){
+                final MatchRequest mR=(MatchRequest) o;
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        mainMenuGUI.setPlayerNumStatus(mR.getPlayerNum());
+                    }
+                });
 
             }
             //invalid account
-            if (o instanceof Status) {
+            else if (o instanceof Status) {
                 Status s = (Status) o;
                 if (s.equals(Status.fail)) {
                     login.setActionText("Invalid username or password!");

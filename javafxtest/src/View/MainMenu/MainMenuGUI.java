@@ -18,28 +18,36 @@ import javafx.stage.Stage;
  * To change this template use File | Settings | File Templates.
  */
 public class MainMenuGUI extends Application {
-    Header header;
-    FindingMatchPane findingMatchPane;
-    ChatPane2 chatPane;
+    private Header header;
+    private FindingMatchPane findingMatchPane;
+    private ChatPane2 chatPane;
+    private Stage stage;
     public static void main(String[] args)
     {
         launch(args);
     }
+    public void init(){
+        header = new Header();
+        findingMatchPane=new FindingMatchPane();
+        chatPane=new ChatPane2();
+    }
     @Override
     public void start(Stage stage){
+        this.stage = stage;
         stage.setTitle("Control stage");
         BorderPane bP=new BorderPane();
         bP.setId("background");
-        header=new Header();
         bP.setTop(header);
         chatPane=new ChatPane2();
         bP.setCenter(chatPane);
-        findingMatchPane=new FindingMatchPane();
         bP.setBottom(findingMatchPane);
         Scene scene=new Scene(bP,960,600);
         stage.setScene(scene);
         scene.getStylesheets().add(MainMenuGUI.class.getResource("/css/layout2.css").toExternalForm());
         stage.show();
+    }
+    public Stage getStage(){
+        return stage;
     }
     public void setPlayer(String text){
         header.setPlayer(text);
@@ -71,5 +79,20 @@ public class MainMenuGUI extends Application {
     }
     public void addChatListener(EventHandler<KeyEvent> e){
         chatPane.addChatListener(e);
+    }
+    public Header getHeader(){
+        return header;
+    }
+    public ChatPane2 getChatPane(){
+        return chatPane;
+    }
+    public void disableBtnFindingMatch(){
+        findingMatchPane.disableBtnFindingMatch();
+    }
+    public void enableBtnFindingMatch(){
+        findingMatchPane.enableBtnFindingMatch();
+    }
+    public void setPlayerNumStatus(int num){
+        findingMatchPane.setPlayerNumStatus(num);
     }
 }

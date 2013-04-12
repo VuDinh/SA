@@ -36,4 +36,15 @@ public class FindingMatchPane extends VBox {
     public void addFindMatchListener(EventHandler<ActionEvent> e){
         btnFindingMatch.setOnAction(e);
     }
+    public void disableBtnFindingMatch(){
+        btnFindingMatch.setText("Finding");
+        btnFindingMatch.setDisable(true);
+    }
+    public void enableBtnFindingMatch(){
+        btnFindingMatch.setText("Find Match");
+        btnFindingMatch.setDisable(false);
+    }
+    public void setPlayerNumStatus(int num){
+        txtStatus.setText("There are "+ num +" players joining your game");
+    }
 }

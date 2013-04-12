@@ -10,6 +10,7 @@ package model.AccountSystem;
 public enum Status {
     fail,
     pass,
+    findingMatch,
     friend,
     quit,
     already
