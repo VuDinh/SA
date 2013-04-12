@@ -17,7 +17,8 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Skill {
-    protected int ID,damage,currentSprite,range;
+    protected int ID,currentSprite,range;
+    double multiplier;
     protected String name;
     protected boolean isStun,isSlow;
     protected ArrayList<Cell> path;
@@ -26,17 +27,18 @@ public abstract class Skill {
     protected String SE;
     protected int AP;
     protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
+    protected ArrayList<Cell>dmgCell = new ArrayList<Cell>();
     protected GameMap panel;
     protected int imgHeroIndex;
     public Skill() {
     }
-    protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage, String SE, int AP) {
+    protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier, String SE, int AP) {
         this.range = range;
         this.name = name;
         isStun = stun;
         isSlow = slow;
         this.ID = ID;
-        this.damage = damage;
+        this.multiplier = multiplier;
         currentSprite = 0;
         path=new ArrayList<Cell>();
         status = SkillStatus.before;
@@ -45,8 +47,16 @@ public abstract class Skill {
         this.AP = AP;
     }
 
+    public int getDamage(Hero hero){
+        return (int) Math.round(hero.getAttk() * multiplier);
+    }
+
     public ArrayList<Cell> getRangeCell() {
         return rangeCell;
+    }
+
+    public ArrayList<Cell> getDmgCell() {
+        return dmgCell;
     }
 
     public int getRange() {
@@ -61,13 +71,14 @@ public abstract class Skill {
         return SE;
     }
 
-    public int getDamage() {
-        return damage;
+    public double getMultiplier() {
+        return multiplier;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setMultiplier(double multiplier) {
+        this.multiplier = multiplier;
     }
+
     public void setImgHeroIndex(int imgHeroIndex){
         this.imgHeroIndex = imgHeroIndex;
     }

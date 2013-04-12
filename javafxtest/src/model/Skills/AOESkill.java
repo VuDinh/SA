@@ -18,27 +18,30 @@ import java.util.Iterator;
  * To change this template use File | Settings | File Templates.
  */
 public class AOESkill extends Skill {
+    int aoe;
+    boolean all;
 
-    public AOESkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage,
-                    String SE, int AP) {
-        super(range,name,stun,slow,imageIndex,ID,damage,SE,AP);
-
+    public AOESkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier,
+                    String SE, int AP, int aoe, boolean  all) {
+        super(range,name,stun,slow,imageIndex,ID,multiplier,SE,AP);
+        this.aoe = aoe;
+        this.all = all;
     }
 
     //calculate path to a specific location
     public void calculatePath(Cell to) {
         path.clear();
         int startRow, endRow, startCol, endCol;
-        startRow=Math.max(0,to.getRowPos()-1);
-        endRow=Math.min(Utilizer.MAP_ROWS-1,to.getRowPos()+1);
-        startCol=Math.max(0,to.getColPos()-1);
-        endCol=Math.min(Utilizer.MAP_COLS-1,to.getColPos()+1);
+        startRow=Math.max(0,to.getRowPos()-aoe);
+        endRow=Math.min(Utilizer.MAP_ROWS-aoe,to.getRowPos()+aoe);
+        startCol=Math.max(0,to.getColPos()-aoe);
+        endCol=Math.min(Utilizer.MAP_COLS-aoe,to.getColPos()+aoe);
         for (int i = startRow; i <= endRow; i++) {
             for (int j = startCol; j <= endCol; j++)
-                if (Utilizer.MOVEMAP[i][j] == 0) {
-                    path.add(new Cell(i, j));
-                }
+                   path.add(new Cell(i, j));
         }
+
+        dmgCell = path;
     }
 
     //draw skill animation sprite
@@ -46,10 +49,16 @@ public class AOESkill extends Skill {
     public void drawSkill(Graphics g,Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
         if (status == SkillStatus.after) {
+            if(all == false){
             for (Iterator i = path.iterator(); i.hasNext(); ) {
                 Cell temp = (Cell) i.next();
 
                 g.drawImage(getCurrentSprite(),temp.getColPos() * Utilizer.TILE_SIZE - scrollX, temp.getRowPos() * Utilizer.TILE_SIZE - scrollY, panel);
+            }
+            }else{
+                int col = panel.getSelectedCell().getColPos()-aoe;
+                int row = panel.getSelectedCell().getRowPos()-aoe;
+                g.drawImage(getCurrentSprite(), col * Utilizer.TILE_SIZE - scrollX, row * Utilizer.TILE_SIZE - scrollY,panel);
             }
         }
     }
@@ -84,7 +93,7 @@ public class AOESkill extends Skill {
         if(remaining == 0)
             return rangeCell;
 
-        if(Utilizer.MOVEMAP[x][y] == 0)
+        //if(Utilizer.MOVEMAP[x][y] == 0)
             rangeCell.add(new Cell(x,y));
 
         if(y+1 < 40)

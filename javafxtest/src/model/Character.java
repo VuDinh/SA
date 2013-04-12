@@ -14,17 +14,17 @@ import java.awt.image.BufferedImage;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Character {
-    protected int HP,maxHP,maxAP,row,col,x,y,distanceX,distanceY;
+    protected int HP,maxHP,maxAP,row,col,x,y,distanceX,distanceY,Attk;
     protected double AP;
     protected int dirX,dirY,currentSprite,currentMove;
     protected GameMap panel;
     protected boolean isChosen;
     protected int imageIndex;
-    protected String name;
+    protected String name, description;
     protected  Character() {
     }
 
-    protected Character(int HP, int maxHP, int AP, int maxAP, int row, int col,int imageIndex,String name) {
+    protected Character(int HP, int maxHP, int AP, int maxAP,int Attk, int row, int col,int imageIndex,String name, String description) {
         this.HP = HP;
         this.maxHP = maxHP;
         this.AP = AP;
@@ -39,6 +39,20 @@ public abstract class Character {
         currentSprite = 0;
         this.name=name;
         this.imageIndex=imageIndex;
+        this.Attk = Attk;
+        this.description = description;
+    }
+
+    public void setAttk(int attk) {
+        Attk = attk;
+    }
+
+    public int getAttk() {
+        return Attk;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setImageIndex(int imageIndex) {

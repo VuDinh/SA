@@ -80,6 +80,7 @@ public class Client implements Runnable {
         ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
         ChatListener chatListener = new ChatListener(com, inGame, me);
         LoginListener loginListener = new LoginListener(com, login);
+        ControlListener controlListener = new ControlListener(inGame.getGameMap());
 
 
         BtnPlayListener btnPlayListener=new BtnPlayListener(heroChoosingGUI, inGame);
@@ -90,6 +91,7 @@ public class Client implements Runnable {
         inGame.getGameMap().addKeyListener(scrollListener);
         inGame.getGameMap().addMouseListener(mapListener);
         inGame.getGameMap().addMouseMotionListener(mapListener);
+        inGame.getControlPanel().addMouseListener(controlListener);
         //sending quitting status to the server when closing
         login.addWindowListener(new WindowAdapter() {
             @Override

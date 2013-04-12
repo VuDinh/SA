@@ -17,13 +17,13 @@ public class MonsterFactory {
     public Monster createMonster(int type){
         Monster monster=null;
         if(type==1){
-            monster=new Monster(1000,1000,10,10,5,8, 3,"CERBERUS");
+            monster=new Monster(200,1000,10,10,100,5,8, 7,"CERBERUS","A 3-Head Dog");
         }
         if(type==2){
-            monster=new Monster(200,200,10,10,5,5, 4,"CHIMERA");
+            monster=new Monster(200,200,10,10,150,5,5, 8,"CHIMERA","A mixed between different Animals");
         }
         if(type==3){
-            monster=new Monster(150,150,10,10,5,5, 5,"HARPY");
+            monster=new Monster(150,150,10,10,50,5,5, 9,"HARPY","Half Human Half Bird");
         }
         return monster;
     }
