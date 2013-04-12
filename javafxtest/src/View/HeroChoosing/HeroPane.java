@@ -6,6 +6,7 @@ import View.MainMenu.ChatPane2;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,6 +39,7 @@ public class HeroPane extends BorderPane {
     public HeroPane()
     {
         //set hero description Panel
+         setId("heroPane");
          VBox pnlRight=new VBox();
          setPadding(new Insets(10, 12, 10, 12));
          pnlRight.setPadding(new Insets(12, 10, 12, 10));
@@ -64,6 +66,7 @@ public class HeroPane extends BorderPane {
          pnlCenter.setAlignment(Pos.TOP_CENTER);
          //set hero list panel
          GridPane pnlHeroList=new GridPane();
+         pnlHeroList.setId("heroList");
          //pnlHeroList.setPadding(new Insets(5,100,5,100));
          pnlHeroList.setHgap(4);
          pnlHeroList.setVgap(4);
@@ -74,7 +77,9 @@ public class HeroPane extends BorderPane {
          {
              BufferedImage temp=Utilizer.HEROIMAGEPACK.get(0).getIcon();
              heroes[i]=new ImageView(SwingFXUtils.toFXImage(temp,new WritableImage(temp.getWidth(),temp.getHeight())));
-             pnlHeroList.add(heroes[i], i / 3, i % 3);
+             Button button=new Button();
+             button.setGraphic(heroes[i]);
+             pnlHeroList.add(button, i / 3, i % 3);
          }
          //set skill Panel
          FlowPane pnlSkill =new FlowPane();
