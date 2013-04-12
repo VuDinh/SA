@@ -28,6 +28,7 @@ import java.util.Iterator;
 public class MapListener implements MouseListener,MouseMotionListener {
     GameMap panel;
     Point pressed;
+
     public MapListener(GameMap panel)
     {
         this.panel=panel;
@@ -69,6 +70,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1)))
         {
             HeroAnimation.move(panel.getHero(),panel);
+            if(( panel.getHero().getCurrentSkill())!=null){
+                if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();  }
         }
         //cast AOE skill
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
@@ -77,14 +80,18 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0
                 && panel.getHero().getCurrentSkill()!=null
                 && Utilizer.inRange(selectCell, panel.getHero().getCurrentSkill().getRangeCell())){
+            Cell c = new Cell(panel.getMonster().getCol(),panel.getMonster().getRow());
             HeroAnimation.attack(panel.getHero(),panel);
+            if(panel.getHero().getCurrentSkill() instanceof NormalSkill) panel.getHero().getCurrentSkill().getDmgCell().clear();
+            panel.getHero().getCurrentSkill().getDmgCell().add(selectCell);
             if(Utilizer.inRange(new Cell(panel.getMonster().getCol(),panel.getMonster().getRow()),
-                    panel.getHero().getCurrentSkill().getPath())){
-                panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage());
-            }
+                    panel.getHero().getCurrentSkill().getDmgCell()) ){
+                panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage(panel.getHero()));
+                panel.setDamage(panel.getHero().getCurrentSkill().getDamage(panel.getHero()));
+            }else panel.setDamage(0);
         }
 
-        //cast cleave skill
+        /*//cast cleave skill
         else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
@@ -96,10 +103,10 @@ public class MapListener implements MouseListener,MouseMotionListener {
                     panel.getHero().getCurrentSkill().getPath())){
                 panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage());
             }
-        }
+        }*/
 
         //cast normal skill
-        else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
+       /* else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
                 && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
                 && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0
@@ -109,11 +116,12 @@ public class MapListener implements MouseListener,MouseMotionListener {
             if(selectCell.equals(c)){
                 panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage());
             }
-        }
-        System.out.println(panel.getHero().getStatus());
+        }*/
+        //System.out.println(panel.getHero().getStatus());
         panel.repaint();
 
     }
+
 
     @Override
     public void mousePressed(MouseEvent e) {

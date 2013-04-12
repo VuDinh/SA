@@ -24,7 +24,7 @@ public class Game extends JFrame {
     public Game(Account me){
         this.me=me;
         HeroFactory hF = new HeroFactory();
-        Hero hero = hF.createHero(1);
+        Hero hero = hF.createHero(7);
         MonsterFactory mF = new MonsterFactory();
         Monster monster = mF.createMonster(1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

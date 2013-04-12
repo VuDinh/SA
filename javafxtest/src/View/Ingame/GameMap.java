@@ -31,11 +31,20 @@ public class GameMap extends JPanel {
     String status = "normal";
     Cell selectedCell , rangeCell;
     int startX, startY, maxX, maxY, scrollX, scrollY;
+    int damage = 0;
     Hero hero;
     Monster monster;
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     public GameMap(Hero hero, Monster monster) {
-        Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
+//Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
         //set the start viewing position
         scrollX = 0;
         scrollY = 0;
@@ -69,6 +78,20 @@ public class GameMap extends JPanel {
         paintSelected(g);
         paintMonster(g);
         paintHero(g);
+        paintDamage(g);
+    }
+
+    public void paintDamage(Graphics g){
+        if(selectedCell != null){
+        int x = selectedCell.getColPos()*Utilizer.TILE_SIZE+10-this.getScrollX();
+        int y = selectedCell.getRowPos()*Utilizer.TILE_SIZE+20-this.getScrollY();
+        g.setFont(Utilizer.FONT2);
+        g.setColor(Color.white);
+        String s = new String("");
+        if(damage!=0)s= damage+"";
+        else s = "";
+        g.drawString(s,x,y);
+        }
     }
 
     public void paintMap(Graphics g) {

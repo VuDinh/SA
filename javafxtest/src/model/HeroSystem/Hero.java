@@ -29,8 +29,8 @@ public class Hero extends Character implements Serializable {
     int currentSkill;
     HeroStatus status;
     private static ArrayList<Cell> range = new ArrayList<Cell>();
-    protected Hero(int HP, int maxHP, int AP, int maxAP, int row, int col, int imageIndex ,String name) {
-        super(HP, maxHP, AP, maxAP, row, col, imageIndex ,name);
+    protected Hero(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col, int imageIndex ,String name, String description) {
+        super(HP, maxHP, AP, maxAP, Attk, row, col, imageIndex ,name, description);
         skills=new ArrayList<Skill>();
         inventory=new ArrayList<Item>();
         skillCount = 0;

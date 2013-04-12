@@ -215,7 +215,11 @@
       <file leaf-file-name="ClientThread.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="130" column="28" selection-start="4974" selection-end="4974" vertical-scroll-proportion="0.7430168">
+=======
+            <state line="118" column="28" selection-start="4507" selection-end="4507" vertical-scroll-proportion="0.31564245">
+>>>>>>> 04f27608e9293c411e9a3bcf9d7bc96813ddf370
               <folding />
             </state>
           </provider>
@@ -1019,7 +1023,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="130" column="28" selection-start="4974" selection-end="4974" vertical-scroll-proportion="0.7430168">
+=======
+        <state line="118" column="28" selection-start="4507" selection-end="4507" vertical-scroll-proportion="0.31564245">
+>>>>>>> 04f27608e9293c411e9a3bcf9d7bc96813ddf370
           <folding />
         </state>
       </provider>

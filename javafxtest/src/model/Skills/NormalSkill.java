@@ -17,9 +17,9 @@ import java.util.Iterator;
  * To change this template use File | Settings | File Templates.
  */
 public class NormalSkill extends Skill {
-    public NormalSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage
+    public NormalSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier
             , String SE, int AP) {
-        super(range, name, stun, slow, imageIndex, ID, damage, SE, AP);
+        super(range, name, stun, slow, imageIndex, ID, multiplier, SE, AP);
     }
 
     //calculate range of normal skill
@@ -34,6 +34,7 @@ public class NormalSkill extends Skill {
         if (to.getCol() > 0)
             if (Utilizer.MOVEMAP[to.getRow()][to.getCol() - 1] == 0) path.add(new Cell(to.getRow(), to.getCol() - 1));
 
+        rangeCell = path;
     }
 
     //draw skill animation sprite

@@ -107,12 +107,17 @@ public class ClientThread extends Thread {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+
+                            /*//To change body of implemented methods use File | Settings | File Templates.
+
                             Stage stage=new Stage();
                             try {
                                 mainMenuGUI.start(stage);
                             } catch (Exception e) {
                                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                            }
+                            }*/
+                            login.setVisible(false);
+                            game.setVisible(true);
                         }
                     });
                     me.setUsername(temp.getUsername());

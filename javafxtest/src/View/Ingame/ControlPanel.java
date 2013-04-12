@@ -42,6 +42,8 @@ public class ControlPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g){
             //g.drawImage(Utilizer.IMG_CHAT_BACK,0,0, this);
+
+            g.setFont(Utilizer.FONT);
             g.fillRect(0,0,getWidth(),getHeight());
 
             g.drawImage(Utilizer.IMG_MINI_MAP, 10, 10, this);
@@ -52,7 +54,7 @@ public class ControlPanel extends JPanel {
             g.drawImage(hero.getSkill(1).getIcon(), 520, 65, this);
             g.drawImage(hero.getSkill(2).getIcon(), 635, 65, this);
             g.setColor(Color.WHITE);
-            g.drawString(hero.getSkill(0).getDamage()+"",320, 75);
+            g.drawString(hero.getAttk()+"",320, 75);
             g.drawString(hero.getMaxHP()+"",295, 140);
             g.drawString(hero.getMaxAP()+"",340, 140);
             g.drawString(hero.getName(), 195, 30);
@@ -69,6 +71,7 @@ public class ControlPanel extends JPanel {
         double no2 = hero.getMaxAP();
         double realWidth = (double)width * (no1/no2);
 
+        g.setFont(Utilizer.FONT);
         g.drawImage(Utilizer.IMG_BAR,290,2,420,21,this);
         g.drawImage(Utilizer.IMG_BAR,290,24,420,21,this);
 

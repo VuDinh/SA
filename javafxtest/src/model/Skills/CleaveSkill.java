@@ -18,9 +18,9 @@ import java.util.Iterator;
  */
 public class CleaveSkill extends Skill {
 
-    public CleaveSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, int damage
+    public CleaveSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier
             , String SE, int AP) {
-        super(range, name, stun, slow, imageIndex, ID, damage, SE, AP);
+        super(range, name, stun, slow, imageIndex, ID, multiplier, SE, AP);
     }
 /*
     public void calculatePath(Hero to) {
@@ -80,7 +80,8 @@ public class CleaveSkill extends Skill {
         }
         if(!path.isEmpty())
             path.remove(0);
-
+        rangeCell = path;
+        dmgCell = path;
     }
 
     //draw skill animation sprite

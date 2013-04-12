@@ -34,6 +34,7 @@ public class SkillThread extends Thread {
         }
         hero.getCurrentSkill().setStatus(SkillStatus.none);
         hero.setStatus(HeroStatus.standing);
+        panel.setDamage(0);
         panel.repaint();
     }
 }
