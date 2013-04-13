@@ -18,22 +18,23 @@ public class HeroChoosingGUI extends Application {
     HeroChoosingHeader header;
     Stage stage;
     AlliedHeroPane alliedHeroPane;
+    HeroPane heroPane;
     public static void main(String[] args)
     {
         launch(args);
     }
     public void init(){
         header = new HeroChoosingHeader();
+        heroPane = new HeroPane();
+        alliedHeroPane=new AlliedHeroPane();
     }
     @Override
     public void start(Stage stage) throws Exception {
        this.stage = stage;
        stage.setTitle("Choosing Hero");
        BorderPane pnlMain=new BorderPane();
-       //header= new HeroChoosingHeader();
        pnlMain.setTop(header);
-       pnlMain.setCenter(new HeroPane());
-       alliedHeroPane=new AlliedHeroPane();
+       pnlMain.setCenter(heroPane);
        pnlMain.setLeft(alliedHeroPane);
        Scene scene=new Scene(pnlMain,960,600);
        stage.setResizable(false);
