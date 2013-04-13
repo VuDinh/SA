@@ -33,7 +33,7 @@ public class MonsterStandThread extends  Thread {
             }
         }
         if(monster.getHP()<=0){
-            monster.setImageIndex(10);
+            monster.setImageIndex(11);
         }
     }
 }
