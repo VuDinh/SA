@@ -25,7 +25,6 @@ public class ChatHandler implements Runnable {
 
     public void add(Communicator com) {
         coms.add(com);
-        System.out.println("added");
     }
 
     public ArrayList<Communicator> getComs() {
@@ -38,8 +37,6 @@ public class ChatHandler implements Runnable {
 
     @Override
     public void run() {
-
-            System.out.println(coms.size());
             for (Iterator i = coms.iterator(); i.hasNext(); ) {
                 Communicator tempCom = (Communicator) i.next();
                 new ChatThread(tempCom,this).start();

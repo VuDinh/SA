@@ -1,11 +1,13 @@
 package View.HeroChoosing;
 
+import Controllers.listeners.HeroChoosingFactory;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.Facade.Facade;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,14 +21,18 @@ public class HeroChoosingGUI extends Application {
     Stage stage;
     AlliedHeroPane alliedHeroPane;
     HeroPane heroPane;
+    Facade facade;
     public static void main(String[] args)
     {
         launch(args);
     }
     public void init(){
         header = new HeroChoosingHeader();
-        heroPane = new HeroPane();
+        heroPane = new HeroPane(facade);
         alliedHeroPane=new AlliedHeroPane();
+    }
+    public void setFacade(Facade facade){
+        this.facade=facade;
     }
     @Override
     public void start(Stage stage) throws Exception {
@@ -45,7 +51,16 @@ public class HeroChoosingGUI extends Application {
     public Stage getStage(){
         return stage;
     }
-    public void addBtnPlayListener(EventHandler<ActionEvent> e){
-        header.addBtnPlayListener(e);
+    public void setCountDownTime(int t){
+        header.setCountdownTime(t);
+    }
+    public void addHeroChoosingListener(HeroChoosingFactory factory){
+        heroPane.addHeroChoosingListener(factory);
+    }
+    public void addHeroHoveringListener(HeroChoosingFactory heroChoosingFactory){
+       heroPane.addHeroHoveringListener(heroChoosingFactory);
+    }
+    public void setHoveredHero(int index){
+        heroPane.setHoveredHero(index);
     }
 }

@@ -112,7 +112,6 @@ public class Client extends JFrame implements Runnable {
             } else if (obj instanceof AccountList) {
                 AccountList temp = (AccountList) obj;
                 ArrayList<Account> list = temp.getList();
-                System.out.println(list.size());
                 for (Iterator i = list.iterator(); i.hasNext(); ) {
                     Account account = (Account) i.next();
                     receiver.addItem(account);

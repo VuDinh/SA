@@ -9,12 +9,12 @@ import java.io.Serializable;
  * Time: 11:17 PM
  * To change this template use File | Settings | File Templates.
  */
-public class MatchRequest implements Serializable {
+public class MatchMakingRequest implements Serializable {
     int playerNum;
-    public MatchRequest(){
+    public MatchMakingRequest(){
         playerNum=0;
     }
-    public MatchRequest(int playerNum){
+    public MatchMakingRequest(int playerNum){
         this.playerNum=playerNum;
     }
     public int getPlayerNum(){

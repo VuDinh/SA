@@ -19,7 +19,6 @@ import javafx.scene.text.Text;
  * To change this template use File | Settings | File Templates.
  */
 public class HeroChoosingHeader extends HBox {
-    Button btnPlay;
     Text lblCountdown;
     public HeroChoosingHeader()
     {
@@ -28,12 +27,10 @@ public class HeroChoosingHeader extends HBox {
           setSpacing(10);
           setAlignment(Pos.CENTER);
           lblCountdown=new Text("0:30");
-          btnPlay=new Button("Play");
           lblCountdown.setFont(Font.font("Arial", FontWeight.BOLD,20));
-          btnPlay.setPrefSize(100,20);
-          getChildren().addAll(lblCountdown,btnPlay);
+          getChildren().addAll(lblCountdown);
     }
-    public void addBtnPlayListener(EventHandler<ActionEvent> e){
-        btnPlay.setOnAction(e);
+    public void setCountdownTime(int t){
+        lblCountdown.setText("0:"+t);
     }
 }

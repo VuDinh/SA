@@ -76,6 +76,7 @@ public class Utilizer {
     public static final String FACE5 = "Images/Hero/face5.png";
     public static final String FACE6 = "Images/Hero/face6.png";
     public static final String FACE7 = "Images/Hero/face7.png";
+    public static final String FACE8 = "Images/Hero/Unknown.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
 
     public static final String AVATAR1 = "Images/Hero/avatar1.png";
@@ -131,6 +132,7 @@ public class Utilizer {
     public static BufferedImage IMG_FACE5 = null;
     public static BufferedImage IMG_FACE6 = null;
     public static BufferedImage IMG_FACE7 = null;
+    public static BufferedImage IMG_FACE8 = null;
     public static BufferedImage IMG_MINI_MAP = null;
     public static BufferedImage IMG_AVATAR1 = null;
     public static BufferedImage IMG_AVATAR2 = null;
@@ -244,6 +246,7 @@ public class Utilizer {
             IMG_FACE5 = ImageIO.read(new File(FACE5));
             IMG_FACE6 = ImageIO.read(new File(FACE6));
             IMG_FACE7 = ImageIO.read(new File(FACE7));
+            IMG_FACE8 = ImageIO.read(new File(FACE8));
             IMG_MINI_MAP = ImageIO.read(new File(MINI_MAP));
             IMG_SKILL1 = ImageIO.read(new File(SKILL1));
             IMG_SKILL2 = ImageIO.read(new File(SKILL2));
@@ -505,6 +508,7 @@ public class Utilizer {
         HEROIMAGEPACK.add(new HeroImage(hero5Array,IMG_AVATAR5,IMG_FACE5));
         HEROIMAGEPACK.add(new HeroImage(hero6Array,IMG_AVATAR6,IMG_FACE6));
         HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE7));
+        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE8));
         HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null));
         HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null));
         HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null));
@@ -515,7 +519,7 @@ public class Utilizer {
         SkillImage[] skills = new SkillImage[7];
         for(int i=0; i<7; i++){
             skills[i]= new SkillImage();
-            skills[i].addIcon(null);
+            skills[i].addIcon(IMG_SKILL_ICON_FIRE);
             skills[i].addIcon(IMG_SKILL_ICON_FIRE);
             skills[i].addIcon(IMG_SKILL_ICON_THUNDER);
             skills[i].addIcon(IMG_SKILL_ICON_WIND);

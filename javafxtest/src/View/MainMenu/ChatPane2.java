@@ -21,6 +21,15 @@ import model.MessageSystem.MessageStatus;
 public class ChatPane2 extends BorderPane {
     TextArea taDialog;
     TextField txtChat;
+
+    public TextArea getTaDialog() {
+        return taDialog;
+    }
+
+    public TextField getTxtChat() {
+        return txtChat;
+    }
+
     public ChatPane2()
     {
         setId("chatBorder");
