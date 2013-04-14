@@ -1,7 +1,8 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
-import Controllers.Requests.MatchRequest;
+import Controllers.Requests.HeroChoosingRequest;
+import Controllers.Requests.MatchMakingRequest;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,7 +45,7 @@ public class Game {
 
     }
     public void announceMatchRequest(){
-        MatchRequest m=new MatchRequest(counter);
+        MatchMakingRequest m=new MatchMakingRequest(counter);
         for(Iterator it=team1.iterator();it.hasNext();){
             Communicator com=(Communicator)it.next();
             com.write(m);
@@ -56,7 +57,15 @@ public class Game {
     }
     public void announcePlayingMatchRequest(){
         //setHero Position for each hero in the com
-
+        HeroChoosingRequest m=new HeroChoosingRequest();
+        for(Iterator it=team1.iterator();it.hasNext();){
+            Communicator com=(Communicator)it.next();
+            com.write(m);
+        }
+        for(Iterator it=team2.iterator();it.hasNext();){
+            Communicator com=(Communicator)it.next();
+            com.write(m);
+        }
         //set
     }
     public boolean isFull(){

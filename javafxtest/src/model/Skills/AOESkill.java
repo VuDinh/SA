@@ -22,8 +22,8 @@ public class AOESkill extends Skill {
     boolean all;
 
     public AOESkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier,
-                    String SE, int AP, int aoe, boolean  all) {
-        super(range,name,stun,slow,imageIndex,ID,multiplier,SE,AP);
+                    String SE, int AP,String description, int aoe, boolean  all) {
+        super(range,name,stun,slow,imageIndex,ID,multiplier,SE,AP,description);
         this.aoe = aoe;
         this.all = all;
     }

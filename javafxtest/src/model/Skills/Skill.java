@@ -24,7 +24,7 @@ public abstract class Skill {
     protected ArrayList<Cell> path;
     protected SkillStatus status;
     protected int imageIndex;
-    protected String SE;
+    protected String SE, description;
     protected int AP;
     protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
     protected ArrayList<Cell>dmgCell = new ArrayList<Cell>();
@@ -32,7 +32,7 @@ public abstract class Skill {
     protected int imgHeroIndex;
     public Skill() {
     }
-    protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier, String SE, int AP) {
+    protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier, String SE, int AP, String description) {
         this.range = range;
         this.name = name;
         isStun = stun;
@@ -45,6 +45,11 @@ public abstract class Skill {
         this.imageIndex = imageIndex;
         this.SE = SE;
         this.AP = AP;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public int getDamage(Hero hero){
@@ -91,9 +96,12 @@ public abstract class Skill {
     }
 
     public BufferedImage getIcon() {
+        System.out.println(Utilizer.SKILLIMAGEPACK.get(imgHeroIndex));
         return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getIcon(imageIndex);
     }
-
+    public int getSkillIndex(){
+        return imageIndex;
+    }
     public boolean isStun() {
         return isStun;
     }

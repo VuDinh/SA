@@ -18,8 +18,8 @@ import java.util.Iterator;
  */
 public class NormalSkill extends Skill {
     public NormalSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier
-            , String SE, int AP) {
-        super(range, name, stun, slow, imageIndex, ID, multiplier, SE, AP);
+            , String SE, int AP, String description) {
+        super(range, name, stun, slow, imageIndex, ID, multiplier, SE, AP, description);
     }
 
     //calculate range of normal skill

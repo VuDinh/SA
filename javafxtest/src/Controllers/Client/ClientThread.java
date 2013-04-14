@@ -1,20 +1,19 @@
 package Controllers.Client;
 
 import Controllers.Communicator;
-import Controllers.Requests.MatchRequest;
+import Controllers.Requests.HeroChoosingRequest;
+import Controllers.Requests.MatchMakingRequest;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
 import View.Login.LoginFrame;
 import View.MainMenu.MainMenuGUI;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import model.AccountSystem.Account;
 import model.MessageSystem.Message;
 import model.AccountSystem.Status;
 
-import javax.swing.*;
 import java.util.Iterator;
 import java.util.List;
 
@@ -107,28 +106,37 @@ public class ClientThread extends Thread {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-
-                            /*//To change body of implemented methods use File | Settings | File Templates.
-
-                            Stage stage=new Stage();
-                            try {
-                                mainMenuGUI.start(stage);
-                            } catch (Exception e) {
-                                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                            }*/
                             login.setVisible(false);
-                            game.setVisible(true);
+                            Stage stage=new Stage();
+                            mainMenuGUI.start(stage);
                         }
                     });
                     me.setUsername(temp.getUsername());
                 }
             }
-            else if(o instanceof MatchRequest){
-                final MatchRequest mR=(MatchRequest) o;
+            else if(o instanceof MatchMakingRequest){
+                final MatchMakingRequest mR=(MatchMakingRequest) o;
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
                         mainMenuGUI.setPlayerNumStatus(mR.getPlayerNum());
+                    }
+                });
+
+            }
+            else if(o instanceof HeroChoosingRequest){
+                final HeroChoosingRequest m=(HeroChoosingRequest)o;
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        //To change body of implemented methods use File | Settings | File Templates.
+                        mainMenuGUI.getStage().close();
+                        Stage stage=new Stage();
+                        try {
+                            heroChoosingGUI.start(stage);
+                        } catch (Exception e) {
+                            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        }
                     }
                 });
 

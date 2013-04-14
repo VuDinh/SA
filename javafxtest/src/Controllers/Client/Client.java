@@ -9,6 +9,7 @@ import View.MainMenu.MainMenuGUI;
 import javafx.application.Platform;
 import model.AccountSystem.Account;
 import View.Ingame.Game;
+import model.Facade.Facade;
 import model.HeroSystem.HeroFactory;
 import model.AccountSystem.Status;
 import org.springframework.context.ApplicationContext;
@@ -37,6 +38,7 @@ public class Client implements Runnable {
     MainMenuGUI mainMenuGUI;
     int port;
     String host;
+    Facade facade;
     private static ApplicationContext ctx;
 
     public void setHost(String host) {
@@ -62,12 +64,9 @@ public class Client implements Runnable {
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
             com = new Communicator(socket, ois, oos);
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
-    }
-    //add all needed listeners to all the frames
-    public void addListeners() {
-        //delete later
+        facade=new Facade();
         Account acc = new Account("long", "123", 1);
         HeroFactory hf = new HeroFactory();
         acc.setHero(hf.createHero(1));
@@ -75,26 +74,29 @@ public class Client implements Runnable {
         //initialize GUI
         inGame = new Game(me);
         login = new LoginFrame(me);
-
-
+        mainMenuGUI=new MainMenuGUI();
+        mainMenuGUI.init();
+        heroChoosingGUI = new HeroChoosingGUI();
+        heroChoosingGUI.setFacade(facade);
+        heroChoosingGUI.init();
+    }
+    //add all needed listeners to all the frames
+    public void addListeners() {
+        //delete later
         MapListener mapListener = new MapListener(inGame.getGameMap());
         ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
         ChatListener chatListener = new ChatListener(com, inGame, me);
         LoginListener loginListener = new LoginListener(com, login);
         ControlListener controlListener = new ControlListener(inGame.getGameMap());
 
-        mainMenuGUI=new MainMenuGUI();
-        mainMenuGUI.init();
-        System.out.println("asdf");
         mainMenuGUI.addChatListener(new BroadcastChatListener(mainMenuGUI,com));
         mainMenuGUI.addFindMatchListener(new FindingMatchListener(mainMenuGUI,com));
 
-        heroChoosingGUI = new HeroChoosingGUI();
-        heroChoosingGUI.init();
-        BtnPlayListener btnPlayListener=new BtnPlayListener(heroChoosingGUI, inGame);
-        heroChoosingGUI.addBtnPlayListener(btnPlayListener);
-
+        HeroChoosingFactory heroChoosingFactory=new HeroChoosingFactory(heroChoosingGUI,com);
+        heroChoosingGUI.addHeroChoosingListener(heroChoosingFactory);
+        heroChoosingGUI.addHeroHoveringListener(heroChoosingFactory);
         login.addLoginListener(loginListener);
+
         inGame.getChatPanel().addChatListener(chatListener);
         inGame.getGameMap().addKeyListener(scrollListener);
         inGame.getGameMap().addMouseListener(mapListener);
@@ -104,8 +106,6 @@ public class Client implements Runnable {
         login.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
-                //To change body of implemented methods use File | Settings | File Templates.
-
                 com.close();
                 login.dispose();
                 System.exit(0);
@@ -115,7 +115,6 @@ public class Client implements Runnable {
         inGame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                //To change body of implemented methods use File | Settings | File Templates.
                 com.write(Status.quit);
                 com.close();
                 inGame.dispose();

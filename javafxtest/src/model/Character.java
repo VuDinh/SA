@@ -74,6 +74,9 @@ public abstract class Character {
     public BufferedImage getCurrentSprite() {
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getSprite()[currentSprite];
     }
+    public BufferedImage getIcon(){
+        return Utilizer.HEROIMAGEPACK.get(imageIndex).getIcon();
+    }
 
     public void setCurrentSprite(int currentSprite) {
         this.currentSprite = currentSprite;

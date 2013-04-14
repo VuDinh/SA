@@ -93,6 +93,7 @@ public class Utilizer {
     public static final String BAR = "Images/Animation/bar.png";
     public static final String CHAT_BACK = "Images/Animation/chatBack.png";
 
+    public static final String SKILL_ICON_DEFAULT = "Images/Skills/Icons/default icon.png";
     public static final String SKILL_ICON_FIRE = "Images/Skills/Icons/fire icon.png";
     public static final String SKILL_ICON_THUNDER = "Images/Skills/Icons/thunder icon.png";
     public static final String SKILL_ICON_WIND = "Images/Skills/Icons/wind icon.png";
@@ -146,6 +147,7 @@ public class Utilizer {
     public static BufferedImage IMG_TURN = null;
     public static BufferedImage IMG_BAR = null;
     public static BufferedImage IMG_CHAT_BACK = null;
+    public static BufferedImage IMG_SKILL_ICON_DEFAULT = null;
     public static BufferedImage IMG_SKILL_ICON_FIRE = null;
     public static BufferedImage IMG_SKILL_ICON_THUNDER = null;
     public static BufferedImage IMG_SKILL_ICON_WIND = null;
@@ -234,7 +236,7 @@ public class Utilizer {
             IMG_AVATAR2 = ImageIO.read(new File(AVATAR2));
             IMG_AVATAR3 = ImageIO.read(new File(AVATAR3));
             IMG_AVATAR4 = ImageIO.read(new File(AVATAR4));
-            IMG_AVATAR5 = ImageIO.read(new File(AVATAR3));
+            IMG_AVATAR5 = ImageIO.read(new File(AVATAR5));
             IMG_AVATAR6 = ImageIO.read(new File(AVATAR6));
             IMG_AVATAR7 = ImageIO.read(new File(AVATAR7));
             IMG_CONTROL1 = ImageIO.read(new File(CONTROL1));
@@ -253,6 +255,7 @@ public class Utilizer {
             IMG_TURN = ImageIO.read(new File(TURN));
             IMG_BAR = ImageIO.read(new File(BAR));
             IMG_CHAT_BACK = ImageIO.read(new File(CHAT_BACK));
+            IMG_SKILL_ICON_DEFAULT = ImageIO.read(new File(SKILL_ICON_DEFAULT));
             IMG_SKILL_ICON_FIRE = ImageIO.read(new File(SKILL_ICON_FIRE));
             IMG_SKILL_ICON_THUNDER = ImageIO.read(new File(SKILL_ICON_THUNDER));
             IMG_SKILL_ICON_WIND = ImageIO.read(new File(SKILL_ICON_WIND));
@@ -519,7 +522,7 @@ public class Utilizer {
         SkillImage[] skills = new SkillImage[7];
         for(int i=0; i<7; i++){
             skills[i]= new SkillImage();
-            skills[i].addIcon(null);
+            skills[i].addIcon(IMG_SKILL_ICON_DEFAULT);
             skills[i].addIcon(IMG_SKILL_ICON_FIRE);
             skills[i].addIcon(IMG_SKILL_ICON_THUNDER);
             skills[i].addIcon(IMG_SKILL_ICON_WIND);

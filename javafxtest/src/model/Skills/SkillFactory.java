@@ -19,41 +19,41 @@ public class SkillFactory {
     public AOESkill createAOESkill(int type) {
         AOESkill skill = null;
         if (type == 1) {
-            skill = new AOESkill(3, "Fire", false, false, 1, 1, 1.5, Utilizer.SOUND_FIRE, 3, 1, false);
+            skill = new AOESkill(3, "Fire", false, false, 1, 1, 1.5, Utilizer.SOUND_FIRE, 3,"Cast fire", 1, false);
         } else if (type == 2) {
-            skill = new AOESkill(3, "Thunder", false, false, 2, 2, 1.5, Utilizer.SOUND_THUNDER, 3, 1, false);
+            skill = new AOESkill(3, "Thunder", false, false, 2, 2, 1.5, Utilizer.SOUND_THUNDER, 3, "Cast thunder",1, false);
         } else if (type == 3) {
-            skill = new AOESkill(3, "Wind", false, false, 3, 3, 1.5, Utilizer.SOUND_WIND, 3, 1, false);
+            skill = new AOESkill(3, "Wind", false, false, 3, 3, 1.5, Utilizer.SOUND_WIND, 3, "Cast wind",1, false);
         }else if (type == 4) {
-            skill = new AOESkill(3, "Earth", false, false, 4, 4, 1.5, Utilizer.SOUND_EARTH, 3, 1, false);
+            skill = new AOESkill(3, "Earth", false, false, 4, 4, 1.5, Utilizer.SOUND_EARTH, 3,"Cast earth", 1, false);
         }else if (type == 5) {
-            skill = new AOESkill(3, "Ice", false, false, 5, 5, 1.5, Utilizer.SOUND_ICE, 3, 1, false);
+            skill = new AOESkill(3, "Ice", false, false, 5, 5, 1.5, Utilizer.SOUND_ICE, 3, "Cast ice",1, false);
         } else if (type == 6) {
-            skill = new AOESkill(4, "Explosion", false, false, 9, 6, 1.5, Utilizer.SOUND_EXPLODE, 3, 1, true);
+            skill = new AOESkill(4, "Explosion", false, false, 9, 6, 1.5, Utilizer.SOUND_EXPLODE, 3, "Cast explosion",1, true);
         }else if (type == 7) {
-            skill = new AOESkill(4, "Blizzard", false, false, 10, 7, 1.5, Utilizer.SOUND_BLIZZARD, 3, 1, true);
+            skill = new AOESkill(4, "Blizzard", false, false, 10, 7, 1.5, Utilizer.SOUND_BLIZZARD, 3, "Cast blizzard",1, true);
         }else if (type == 8) {
-            skill = new AOESkill(4, "Spark", false, false, 11, 8, 1.5, Utilizer.SOUND_SPARK, 3, 1, false);
+            skill = new AOESkill(4, "Spark", false, false, 11, 8, 1.5, Utilizer.SOUND_SPARK, 3,"Cast spark", 1, false);
         }
         return skill;
     }
     public NormalSkill createNormalSkill(int type){
         NormalSkill skill=null;
         if(type==1){
-            skill=new NormalSkill(4, "Normal Slice", false, false, 0, 1, 1, Utilizer.SOUND_ATTACK, 2);
+            skill=new NormalSkill(4, "Normal Slice", false, false, 0, 1, 1, Utilizer.SOUND_ATTACK, 2,"Attack");
         }
         return skill;
     }
     public CleaveSkill createCleaveSkill(int type){
         CleaveSkill skill=null;
         if(type==1){
-            skill=new CleaveSkill(4, "Thunder Fall", false, false, 2, 9, 1.5, Utilizer.SOUND_THUNDER, 4);
+            skill=new CleaveSkill(4, "Thunder Fall", false, false, 2, 9, 1.5, Utilizer.SOUND_THUNDER, 4,"Cast thunder fall");
         } else if(type==2){
-            skill=new CleaveSkill(3, "Fire Strike", false, false, 6, 10, 1.5, Utilizer.SOUND_FIRESTRIKE, 4);
+            skill=new CleaveSkill(3, "Fire Strike", false, false, 6, 10, 1.5, Utilizer.SOUND_FIRESTRIKE, 4,"Cast fire strike");
         } else if(type==3){
-            skill=new CleaveSkill(3, "Ice Strike", false, false, 7, 11, 1.5, Utilizer.SOUND_ICESTRIKE, 4);
+            skill=new CleaveSkill(3, "Ice Strike", false, false, 7, 11, 1.5, Utilizer.SOUND_ICESTRIKE, 4,"Cast ice strike");
         }else if(type==4){
-            skill=new CleaveSkill(3, "Thunder Strike", false, false, 8, 12, 1.5, Utilizer.SOUND_THUNDERSTRIKE, 4);
+            skill=new CleaveSkill(3, "Thunder Strike", false, false, 8, 12, 1.5, Utilizer.SOUND_THUNDERSTRIKE, 4,"Cast thunder strike");
         }
         return skill;
     }
