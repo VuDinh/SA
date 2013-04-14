@@ -23,7 +23,6 @@ public class MonsterStandThread extends  Thread {
     @Override
     public void run(){
         while(monster.getHP()>0){
-            //System.out.println(monster.getHP());
             monster.nextSprite();
             panel.repaint();
             try {

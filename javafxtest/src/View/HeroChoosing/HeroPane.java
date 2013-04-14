@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
+import model.Skills.Skill;
 
 import java.awt.image.BufferedImage;
 
@@ -35,13 +36,16 @@ public class HeroPane extends BorderPane {
     Text descText;
     ChatPane2 chatPane;
     ImageView[] skills;
+    Button[] skillButtons;
     Button[] heroButtons;
     Facade facade;
+    int heroIndex;
 
     public HeroPane(Facade facade) {
         this.facade = facade;
         //set hero description Panel
         setId("heroPane");
+        heroIndex = 0;
         VBox pnlRight = new VBox();
         setPadding(new Insets(10, 12, 10, 12));
         pnlRight.setPadding(new Insets(12, 10, 12, 10));
@@ -99,10 +103,13 @@ public class HeroPane extends BorderPane {
         pnlSkill.setVgap(10);
         pnlSkill.setAlignment(Pos.CENTER);
         skills = new ImageView[3];
+        skillButtons = new Button[3];
         for (int i = 0; i < 3; i++) {
             BufferedImage temp = facade.getLibraryHero(0).getSkill(i).getIcon();
             skills[i] = new ImageView(SwingFXUtils.toFXImage(temp, new WritableImage(temp.getWidth(), temp.getHeight())));
-            pnlSkill.getChildren().add(skills[i]);
+            skillButtons[i] = new Button();
+            skillButtons[i].setGraphic(skills[i]);
+            pnlSkill.getChildren().add(skillButtons[i]);
         }
         Text lblHero = new Text("Heroes");
         Text lblSkill = new Text("Skills");
@@ -137,11 +144,14 @@ public class HeroPane extends BorderPane {
         for (int i = 0; i < heroButtons.length; i++) {
             heroButtons[i].setOnMouseEntered(heroChoosingFactory.heroHoveringListener(i));
         }
+        for (int i = 0; i < 3; i++) {
+            skillButtons[i].setOnMouseEntered(heroChoosingFactory.skillHoveringListener(i));
+        }
     }
 
     public void setHoveredHero(int index) {
-        System.out.println(index);
         if (index != facade.getNumberOfHeroes()) {
+            heroIndex = index;
             Hero hero = facade.getLibraryHero(index);
             //set avatar for hero
             BufferedImage buffImgHero = hero.getAvatar();
@@ -152,16 +162,23 @@ public class HeroPane extends BorderPane {
             //set Skill for hero
             for (int i = 0; i < 3; i++) {
                 BufferedImage temp = hero.getSkill(i).getIcon();
-                skills[i].setImage(SwingFXUtils.toFXImage(temp, new WritableImage(temp.getWidth(), temp.getHeight())));
+                skillButtons[i].setGraphic(new ImageView(SwingFXUtils.toFXImage(temp, new WritableImage(temp.getWidth(), temp.getHeight()))));
             }
             //set description for hero
-            String desText="";
-            desText+="Hero:  "+hero.getName() + "\n";
-            desText+="Attack:"+hero.getAttk() + "\n";
-            desText+="HP:    "+hero.getMaxHP() + "\n";
-            desText+="AP:    "+hero.getMaxAP() + "\n"+"\n";
-            desText+=hero.getDescription() + "\n";
+            String desText = "";
+            desText += "Hero:  " + hero.getName() + "\n";
+            desText += "Attack:" + hero.getAttk() + "\n";
+            desText += "HP:    " + hero.getMaxHP() + "\n";
+            desText += "AP:    " + hero.getMaxAP() + "\n" + "\n";
+            desText += hero.getDescription() + "\n";
             taHeroDesc.setText(desText);
+        }
+    }
+
+    public void setHoveredSkill(int index) {
+        if (heroIndex != facade.getNumberOfHeroes()) {
+            String desc = facade.getLibraryHero(heroIndex).getSkill(index).getDescription();
+            taHeroDesc.setText(desc);
         }
     }
 }

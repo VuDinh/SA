@@ -96,7 +96,6 @@ public abstract class Skill {
     }
 
     public BufferedImage getIcon() {
-        System.out.println(Utilizer.SKILLIMAGEPACK.get(imgHeroIndex));
         return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getIcon(imageIndex);
     }
     public int getSkillIndex(){
