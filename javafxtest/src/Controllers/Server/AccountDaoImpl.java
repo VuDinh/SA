@@ -1,13 +1,14 @@
 package Controllers.Server;
 
+import Controllers.Server.Mappers.AccountMapper;
+import Controllers.Server.Mappers.CellMapper;
+import View.Ingame.Cell;
 import model.AccountSystem.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public class AccountDaoImpl implements AccountDao {
 
         try {
             Account t = jdbcTemplate.queryForObject("select * from accounts where username=(?) and password=(?) limit 1"
-                    , new AccountMapper(), account.getUsername(),account.getPassword());
+                    , new AccountMapper(), account.getUsername(), account.getPassword());
             return t;
         } catch (Exception ex) {
             System.out.println("not found!!!");
@@ -50,5 +51,15 @@ public class AccountDaoImpl implements AccountDao {
     public void addAccount(Account account) {
         jdbcTemplate.update("insert into accounts(username,password) values(?,?)"
                 , account.getUsername(), account.getPassword());
+    }
+
+    public Cell getHeroBeginPosition(int index) {
+        try {
+            Cell c = jdbcTemplate.queryForObject("select row,col from heroBeginPosition where id=(?)", new CellMapper()
+                    , index);
+            return c;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

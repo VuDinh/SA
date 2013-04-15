@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
  * To change this template use File | Settings | File Templates.
  */
 public class Cell implements Comparable{
-    BufferedImage back;
+
     int status,x,y,rowPos,colPos;
     Cell previous;
     int minPath;
@@ -21,7 +21,6 @@ public class Cell implements Comparable{
         return previous;
     }
     public Cell(){
-        back=null;
         status=0;
         minPath= Utilizer.MAP_COLS * Utilizer.MAP_ROWS;
         previous=null;
@@ -29,7 +28,6 @@ public class Cell implements Comparable{
     public Cell(int row,int col){
         rowPos=row;
         colPos=col;
-        back=null;
         status=0;
         minPath= Utilizer.MAP_COLS * Utilizer.MAP_ROWS;
         previous=null;
@@ -62,13 +60,6 @@ public class Cell implements Comparable{
 
     public void setColPos(int colPos) {
         this.colPos = colPos;
-    }
-
-    public void setImage(BufferedImage image){
-        back=image;
-    }
-    public BufferedImage getImage(){
-        return back;
     }
     public void setStatus(int status){
         this.status=status;

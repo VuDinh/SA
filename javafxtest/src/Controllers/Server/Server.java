@@ -21,11 +21,9 @@ public class Server  {
     private ServerSocket serverSocket;
     static ApplicationContext ctx;
     private DbUtilities db;
-    private static AccountDao dao;
     public static void main(String[] args){
         ctx= new ClassPathXmlApplicationContext("server-context.xml");
         Server s=ctx.getBean("server",Server.class);
-        dao=ctx.getBean("dao",AccountDaoImpl.class);
         s.run();
     }
     public void setServerSocket(ServerSocket serverSocket) {

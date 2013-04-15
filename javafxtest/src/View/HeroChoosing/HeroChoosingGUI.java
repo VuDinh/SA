@@ -2,12 +2,18 @@ package View.HeroChoosing;
 
 import Controllers.listeners.HeroChoosingFactory;
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Facade.Facade;
+
+import java.awt.image.BufferedImage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,5 +71,11 @@ public class HeroChoosingGUI extends Application {
     }
     public void setHoveredSkill(int index){
         heroPane.setHoveredSkill(index);
+    }
+    public void setAllyUnknown(int index){
+        alliedHeroPane.setAllyUnknown(index);
+    }
+    public void setAllyIcon(int index,BufferedImage img){
+        alliedHeroPane.setAllyIcon(index, img);
     }
 }

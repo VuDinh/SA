@@ -2,7 +2,9 @@ package Controllers.Client;
 
 import Controllers.Communicator;
 import Controllers.Requests.HeroChoosingRequest;
+import Controllers.Requests.HeroPickedRequest;
 import Controllers.Requests.MatchMakingRequest;
+import Controllers.Requests.PlayingGameRequest;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
@@ -11,6 +13,7 @@ import View.MainMenu.MainMenuGUI;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import model.AccountSystem.Account;
+import model.Facade.Facade;
 import model.MessageSystem.Message;
 import model.AccountSystem.Status;
 
@@ -32,8 +35,9 @@ public class ClientThread extends Thread {
     ChatPanel chatPanel;
     HeroChoosingGUI heroChoosingGUI;
     MainMenuGUI mainMenuGUI;
+    Facade facade;
 
-    public ClientThread(Account me, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
+    public ClientThread(Account me,Facade facade, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
         this.me = me;
         this.com = com;
         this.login = login;
@@ -41,6 +45,7 @@ public class ClientThread extends Thread {
         this.heroChoosingGUI = heroChoosingGUI;
         this.mainMenuGUI=mainMenuGUI;
         chatPanel = game.getChatPanel();
+        this.facade=facade;
     }
 
     //add all online accounts to the player list
@@ -123,6 +128,13 @@ public class ClientThread extends Thread {
                     }
                 });
 
+            }
+            else if(o instanceof PlayingGameRequest){
+                game.setVisible(true);
+            }
+            else if(o instanceof HeroPickedRequest){
+                HeroPickedRequest request=(HeroPickedRequest)o;
+                heroChoosingGUI.setAllyIcon(request.getHeroSlot(),facade.getLibraryHero(request.getHeroIndex()).getIcon());
             }
             else if(o instanceof HeroChoosingRequest){
                 final HeroChoosingRequest m=(HeroChoosingRequest)o;
