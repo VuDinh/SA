@@ -92,6 +92,7 @@ public class Game {
         //announce to the others about the other hero picked
         System.out.println("Hero Slot:"+heroSlot + " hero Index:"+heroIndex);
         HeroPickedRequest request = new HeroPickedRequest(heroIndex, heroSlot);
+        request.setPlayerName(com.getAccount().getUsername());
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
             tempCom.write(request);

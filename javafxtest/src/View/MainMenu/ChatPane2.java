@@ -74,4 +74,7 @@ public class ChatPane2 extends BorderPane {
     public void addChatListener(EventHandler<KeyEvent> e){
         txtChat.setOnKeyPressed(e);
     }
+    public void announceSelectedHero(String account,String heroName){
+        taDialog.appendText(account+ " has picked " + heroName + "! \n");
+    }
 }

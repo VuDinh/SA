@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class HeroPickedRequest implements Serializable {
     private int heroIndex,heroSlot;
-
+    private String playerName;
     public HeroPickedRequest(int heroIndex, int heroSlot) {
         this.heroIndex = heroIndex;
         this.heroSlot = heroSlot;
@@ -31,5 +31,13 @@ public class HeroPickedRequest implements Serializable {
 
     public void setHeroSlot(int heroSlot) {
         this.heroSlot = heroSlot;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 }

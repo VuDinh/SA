@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import model.AccountSystem.Account;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.Skills.AOESkill;
@@ -201,5 +202,8 @@ public class HeroPane extends BorderPane {
             }
                     taHeroDesc.setText(desc);
         }
+    }
+    public void announceSelectedHero(String account,String heroName){
+        chatPane.announceSelectedHero(account,heroName);
     }
 }
