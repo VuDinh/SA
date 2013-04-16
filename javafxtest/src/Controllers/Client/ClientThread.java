@@ -1,10 +1,7 @@
 package Controllers.Client;
 
 import Controllers.Communicator;
-import Controllers.Requests.HeroChoosingRequest;
-import Controllers.Requests.HeroPickedRequest;
-import Controllers.Requests.MatchMakingRequest;
-import Controllers.Requests.PlayingGameRequest;
+import Controllers.Requests.*;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
@@ -137,6 +134,10 @@ public class ClientThread extends Thread {
                 heroChoosingGUI.setAllyIcon(request.getHeroSlot(),facade.getLibraryHero(request.getHeroIndex()).getIcon());
                 heroChoosingGUI.announceSelectedHero(request.getPlayerName(),
                         facade.getLibraryHero(request.getHeroIndex()).getName());
+            }
+            else if(o instanceof CountDownRequest){
+                CountDownRequest request=(CountDownRequest) o;
+                heroChoosingGUI.setCountDownTime(request.getCount());
             }
             else if(o instanceof HeroChoosingRequest){
                 final HeroChoosingRequest m=(HeroChoosingRequest)o;
