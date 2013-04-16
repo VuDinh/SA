@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.AccountSystem.Account;
 import model.Facade.Facade;
 
 import java.awt.image.BufferedImage;
@@ -80,5 +81,8 @@ public class HeroChoosingGUI extends Application {
     }
     public void setAllyIcon(int index,BufferedImage img){
         alliedHeroPane.setAllyIcon(index, img);
+    }
+    public void announceSelectedHero(String account,String heroName){
+        heroPane.announceSelectedHero(account,heroName);
     }
 }

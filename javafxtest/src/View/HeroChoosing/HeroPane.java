@@ -16,6 +16,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import model.AccountSystem.Account;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.Skills.Skill;
@@ -180,5 +181,8 @@ public class HeroPane extends BorderPane {
             String desc = facade.getLibraryHero(heroIndex).getSkill(index).getDescription();
             taHeroDesc.setText(desc);
         }
+    }
+    public void announceSelectedHero(String account,String heroName){
+        chatPane.announceSelectedHero(account,heroName);
     }
 }
