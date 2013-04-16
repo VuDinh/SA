@@ -163,11 +163,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroChoosingFactory.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HeroChoosingFactory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="137" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="51" column="137" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.5572917">
+              <folding>
+                <element signature="e#1757#1758#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -217,15 +219,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Facade.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="138" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Utilizer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -235,10 +228,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroFactory.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HeroFactory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/HeroFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="79" selection-start="925" selection-end="925" vertical-scroll-proportion="0.2951389">
+            <state line="28" column="79" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeroChoosingGUI.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="0" selection-start="2039" selection-end="2039" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1046,13 +1048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1997" selection-end="1997" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="176" selection-start="1909" selection-end="1909" vertical-scroll-proportion="0.0">
@@ -1062,7 +1057,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="144" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.0" />
+        <state line="53" column="144" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
@@ -1100,13 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="137" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="182" column="72" selection-start="6935" selection-end="6935" vertical-scroll-proportion="0.0">
@@ -1130,8 +1120,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/HeroFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="79" selection-start="925" selection-end="925" vertical-scroll-proportion="0.2951389">
+        <state line="28" column="79" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="2039" selection-end="2039" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="137" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.5572917">
+          <folding>
+            <element signature="e#1757#1758#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
