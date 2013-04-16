@@ -36,6 +36,6 @@ public class AlliedHeroPane extends GridPane {
     }
     public void setAllyIcon(int index,BufferedImage img){
         Image temp=SwingFXUtils.toFXImage(img,new WritableImage(img.getWidth(),img.getHeight()));
-        images[index]=new ImageView(temp);
+        images[index].setImage(temp);
     }
 }

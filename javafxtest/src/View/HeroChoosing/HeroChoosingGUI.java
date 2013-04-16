@@ -60,6 +60,9 @@ public class HeroChoosingGUI extends Application {
     public void setCountDownTime(int t){
         header.setCountdownTime(t);
     }
+    public Facade getFacade(){
+        return facade;
+    }
     public void addHeroChoosingListener(HeroChoosingFactory factory){
         heroPane.addHeroChoosingListener(factory);
     }

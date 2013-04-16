@@ -138,6 +138,8 @@ public class ClientThread extends Thread {
             }
             else if(o instanceof HeroChoosingRequest){
                 final HeroChoosingRequest m=(HeroChoosingRequest)o;
+                facade.setGameIndex(m.getGameIndex());
+                facade.setHeroSlot(m.getHeroSlot());
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {

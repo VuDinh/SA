@@ -73,21 +73,24 @@ public class Game {
             m.setMatchIndex(gameIndex);
             m.setHeroSlotIndex(count);
             Communicator com = (Communicator) it.next();
-            com.write(m);
             count++;
+            com.write(m);
         }
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             HeroChoosingRequest m = new HeroChoosingRequest();
             m.setMatchIndex(gameIndex);
             m.setHeroSlotIndex(count);
+            count++;
             Communicator com = (Communicator) it.next();
             com.write(m);
         }
+        System.out.println("Count:"+ count);
     }
 
     public void startPlayingGame(Communicator com,int heroSlot, int heroIndex) {
         int count = 0;
         //announce to the others about the other hero picked
+        System.out.println("Hero Slot:"+heroSlot + " hero Index:"+heroIndex);
         HeroPickedRequest request = new HeroPickedRequest(heroIndex, heroSlot);
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();

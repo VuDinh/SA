@@ -14,6 +14,8 @@ import java.util.ArrayList;
  */
 public class Facade {
     HeroLibrary hL;
+    int heroSlot,gameIndex;
+
     public Facade(){
         hL =new HeroLibrary();
     }
@@ -25,5 +27,21 @@ public class Facade {
     }
     public int getNumberOfHeroes(){
         return hL.getNumberOfHeroes();
+    }
+
+    public int getHeroSlot() {
+        return heroSlot;
+    }
+
+    public void setHeroSlot(int heroSlot) {
+        this.heroSlot = heroSlot;
+    }
+
+    public int getGameIndex() {
+        return gameIndex;
+    }
+
+    public void setGameIndex(int gameIndex) {
+        this.gameIndex = gameIndex;
     }
 }

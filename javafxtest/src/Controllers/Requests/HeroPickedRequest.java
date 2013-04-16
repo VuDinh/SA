@@ -1,5 +1,7 @@
 package Controllers.Requests;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -7,7 +9,7 @@ package Controllers.Requests;
  * Time: 10:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HeroPickedRequest {
+public class HeroPickedRequest implements Serializable {
     private int heroIndex,heroSlot;
 
     public HeroPickedRequest(int heroIndex, int heroSlot) {

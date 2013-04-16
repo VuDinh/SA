@@ -128,7 +128,7 @@ public class Client implements Runnable {
     //running client thread
     public void settingUp() {
         login.setVisible(true);
-        ClientThread t = new ClientThread(me, com, login,mainMenuGUI,heroChoosingGUI, inGame);
+        ClientThread t = new ClientThread(me,facade, com, login,mainMenuGUI,heroChoosingGUI, inGame);
         t.start();
     }
     //execute all actions

@@ -38,6 +38,8 @@ public class HeroChoosingFactory {
                 }
                 PlayingGameRequest request=new PlayingGameRequest();
                 request.setHeroIndex(x);
+                request.setHeroSlot(gui.getFacade().getHeroSlot());
+                request.setMatchIndex(gui.getFacade().getGameIndex());
                 com.write(request);
             }
         };
