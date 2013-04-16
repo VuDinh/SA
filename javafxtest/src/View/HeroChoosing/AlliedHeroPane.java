@@ -23,19 +23,27 @@ public class AlliedHeroPane extends GridPane {
     public AlliedHeroPane(){
         Image unknown=SwingFXUtils.toFXImage(Utilizer.IMG_FACE8,new WritableImage(Utilizer.IMG_FACE8.getWidth()
                 ,Utilizer.IMG_FACE8.getHeight()));
+        Image vs     =SwingFXUtils.toFXImage(Utilizer.IMG_VS,new WritableImage(Utilizer.IMG_VS.getWidth()
+                ,Utilizer.IMG_VS.getHeight()));
         imgUnknown=new ImageView(unknown);
         setAlignment(Pos.CENTER);
         images=new ImageView[5];
-        for(int i=0;i<5;i++){
+        for(int i=0;i<2;i++){
+            images[i]=new ImageView(unknown);
+            add(images[i],0,i);
+        }
+        images[2] = new ImageView(vs);
+        add(images[2],0,2);
+        for(int i=3;i<5;i++){
             images[i]=new ImageView(unknown);
             add(images[i],0,i);
         }
     }
-    public void setUnknown(int index){
-        images[index]=imgUnknown;
+    public void setAllyUnknown(int index){
+        images[index].setImage(imgUnknown.getImage());
     }
     public void setAllyIcon(int index,BufferedImage img){
         Image temp=SwingFXUtils.toFXImage(img,new WritableImage(img.getWidth(),img.getHeight()));
-        images[index]=new ImageView(temp);
+        images[index].setImage(temp);
     }
 }

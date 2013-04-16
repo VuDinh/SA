@@ -1,4 +1,4 @@
-package Controllers.Server;
+package Controllers.Server.Mappers;
 
 import model.AccountSystem.Account;
 import org.springframework.jdbc.core.RowMapper;

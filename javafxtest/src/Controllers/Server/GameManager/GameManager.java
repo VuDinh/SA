@@ -1,6 +1,8 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
+import Controllers.Requests.PlayingGameRequest;
+import Controllers.Server.AccountDao;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 public class GameManager {
     ArrayList<Game> games;
     private int gameNum;
+    AccountDao dao;
     public GameManager(){
         games=new ArrayList<Game>();
         gameNum=0;
@@ -21,7 +24,8 @@ public class GameManager {
     public void addPlayer(Communicator com){
         if(gameNum==0){
             gameNum++;
-            Game game=new Game();
+            Game game=new Game(0);
+            game.setDao(dao);
             game.addPlayer(com);
             games.add(game);
         }
@@ -31,12 +35,18 @@ public class GameManager {
                 game.addPlayer(com);
             }
             else{
-                Game newGame=new Game();
+                Game newGame=new Game(gameNum);
                 newGame.addPlayer(com);
                 games.add(newGame);
                 gameNum++;
             }
         }
+    }
+    public void startPlayingGame(Communicator com,PlayingGameRequest request){
+        games.get(request.getMatchIndex()).startPlayingGame(com,request.getHeroSlot(),request.getHeroIndex());
+    }
+    public void setDao(AccountDao dao){
+        this.dao=dao;
     }
     public void sendRequestBack(){
 

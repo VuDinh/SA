@@ -28,6 +28,10 @@ public class AOESkill extends Skill {
         this.all = all;
     }
 
+    public int getAoe() {
+        return aoe;
+    }
+
     //calculate path to a specific location
     public void calculatePath(Cell to) {
         path.clear();

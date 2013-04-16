@@ -1,6 +1,7 @@
 package Controllers.Server;
 
 
+import Controllers.Requests.PlayingGameRequest;
 import model.MessageSystem.Message;
 import model.MessageSystem.MessageStatus;
 import model.AccountSystem.Status;
@@ -27,9 +28,9 @@ public class ChatThread extends Thread {
     //static ApplicationContext ctx=new ClassPathXmlApplicationContext("server-context.xml");;
     public ChatThread(AccountDao dao, Communicator com, GameHandler handler) {
         this.com = com;
+        this.dao = dao;
         this.handler = handler;
         // dao=ctx.getBean("dao",AccountDaoImpl.class);
-        this.dao = dao;
     }
 
     public void setDao(AccountDao dao) {
@@ -77,6 +78,11 @@ public class ChatThread extends Thread {
                 if (mes.getStatus().equals(MessageStatus.all)) sendToAll(mes);
                 if (mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
                 if (mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
+            }
+
+            if(o instanceof PlayingGameRequest){
+                PlayingGameRequest request=(PlayingGameRequest) o;
+                handler.getGameManager().startPlayingGame(com,request);
             }
 
             if (o instanceof Status) {

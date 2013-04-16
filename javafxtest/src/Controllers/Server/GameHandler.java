@@ -23,14 +23,15 @@ public class GameHandler extends Thread {
     public GameHandler() {
         coms = new ArrayList<Communicator>();
         activeAccounts=new ArrayList<Account>();
-        gameManager=new GameManager();
     }
 
     public void add(Communicator com) {
         coms.add(com);
         currentCom = com;
     }
-
+    public void setGameManager(GameManager gameManager){
+        this.gameManager = gameManager;
+    }
     public ArrayList<Communicator> getComs() {
         return coms;
     }

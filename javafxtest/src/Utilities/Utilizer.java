@@ -41,6 +41,13 @@ public class Utilizer {
     public static final String HERO_5 = "Images/Hero/hero05.png";
     public static final String HERO_6 = "Images/Hero/hero06.png";
     public static final String HERO_7 = "Images/Hero/hero07.png";
+    public static final String HERO_CHOOSING1 = "Images/Hero/HeroChoosing/hero1.png";
+    public static final String HERO_CHOOSING2 = "Images/Hero/HeroChoosing/hero2.png";
+    public static final String HERO_CHOOSING3 = "Images/Hero/HeroChoosing/hero3.png";
+    public static final String HERO_CHOOSING4 = "Images/Hero/HeroChoosing/hero4.png";
+    public static final String HERO_CHOOSING5 = "Images/Hero/HeroChoosing/hero5.png";
+    public static final String HERO_CHOOSING6 = "Images/Hero/HeroChoosing/hero6.png";
+    public static final String HERO_CHOOSING7 = "Images/Hero/HeroChoosing/hero7.png";
     public static final String DIE = "Images/Hero/graves.png";
     public static final String MONSTER_1 = "Images/Hero/monster01.png";
     public static final String MONSTER_2 = "Images/Hero/monster02.png";
@@ -78,6 +85,7 @@ public class Utilizer {
     public static final String FACE7 = "Images/Hero/face7.png";
     public static final String FACE8 = "Images/Hero/Unknown.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
+    public static final String VS = "Images/Hero/vs.png";
 
     public static final String AVATAR1 = "Images/Hero/avatar1.png";
     public static final String AVATAR2 = "Images/Hero/avatar2.png";
@@ -159,6 +167,14 @@ public class Utilizer {
     public static BufferedImage IMG_SKILL_ICON_ICESTRIKE = null;
     public static BufferedImage IMG_SKILL_ICON_THUNDERSTRIKE = null;
     public static BufferedImage IMG_SKILL_ICON_SPARK = null;
+    public static BufferedImage IMG_CHOOSING1 = null;
+    public static BufferedImage IMG_CHOOSING2 = null;
+    public static BufferedImage IMG_CHOOSING3 = null;
+    public static BufferedImage IMG_CHOOSING4 = null;
+    public static BufferedImage IMG_CHOOSING5 = null;
+    public static BufferedImage IMG_CHOOSING6 = null;
+    public static BufferedImage IMG_CHOOSING7 = null;
+    public static BufferedImage IMG_VS = null;
 
     public static final String DECS_HERO1 = "A Blade Master who wanders on the Eastern land after his hometown is destroyed. " +
             "Seeking vengeance, he travels throughout the land in order to find the Dark Monster, which put the end for his " +
@@ -314,6 +330,14 @@ public class Utilizer {
             IMG_SKILL_ICON_FIRESTRIKE = ImageIO.read(new File(SKILL_ICON_FIRESTRIKE));
             IMG_SKILL_ICON_ICESTRIKE = ImageIO.read(new File(SKILL_ICON_ICESTRIKE));
             IMG_SKILL_ICON_THUNDERSTRIKE = ImageIO.read(new File(SKILL_ICON_THUNDERSTRIKE));
+            IMG_CHOOSING1 = ImageIO.read(new File(HERO_CHOOSING1));
+            IMG_CHOOSING2 = ImageIO.read(new File(HERO_CHOOSING2));
+            IMG_CHOOSING3 = ImageIO.read(new File(HERO_CHOOSING3));
+            IMG_CHOOSING4 = ImageIO.read(new File(HERO_CHOOSING4));
+            IMG_CHOOSING5 = ImageIO.read(new File(HERO_CHOOSING5));
+            IMG_CHOOSING6 = ImageIO.read(new File(HERO_CHOOSING6));
+            IMG_CHOOSING7 = ImageIO.read(new File(HERO_CHOOSING7));
+            IMG_VS = ImageIO.read(new File(VS));
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

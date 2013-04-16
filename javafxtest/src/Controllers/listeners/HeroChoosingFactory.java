@@ -2,6 +2,7 @@ package Controllers.listeners;
 
 
 import Controllers.Communicator;
+import Controllers.Requests.PlayingGameRequest;
 import View.HeroChoosing.HeroChoosingGUI;
 import com.sun.corba.se.impl.transport.EventHandlerBase;
 import javafx.event.ActionEvent;
@@ -35,7 +36,11 @@ public class HeroChoosingFactory {
                     Random r = new Random();
                     x = r.nextInt(7);
                 }
-                System.out.println("you clicked hero:"+ x);
+                PlayingGameRequest request=new PlayingGameRequest();
+                request.setHeroIndex(x);
+                request.setHeroSlot(gui.getFacade().getHeroSlot());
+                request.setMatchIndex(gui.getFacade().getGameIndex());
+                com.write(request);
             }
         };
     }

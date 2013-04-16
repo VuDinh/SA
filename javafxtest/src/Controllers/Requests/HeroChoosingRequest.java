@@ -10,9 +10,22 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 public class HeroChoosingRequest implements Serializable {
-    int something;
+    int gameIndex,heroSlot;
     public HeroChoosingRequest(){
 
     }
+    public void setMatchIndex(int index){
+        gameIndex = index;
+    }
+    public void setHeroSlotIndex(int index){
+        heroSlot=index;
+    }
 
+    public int getGameIndex() {
+        return gameIndex;
+    }
+
+    public int getHeroSlot() {
+        return heroSlot;
+    }
 }

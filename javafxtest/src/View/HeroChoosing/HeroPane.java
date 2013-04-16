@@ -15,9 +15,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
+import model.Skills.AOESkill;
 import model.Skills.Skill;
 
 import java.awt.image.BufferedImage;
@@ -40,6 +43,7 @@ public class HeroPane extends BorderPane {
     Button[] heroButtons;
     Facade facade;
     int heroIndex;
+    Font font;
 
     public HeroPane(Facade facade) {
         this.facade = facade;
@@ -59,6 +63,7 @@ public class HeroPane extends BorderPane {
         taHeroDesc.setMinSize(300, 250);
         taHeroDesc.setEditable(false);
         taHeroDesc.setMouseTransparent(false);
+        taHeroDesc.setWrapText(true);
         descText = new Text("Description");
         BufferedImage buffImgHero = facade.getLibraryHero(0).getAvatar();
         imgHero = new ImageView(SwingFXUtils.toFXImage(buffImgHero, new WritableImage(buffImgHero.getWidth()
@@ -94,7 +99,7 @@ public class HeroPane extends BorderPane {
             heroes[i] = new ImageView(SwingFXUtils.toFXImage(temp, new WritableImage(temp.getWidth(), temp.getHeight())));
             heroButtons[i] = new Button();
             heroButtons[i].setGraphic(heroes[i]);
-            pnlHeroList.add(heroButtons[i], i / 3, i % 3);
+            pnlHeroList.add(heroButtons[i], i % 3, i / 3);
         }
         //set skill Panel
         FlowPane pnlSkill = new FlowPane();
@@ -119,6 +124,11 @@ public class HeroPane extends BorderPane {
         chatPane.getTxtChat().setId("chatField");
         chatPane.getTaDialog().setId("chatArea");
         taHeroDesc.setId("description");
+        font = new Font("font/OldLondon",16);
+        lblHero.setFont(font);
+        lblSkill.setFont(font);
+        txtHeroName.setFont(font);
+        descText.setFont(font);
     }
 
     //set Hero selected to the image, description
@@ -166,10 +176,10 @@ public class HeroPane extends BorderPane {
             }
             //set description for hero
             String desText = "";
-            desText += "Hero:  " + hero.getName() + "\n";
-            desText += "Attack:" + hero.getAttk() + "\n";
-            desText += "HP:    " + hero.getMaxHP() + "\n";
-            desText += "AP:    " + hero.getMaxAP() + "\n" + "\n";
+            desText += "Hero: " + hero.getName() + "\n";
+            desText += "Attack: " + hero.getAttk() + "\n";
+            desText += "HP: " + hero.getMaxHP() + "\n";
+            desText += "AP: " + hero.getMaxAP() + "\n" + "\n";
             desText += hero.getDescription() + "\n";
             taHeroDesc.setText(desText);
         }
@@ -177,8 +187,19 @@ public class HeroPane extends BorderPane {
 
     public void setHoveredSkill(int index) {
         if (heroIndex != facade.getNumberOfHeroes()) {
-            String desc = facade.getLibraryHero(heroIndex).getSkill(index).getDescription();
-            taHeroDesc.setText(desc);
+            String desc = "Skill: ";
+            desc = desc + facade.getLibraryHero(heroIndex).getSkill(index).getName()+"\n";
+            desc = desc + "Multiplier: ";
+            desc = desc +  facade.getLibraryHero(heroIndex).getSkill(index).getMultiplier()+"\n";
+            desc = desc + "AP: ";
+            desc = desc +  facade.getLibraryHero(heroIndex).getSkill(index).getAP()+"\n";
+            desc = desc + "Range: ";
+            desc = desc +  facade.getLibraryHero(heroIndex).getSkill(index).getRange()+"\n";
+            if(facade.getLibraryHero(heroIndex).getSkill(index) instanceof AOESkill){
+                desc = desc + "AOE: ";
+                desc = desc +  ((AOESkill) facade.getLibraryHero(heroIndex).getSkill(index)).getAoe()+"\n";
+            }
+                    taHeroDesc.setText(desc);
         }
     }
 }
