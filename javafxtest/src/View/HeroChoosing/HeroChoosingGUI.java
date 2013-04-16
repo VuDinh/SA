@@ -63,4 +63,7 @@ public class HeroChoosingGUI extends Application {
     public void setHoveredHero(int index){
         heroPane.setHoveredHero(index);
     }
+    public void setHoveredSkill(int index){
+        heroPane.setHoveredSkill(index);
+    }
 }

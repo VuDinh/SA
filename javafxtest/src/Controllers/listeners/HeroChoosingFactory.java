@@ -48,4 +48,13 @@ public class HeroChoosingFactory {
         };
     }
 
+    public EventHandler<MouseEvent> skillHoveringListener(final int index){
+        return new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                gui.setHoveredSkill(index);
+            }
+        };
+    }
+
 }

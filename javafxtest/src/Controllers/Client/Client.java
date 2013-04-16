@@ -95,6 +95,7 @@ public class Client implements Runnable {
         HeroChoosingFactory heroChoosingFactory=new HeroChoosingFactory(heroChoosingGUI,com);
         heroChoosingGUI.addHeroChoosingListener(heroChoosingFactory);
         heroChoosingGUI.addHeroHoveringListener(heroChoosingFactory);
+
         login.addLoginListener(loginListener);
 
         inGame.getChatPanel().addChatListener(chatListener);
