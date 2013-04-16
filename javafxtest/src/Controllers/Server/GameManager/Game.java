@@ -50,6 +50,7 @@ public class Game {
         if (counter == MAX_PLAYER) {
             isFull = true;
             announcePlayingMatchRequest();
+            initiateCountDown();
         }
 
     }
@@ -103,7 +104,9 @@ public class Game {
         }
         //sending needed information for the player to go in game
     }
-
+    public void initiateCountDown(){
+        new CountdownThread(team1, team2).start();
+    }
     public boolean isFull() {
         return isFull;
     }

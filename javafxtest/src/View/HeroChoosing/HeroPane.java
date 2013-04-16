@@ -66,7 +66,7 @@ public class HeroPane extends BorderPane {
         taHeroDesc.setMouseTransparent(false);
         taHeroDesc.setWrapText(true);
         descText = new Text("Description");
-        BufferedImage buffImgHero = facade.getLibraryHero(0).getAvatar();
+        BufferedImage buffImgHero = facade.getLibraryHero(0).getChoosing();
         imgHero = new ImageView(SwingFXUtils.toFXImage(buffImgHero, new WritableImage(buffImgHero.getWidth()
                 , buffImgHero.getHeight())));
         imgHero.setFitHeight(200);
@@ -165,7 +165,7 @@ public class HeroPane extends BorderPane {
             heroIndex = index;
             Hero hero = facade.getLibraryHero(index);
             //set avatar for hero
-            BufferedImage buffImgHero = hero.getAvatar();
+            BufferedImage buffImgHero = hero.getChoosing();
             imgHero.setImage(SwingFXUtils.toFXImage(buffImgHero, new WritableImage(buffImgHero.getWidth()
                     , buffImgHero.getHeight())));
             //set Name for hero

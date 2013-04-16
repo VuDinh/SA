@@ -575,18 +575,18 @@ public class Utilizer {
     }
     public static void addingHeroImage(){
         HEROIMAGEPACK =new ArrayList<HeroImage>();
-        HEROIMAGEPACK.add(new HeroImage(hero1Array,IMG_AVATAR1,IMG_FACE1));
-        HEROIMAGEPACK.add(new HeroImage(hero2Array,IMG_AVATAR2,IMG_FACE2));
-        HEROIMAGEPACK.add(new HeroImage(hero3Array,IMG_AVATAR3,IMG_FACE3));
-        HEROIMAGEPACK.add(new HeroImage(hero4Array,IMG_AVATAR4,IMG_FACE4));
-        HEROIMAGEPACK.add(new HeroImage(hero5Array,IMG_AVATAR5,IMG_FACE5));
-        HEROIMAGEPACK.add(new HeroImage(hero6Array,IMG_AVATAR6,IMG_FACE6));
-        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE7));
-        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE8));
-        HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null));
-        HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null));
-        HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null));
-        HEROIMAGEPACK.add(new HeroImage(dieArray,null,null));
+        HEROIMAGEPACK.add(new HeroImage(hero1Array,IMG_AVATAR1,IMG_FACE1,IMG_CHOOSING1));
+        HEROIMAGEPACK.add(new HeroImage(hero2Array,IMG_AVATAR2,IMG_FACE2,IMG_CHOOSING2));
+        HEROIMAGEPACK.add(new HeroImage(hero3Array,IMG_AVATAR3,IMG_FACE3,IMG_CHOOSING3));
+        HEROIMAGEPACK.add(new HeroImage(hero4Array,IMG_AVATAR4,IMG_FACE4,IMG_CHOOSING4));
+        HEROIMAGEPACK.add(new HeroImage(hero5Array,IMG_AVATAR5,IMG_FACE5,IMG_CHOOSING5));
+        HEROIMAGEPACK.add(new HeroImage(hero6Array,IMG_AVATAR6,IMG_FACE6,IMG_CHOOSING6));
+        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE7,IMG_CHOOSING7));
+        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE8,null));
+        HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(dieArray,null,null,null));
     }
     public static void addingSkillImage(){
         SKILLIMAGEPACK=new ArrayList<SkillImage>();

@@ -18,21 +18,21 @@
     <file path="/ChatPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364806589990" ignored="false" />
     <file path="/HeroChoosingGUI.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366092367907" ignored="false" />
     <file path="/HeroChoosingHeader.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365840155404" ignored="false" />
-    <file path="/HeroPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366092352760" ignored="false" />
+    <file path="/HeroPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366100082674" ignored="false" />
     <file path="/MyLibgdxGame.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362065333724" ignored="false" />
     <file path="/APanel.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362505688618" ignored="false" />
     <file path="/Cell.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364319191101" ignored="false" />
     <file path="/GameMap.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365747418293" ignored="false" />
     <file path="/Utilities.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362502997003" ignored="false" />
     <file path="/MapListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365748981785" ignored="false" />
-    <file path="/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365916838086" ignored="false" />
+    <file path="/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366099411038" ignored="false" />
     <file path="/Hero.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365686456854" ignored="false" />
     <file path="/SchrollListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362887231450" ignored="false" />
     <file path="/ScrollListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364319828319" ignored="false" />
     <file path="/TestAlgorithm.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363194811627" ignored="false" />
     <file path="/Location.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363194434290" ignored="false" />
     <file path="/a.dummy" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365937191196" ignored="false" />
-    <file path="/Character.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365874665474" ignored="false" />
+    <file path="/Character.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366099550713" ignored="false" />
     <file path="/Skill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365917424373" ignored="false" />
     <file path="/Item.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363529810094" ignored="false" />
     <file path="/Attribute.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363534002389" ignored="false" />
@@ -108,6 +108,7 @@
     <file path="/a.groovy" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366093335164" ignored="false" />
     <file path="/a.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366093338930" ignored="false" />
     <file path="/CountDownRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366095642622" ignored="false" />
+    <file path="/HeroImage.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366099191467" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="67" selection-start="5384" selection-end="5384" vertical-scroll-proportion="0.0">
+            <state line="139" column="67" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -184,10 +185,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="13" selection-start="915" selection-end="915" vertical-scroll-proportion="0.044973545">
+            <state line="31" column="13" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,37 +196,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CountdownThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java">
+      <file leaf-file-name="HeroImage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utilities/HeroImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="18" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+            <state line="48" column="40" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroChoosingGUI.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java">
+      <file leaf-file-name="Utilizer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="26" selection-start="1797" selection-end="1797" vertical-scroll-proportion="0.0">
+            <state line="588" column="63" selection-start="38670" selection-end="38670" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroPane.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HeroPane.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="44" selection-start="7028" selection-end="7028" vertical-scroll-proportion="0.0">
+            <state line="167" column="141" selection-start="6097" selection-end="6097" vertical-scroll-proportion="0.5555556">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/Game.java">
+      <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="50" selection-start="3461" selection-end="3461" vertical-scroll-proportion="0.0">
+            <state line="74" column="67" selection-start="1848" selection-end="1848" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CountDownRequest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/CountDownRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="62" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -259,9 +269,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Controllers/Server/ChatThread.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Requests/HeroChoosingRequest.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Requests/PlayingGameRequest.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Client/Client.java" />
         <option value="$PROJECT_DIR$/src/View/HeroChoosing/AlliedHeroPane.java" />
@@ -269,12 +276,15 @@
         <option value="$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Requests/HeroPickedRequest.java" />
         <option value="$PROJECT_DIR$/src/View/MainMenu/ChatPane2.java" />
-        <option value="$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java" />
         <option value="$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/Game.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Client/ClientThread.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Requests/CountDownRequest.java" />
+        <option value="$PROJECT_DIR$/src/Utilities/HeroImage.java" />
+        <option value="$PROJECT_DIR$/src/Utilities/Utilizer.java" />
+        <option value="$PROJECT_DIR$/src/model/Character.java" />
+        <option value="$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java" />
       </list>
     </option>
   </component>
@@ -335,8 +345,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -995,7 +1005,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1010,7 +1020,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16666667" sideWeight="0.18739353" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.70868826" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15075758" sideWeight="0.7240204" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15075758" sideWeight="0.7240204" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27597955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1080,34 +1090,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="30" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/AlliedHeroPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="148" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/HeroChoosingRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="75" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.0">
@@ -1132,30 +1114,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="44" selection-start="7028" selection-end="7028" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="18" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+        <state line="31" column="18" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="50" selection-start="3461" selection-end="3461" vertical-scroll-proportion="0.0">
+        <state line="107" column="50" selection-start="3528" selection-end="3528" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1174,9 +1142,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/CountDownRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="62" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="67" selection-start="5384" selection-end="5384" vertical-scroll-proportion="0.0">
+        <state line="139" column="67" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1190,10 +1165,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="13" selection-start="915" selection-end="915" vertical-scroll-proportion="0.044973545">
+        <state line="31" column="13" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utilities/HeroImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="40" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="588" column="63" selection-start="38670" selection-end="38670" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="67" selection-start="1848" selection-end="1848" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="141" selection-start="6097" selection-end="6097" vertical-scroll-proportion="0.5555556">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -71,6 +71,10 @@ public abstract class Character {
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getAvatar();
     }
 
+    public BufferedImage getChoosing() {
+        return Utilizer.HEROIMAGEPACK.get(imageIndex).getChoosing();
+    }
+
     public BufferedImage getCurrentSprite() {
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getSprite()[currentSprite];
     }
