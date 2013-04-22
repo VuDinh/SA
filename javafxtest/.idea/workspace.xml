@@ -11,7 +11,7 @@
     <file path="/asd.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361779871006" ignored="false" />
     <file path="/layout2.css" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361809037296" ignored="false" />
     <file path="/LayoutTest2.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361807668166" ignored="false" />
-    <file path="/fragment.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365936354936" ignored="false" />
+    <file path="/fragment.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366644359278" ignored="false" />
     <file path="/MainMenuGUI.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361936617997" ignored="false" />
     <file path="/Header.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361936103175" ignored="false" />
     <file path="/Navigation.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1361936439915" ignored="false" />
@@ -22,7 +22,7 @@
     <file path="/MyLibgdxGame.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362065333724" ignored="false" />
     <file path="/APanel.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362505688618" ignored="false" />
     <file path="/Cell.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364319191101" ignored="false" />
-    <file path="/GameMap.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365747418293" ignored="false" />
+    <file path="/GameMap.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366618021958" ignored="false" />
     <file path="/Utilities.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362502997003" ignored="false" />
     <file path="/MapListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365748981785" ignored="false" />
     <file path="/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366099411038" ignored="false" />
@@ -36,7 +36,7 @@
     <file path="/Skill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365917424373" ignored="false" />
     <file path="/Item.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363529810094" ignored="false" />
     <file path="/Attribute.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1363534002389" ignored="false" />
-    <file path="/Account.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364826253810" ignored="false" />
+    <file path="/Account.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366613136245" ignored="false" />
     <file path="/HeroLibrary.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365834705456" ignored="false" />
     <file path="/HeroFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364312180463" ignored="false" />
     <file path="/Monster.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365686296407" ignored="false" />
@@ -55,7 +55,7 @@
     <file path="$PROJECT_DIR$/../New folder/javafxtest/src/Utilities/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364285919398" ignored="false" />
     <file path="$PROJECT_DIR$/../New folder/javafxtest/src/model/Skills/SkillFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364308413414" ignored="false" />
     <file path="$PROJECT_DIR$/../New folder/javafxtest/src/model/HeroSystem/HeroFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364312037106" ignored="false" />
-    <file path="/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366095291844" ignored="false" />
+    <file path="/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366617603751" ignored="false" />
     <file path="$PROJECT_DIR$/../../test/SA/javafxtest/src/Ingame/Game.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364366838463" ignored="false" />
     <file path="/Controller.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364735148832" ignored="false" />
     <file path="/LoginPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364448333008" ignored="false" />
@@ -70,10 +70,10 @@
     <file path="/Main.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364497394417" ignored="false" />
     <file path="/SoldierClient.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364496520658" ignored="false" />
     <file path="/HeroAttackThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364535013236" ignored="false" />
-    <file path="/LoginFrame.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364656606926" ignored="false" />
+    <file path="/LoginFrame.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366613506919" ignored="false" />
     <file path="/LoginListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364805928302" ignored="false" />
     <file path="/ChatPanel.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364806740744" ignored="false" />
-    <file path="/ChatListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364831585150" ignored="false" />
+    <file path="/ChatListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366613258940" ignored="false" />
     <file path="/Status.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364826335779" ignored="false" />
     <file path="/Server.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364881308077" ignored="false" />
     <file path="/GameHandler.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366022775080" ignored="false" />
@@ -84,31 +84,43 @@
     <file path="/AccountDao.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364876514580" ignored="false" />
     <file path="/AccountDaoImpl.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366015901378" ignored="false" />
     <file path="H:/Sem 7/demolab/db-sample-1/src/vn/edu/rmit/sadi/Main.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364754647828" ignored="false" />
-    <file path="/MessageStatus.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364800242009" ignored="false" />
+    <file path="/MessageStatus.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366643706385" ignored="false" />
     <file path="/Message.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364800277038" ignored="false" />
     <file path="/client-context.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364837823757" ignored="false" />
-    <file path="/Client.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366085601853" ignored="false" />
-    <file path="/ClientThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366095530426" ignored="false" />
+    <file path="/Client.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366612597354" ignored="false" />
+    <file path="/ClientThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366640242694" ignored="false" />
     <file path="/Communicator.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364834882251" ignored="false" />
     <file path="/ControlListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365488530977" ignored="false" />
     <file path="/HeroChoosingLayout.css" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365751800336" ignored="false" />
-    <file path="/Facade.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366088656348" ignored="false" />
+    <file path="/Facade.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366616006923" ignored="false" />
     <file path="/HeroChoosingListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365851832870" ignored="false" />
     <file path="/HeroChoosingFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366088802350" ignored="false" />
     <file path="/MatchCreatingRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365871623314" ignored="false" />
-    <file path="/PlayingGameRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366040269477" ignored="false" />
+    <file path="/PlayingGameRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366615436901" ignored="false" />
     <file path="H:/Sem 7/demolab/db-sample-1/.idea/workspace.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366039778332" ignored="false" />
     <file path="/CellMapper.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366015812017" ignored="false" />
     <file path="/GameManager.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366041301155" ignored="false" />
     <file path="/HeroChoosingRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366036321780" ignored="false" />
     <file path="/HeroPickedRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366092128230" ignored="false" />
-    <file path="/AlliedHeroPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366086286930" ignored="false" />
+    <file path="/AlliedHeroPane.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366529893086" ignored="false" />
     <file path="/ChatPane2.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366092334623" ignored="false" />
-    <file path="/CountdownThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366094946013" ignored="false" />
+    <file path="/CountdownThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366615888876" ignored="false" />
     <file path="/a.groovy" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366093335164" ignored="false" />
     <file path="/a.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366093338930" ignored="false" />
     <file path="/CountDownRequest.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366095642622" ignored="false" />
     <file path="/HeroImage.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366099191467" ignored="false" />
+    <file path="H:/Sem 7/demolab/java-servlets/src/vn/edu/rmit/sadi/SadiServlet.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366389982720" ignored="false" />
+    <file path="/SadiServlet.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366389981418" ignored="false" />
+    <file path="H:/Sem 7/demolab/java-servlets/events.txt" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366279856873" ignored="false" />
+    <file path="/events.txt" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366279856873" ignored="false" />
+    <file path="H:/Sem 7/demolab/java-servlets/build.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366385661857" ignored="false" />
+    <file path="/build.xml" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366385661857" ignored="false" />
+    <file path="H:/Sem 7/demolab/java-servlets/src/vn/edu/rmit/sadi/Utility.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366384576159" ignored="false" />
+    <file path="H:/Sem 7/demolab/java-servlets/src/vn/edu/rmit/sadi/Test.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366386241729" ignored="false" />
+    <file path="/Test.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366386211641" ignored="false" />
+    <file path="/Player.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366639669750" ignored="false" />
+    <file path="/Team.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366480919596" ignored="false" />
+    <file path="/GameMatch.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366644821553" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,28 +179,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="67" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/ChatListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="14" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="13" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
+            <state line="51" column="17" selection-start="1341" selection-end="1341" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Ingame/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="14" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameMap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="15" selection-start="976" selection-end="976" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="43" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="128" column="51" selection-start="4824" selection-end="4824" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#1836#2163#0" expanded="true" />
+                <element signature="e#2144#2145#0" expanded="true" />
+                <element signature="e#2397#2683#0" expanded="true" />
+                <element signature="e#2664#2665#0" expanded="true" />
+                <element signature="e#3003#3734#0" expanded="true" />
+                <element signature="e#3715#3716#0" expanded="true" />
+                <element signature="e#3885#4187#0" expanded="true" />
+                <element signature="e#4164#4165#0" expanded="true" />
+                <element signature="e#4438#4639#0" expanded="true" />
+                <element signature="e#4620#4621#0" expanded="true" />
+                <element signature="e#5849#6468#0" expanded="true" />
+                <element signature="e#6449#6450#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageStatus.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/MessageSystem/MessageStatus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="20" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Facade.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="30" selection-start="1649" selection-end="1649" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -196,64 +257,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroImage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utilities/HeroImage.java">
+      <file leaf-file-name="PlayingGameRequest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/PlayingGameRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="40" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0">
+            <state line="44" column="32" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameMatch.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="120" column="0" selection-start="4283" selection-end="4283" vertical-scroll-proportion="0.20489977">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utilizer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
+      <file leaf-file-name="CountdownThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="588" column="63" selection-start="38670" selection-end="38670" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeroPane.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="141" selection-start="6097" selection-end="6097" vertical-scroll-proportion="0.5555556">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Character.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="67" selection-start="1848" selection-end="1848" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CountDownRequest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/CountDownRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="62" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeroChoosingHeader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+            <state line="47" column="54" selection-start="1671" selection-end="1671" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -269,22 +296,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Client/Client.java" />
-        <option value="$PROJECT_DIR$/src/View/HeroChoosing/AlliedHeroPane.java" />
-        <option value="$PROJECT_DIR$/src/model/Facade/Facade.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Requests/HeroPickedRequest.java" />
-        <option value="$PROJECT_DIR$/src/View/MainMenu/ChatPane2.java" />
-        <option value="$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Server/AccountDao.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/Game.java" />
+        <option value="$PROJECT_DIR$/src/View/Ingame/ControlPanel.java" />
+        <option value="$PROJECT_DIR$/src/model/AccountSystem/Account.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/listeners/ChatListener.java" />
+        <option value="$PROJECT_DIR$/src/View/Login/LoginFrame.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Client/Client.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Requests/PlayingGameRequest.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java" />
+        <option value="$PROJECT_DIR$/src/model/Facade/Facade.java" />
+        <option value="$PROJECT_DIR$/src/View/Ingame/Game.java" />
+        <option value="$PROJECT_DIR$/src/View/Ingame/GameMap.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/Player.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Client/ClientThread.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Requests/CountDownRequest.java" />
-        <option value="$PROJECT_DIR$/src/Utilities/HeroImage.java" />
-        <option value="$PROJECT_DIR$/src/Utilities/Utilizer.java" />
-        <option value="$PROJECT_DIR$/src/model/Character.java" />
-        <option value="$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java" />
+        <option value="$PROJECT_DIR$/src/model/MessageSystem/MessageStatus.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java" />
       </list>
     </option>
   </component>
@@ -294,8 +321,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -346,7 +373,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -565,6 +591,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="MessageSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javafxtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javafxtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="HeroSystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -588,6 +636,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Facade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javafxtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javafxtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AccountSystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -767,22 +837,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javafxtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -801,9 +858,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.Client">
     <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true">
@@ -1004,7 +1061,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1015,13 +1072,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2090909" sideWeight="0.29301533" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3168654" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31601733" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16666667" sideWeight="0.18739353" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.70868826" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15075758" sideWeight="0.7240204" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27597955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15052083" sideWeight="0.72402596" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27597404" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1090,9 +1147,46 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/View/Ingame/ControlPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="11" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/AccountSystem/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/ChatListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="14" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/LoginListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="44" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Login/LoginFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="14" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="75" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.0">
+        <state line="38" column="25" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#814#1488#0" expanded="true" />
             <element signature="e#1477#1478#0" expanded="true" />
@@ -1100,109 +1194,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/HeroPickedRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="35" selection-start="821" selection-end="821" vertical-scroll-proportion="0.0">
+        <state line="51" column="17" selection-start="1341" selection-end="1341" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/MainMenu/ChatPane2.java">
+    <entry file="file://$PROJECT_DIR$/src/View/Ingame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="35" selection-start="2135" selection-end="2135" vertical-scroll-proportion="0.0">
+        <state line="21" column="14" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="18" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
+        <state line="47" column="54" selection-start="1671" selection-end="1671" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/PlayingGameRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="50" selection-start="3528" selection-end="3528" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="26" selection-start="1797" selection-end="1797" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroChoosingHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/CountDownRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="62" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="67" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/ChatListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="13" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
+        <state line="44" column="32" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
+    <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+        <state line="37" column="15" selection-start="976" selection-end="976" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utilities/HeroImage.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="40" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0">
+        <state line="128" column="51" selection-start="4824" selection-end="4824" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1836#2163#0" expanded="true" />
+            <element signature="e#2144#2145#0" expanded="true" />
+            <element signature="e#2397#2683#0" expanded="true" />
+            <element signature="e#2664#2665#0" expanded="true" />
+            <element signature="e#3003#3734#0" expanded="true" />
+            <element signature="e#3715#3716#0" expanded="true" />
+            <element signature="e#3885#4187#0" expanded="true" />
+            <element signature="e#4164#4165#0" expanded="true" />
+            <element signature="e#4438#4639#0" expanded="true" />
+            <element signature="e#4620#4621#0" expanded="true" />
+            <element signature="e#5849#6468#0" expanded="true" />
+            <element signature="e#6449#6450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/MessageSystem/MessageStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="20" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="588" column="63" selection-start="38670" selection-end="38670" vertical-scroll-proportion="0.0">
+        <state line="69" column="30" selection-start="1649" selection-end="1649" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="43" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="67" selection-start="1848" selection-end="1848" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HeroChoosing/HeroPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="141" selection-start="6097" selection-end="6097" vertical-scroll-proportion="0.5555556">
+        <state line="120" column="0" selection-start="4283" selection-end="4283" vertical-scroll-proportion="0.20489977">
           <folding />
         </state>
       </provider>

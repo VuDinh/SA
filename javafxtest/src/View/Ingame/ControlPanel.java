@@ -30,8 +30,6 @@ public class ControlPanel extends JPanel {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-
-
                 setLayout(new BorderLayout());
                 add(chatPanel,BorderLayout.EAST);
             }

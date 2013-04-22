@@ -1,5 +1,7 @@
 package Controllers.Requests;
 
+import Controllers.Server.GameManager.GameMatch;
+
 import java.io.Serializable;
 
 /**
@@ -11,7 +13,7 @@ import java.io.Serializable;
  */
 public class PlayingGameRequest implements Serializable {
     private int heroIndex,heroSlot,matchIndex;
-
+    private GameMatch game;
     public PlayingGameRequest(){
 
     }
@@ -38,5 +40,13 @@ public class PlayingGameRequest implements Serializable {
 
     public void setMatchIndex(int matchIndex) {
         this.matchIndex = matchIndex;
+    }
+
+    public GameMatch getGame() {
+        return game;
+    }
+
+    public void setGame(GameMatch game) {
+        this.game = game;
     }
 }

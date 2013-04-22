@@ -1,5 +1,6 @@
 package Controllers.Server;
 
+import View.Ingame.Cell;
 import model.AccountSystem.Account;
 
 import java.util.List;
@@ -16,4 +17,5 @@ public interface AccountDao {
 
     Account getAccount(Account account);
     void addAccount(Account account);
+    public Cell getHeroBeginPosition(int index);
 }

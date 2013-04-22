@@ -30,7 +30,7 @@ import java.net.Socket;
  * To change this template use File | Settings | File Templates.
  */
 public class Client implements Runnable {
-    Account me;
+    //Account me;
     Game inGame;
     LoginFrame login;
     HeroChoosingGUI heroChoosingGUI;
@@ -69,11 +69,9 @@ public class Client implements Runnable {
         facade=new Facade();
         Account acc = new Account("long", "123", 1);
         HeroFactory hf = new HeroFactory();
-        acc.setHero(hf.createHero(1));
-        me = acc;
         //initialize GUI
-        inGame = new Game(me);
-        login = new LoginFrame(me);
+        inGame = new Game(facade);
+        login = new LoginFrame(facade);
         mainMenuGUI=new MainMenuGUI();
         mainMenuGUI.init();
         heroChoosingGUI = new HeroChoosingGUI();
@@ -85,7 +83,7 @@ public class Client implements Runnable {
         //delete later
         MapListener mapListener = new MapListener(inGame.getGameMap());
         ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
-        ChatListener chatListener = new ChatListener(com, inGame, me);
+        ChatListener chatListener = new ChatListener(com, inGame, facade);
         LoginListener loginListener = new LoginListener(com, login);
         ControlListener controlListener = new ControlListener(inGame.getGameMap());
 
@@ -128,7 +126,7 @@ public class Client implements Runnable {
     //running client thread
     public void settingUp() {
         login.setVisible(true);
-        ClientThread t = new ClientThread(me,facade, com, login,mainMenuGUI,heroChoosingGUI, inGame);
+        ClientThread t = new ClientThread(facade, com, login,mainMenuGUI,heroChoosingGUI, inGame);
         t.start();
     }
     //execute all actions

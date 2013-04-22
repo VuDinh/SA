@@ -25,7 +25,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class ClientThread extends Thread {
-    Account me;
     Communicator com;
     LoginFrame login;
     Game game;
@@ -34,8 +33,7 @@ public class ClientThread extends Thread {
     MainMenuGUI mainMenuGUI;
     Facade facade;
 
-    public ClientThread(Account me,Facade facade, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
-        this.me = me;
+    public ClientThread(Facade facade, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
         this.com = com;
         this.login = login;
         this.game = game;
@@ -113,7 +111,7 @@ public class ClientThread extends Thread {
                             mainMenuGUI.start(stage);
                         }
                     });
-                    me.setUsername(temp.getUsername());
+                    facade.setUsername(temp.getUsername());
                 }
             }
             else if(o instanceof MatchMakingRequest){
@@ -127,6 +125,10 @@ public class ClientThread extends Thread {
 
             }
             else if(o instanceof PlayingGameRequest){
+                PlayingGameRequest pR=(PlayingGameRequest) o;
+                heroChoosingGUI.getStage().close();
+                facade.setMatch(pR.getGame());
+                game.setInitialProperties();
                 game.setVisible(true);
             }
             else if(o instanceof HeroPickedRequest){

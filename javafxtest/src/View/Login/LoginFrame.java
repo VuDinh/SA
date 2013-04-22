@@ -7,6 +7,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import model.AccountSystem.Account;
 import View.Login.LoginFrame;
+import model.Facade.Facade;
+
 import javax.swing.*;
 
 /**
@@ -19,8 +21,8 @@ import javax.swing.*;
 public class LoginFrame extends JFrame {
     LoginPane loginPane;
     JFXPanel tempPane;
-    Account me;
-    public LoginFrame(Account me){
+    Facade me;
+    public LoginFrame(Facade me){
         this.me=me;
         setTitle("Login");
         loginPane=new LoginPane();
