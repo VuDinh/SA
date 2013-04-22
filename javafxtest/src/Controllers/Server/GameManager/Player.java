@@ -67,6 +67,8 @@ public class Player implements Serializable {
     }
     public void setHero(Hero hero){
         this.hero=hero;
+        hero.setRow(cell.getRowPos());
+        hero.setCol(cell.getColPos());
     }
     public Hero getHero(){
         return hero;

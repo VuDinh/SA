@@ -8,6 +8,7 @@ import Controllers.Requests.PlayingGameRequest;
 import Controllers.Server.AccountDao;
 import model.HeroSystem.HeroFactory;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -151,6 +152,16 @@ public class GameMatch implements Serializable {
         }
         else{
             return team2.get(heroSlotIndex - (MAX_PLAYER/2));
+        }
+    }
+    public void drawHeroes(Graphics g,int scrollX,int scrollY){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            player.getHero().draw(g,scrollX, scrollY);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            player.getHero().draw(g,scrollX, scrollY);
         }
     }
 }

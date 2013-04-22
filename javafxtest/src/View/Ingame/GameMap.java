@@ -115,6 +115,11 @@ public class GameMap extends JPanel {
 
     public void paintHero(Graphics g) {
         hero.draw(g, scrollX, scrollY);
+        if(facade!=null){
+            if(facade.getGame()!=null){
+                facade.drawHeroes(g,scrollX, scrollY);
+            }
+        }
     }
 
     public void paintMonster(Graphics g){

@@ -6,6 +6,7 @@ import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroLibrary;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -68,5 +69,11 @@ public class Facade {
 
     public void setMatch(GameMatch match) {
         this.match = match;
+    }
+    public void drawHeroes(Graphics g,int scrollX,int scrollY){
+        match.drawHeroes(g,scrollX,scrollY);
+    }
+    public GameMatch getGame(){
+        return match;
     }
 }
