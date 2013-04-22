@@ -236,7 +236,7 @@
       <file leaf-file-name="accounts.sql" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Server/accounts.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="28" column="58" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.5300668">
               <folding />
             </state>
           </provider>
@@ -1272,7 +1272,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/accounts.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="28" column="58" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.5300668">
           <folding />
         </state>
       </provider>
