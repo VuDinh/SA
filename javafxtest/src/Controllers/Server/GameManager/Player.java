@@ -13,7 +13,7 @@ import java.io.Serializable;
  * Time: 12:44 AM
  * To change this template use File | Settings | File Templates.
  */
-public class Player implements Serializable {
+public class Player implements Serializable,Cloneable {
     private transient Communicator com;
     private boolean isPicked;
     private int heroIndex;
@@ -26,6 +26,19 @@ public class Player implements Serializable {
     }
     public Player(Communicator com,int slotIndex,Team team){
         this.com=com;
+        isPicked = false;
+        this.slotIndex=slotIndex;
+        this.team=team;
+    }
+    public Player(Player player){
+        this.slotIndex=player.slotIndex;
+        this.team=player.team;
+        this.isPicked=player.isPicked();
+        this.heroIndex=player.heroIndex;
+        this.hero = new Hero(player.hero);
+        System.out.println(this.hero.getY());
+    }
+    public Player(int slotIndex,Team team){
         isPicked = false;
         this.slotIndex=slotIndex;
         this.team=team;
@@ -65,12 +78,24 @@ public class Player implements Serializable {
     public void setPosition(Cell cell){
         this.cell = cell;
     }
+    public Cell getCell(){
+        return cell;
+    }
     public void setHero(Hero hero){
         this.hero=hero;
-        hero.setRow(cell.getRowPos());
-        hero.setCol(cell.getColPos());
+        System.out.println(hero);
+        this.hero.setRow(cell.getRowPos());
+        this.hero.setCol(cell.getColPos());
+        this.hero.setX(cell.getX());
+        this.hero.setY(cell.getY());
     }
     public Hero getHero(){
         return hero;
+    }
+    public Player clone() throws CloneNotSupportedException {
+        Player player=new Player(this.slotIndex,this.team);
+        player.setHeroIndex(heroIndex);
+        player.hero = new Hero(this.hero);
+        return player;
     }
 }

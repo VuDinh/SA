@@ -3,6 +3,7 @@ package Controllers.Server.GameManager;
 import Controllers.Communicator;
 import Controllers.Requests.PlayingGameRequest;
 import Controllers.Server.AccountDao;
+import Utilities.Utilizer;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class GameManager {
     public GameManager(){
         gameMatches =new ArrayList<GameMatch>();
         gameNum=0;
+        Utilizer.initializeContent();
     }
     public void addPlayer(Communicator com){
         if(gameNum==0){

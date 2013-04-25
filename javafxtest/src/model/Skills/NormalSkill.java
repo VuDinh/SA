@@ -7,6 +7,7 @@ import model.HeroSystem.Hero;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.Iterator;
 
 /**
@@ -16,10 +17,13 @@ import java.util.Iterator;
  * Time: 9:14 PM
  * To change this template use File | Settings | File Templates.
  */
-public class NormalSkill extends Skill {
+public class NormalSkill extends Skill implements Serializable,Cloneable {
     public NormalSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier
             , String SE, int AP, String description) {
         super(range, name, stun, slow, imageIndex, ID, multiplier, SE, AP, description);
+    }
+    public NormalSkill(Skill skill){
+        super(skill);
     }
 
     //calculate range of normal skill
@@ -36,6 +40,7 @@ public class NormalSkill extends Skill {
 
         rangeCell = path;
     }
+
 
     //draw skill animation sprite
     @Override
@@ -70,5 +75,8 @@ public class NormalSkill extends Skill {
     @Override
     public void drawSkillOnHero(Graphics g, Hero hero, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+    public NormalSkill clone() throws CloneNotSupportedException{
+        return (NormalSkill)super.clone();
     }
 }

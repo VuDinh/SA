@@ -47,6 +47,6 @@ public class PlayingGameRequest implements Serializable {
     }
 
     public void setGame(GameMatch game) {
-        this.game = game;
+        this.game=new GameMatch(game);
     }
 }

@@ -35,6 +35,10 @@ public class ControlPanel extends JPanel {
             }
         });
     }
+    public void setHero(Hero hero){
+        this.hero=hero;
+        repaint();
+    }
 
     //paint components and hero's stat
     @Override

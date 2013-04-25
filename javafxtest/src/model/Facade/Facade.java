@@ -2,6 +2,7 @@ package model.Facade;
 
 import Controllers.Server.GameManager.GameMatch;
 import Controllers.Server.GameManager.Player;
+import View.Ingame.GameMap;
 import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroLibrary;
@@ -21,6 +22,8 @@ public class Facade {
     private int heroSlot,gameIndex;
     private GameMatch match;
     private Account account;
+    private Hero currentChosen,mainHero;
+    private boolean lock;
     public Facade(){
         hL =new HeroLibrary();
         account=new Account();
@@ -75,5 +78,11 @@ public class Facade {
     }
     public GameMatch getGame(){
         return match;
+    }
+    public void setGameMap(GameMap gameMap){
+        match.setGameMap(gameMap);
+    }
+    public Hero getHeroByCord(int row,int col){
+        return match.getHeroByCord(row,col);
     }
 }

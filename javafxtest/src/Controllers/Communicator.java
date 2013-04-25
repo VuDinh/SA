@@ -7,9 +7,10 @@ import model.AccountSystem.Account;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.Socket;
 //refer to the lecture code
-public class Communicator {
+public class Communicator{
 
     private Socket socket;
     private ObjectInputStream ois;

@@ -39,12 +39,15 @@ public class GameMap extends JPanel {
     public int getDamage() {
         return damage;
     }
-
+    public Facade getFacade(){
+        return facade;
+    }
     public void setDamage(int damage) {
         this.damage = damage;
     }
     public void setFacade(Facade facade){
         this.facade=facade;
+        facade.setGameMap(this);
         repaint();
     }
     public GameMap(Hero hero, Monster monster) {

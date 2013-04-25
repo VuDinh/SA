@@ -2,6 +2,7 @@ package Controllers.Client;
 
 import Controllers.Communicator;
 import Controllers.Requests.*;
+import Controllers.Server.GameManager.GameMatch;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
@@ -120,15 +121,22 @@ public class ClientThread extends Thread {
                     @Override
                     public void run() {
                         mainMenuGUI.setPlayerNumStatus(mR.getPlayerNum());
+                        mainMenuGUI.disableBtnFindingMatch();
                     }
                 });
 
             }
-            else if(o instanceof PlayingGameRequest){
-                PlayingGameRequest pR=(PlayingGameRequest) o;
-                heroChoosingGUI.getStage().close();
-                facade.setMatch(pR.getGame());
+            else if(o instanceof GameMatch){
+                GameMatch pR=(GameMatch) o;
+                System.out.println("Player number:"+pR.getPlayer(0).getHero().getY());
+                facade.setMatch(pR);
                 game.setInitialProperties();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        heroChoosingGUI.getStage().close();
+                    }
+                });
                 game.setVisible(true);
             }
             else if(o instanceof HeroPickedRequest){

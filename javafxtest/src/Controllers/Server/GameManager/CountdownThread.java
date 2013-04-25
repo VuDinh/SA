@@ -18,7 +18,7 @@ public class CountdownThread extends Thread {
     private GameMatch gameMatch;
     private ArrayList<Player> team1,team2;
     public CountdownThread(GameMatch gameMatch){
-        count=30;
+        count=5;
         this.gameMatch = gameMatch;
         this.team1= gameMatch.getTeam1();
         this.team2= gameMatch.getTeam2();
@@ -34,7 +34,7 @@ public class CountdownThread extends Thread {
                 player.getCom().write(request);
                 if(count==0 && !player.isPicked()){
                     player.setPicked(true);
-                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(6));
+                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(5)+1);
                 }
             }
             for (Iterator it = team2.iterator(); it.hasNext(); ) {
@@ -42,10 +42,9 @@ public class CountdownThread extends Thread {
                 player.getCom().write(request);
                 if(count==0 && !player.isPicked()){
                     player.setPicked(true);
-                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(6));
+                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(5)+1);
                 }
             }
-            if(count==0) gameMatch.startPlayingGame();
             count--;
             try {
                 Thread.sleep(1000);
@@ -53,5 +52,6 @@ public class CountdownThread extends Thread {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
+        gameMatch.startPlayingGame();
     }
 }
