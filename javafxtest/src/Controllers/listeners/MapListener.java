@@ -66,6 +66,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
         Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
         if(clickedHero!=null){
             controlPanel.setHero(clickedHero);
+            panel.getFacade().setCurrentHero(clickedHero);
         }
         //To set Hero
         if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){

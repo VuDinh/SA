@@ -81,6 +81,11 @@ public class Facade {
     }
     public void setGameMap(GameMap gameMap){
         match.setGameMap(gameMap);
+        mainHero = match.getPlayer(heroSlot).getHero();
+    }
+    public void setCurrentHero(Hero hero){
+        currentChosen=hero;
+
     }
     public Hero getHeroByCord(int row,int col){
         return match.getHeroByCord(row,col);
