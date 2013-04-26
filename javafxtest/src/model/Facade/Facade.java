@@ -87,6 +87,9 @@ public class Facade {
         currentChosen=hero;
 
     }
+    public Hero getMainHero(){
+        return mainHero;
+    }
     public Hero getHeroByCord(int row,int col){
         return match.getHeroByCord(row,col);
     }
