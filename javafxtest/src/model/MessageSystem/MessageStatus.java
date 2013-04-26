@@ -8,6 +8,7 @@ package model.MessageSystem;
  * To change this template use File | Settings | File Templates.
  */
 public enum MessageStatus {
+    broadcast,
     all,
     team,
     def

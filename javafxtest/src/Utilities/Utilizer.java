@@ -41,6 +41,13 @@ public class Utilizer {
     public static final String HERO_5 = "Images/Hero/hero05.png";
     public static final String HERO_6 = "Images/Hero/hero06.png";
     public static final String HERO_7 = "Images/Hero/hero07.png";
+    public static final String HERO_CHOOSING1 = "Images/Hero/HeroChoosing/hero1.png";
+    public static final String HERO_CHOOSING2 = "Images/Hero/HeroChoosing/hero2.png";
+    public static final String HERO_CHOOSING3 = "Images/Hero/HeroChoosing/hero3.png";
+    public static final String HERO_CHOOSING4 = "Images/Hero/HeroChoosing/hero4.png";
+    public static final String HERO_CHOOSING5 = "Images/Hero/HeroChoosing/hero5.png";
+    public static final String HERO_CHOOSING6 = "Images/Hero/HeroChoosing/hero6.png";
+    public static final String HERO_CHOOSING7 = "Images/Hero/HeroChoosing/hero7.png";
     public static final String DIE = "Images/Hero/graves.png";
     public static final String MONSTER_1 = "Images/Hero/monster01.png";
     public static final String MONSTER_2 = "Images/Hero/monster02.png";
@@ -78,6 +85,7 @@ public class Utilizer {
     public static final String FACE7 = "Images/Hero/face7.png";
     public static final String FACE8 = "Images/Hero/Unknown.png";
     public static final String MINI_MAP = "Images/Animation/miniMap.png";
+    public static final String VS = "Images/Hero/vs.png";
 
     public static final String AVATAR1 = "Images/Hero/avatar1.png";
     public static final String AVATAR2 = "Images/Hero/avatar2.png";
@@ -159,6 +167,61 @@ public class Utilizer {
     public static BufferedImage IMG_SKILL_ICON_ICESTRIKE = null;
     public static BufferedImage IMG_SKILL_ICON_THUNDERSTRIKE = null;
     public static BufferedImage IMG_SKILL_ICON_SPARK = null;
+    public static BufferedImage IMG_CHOOSING1 = null;
+    public static BufferedImage IMG_CHOOSING2 = null;
+    public static BufferedImage IMG_CHOOSING3 = null;
+    public static BufferedImage IMG_CHOOSING4 = null;
+    public static BufferedImage IMG_CHOOSING5 = null;
+    public static BufferedImage IMG_CHOOSING6 = null;
+    public static BufferedImage IMG_CHOOSING7 = null;
+    public static BufferedImage IMG_VS = null;
+
+    public static final String DECS_HERO1 = "A Blade Master who wanders on the Eastern land after his hometown is destroyed. " +
+            "Seeking vengeance, he travels throughout the land in order to find the Dark Monster, which put the end for his " +
+            "hometown 3 years ago. "+"\n" +
+            "A balanced hero who can fight both on the front line and the back line. Flexible is the key to unlock his true power.";
+    public static final String DECS_HERO2 = "A former Knight who once served for the Northern Kingdom. He was the head of the Blue Knight " +
+            "and devoted for his country many years. However, on an important mission, he was framed to be the killer of the " +
+            "crowned prince. Due to this, he was hunted for many years. Living in the shadow, now he seeks the truth behind the " +
+            "incident 4 years ago and still continue to keep an eye on his own country. "+"\n" +
+            "A great tanker for the team, he is very tough and resilient. Putting him on the front line will put our enemies to tears.";
+    public static final String DECS_HERO3 = "The last descendant of the Hawkeye family who exceeded at the art of using bow and arrows " +
+            "Her family was wipe outed during the last Moon War with the monsters in the Sleeping Forest. Wandering alone, " +
+            "she is trying to find for herself a meaning of life, a goal that she can devote herself to."+"\n" +
+            "A long-ranged champion who is excel at ranged combat. Squishy but can do a lot of damage. " +
+            "Positioning is the key to master this hero.";
+    public static final String DECS_HERO4 = "A cheerful hunter who does not need a reason to help anyone. With an axe, she " +
+            "provides assist to whoever needs help. Quite an air head but as long as she can live happily and help people " +
+            "around her, that's enough "+"\n" +
+            "A good tanker and also can cause a decent amount of damage. An easy champion to play.";
+    public static final String DECS_HERO5 = "A member of the Black Cloak Clan, for generations served the Southern Kingdom in the dark. " +
+            "They have no fear, no feelings and no future. They live their lives in the dark and carry out missions that they are given. " +
+            "Failure is Death. And he, one of the best never fail a single mission."+"\n" +
+            "A sneaking champion who strike from behind. Quite Squishy but very fast , flexible and cause a lot of damage. " +
+            "Wait for the right time to strike. Timing is everything to this hero.";
+    public static final String DECS_HERO6 = "A famous cleric who never fail to cure anyone as long as that one is not dead yet. " +
+            "He travels finding treatments and rare meterials for his medicine. Curing people on on his way, the gain his reputation " +
+            "this way, however, he never stop at one place so finding him is ridiculously difficult."+"\n" +
+            "He an not deal any damage at all, however, he can save other heroes' butts at times. " +
+            "For this champion, just stay away from combat.";
+    public static final String DECS_HERO7 = "An ArcMage who has mastered many spells. A man who has lived through many wars, witnessed " +
+            "many things in this world, study many mysteries, he knoes everything about this world."+"\n" +
+            "A champion do vast amout of damage through AOE skills. He will tears the enemy team apart.";
+    public static final String DECS_MONSTER1 = "";
+    public static final String DECS_MONSTER2 = "";
+    public static final String DECS_MONSTER3 = "";
+    public static final String DECS_SKILL_DEFAULT = "";
+    public static final String DECS_SKILL_FIRE = "";
+    public static final String DECS_SKILL_ICE = "";
+    public static final String DECS_SKILL_WIND = "";
+    public static final String DECS_SKILL_EARTH = "";
+    public static final String DECS_SKILL_THUNDER = "";
+    public static final String DECS_SKILL_EXPLODE = "";
+    public static final String DECS_SKILL_BLIZZARD = "";
+    public static final String DECS_SKILL_SPARK = "";
+    public static final String DECS_SKILL_FIRESTRIKE = "";
+    public static final String DECS_SKILL_ICESTRIKE = "";
+    public static final String DECS_SKILL_THUNDERSTRIKE = "";
 
     public static ApplicationContext factoryContext;
     public static int MAP[][];
@@ -267,6 +330,14 @@ public class Utilizer {
             IMG_SKILL_ICON_FIRESTRIKE = ImageIO.read(new File(SKILL_ICON_FIRESTRIKE));
             IMG_SKILL_ICON_ICESTRIKE = ImageIO.read(new File(SKILL_ICON_ICESTRIKE));
             IMG_SKILL_ICON_THUNDERSTRIKE = ImageIO.read(new File(SKILL_ICON_THUNDERSTRIKE));
+            IMG_CHOOSING1 = ImageIO.read(new File(HERO_CHOOSING1));
+            IMG_CHOOSING2 = ImageIO.read(new File(HERO_CHOOSING2));
+            IMG_CHOOSING3 = ImageIO.read(new File(HERO_CHOOSING3));
+            IMG_CHOOSING4 = ImageIO.read(new File(HERO_CHOOSING4));
+            IMG_CHOOSING5 = ImageIO.read(new File(HERO_CHOOSING5));
+            IMG_CHOOSING6 = ImageIO.read(new File(HERO_CHOOSING6));
+            IMG_CHOOSING7 = ImageIO.read(new File(HERO_CHOOSING7));
+            IMG_VS = ImageIO.read(new File(VS));
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -504,18 +575,18 @@ public class Utilizer {
     }
     public static void addingHeroImage(){
         HEROIMAGEPACK =new ArrayList<HeroImage>();
-        HEROIMAGEPACK.add(new HeroImage(hero1Array,IMG_AVATAR1,IMG_FACE1));
-        HEROIMAGEPACK.add(new HeroImage(hero2Array,IMG_AVATAR2,IMG_FACE2));
-        HEROIMAGEPACK.add(new HeroImage(hero3Array,IMG_AVATAR3,IMG_FACE3));
-        HEROIMAGEPACK.add(new HeroImage(hero4Array,IMG_AVATAR4,IMG_FACE4));
-        HEROIMAGEPACK.add(new HeroImage(hero5Array,IMG_AVATAR5,IMG_FACE5));
-        HEROIMAGEPACK.add(new HeroImage(hero6Array,IMG_AVATAR6,IMG_FACE6));
-        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE7));
-        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE8));
-        HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null));
-        HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null));
-        HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null));
-        HEROIMAGEPACK.add(new HeroImage(dieArray,null,null));
+        HEROIMAGEPACK.add(new HeroImage(hero1Array,IMG_AVATAR1,IMG_FACE1,IMG_CHOOSING1));
+        HEROIMAGEPACK.add(new HeroImage(hero2Array,IMG_AVATAR2,IMG_FACE2,IMG_CHOOSING2));
+        HEROIMAGEPACK.add(new HeroImage(hero3Array,IMG_AVATAR3,IMG_FACE3,IMG_CHOOSING3));
+        HEROIMAGEPACK.add(new HeroImage(hero4Array,IMG_AVATAR4,IMG_FACE4,IMG_CHOOSING4));
+        HEROIMAGEPACK.add(new HeroImage(hero5Array,IMG_AVATAR5,IMG_FACE5,IMG_CHOOSING5));
+        HEROIMAGEPACK.add(new HeroImage(hero6Array,IMG_AVATAR6,IMG_FACE6,IMG_CHOOSING6));
+        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE7,IMG_CHOOSING7));
+        HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE8,null));
+        HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(dieArray,null,null,null));
     }
     public static void addingSkillImage(){
         SKILLIMAGEPACK=new ArrayList<SkillImage>();

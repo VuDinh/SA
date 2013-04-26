@@ -82,7 +82,7 @@ public class ChatThread extends Thread {
 
             if(o instanceof PlayingGameRequest){
                 PlayingGameRequest request=(PlayingGameRequest) o;
-                handler.getGameManager().startPlayingGame(com,request);
+                handler.getGameManager().chooseHero(com, request);
             }
 
             if (o instanceof Status) {

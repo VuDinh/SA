@@ -2,6 +2,7 @@ package Controllers.Client;
 
 import Controllers.Communicator;
 import Controllers.Requests.*;
+import Controllers.Server.GameManager.GameMatch;
 import View.HeroChoosing.HeroChoosingGUI;
 import View.Ingame.ChatPanel;
 import View.Ingame.Game;
@@ -25,7 +26,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class ClientThread extends Thread {
-    Account me;
     Communicator com;
     LoginFrame login;
     Game game;
@@ -34,8 +34,7 @@ public class ClientThread extends Thread {
     MainMenuGUI mainMenuGUI;
     Facade facade;
 
-    public ClientThread(Account me,Facade facade, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
-        this.me = me;
+    public ClientThread(Facade facade, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
         this.com = com;
         this.login = login;
         this.game = game;
@@ -113,7 +112,7 @@ public class ClientThread extends Thread {
                             mainMenuGUI.start(stage);
                         }
                     });
-                    me.setUsername(temp.getUsername());
+                    facade.setUsername(temp.getUsername());
                 }
             }
             else if(o instanceof MatchMakingRequest){
@@ -122,11 +121,22 @@ public class ClientThread extends Thread {
                     @Override
                     public void run() {
                         mainMenuGUI.setPlayerNumStatus(mR.getPlayerNum());
+                        mainMenuGUI.disableBtnFindingMatch();
                     }
                 });
 
             }
-            else if(o instanceof PlayingGameRequest){
+            else if(o instanceof GameMatch){
+                GameMatch pR=(GameMatch) o;
+                System.out.println("Player number:"+pR.getPlayer(0).getHero().getY());
+                facade.setMatch(pR);
+                game.setInitialProperties();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        heroChoosingGUI.getStage().close();
+                    }
+                });
                 game.setVisible(true);
             }
             else if(o instanceof HeroPickedRequest){

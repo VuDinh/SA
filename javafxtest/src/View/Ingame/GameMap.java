@@ -3,6 +3,7 @@ package View.Ingame;
 import Utilities.Utilizer;
 import Controllers.listeners.MapListener;
 import Controllers.listeners.ScrollListener;
+import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStandThread;
@@ -34,15 +35,21 @@ public class GameMap extends JPanel {
     int damage = 0;
     Hero hero;
     Monster monster;
-
+    private Facade facade;
     public int getDamage() {
         return damage;
     }
-
+    public Facade getFacade(){
+        return facade;
+    }
     public void setDamage(int damage) {
         this.damage = damage;
     }
-
+    public void setFacade(Facade facade){
+        this.facade=facade;
+        facade.setGameMap(this);
+        repaint();
+    }
     public GameMap(Hero hero, Monster monster) {
 //Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
         //set the start viewing position
@@ -111,6 +118,11 @@ public class GameMap extends JPanel {
 
     public void paintHero(Graphics g) {
         hero.draw(g, scrollX, scrollY);
+        if(facade!=null){
+            if(facade.getGame()!=null){
+                facade.drawHeroes(g,scrollX, scrollY);
+            }
+        }
     }
 
     public void paintMonster(Graphics g){

@@ -55,7 +55,7 @@ public class AccountDaoImpl implements AccountDao {
 
     public Cell getHeroBeginPosition(int index) {
         try {
-            Cell c = jdbcTemplate.queryForObject("select row,col from heroBeginPosition where id=(?)", new CellMapper()
+            Cell c = jdbcTemplate.queryForObject("select * from heroBeginPositions where id=(?)", new CellMapper()
                     , index);
             return c;
         } catch (Exception e) {

@@ -14,12 +14,14 @@ import java.io.Serializable;
 public class Account implements Serializable,Comparable {
     private String username,password;
     private int team;
-    private Hero hero;
     private Status status;
     public Account(String username, String password,int team) {
         this.username = username;
         this.password = password;
         this.team=team;
+    }
+    public Account(){
+
     }
 
     public Status getStatus() {
@@ -55,14 +57,6 @@ public class Account implements Serializable,Comparable {
     }
     public String toString(){
         return username;
-    }
-
-    public Hero getHero() {
-        return hero;
-    }
-
-    public void setHero(Hero hero) {
-        this.hero = hero;
     }
 
     @Override

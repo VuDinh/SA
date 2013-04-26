@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import model.AccountSystem.Account;
+import model.Facade.Facade;
 import model.MessageSystem.Message;
 
 /**
@@ -17,24 +18,24 @@ import model.MessageSystem.Message;
  * To change this template use File | Settings | File Templates.
  */
 public class ChatListener implements EventHandler<KeyEvent> {
-    Game game;
-    Communicator com;
-    Account me;
-    public ChatListener(Communicator com,Game game,Account me){
+    private Game game;
+    private Communicator com;
+    private Facade facade;
+    public ChatListener(Communicator com,Game game,Facade facade){
         this.game=game;
         this.com=com;
-        this.me=me;
+        this.facade=facade;
     }
     //sending messsage to the server when the player press enter in the text field
     @Override
     public void handle(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.ENTER){
             ChatPanel chatPanel=game.getChatPanel();
-            Message mess=new Message(new Account(me.getUsername(),me.getPassword(), me.getTeam()),
+            Message mess=new Message(facade.getClientAccount(),
                     chatPanel.getSelectedAccount(),chatPanel.getChatMessage());
             mess.setStatus(chatPanel.getSelectedOption());
-            System.out.println(me.getUsername());
-            chatPanel.addChatMessage(me.getUsername(),chatPanel.getChatMessage());
+            System.out.println(facade.getUsername());
+            chatPanel.addChatMessage(facade.getUsername(),chatPanel.getChatMessage());
             com.write(mess);
         }
     }

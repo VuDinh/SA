@@ -5,6 +5,7 @@ import Utilities.Utilizer;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,34 +14,54 @@ import java.awt.image.BufferedImage;
  * Time: 9:06 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Character {
-    protected int HP,maxHP,maxAP,row,col,x,y,distanceX,distanceY,Attk;
+public abstract class Character implements Serializable {
+    protected int HP, maxHP, maxAP, row, col, x, y, distanceX, distanceY, Attk;
     protected double AP;
-    protected int dirX,dirY,currentSprite,currentMove;
+    protected int dirX, dirY, currentSprite, currentMove;
     protected GameMap panel;
     protected boolean isChosen;
     protected int imageIndex;
     protected String name, description;
-    protected  Character() {
+
+    protected Character() {
     }
 
-    protected Character(int HP, int maxHP, int AP, int maxAP,int Attk, int row, int col,int imageIndex,String name, String description) {
+    protected Character(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col, int imageIndex, String name, String description) {
         this.HP = HP;
         this.maxHP = maxHP;
         this.AP = AP;
         this.maxAP = maxAP;
         this.row = row;
         this.col = col;
-        x= Utilizer.TILE_SIZE*row;
-        y=Utilizer.TILE_SIZE*col;
-        isChosen=false;
-        dirX=0;
-        dirY=0;
+        x = Utilizer.TILE_SIZE * row;
+        y = Utilizer.TILE_SIZE * col;
+        isChosen = false;
+        dirX = 0;
+        dirY = 0;
         currentSprite = 0;
-        this.name=name;
-        this.imageIndex=imageIndex;
+        this.name = name;
+        this.imageIndex = imageIndex;
         this.Attk = Attk;
         this.description = description;
+    }
+
+    public Character(Character character) {
+        this.x = character.x;
+        this.y = character.y;
+        this.row = character.row;
+        this.col = character.col;
+        this.imageIndex = character.imageIndex;
+        this.HP = character.HP;
+        this.maxHP = character.maxHP;
+        this.AP = character.AP;
+        this.maxAP = character.maxAP;
+        isChosen = false;
+        dirX = 0;
+        dirY = 0;
+        currentSprite = 0;
+        this.Attk = character.Attk;
+        this.description = character.description;
+        this.name=character.name;
     }
 
     public void setAttk(int attk) {
@@ -71,17 +92,23 @@ public abstract class Character {
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getAvatar();
     }
 
+    public BufferedImage getChoosing() {
+        return Utilizer.HEROIMAGEPACK.get(imageIndex).getChoosing();
+    }
+
     public BufferedImage getCurrentSprite() {
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getSprite()[currentSprite];
     }
-    public BufferedImage getIcon(){
+
+    public BufferedImage getIcon() {
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getIcon();
     }
 
     public void setCurrentSprite(int currentSprite) {
         this.currentSprite = currentSprite;
     }
-    public int getCurrentSpriteIndex(){
+
+    public int getCurrentSpriteIndex() {
         return currentSprite;
     }
 
@@ -149,6 +176,10 @@ public abstract class Character {
         this.row = row;
     }
 
+    public int getImageIndex() {
+        return imageIndex;
+    }
+
     public int getCol() {
         return col;
     }
@@ -193,10 +224,14 @@ public abstract class Character {
         this.distanceY = distanceY;
     }
 
-    public abstract void draw(Graphics g,int scrollX,int scrollY);
+    public abstract void draw(Graphics g, int scrollX, int scrollY);
+
     public abstract void nextSprite();
-    public abstract void moveCharacter(int col,int row);
+
+    public abstract void moveCharacter(int col, int row);
+
     public abstract void move();
+
     public abstract void resetPath();
 
 }

@@ -1,10 +1,10 @@
 package Controllers.Server.GameManager;
 
-import Controllers.Communicator;
 import Controllers.Requests.CountDownRequest;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,25 +15,35 @@ import java.util.Iterator;
  */
 public class CountdownThread extends Thread {
     int count;
-    Communicator com;
-    ArrayList<Communicator> team1,team2;
-    public CountdownThread(ArrayList<Communicator> team1,ArrayList<Communicator> team2){
-        count=30;
-        this.team1=team1;
-        this.team2=team2;
+    private GameMatch gameMatch;
+    private ArrayList<Player> team1,team2;
+    public CountdownThread(GameMatch gameMatch){
+        count=5;
+        this.gameMatch = gameMatch;
+        this.team1= gameMatch.getTeam1();
+        this.team2= gameMatch.getTeam2();
     }
     public void run(){
+        Random rad=new Random();
 
         while(count >= 0){
             CountDownRequest request=new CountDownRequest();
             request.setCount(count);
             for (Iterator it = team1.iterator(); it.hasNext(); ) {
-                Communicator com = (Communicator) it.next();
-                com.write(request);
+                Player player = (Player) it.next();
+                player.getCom().write(request);
+                if(count==0 && !player.isPicked()){
+                    player.setPicked(true);
+                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(5)+1);
+                }
             }
             for (Iterator it = team2.iterator(); it.hasNext(); ) {
-                Communicator com = (Communicator) it.next();
-                com.write(request);
+                Player player = (Player) it.next();
+                player.getCom().write(request);
+                if(count==0 && !player.isPicked()){
+                    player.setPicked(true);
+                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(5)+1);
+                }
             }
             count--;
             try {
@@ -42,5 +52,6 @@ public class CountdownThread extends Thread {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
+        gameMatch.startPlayingGame();
     }
 }

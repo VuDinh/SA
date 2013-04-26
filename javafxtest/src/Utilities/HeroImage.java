@@ -12,12 +12,14 @@ import java.awt.image.BufferedImage;
 public class HeroImage {
     BufferedImage[] sprite;
     BufferedImage avatar;
+    BufferedImage choosing;
     BufferedImage icon;
 
-    public HeroImage(BufferedImage[] sprite, BufferedImage avatar, BufferedImage icon) {
+    public HeroImage(BufferedImage[] sprite, BufferedImage avatar, BufferedImage icon, BufferedImage choosing) {
         this.sprite = sprite;
         this.avatar = avatar;
         this.icon = icon;
+        this.choosing = choosing;
     }
 
     public BufferedImage[] getSprite() {
@@ -42,5 +44,13 @@ public class HeroImage {
 
     public void setIcon(BufferedImage icon) {
         this.icon = icon;
+    }
+
+    public BufferedImage getChoosing() {
+        return choosing;
+    }
+
+    public void setChoosing(BufferedImage choosing) {
+        this.choosing = choosing;
     }
 }

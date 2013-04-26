@@ -20,15 +20,24 @@ import java.awt.image.BufferedImage;
 public class AlliedHeroPane extends GridPane {
     ImageView[] images;
     ImageView imgUnknown;
+    private static final int MAXPLAYER=2;
     public AlliedHeroPane(){
         Image unknown=SwingFXUtils.toFXImage(Utilizer.IMG_FACE8,new WritableImage(Utilizer.IMG_FACE8.getWidth()
                 ,Utilizer.IMG_FACE8.getHeight()));
+        Image vs     =SwingFXUtils.toFXImage(Utilizer.IMG_VS,new WritableImage(Utilizer.IMG_VS.getWidth()
+                ,Utilizer.IMG_VS.getHeight()));
         imgUnknown=new ImageView(unknown);
         setAlignment(Pos.CENTER);
-        images=new ImageView[5];
-        for(int i=0;i<5;i++){
+        images=new ImageView[4];
+        for(int i=0;i<2;i++){
             images[i]=new ImageView(unknown);
             add(images[i],0,i);
+        }
+        ImageView imgVs = new ImageView(vs);
+        add(imgVs,0,2);
+        for(int i=2;i<4;i++){
+            images[i]=new ImageView(unknown);
+            add(images[i],0,i+1);
         }
     }
     public void setAllyUnknown(int index){
@@ -36,6 +45,10 @@ public class AlliedHeroPane extends GridPane {
     }
     public void setAllyIcon(int index,BufferedImage img){
         Image temp=SwingFXUtils.toFXImage(img,new WritableImage(img.getWidth(),img.getHeight()));
-        images[index].setImage(temp);
+        int actualIndex=index;
+        if(index>=MAXPLAYER/2){
+            actualIndex++;
+        }
+        images[actualIndex].setImage(temp);
     }
 }

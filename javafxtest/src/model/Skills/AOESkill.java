@@ -7,6 +7,7 @@ import model.HeroSystem.Hero;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -17,7 +18,7 @@ import java.util.Iterator;
  * Time: 2:25 PM
  * To change this template use File | Settings | File Templates.
  */
-public class AOESkill extends Skill {
+public class AOESkill extends Skill implements Serializable {
     int aoe;
     boolean all;
 
@@ -26,6 +27,13 @@ public class AOESkill extends Skill {
         super(range,name,stun,slow,imageIndex,ID,multiplier,SE,AP,description);
         this.aoe = aoe;
         this.all = all;
+    }
+    public AOESkill(Skill skill){
+        super(skill);
+    }
+
+    public int getAoe() {
+        return aoe;
     }
 
     //calculate path to a specific location
@@ -121,5 +129,8 @@ public class AOESkill extends Skill {
     }
     public void clearRangeCell(){
         rangeCell.clear();
+    }
+    public AOESkill clone() throws CloneNotSupportedException{
+        return (AOESkill)super.clone();
     }
 }

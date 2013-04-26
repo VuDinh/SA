@@ -3,6 +3,7 @@ package View.Ingame;
 import Utilities.Utilizer;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +12,7 @@ import java.awt.image.BufferedImage;
  * Time: 4:22 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Cell implements Comparable{
+public class Cell implements Comparable,Serializable,Cloneable {
 
     int status,x,y,rowPos,colPos;
     Cell previous;
@@ -29,6 +30,8 @@ public class Cell implements Comparable{
         rowPos=row;
         colPos=col;
         status=0;
+        x=colPos*Utilizer.TILE_SIZE;
+        y=rowPos*Utilizer.TILE_SIZE;
         minPath= Utilizer.MAP_COLS * Utilizer.MAP_ROWS;
         previous=null;
     }
@@ -97,5 +100,8 @@ public class Cell implements Comparable{
         Cell temp=(Cell) o;
         if(temp.colPos - colPos == 0 && temp.rowPos-rowPos ==0) return true;
         else return false;
+    }
+    public Cell clone() throws CloneNotSupportedException{
+        return (Cell)super.clone();
     }
 }

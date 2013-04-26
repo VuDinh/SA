@@ -7,6 +7,7 @@ import model.HeroSystem.Hero;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  * Time: 9:09 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Skill {
+public abstract class Skill implements Serializable,Cloneable {
     protected int ID,currentSprite,range;
     double multiplier;
     protected String name;
@@ -46,6 +47,21 @@ public abstract class Skill {
         this.SE = SE;
         this.AP = AP;
         this.description = description;
+    }
+    public Skill(Skill skill){
+        this.range = skill.range;
+        this.name = skill.name;
+        isStun = skill.isStun;
+        isSlow = skill.isSlow;
+        this.ID = skill.ID;
+        this.multiplier = skill.multiplier;
+        currentSprite = 0;
+        path=new ArrayList<Cell>();
+        status = SkillStatus.before;
+        this.imageIndex = skill.imageIndex;
+        this.SE = skill.SE;
+        this.AP = skill.AP;
+        this.description = skill.description;
     }
 
     public String getDescription() {
@@ -139,6 +155,9 @@ public abstract class Skill {
     }
     public BufferedImage getCurrentSprite(){
         return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getSprite(imageIndex)[currentSprite];
+    }
+    public Skill clone() throws CloneNotSupportedException{
+        return (Skill)super.clone();
     }
     public abstract void drawSkill(Graphics g,Cell to, int scrollX, int scrollY, GameMap panel);
     public abstract void drawPath(Graphics g,Cell to,int scrollX,int scrollY,GameMap panel);

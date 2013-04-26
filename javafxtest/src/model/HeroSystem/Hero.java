@@ -3,6 +3,9 @@ import View.Ingame.Cell;
 import Utilities.Utilizer;
 import model.Character;
 import model.ItemSystem.Item;
+import model.Skills.AOESkill;
+import model.Skills.CleaveSkill;
+import model.Skills.NormalSkill;
 import model.Skills.Skill;
 
 import java.awt.*;
@@ -20,7 +23,7 @@ import java.util.PriorityQueue;
  * Time: 9:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Hero extends Character implements Serializable {
+public class Hero extends Character implements Serializable,Cloneable {
     ArrayList<Skill> skills;
     int skillCount;
     ArrayList<Item> inventory;
@@ -34,6 +37,23 @@ public class Hero extends Character implements Serializable {
         skills=new ArrayList<Skill>();
         inventory=new ArrayList<Item>();
         skillCount = 0;
+        map=new Cell[Utilizer.MAP_ROWS][Utilizer.MAP_COLS];
+        shortestpathHover=new ArrayList<Cell>();
+        status=HeroStatus.standing;
+        currentSkill = -1;
+    }
+    public Hero(Hero hero){
+        super(hero);
+        this.skillCount = 0;
+        this.skills=new ArrayList<Skill>();
+        for(Skill skill:hero.skills){
+            if(skill instanceof NormalSkill)
+            this.skills.add(new NormalSkill(skill));
+            if(skill instanceof AOESkill)
+                this.skills.add(new AOESkill(skill));
+            if(skill instanceof CleaveSkill)
+                this.skills.add(new CleaveSkill(skill));
+        }
         map=new Cell[Utilizer.MAP_ROWS][Utilizer.MAP_COLS];
         shortestpathHover=new ArrayList<Cell>();
         status=HeroStatus.standing;
@@ -87,7 +107,7 @@ public class Hero extends Character implements Serializable {
                 g.drawImage(Utilizer.selectArray[Utilizer.MAP[temp.getRowPos()][temp.getColPos()] - 1],temp.getColPos()*Utilizer.TILE_SIZE - scrollX,temp.getRowPos()*Utilizer.TILE_SIZE - scrollY,getPanel());
             }
         }
-        g.drawImage(getCurrentSprite(),getX()-scrollX,getY()-scrollY,getPanel());
+        g.drawImage(getCurrentSprite(),getX() -scrollX,getY() -scrollY,getPanel());
     }
 
     //set next sprite
@@ -286,5 +306,14 @@ public class Hero extends Character implements Serializable {
     }
     public void clearRange(){
         range.clear();
+    }
+    public Hero clone() throws CloneNotSupportedException{
+        return (Hero)super.clone();
+    }
+    public boolean isThere(int row, int col){
+        if(row==this.row && col==this.col){
+            return true;
+        }
+        return false;
     }
 }
