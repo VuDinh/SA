@@ -1,8 +1,13 @@
 package model.Facade;
 
+import Controllers.Server.GameManager.GameMatch;
+import Controllers.Server.GameManager.Player;
+import View.Ingame.GameMap;
+import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroLibrary;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -13,11 +18,15 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class Facade {
-    HeroLibrary hL;
-    int heroSlot,gameIndex;
-
+    private HeroLibrary hL;
+    private int heroSlot,gameIndex;
+    private GameMatch match;
+    private Account account;
+    private Hero currentChosen,mainHero;
+    private boolean lock;
     public Facade(){
         hL =new HeroLibrary();
+        account=new Account();
     }
     public ArrayList<Hero> getHeroList(){
         return hL.getHeroList();
@@ -43,5 +52,45 @@ public class Facade {
 
     public void setGameIndex(int gameIndex) {
         this.gameIndex = gameIndex;
+    }
+    public void setUsername(String username){
+        account.setUsername(username);
+    }
+    public String getUsername(){
+        return account.getUsername();
+    }
+    public Player getClientPlayer(){
+        return match.getPlayer(heroSlot);
+    }
+    public Account getClientAccount(){
+        return account;
+    }
+
+    public GameMatch getMatch() {
+        return match;
+    }
+
+    public void setMatch(GameMatch match) {
+        this.match = match;
+    }
+    public void drawHeroes(Graphics g,int scrollX,int scrollY){
+        match.drawHeroes(g,scrollX,scrollY);
+    }
+    public GameMatch getGame(){
+        return match;
+    }
+    public void setGameMap(GameMap gameMap){
+        match.setGameMap(gameMap);
+        mainHero = match.getPlayer(heroSlot).getHero();
+    }
+    public void setCurrentHero(Hero hero){
+        currentChosen=hero;
+
+    }
+    public Hero getMainHero(){
+        return mainHero;
+    }
+    public Hero getHeroByCord(int row,int col){
+        return match.getHeroByCord(row,col);
     }
 }

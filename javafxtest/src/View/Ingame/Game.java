@@ -1,6 +1,7 @@
 package View.Ingame;
 
 import model.AccountSystem.Account;
+import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.MonsterSystem.Monster;
@@ -17,11 +18,11 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class Game extends JFrame {
-    Account me;
-    GameMap drawP;
-    TurnPanel turn;
-    ControlPanel control;
-    public Game(Account me){
+    private Facade me;
+    private GameMap drawP;
+    private TurnPanel turn;
+    private ControlPanel control;
+    public Game(Facade me){
         this.me=me;
         HeroFactory hF = new HeroFactory();
         Hero hero = hF.createHero(7);
@@ -58,7 +59,10 @@ public class Game extends JFrame {
     public ChatPanel getChatPanel(){
         return control.getChatPanel();
     }
-    public Account getAccount(){
+    public Facade getFacade(){
         return me;
+    }
+    public void setInitialProperties(){
+        drawP.setFacade(me);
     }
 }

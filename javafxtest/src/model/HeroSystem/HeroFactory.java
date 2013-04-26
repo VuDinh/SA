@@ -38,13 +38,13 @@ public class HeroFactory {
             hero.addSkill(skillFactory.createCleaveSkill(3));
         }
         if(type==4){
-            hero=new Hero(300,150,10,10,200,5,5, 3,"AXER",Utilizer.DECS_HERO4);
+            hero=new Hero(300,300,10,10,200,5,5, 3,"AXER",Utilizer.DECS_HERO4);
             hero.addSkill(skillFactory.createNormalSkill(1));
             hero.addSkill(skillFactory.createAOESkill(4));
             hero.addSkill(skillFactory.createCleaveSkill(3));
         }
         if(type==5){
-            hero=new Hero(200,150,10,10,200,5,5, 4,"KILLER",Utilizer.DECS_HERO5);
+            hero=new Hero(200,200,10,10,200,5,5, 4,"KILLER",Utilizer.DECS_HERO5);
             hero.addSkill(skillFactory.createNormalSkill(1));
             hero.addSkill(skillFactory.createAOESkill(5));
             hero.addSkill(skillFactory.createCleaveSkill(4));

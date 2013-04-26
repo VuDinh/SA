@@ -1,10 +1,13 @@
 package Controllers.listeners;
 
+import Controllers.Communicator;
 import View.Ingame.Cell;
+import View.Ingame.ControlPanel;
 import View.Ingame.GameMap;
 import Utilities.Utilizer;
 import javafx.animation.Animation;
 import model.Animations.HeroAnimation;
+import model.HeroSystem.Hero;
 import model.HeroSystem.HeroAttackThread;
 import model.HeroSystem.HeroMoveThread;
 import model.HeroSystem.HeroStatus;
@@ -28,10 +31,16 @@ import java.util.Iterator;
 public class MapListener implements MouseListener,MouseMotionListener {
     GameMap panel;
     Point pressed;
-
-    public MapListener(GameMap panel)
+    ControlPanel controlPanel;
+    boolean lock;
+    Communicator com;
+    Hero mainHero;
+    public MapListener(Communicator com,GameMap panel,ControlPanel controlPanel)
     {
+        this.com=com;
         this.panel=panel;
+        this.controlPanel=controlPanel;
+        lock=false;
     }
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -55,6 +64,15 @@ public class MapListener implements MouseListener,MouseMotionListener {
         if(e.isMetaDown()){
             panel.getHero().setIsChosen(false);
         }
+        Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
+        mainHero = panel.getFacade().getMainHero();
+        if(clickedHero!=null){
+            controlPanel.setHero(clickedHero);
+            panel.getFacade().setCurrentHero(clickedHero);
+            if(clickedHero.equals(panel.getFacade().getMainHero())){
+                mainHero.setIsChosen(true);
+            }
+        }
         //To set Hero
         if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){
             panel.getHero().setIsChosen(true);
@@ -62,7 +80,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().resetPath();
             panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int) panel.getHero().getAP() / 2) + 1);
             if(( panel.getHero().getCurrentSkill())!=null){
-                if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();  }
+                if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
+            }
         }
 
         //draw hero movement range

@@ -3,6 +3,7 @@ package Controllers.Server.GameManager;
 import Controllers.Communicator;
 import Controllers.Requests.PlayingGameRequest;
 import Controllers.Server.AccountDao;
+import Utilities.Utilizer;
 
 import java.util.ArrayList;
 
@@ -14,36 +15,37 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class GameManager {
-    ArrayList<Game> games;
+    ArrayList<GameMatch> gameMatches;
     private int gameNum;
     AccountDao dao;
     public GameManager(){
-        games=new ArrayList<Game>();
+        gameMatches =new ArrayList<GameMatch>();
         gameNum=0;
+        Utilizer.initializeContent();
     }
     public void addPlayer(Communicator com){
         if(gameNum==0){
             gameNum++;
-            Game game=new Game(0);
-            game.setDao(dao);
-            game.addPlayer(com);
-            games.add(game);
+            GameMatch gameMatch =new GameMatch(0);
+            gameMatch.setDao(dao);
+            gameMatch.addPlayer(com);
+            gameMatches.add(gameMatch);
         }
         else{
-            Game game=games.get(gameNum-1);
-            if(!game.isFull()){
-                game.addPlayer(com);
+            GameMatch gameMatch = gameMatches.get(gameNum-1);
+            if(!gameMatch.isFull()){
+                gameMatch.addPlayer(com);
             }
             else{
-                Game newGame=new Game(gameNum);
-                newGame.addPlayer(com);
-                games.add(newGame);
+                GameMatch newGameMatch =new GameMatch(gameNum);
+                newGameMatch.addPlayer(com);
+                gameMatches.add(newGameMatch);
                 gameNum++;
             }
         }
     }
-    public void startPlayingGame(Communicator com,PlayingGameRequest request){
-        games.get(request.getMatchIndex()).startPlayingGame(com,request.getHeroSlot(),request.getHeroIndex());
+    public void chooseHero(Communicator com, PlayingGameRequest request){
+        gameMatches.get(request.getMatchIndex()).chooseHero(com, request.getHeroSlot(), request.getHeroIndex());
     }
     public void setDao(AccountDao dao){
         this.dao=dao;

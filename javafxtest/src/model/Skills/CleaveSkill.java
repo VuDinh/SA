@@ -7,6 +7,7 @@ import model.HeroSystem.Hero;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.Iterator;
 
 /**
@@ -16,11 +17,14 @@ import java.util.Iterator;
  * Time: 9:15 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CleaveSkill extends Skill {
+public class CleaveSkill extends Skill implements Serializable {
 
     public CleaveSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier
             , String SE, int AP, String description) {
         super(range, name, stun, slow, imageIndex, ID, multiplier, SE, AP, description);
+    }
+    public CleaveSkill(Skill skill){
+        super(skill);
     }
 /*
     public void calculatePath(Hero to) {
@@ -124,5 +128,8 @@ public class CleaveSkill extends Skill {
     public void drawSkillOnHero(Graphics g, Hero hero, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
 
+    }
+    public CleaveSkill clone() throws CloneNotSupportedException{
+        return (CleaveSkill)super.clone();
     }
 }
