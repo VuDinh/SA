@@ -34,6 +34,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
     ControlPanel controlPanel;
     boolean lock;
     Communicator com;
+    Hero mainHero;
     public MapListener(Communicator com,GameMap panel,ControlPanel controlPanel)
     {
         this.com=com;
@@ -64,9 +65,13 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getHero().setIsChosen(false);
         }
         Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
+        mainHero = panel.getFacade().getMainHero();
         if(clickedHero!=null){
             controlPanel.setHero(clickedHero);
             panel.getFacade().setCurrentHero(clickedHero);
+            if(clickedHero.equals(panel.getFacade().getMainHero())){
+                mainHero.setIsChosen(true);
+            }
         }
         //To set Hero
         if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){
