@@ -71,10 +71,16 @@ public class MapListener implements MouseListener,MouseMotionListener {
             panel.getFacade().setCurrentHero(clickedHero);
             if(clickedHero.equals(panel.getFacade().getMainHero())){
                 mainHero.setIsChosen(true);
+                mainHero.setStatus(HeroStatus.standing);
+                mainHero.resetPath();
+                mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
+                if(( mainHero.getCurrentSkill())!=null){
+                    if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
+                }
             }
         }
         //To set Hero
-        if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){
+        /*if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){
             panel.getHero().setIsChosen(true);
             panel.getHero().setStatus(HeroStatus.standing);
             panel.getHero().resetPath();
@@ -82,31 +88,31 @@ public class MapListener implements MouseListener,MouseMotionListener {
             if(( panel.getHero().getCurrentSkill())!=null){
                 if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
             }
-        }
-
+        }*/
+        if(mainHero!=null)
         //draw hero movement range
-        else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
-                panel.getHero().calculateRange(panel.getHero().getRow(), panel.getHero().getCol(), ((int)panel.getHero().getAP() / 2) + 1)))
+        if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
+                mainHero.calculateRange(panel.getHero().getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
         {
-            HeroAnimation.move(panel.getHero(),panel);
-            if(( panel.getHero().getCurrentSkill())!=null){
-                if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();  }
+            HeroAnimation.move(mainHero,panel);
+            if(( mainHero.getCurrentSkill())!=null){
+                if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();  }
         }
         //cast AOE skill
-        else if(panel.getHero().getIsChosen() && panel.getHero().getStatus().equals(HeroStatus.attacking)
-                && panel.getHero().getCurrentSkill().getStatus().equals(SkillStatus.before)
-                && panel.getHero().getCurrentSkill().getPath().contains(selectCell)
-                && (panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP())>=0
-                && panel.getHero().getCurrentSkill()!=null
-                && Utilizer.inRange(selectCell, panel.getHero().getCurrentSkill().getRangeCell())){
+        else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.attacking)
+                && mainHero.getCurrentSkill().getStatus().equals(SkillStatus.before)
+                && mainHero.getCurrentSkill().getPath().contains(selectCell)
+                && (mainHero.getAP()-mainHero.getCurrentSkill().getAP())>=0
+                && mainHero.getCurrentSkill()!=null
+                && Utilizer.inRange(selectCell, mainHero.getCurrentSkill().getRangeCell())){
             Cell c = new Cell(panel.getMonster().getCol(),panel.getMonster().getRow());
             HeroAnimation.attack(panel.getHero(),panel);
-            if(panel.getHero().getCurrentSkill() instanceof NormalSkill) panel.getHero().getCurrentSkill().getDmgCell().clear();
-            panel.getHero().getCurrentSkill().getDmgCell().add(selectCell);
+            if(mainHero.getCurrentSkill() instanceof NormalSkill) mainHero.getCurrentSkill().getDmgCell().clear();
+            mainHero.getCurrentSkill().getDmgCell().add(selectCell);
             if(Utilizer.inRange(new Cell(panel.getMonster().getCol(),panel.getMonster().getRow()),
-                    panel.getHero().getCurrentSkill().getDmgCell()) ){
-                panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage(panel.getHero()));
-                panel.setDamage(panel.getHero().getCurrentSkill().getDamage(panel.getHero()));
+                    mainHero.getCurrentSkill().getDmgCell()) ){
+                panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage(mainHero));
+                panel.setDamage(mainHero.getCurrentSkill().getDamage(panel.getHero()));
             }else panel.setDamage(0);
         }
 

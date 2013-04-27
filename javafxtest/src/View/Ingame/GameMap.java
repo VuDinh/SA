@@ -169,12 +169,12 @@ public class GameMap extends JPanel {
 
     public void paintSelected(Graphics g) {
         if (status.equals("selected")) {
-            if(hero.getIsChosen() && hero.getStatus().equals(HeroStatus.standing)){
-                hero.drawRange(g,scrollX,scrollY);
-            } else if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
-                hero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
-                getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
-                getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
+            if(facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.standing)){
+                facade.getMainHero().drawRange(g,scrollX,scrollY);
+            } else if (facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.attacking)) {
+                facade.getMainHero().getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
+                facade.getMainHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
+                facade.getMainHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,facade.getMainHero(),rangeCell, scrollX, scrollY, this);
             } else {
                 //paintSelectedNormal(g);
             }
@@ -197,16 +197,16 @@ public class GameMap extends JPanel {
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
 
                     if(getHero().getCurrentSkill() instanceof AOESkill){
-                        ((AOESkill) getHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
+                        ((AOESkill) facade.getMainHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
                         //System.out.println(((AOESkill) getHero().getCurrentSkill()).getRangeCell());
                     }
-                } else if(!getHero().getIsChosen() ) {
+                } else if(!facade.getMainHero().getIsChosen() ) {
                     paintHoveredNormal(g);
-                } else if(getHero().getIsChosen()){
+                } else if(facade.getMainHero().getIsChosen()){
                     //paintHoveredInRange(g);
                 }
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
-                    g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
+                    g.drawImage(facade.getMainHero().getCurrentSprite(), facade.getMainHero().getX() - scrollX, facade.getMainHero().getY() - scrollY, this);
                 }
 
             }
