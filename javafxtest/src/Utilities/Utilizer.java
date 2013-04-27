@@ -54,6 +54,9 @@ public class Utilizer {
     public static final String MONSTER_3 = "Images/Hero/monster03.png";
     public static final String MAP_FILE = "map.txt";
 
+    public static final String TELEPORT = "Images/Skills/teleport station.png";
+    public static final String TELEPORT_ANIMATION = "Images/Skills/teleport.png";
+
     public static final String EARTH_SKILL = "Images/Skills/Earth.png";
     public static final String FIRE_SKILL = "Images/Skills/Fire.png";
     public static final String ICE_SKILL = "Images/Skills/ice02.png";
@@ -73,6 +76,7 @@ public class Utilizer {
     public static final int TILE_SIZE = 48;
     public static final int TILE_ROWS = 397;
     public static final int TILE_COLS = 8;
+    public static final int TELEPORT_SPRITE = 7;
 
     public static final String CONTROL1 = "Images/Animation/control1.png";
     public static final String CONTROL2 = "Images/Animation/control2.png";
@@ -175,6 +179,7 @@ public class Utilizer {
     public static BufferedImage IMG_CHOOSING6 = null;
     public static BufferedImage IMG_CHOOSING7 = null;
     public static BufferedImage IMG_VS = null;
+    public static BufferedImage IMG_TELEPORT = null;
 
     public static final String DECS_HERO1 = "A Blade Master who wanders on the Eastern land after his hometown is destroyed. " +
             "Seeking vengeance, he travels throughout the land in order to find the Dark Monster, which put the end for his " +
@@ -271,7 +276,7 @@ public class Utilizer {
     public static final int MAP_COLS = 40;
     public static BufferedImage[] normalArray, selectArray, hoverArray, fogArray, rangeArray, dieArray,
             hero1Array, hero2Array, hero3Array, hero4Array, hero5Array, hero6Array, hero7Array,
-            monster1Array,monster2Array, monster3Array,
+            monster1Array,monster2Array, monster3Array, teleportArray,
             earthSkillArray, thunderSkillArray, windSkillArray, fireSkillArray, iceSkillArray, explodeSkillArray,
             blizzardSkillArray, firestrikeSkillArray, icestrikeSkillArray, thunderstrikeSkillArray, sparkSkillArray,
             defaultSkillArray;
@@ -338,6 +343,7 @@ public class Utilizer {
             IMG_CHOOSING6 = ImageIO.read(new File(HERO_CHOOSING6));
             IMG_CHOOSING7 = ImageIO.read(new File(HERO_CHOOSING7));
             IMG_VS = ImageIO.read(new File(VS));
+            IMG_TELEPORT = ImageIO.read(new File(TELEPORT));
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -392,6 +398,7 @@ public class Utilizer {
             BufferedImage monster2 = ImageIO.read(new File(MONSTER_2));
             BufferedImage monster3 = ImageIO.read(new File(MONSTER_3));
             BufferedImage die = ImageIO.read(new File(DIE));
+            BufferedImage teleport = ImageIO.read(new File(TELEPORT_ANIMATION));
             hero1Array = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             hero2Array = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             hero3Array = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
@@ -403,6 +410,7 @@ public class Utilizer {
             monster2Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             monster3Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             dieArray = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            teleportArray = new BufferedImage[TELEPORT_SPRITE];
             for (int i = 0; i < SPRITE_ROWS; i++)
                 for (int j = 0; j < SPRITE_COLS; j++) {
                     int index = (i * SPRITE_COLS) + j;
@@ -423,6 +431,10 @@ public class Utilizer {
                     dieArray[index]      =      die.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
                 }
+            for(int i = 0; i<TELEPORT_SPRITE; i++){
+                int index = i;
+                teleportArray[index] = teleport.getSubimage(i * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE);
+            }
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

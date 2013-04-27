@@ -56,7 +56,7 @@ public class HeroFactory {
             hero.addSkill(skillFactory.createCleaveSkill(2));
         }
         if(type==7){
-            hero=new Hero(150,150,10,10,200,5,5, 6,"MAGE",Utilizer.DECS_HERO7);
+            hero=new Hero(150,150,10,10,200,5,5, 6,"MAGER",Utilizer.DECS_HERO7);
             hero.addSkill(skillFactory.createNormalSkill(1));
             hero.addSkill(skillFactory.createAOESkill(7));
             hero.addSkill(skillFactory.createCleaveSkill(3));
