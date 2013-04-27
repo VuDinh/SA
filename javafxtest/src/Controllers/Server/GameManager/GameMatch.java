@@ -1,10 +1,7 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
-import Controllers.Requests.HeroChoosingRequest;
-import Controllers.Requests.HeroPickedRequest;
-import Controllers.Requests.MatchMakingRequest;
-import Controllers.Requests.PlayingGameRequest;
+import Controllers.Requests.*;
 import Controllers.Server.AccountDao;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
@@ -219,6 +216,23 @@ public class GameMatch implements Serializable, Cloneable {
             }
         }
         return null;
+    }
+    public void handleHeroMoveRequest(HeroMoveRequest request){
+        int slot=request.getSlotIndex();
+        //getPlayer(slot).getHero().moveCharacter(request.getHero().getCol(),request.getHero().getRow());
+        //getPlayer(slot).getHero().setShortestPathSelect(request.getHero().getShortestPathSelect());
+        //send move request to other player
+        System.out.println("receive:"+request.getHero().getShortestPathSelect());
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
     }
 
     public GameMatch clone() throws CloneNotSupportedException {

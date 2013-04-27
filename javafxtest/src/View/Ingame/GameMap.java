@@ -1,8 +1,10 @@
 package View.Ingame;
 
+import Controllers.Requests.HeroMoveRequest;
 import Utilities.Utilizer;
 import Controllers.listeners.MapListener;
 import Controllers.listeners.ScrollListener;
+import model.Animations.HeroAnimation;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
@@ -230,6 +232,19 @@ public class GameMap extends JPanel {
     }
     public void addScrollListener(KeyListener e){
         this.addKeyListener(e);
+    }
+
+    //handle requests
+    //hero move
+    public void handleHeroMoveRequest(HeroMoveRequest request){
+        Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
+        System.out.println(request.getHero().getShortestPathSelect());
+        temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
+        HeroAnimation.move(temp,this);
+    }
+
+    public void handleHeroAttackRequest(){
+
     }
 
 

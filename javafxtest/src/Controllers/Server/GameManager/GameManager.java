@@ -1,6 +1,7 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
+import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
 import Controllers.Server.AccountDao;
 import Utilities.Utilizer;
@@ -54,6 +55,10 @@ public class GameManager {
 
     }
     public void removePlayer(Communicator com){
+
+    }
+    public void handleHeroMoveRequest(HeroMoveRequest request){
+        gameMatches.get(request.getGameIndex()).handleHeroMoveRequest(request);
 
     }
 }

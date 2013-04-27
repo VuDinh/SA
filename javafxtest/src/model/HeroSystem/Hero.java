@@ -225,16 +225,10 @@ public class Hero extends Character implements Serializable,Cloneable {
                 }
             }
         }
-        for(int i=0;i<map.length;i++){
-            for(int j=0;j<map[0].length;j++)
-                System.out.print(map[i][j].getMinPath()+" ");
-            System.out.println();
-        }
     }
 
     //calculate shortest path
     public ArrayList<Cell> calculateShortestPath(Cell to){
-        System.out.println("obstacle:"+Utilizer.MOVEMAP[to.getRowPos()][to.getColPos()]);
         if(Utilizer.MOVEMAP[to.getRowPos()][to.getColPos()]==0){
             ArrayList<Cell> path=new ArrayList<Cell>();
             for(Cell i=map[to.getRowPos()][to.getColPos()];i!=null;i=i.getPrevious()) {
@@ -242,7 +236,6 @@ public class Hero extends Character implements Serializable,Cloneable {
             }
             Collections.reverse(path);
             shortestpathHover =path;
-            System.out.println("shortest path hover"+shortestpathHover);
             return path;
         }
         return null;

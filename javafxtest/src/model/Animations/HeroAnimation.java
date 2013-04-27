@@ -31,7 +31,7 @@ public class HeroAnimation {
     public static void move(Hero hero,GameMap panel){
         hero.clearRange();
         hero.setStatus(HeroStatus.moving);
-        hero.setShortestPathSelect(hero.getShortestpathHover());
+        //hero.setShortestPathSelect(hero.getShortestpathHover());
         HeroMoveThread t=new HeroMoveThread(hero, panel);
         t.start();
     }

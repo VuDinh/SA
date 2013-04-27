@@ -1,6 +1,7 @@
 package Controllers.listeners;
 
 import Controllers.Communicator;
+import Controllers.Requests.HeroMoveRequest;
 import View.Ingame.Cell;
 import View.Ingame.ControlPanel;
 import View.Ingame.GameMap;
@@ -99,7 +100,15 @@ public class MapListener implements MouseListener,MouseMotionListener {
         else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 mainHero.calculateRange(panel.getHero().getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
         {
-            HeroAnimation.move(mainHero,panel);
+            //send moving request
+            int gameIndex=panel.getFacade().getGameIndex();
+            int heroSlot=panel.getFacade().getHeroSlot();
+            mainHero.setShortestPathSelect(mainHero.getShortestpathHover());
+
+            HeroMoveRequest moveRequest=new HeroMoveRequest(gameIndex,heroSlot,mainHero);
+            System.out.println("sending shortest path:"+moveRequest.getHero().getShortestPathSelect());
+            com.write(moveRequest);
+            //HeroAnimation.move(mainHero,panel);
             if(( mainHero.getCurrentSkill())!=null){
                 if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();  }
         }
@@ -111,6 +120,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 && mainHero.getCurrentSkill()!=null
                 && Utilizer.inRange(selectCell, mainHero.getCurrentSkill().getRangeCell())){
             Cell c = new Cell(panel.getMonster().getCol(),panel.getMonster().getRow());
+
             HeroAnimation.attack(panel.getHero(),panel);
             if(mainHero.getCurrentSkill() instanceof NormalSkill) mainHero.getCurrentSkill().getDmgCell().clear();
             mainHero.getCurrentSkill().getDmgCell().add(selectCell);
@@ -223,7 +233,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 //&& inRange(selectCell,panel.getHero().calculateRange(panel.getHero().getRow(),panel.getHero().getCol(),(panel.getHero().getAP()/2) +1 ))
                 )
         {
-            panel.getFacade().getMainHero().calculateShortestPath(rangeCell);
+            mainHero.calculateShortestPath(rangeCell);
         }
         panel.repaint();
     }

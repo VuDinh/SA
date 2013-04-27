@@ -149,6 +149,10 @@ public class ClientThread extends Thread {
                 CountDownRequest request=(CountDownRequest) o;
                 heroChoosingGUI.setCountDownTime(request.getCount());
             }
+            else if(o instanceof HeroMoveRequest){
+                HeroMoveRequest request=(HeroMoveRequest) o;
+                game.getGameMap().handleHeroMoveRequest(request);
+            }
             else if(o instanceof HeroChoosingRequest){
                 final HeroChoosingRequest m=(HeroChoosingRequest)o;
                 facade.setGameIndex(m.getGameIndex());

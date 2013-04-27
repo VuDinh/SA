@@ -1,6 +1,7 @@
 package Controllers.Server;
 
 
+import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
 import model.MessageSystem.Message;
 import model.MessageSystem.MessageStatus;
@@ -83,6 +84,10 @@ public class ChatThread extends Thread {
             if(o instanceof PlayingGameRequest){
                 PlayingGameRequest request=(PlayingGameRequest) o;
                 handler.getGameManager().chooseHero(com, request);
+            }
+            if(o instanceof HeroMoveRequest){
+                HeroMoveRequest request=(HeroMoveRequest) o;
+                handler.getGameManager().handleHeroMoveRequest(request);
             }
 
             if (o instanceof Status) {

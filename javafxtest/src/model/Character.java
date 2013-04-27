@@ -18,7 +18,7 @@ public abstract class Character implements Serializable {
     protected int HP, maxHP, maxAP, row, col, x, y, distanceX, distanceY, Attk;
     protected double AP;
     protected int dirX, dirY, currentSprite, currentMove;
-    protected GameMap panel;
+    protected transient GameMap panel;
     protected boolean isChosen;
     protected int imageIndex;
     protected String name, description;
