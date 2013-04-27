@@ -46,22 +46,22 @@ public abstract class Character implements Serializable {
     }
 
     public Character(Character character) {
-        this.x = character.x;
-        this.y = character.y;
-        this.row = character.row;
-        this.col = character.col;
-        this.imageIndex = character.imageIndex;
         this.HP = character.HP;
         this.maxHP = character.maxHP;
         this.AP = character.AP;
         this.maxAP = character.maxAP;
+        this.row = character.row;
+        this.col = character.col;
+        x = character.x;
+        y = character.y;
         isChosen = false;
         dirX = 0;
         dirY = 0;
         currentSprite = 0;
+        this.name = character.name;
+        this.imageIndex = character.imageIndex;
         this.Attk = character.Attk;
         this.description = character.description;
-        this.name=character.name;
     }
 
     public void setAttk(int attk) {

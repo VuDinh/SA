@@ -504,7 +504,7 @@ public class Utilizer {
                 }
             }
             //generate movemap
-            Integer[] a={1,826,1489,1491,1497,1505,1506,1507};
+            Integer[] a={1,826,1489,1491,1497,1505,1506,1507,1490};
             List<Integer> movableTiles= Arrays.asList(a);
             MOVEMAP = new int[MAP_ROWS][MAP_COLS];
             for(int i=0;i<MAP_ROWS;i++)

@@ -62,18 +62,24 @@ public class MapListener implements MouseListener,MouseMotionListener {
         temp.setSelectedCell(selectCell);
         panel.requestFocus();
         if(e.isMetaDown()){
-            panel.getHero().setIsChosen(false);
+            panel.getFacade().getMainHero().setIsChosen(false);
         }
         Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
         mainHero = panel.getFacade().getMainHero();
         if(clickedHero!=null){
             controlPanel.setHero(clickedHero);
             panel.getFacade().setCurrentHero(clickedHero);
-            if(clickedHero.equals(panel.getFacade().getMainHero())){
+            if(clickedHero.equals(mainHero)){
                 mainHero.setIsChosen(true);
                 mainHero.setStatus(HeroStatus.standing);
                 mainHero.resetPath();
+                System.out.println("Hero AP:"+ mainHero.getAP() +" row:"+ mainHero.getRow()+"col:"+ mainHero.getCol());
                 mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
+
+                System.out.println("Main Hero"+mainHero);
+                System.out.println("Name:"+mainHero.getName());
+                System.out.println("Shortest path:"+mainHero.calculateShortestPath(selectCell));
+                System.out.println("range:"+mainHero.getRange());
                 if(( mainHero.getCurrentSkill())!=null){
                     if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
                 }
@@ -89,9 +95,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
             }
         }*/
-        if(mainHero!=null)
-        //draw hero movement range
-        if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
+
+        else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 mainHero.calculateRange(panel.getHero().getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
         {
             HeroAnimation.move(mainHero,panel);
@@ -214,11 +219,11 @@ public class MapListener implements MouseListener,MouseMotionListener {
         selectCell.setY(y);
 
         //set hero movement
-        if(panel.getHero().getIsChosen()
+        if(panel.getFacade().getMainHero().getIsChosen()
                 //&& inRange(selectCell,panel.getHero().calculateRange(panel.getHero().getRow(),panel.getHero().getCol(),(panel.getHero().getAP()/2) +1 ))
                 )
         {
-            panel.getHero().calculateShortestPath(rangeCell);
+            panel.getFacade().getMainHero().calculateShortestPath(rangeCell);
         }
         panel.repaint();
     }

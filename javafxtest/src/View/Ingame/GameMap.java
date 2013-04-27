@@ -161,22 +161,15 @@ public class GameMap extends JPanel {
         return scrollY;
     }
 
-    void paintSelectedNormal(Graphics g){
-        g.clearRect(selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
-        g.drawImage(Utilizer.selectArray[0], selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, this);
-        g.drawImage(Utilizer.selectArray[Utilizer.MAP[selectedCell.getRowPos()][selectedCell.getColPos()] - 1], selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, this);
-    }
-
     public void paintSelected(Graphics g) {
         if (status.equals("selected")) {
             if(facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.standing)){
-                facade.getMainHero().drawRange(g,scrollX,scrollY);
+                facade.getMainHero().drawRange(g, scrollX, scrollY);
+
             } else if (facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.attacking)) {
                 facade.getMainHero().getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
                 facade.getMainHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
                 facade.getMainHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,facade.getMainHero(),rangeCell, scrollX, scrollY, this);
-            } else {
-                //paintSelectedNormal(g);
             }
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);

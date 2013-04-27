@@ -31,7 +31,7 @@ public class Hero extends Character implements Serializable,Cloneable {
     ArrayList<Cell> shortestpathHover,shortestPathSelect;
     int currentSkill;
     HeroStatus status;
-    private static ArrayList<Cell> range = new ArrayList<Cell>();
+    ArrayList<Cell> range;
     protected Hero(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col, int imageIndex ,String name, String description) {
         super(HP, maxHP, AP, maxAP, Attk, row, col, imageIndex ,name, description);
         skills=new ArrayList<Skill>();
@@ -41,10 +41,12 @@ public class Hero extends Character implements Serializable,Cloneable {
         shortestpathHover=new ArrayList<Cell>();
         status=HeroStatus.standing;
         currentSkill = -1;
+        range=new ArrayList<Cell>();
     }
     public Hero(Hero hero){
         super(hero);
         this.skillCount = 0;
+        inventory=new ArrayList<Item>();
         this.skills=new ArrayList<Skill>();
         for(Skill skill:hero.skills){
             if(skill instanceof NormalSkill)
@@ -58,6 +60,7 @@ public class Hero extends Character implements Serializable,Cloneable {
         shortestpathHover=new ArrayList<Cell>();
         status=HeroStatus.standing;
         currentSkill = -1;
+        range=new ArrayList<Cell>();
     }
     protected Hero(){
         super();
@@ -221,12 +224,17 @@ public class Hero extends Character implements Serializable,Cloneable {
                     queue.add(map[temp.getRowPos()][temp.getColPos()+1]);
                 }
             }
-
+        }
+        for(int i=0;i<map.length;i++){
+            for(int j=0;j<map[0].length;j++)
+                System.out.print(map[i][j].getMinPath()+" ");
+            System.out.println();
         }
     }
 
     //calculate shortest path
     public ArrayList<Cell> calculateShortestPath(Cell to){
+        System.out.println("obstacle:"+Utilizer.MOVEMAP[to.getRowPos()][to.getColPos()]);
         if(Utilizer.MOVEMAP[to.getRowPos()][to.getColPos()]==0){
             ArrayList<Cell> path=new ArrayList<Cell>();
             for(Cell i=map[to.getRowPos()][to.getColPos()];i!=null;i=i.getPrevious()) {
@@ -234,6 +242,7 @@ public class Hero extends Character implements Serializable,Cloneable {
             }
             Collections.reverse(path);
             shortestpathHover =path;
+            System.out.println("shortest path hover"+shortestpathHover);
             return path;
         }
         return null;
