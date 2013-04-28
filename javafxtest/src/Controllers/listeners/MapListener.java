@@ -105,9 +105,15 @@ public class MapListener implements MouseListener,MouseMotionListener {
             int heroSlot=panel.getFacade().getHeroSlot();
             mainHero.setShortestPathSelect(mainHero.getShortestpathHover());
 
-            HeroMoveRequest moveRequest=new HeroMoveRequest(gameIndex,heroSlot,mainHero);
+            HeroMoveRequest moveRequest= null;
+            try {
+                moveRequest = new HeroMoveRequest(gameIndex,heroSlot,mainHero.clone());
+                com.write(moveRequest);
+            } catch (CloneNotSupportedException e1) {
+                e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
             System.out.println("sending shortest path:"+moveRequest.getHero().getShortestPathSelect());
-            com.write(moveRequest);
+
             //HeroAnimation.move(mainHero,panel);
             if(( mainHero.getCurrentSkill())!=null){
                 if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();  }

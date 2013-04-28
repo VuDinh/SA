@@ -24,7 +24,7 @@
     <file path="/Cell.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366802115282" ignored="false" />
     <file path="/GameMap.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367082771934" ignored="false" />
     <file path="/Utilities.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362502997003" ignored="false" />
-    <file path="/MapListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367084921789" ignored="false" />
+    <file path="/MapListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367123704787" ignored="false" />
     <file path="/Utilizer.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366099411038" ignored="false" />
     <file path="/Hero.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367041034278" ignored="false" />
     <file path="/SchrollListener.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1362887231450" ignored="false" />
@@ -136,7 +136,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -171,6 +170,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -180,10 +180,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MapListener.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MapListener.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/MapListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="101" selection-start="4565" selection-end="4565" vertical-scroll-proportion="0.0">
+            <state line="116" column="49" selection-start="4867" selection-end="4902" vertical-scroll-proportion="0.47327393">
               <folding />
             </state>
           </provider>
@@ -202,9 +202,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/HeroMoveRequest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="14" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -245,10 +243,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cell.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Cell.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="34" selection-start="311" selection-end="311" vertical-scroll-proportion="-0.7131783">
+            <state line="14" column="34" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -358,8 +356,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -880,9 +878,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.Client">
     <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true">
@@ -1083,7 +1081,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1199,9 +1197,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/map.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="28" selection-start="4036" selection-end="4040" vertical-scroll-proportion="-21.08">
-          <folding />
-        </state>
+        <state line="31" column="28" selection-start="4036" selection-end="4040" vertical-scroll-proportion="-21.08" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Animations/HeroAnimation.java">
@@ -1221,9 +1217,7 @@
     <entry file="file://$PROJECT_DIR$/src/Controllers/Requests/HeroMoveRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="14" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,13 +1238,6 @@
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/ChatThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="72" selection-start="3324" selection-end="3324" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/MapListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="101" selection-start="4565" selection-end="4565" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1278,7 +1265,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Ingame/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="34" selection-start="311" selection-end="311" vertical-scroll-proportion="-0.7131783">
+        <state line="14" column="34" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/MapListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="49" selection-start="4867" selection-end="4902" vertical-scroll-proportion="0.47327393">
           <folding />
         </state>
       </provider>
