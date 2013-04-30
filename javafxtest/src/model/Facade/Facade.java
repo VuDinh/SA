@@ -2,6 +2,7 @@ package model.Facade;
 
 import Controllers.Server.GameManager.GameMatch;
 import Controllers.Server.GameManager.Player;
+import View.Ingame.Cell;
 import View.Ingame.GameMap;
 import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
@@ -75,6 +76,9 @@ public class Facade {
     }
     public void drawHeroes(Graphics g,int scrollX,int scrollY){
         match.drawHeroes(g,scrollX,scrollY);
+    }
+    public void drawHeroEffects(Graphics g, int scrollX,int scrollY,Cell selectedCell,Cell rangeCell){
+        match.drawHeroEffects(g,scrollX, scrollY, selectedCell, rangeCell);
     }
     public GameMatch getGame(){
         return match;

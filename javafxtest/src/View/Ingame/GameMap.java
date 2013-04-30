@@ -1,5 +1,6 @@
 package View.Ingame;
 
+import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
 import Utilities.Utilizer;
 import Controllers.listeners.MapListener;
@@ -13,6 +14,7 @@ import model.HeroSystem.HeroStatus;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterStandThread;
 import model.Skills.AOESkill;
+import model.Skills.SkillStatus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -163,20 +165,28 @@ public class GameMap extends JPanel {
         return scrollY;
     }
 
+    public void setCenterScreenByCord(int row,int col){
+        int scrollRow=Math.max(0,row-8);
+        int scrollCol=Math.max(0,col-13);
+        scrollX=scrollCol*Utilizer.TILE_SIZE;
+        scrollY=scrollRow*Utilizer.TILE_SIZE;
+    }
+
     public void paintSelected(Graphics g) {
-        if (status.equals("selected")) {
-            if(facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.standing)){
+        //if (status.equals("selected")) {
+            /*if(facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.standing)){
                 facade.getMainHero().drawRange(g, scrollX, scrollY);
 
             } else if (facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.attacking)) {
                 facade.getMainHero().getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
-                facade.getMainHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
-                facade.getMainHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,facade.getMainHero(),rangeCell, scrollX, scrollY, this);
+                facade.getMainHero().getCurrentSkill().drawPath(g, rangeCell, scrollX, scrollY, this);
+                facade.getMainHero().getCurrentSkill().drawPathOnHero(g,facade.getMainHero(),rangeCell, scrollX, scrollY, this);
             }
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
-            }
-        }
+            }*/
+            facade.drawHeroEffects(g,scrollX,scrollY,selectedCell,rangeCell);
+        //}
     }
     void paintHoveredNormal(Graphics g){
         g.clearRect(rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
@@ -187,11 +197,11 @@ public class GameMap extends JPanel {
     public void paintHovered(Graphics g) {
         if (true) {
             if (rangeCell != null) {
-                if (getHero().getIsChosen() && getHero().getStatus().equals(HeroStatus.attacking)) {
+                if (facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.attacking)) {
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
 
-                    if(getHero().getCurrentSkill() instanceof AOESkill){
+                    if(facade.getMainHero().getCurrentSkill() instanceof AOESkill){
                         ((AOESkill) facade.getMainHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
                         //System.out.println(((AOESkill) getHero().getCurrentSkill()).getRangeCell());
                     }
@@ -238,13 +248,23 @@ public class GameMap extends JPanel {
     //hero move
     public void handleHeroMoveRequest(HeroMoveRequest request){
         Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
-        System.out.println(request.getHero().getShortestPathSelect());
         temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
         HeroAnimation.move(temp,this);
     }
 
-    public void handleHeroAttackRequest(){
-
+    public void handleHeroAttackRequest(HeroAttackRequest request){
+        Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
+        temp.setIsChosen(true);
+        temp.setStatus(HeroStatus.attacking);
+        temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
+        temp.getCurrentSkill().setPath(request.getHero().getCurrentSkill().getPath());
+        System.out.println("receive path:"+request.getHero().getCurrentSkill().getPath());
+        temp.getCurrentSkill().setStatus(SkillStatus.after);
+        temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
+        selectedCell = request.getSelectedCell();
+        System.out.println(selectedCell);
+        temp.getCurrentSkill().setPath(request.getHero().getCurrentSkill().getPath());
+        HeroAnimation.attack(temp, this);
     }
 
 

@@ -73,6 +73,7 @@ public class Client implements Runnable {
         inGame = new Game(facade);
         login = new LoginFrame(facade);
         mainMenuGUI=new MainMenuGUI();
+        mainMenuGUI.setFacade(facade);
         mainMenuGUI.init();
         heroChoosingGUI = new HeroChoosingGUI();
         heroChoosingGUI.setFacade(facade);

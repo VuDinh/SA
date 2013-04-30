@@ -1,6 +1,7 @@
 package Controllers.Server;
 
 
+import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
 import model.MessageSystem.Message;
@@ -79,6 +80,7 @@ public class ChatThread extends Thread {
                 if (mes.getStatus().equals(MessageStatus.all)) sendToAll(mes);
                 if (mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
                 if (mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
+                if (mes.getStatus().equals(MessageStatus.broadcast)) sendBroadCast(mes);
             }
 
             if(o instanceof PlayingGameRequest){
@@ -88,6 +90,10 @@ public class ChatThread extends Thread {
             if(o instanceof HeroMoveRequest){
                 HeroMoveRequest request=(HeroMoveRequest) o;
                 handler.getGameManager().handleHeroMoveRequest(request);
+            }
+            if(o instanceof HeroAttackRequest){
+                HeroAttackRequest request=(HeroAttackRequest) o;
+                handler.getGameManager().handleHeroAttackRequest(request);
             }
 
             if (o instanceof Status) {
@@ -149,6 +155,14 @@ public class ChatThread extends Thread {
                 if (tempCom.getAccount() != com.getAccount()) {
                     tempCom.write(acc);
                 }
+            }
+        }
+    }
+    public void sendBroadCast(Message mes){
+        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+            Communicator tempCom = (Communicator) it.next();
+            if (tempCom.getAccount() != com.getAccount()) {
+                tempCom.write(mes);
             }
         }
     }

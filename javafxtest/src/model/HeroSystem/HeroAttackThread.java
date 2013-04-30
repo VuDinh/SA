@@ -20,7 +20,7 @@ public class HeroAttackThread extends Thread {
 
     //run thread animation attack
     public void run(){
-        attack();
+        //attack();
         if(hero.getStatus().equals(HeroStatus.attacking)){
             for(int i =0; i<4; i++){
             hero.nextSprite();

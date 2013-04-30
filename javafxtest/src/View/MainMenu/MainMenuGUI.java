@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.Facade.Facade;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +23,7 @@ public class MainMenuGUI extends Application {
     private FindingMatchPane findingMatchPane;
     private ChatPane2 chatPane;
     private Stage stage;
+    private Facade facade;
     public static void main(String[] args)
     {
         launch(args);
@@ -48,6 +50,12 @@ public class MainMenuGUI extends Application {
     }
     public Stage getStage(){
         return stage;
+    }
+    public void setFacade(Facade facade){
+        this.facade=facade;
+    }
+    public Facade getFacade(){
+        return facade;
     }
     public void setPlayer(String text){
         header.setPlayer(text);
@@ -95,4 +103,5 @@ public class MainMenuGUI extends Application {
     public void setPlayerNumStatus(int num){
         findingMatchPane.setPlayerNumStatus(num);
     }
+
 }

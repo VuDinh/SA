@@ -1,6 +1,7 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
+import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
 import Controllers.Server.AccountDao;
@@ -59,6 +60,8 @@ public class GameManager {
     }
     public void handleHeroMoveRequest(HeroMoveRequest request){
         gameMatches.get(request.getGameIndex()).handleHeroMoveRequest(request);
-
+    }
+    public void handleHeroAttackRequest(HeroAttackRequest request){
+        gameMatches.get(request.getGameIndex()).handleHeroAttackRequest(request);
     }
 }

@@ -3,10 +3,13 @@ package Controllers.Server.GameManager;
 import Controllers.Communicator;
 import Controllers.Requests.*;
 import Controllers.Server.AccountDao;
+import Utilities.Utilizer;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
+import model.HeroSystem.HeroStatus;
+import model.Skills.Skill;
 import org.springframework.util.SerializationUtils;
 
 import java.awt.*;
@@ -191,15 +194,54 @@ public class GameMatch implements Serializable, Cloneable {
             player.getHero().draw(g, scrollX, scrollY);
         }
     }
+    public void drawHeroEffects(Graphics g, int scrollX,int scrollY,Cell selectedCell,Cell rangeCell){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            Hero tempHero=player.getHero();
+            if(tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.standing)){
+                tempHero.drawRange(g, scrollX, scrollY);
+
+            } else if (tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.attacking)) {
+                tempHero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPathOnHero(g,tempHero,rangeCell, scrollX, scrollY, tempHero.getPanel());
+            }
+            if (tempHero.getIsChosen()) {
+                g.drawImage(tempHero.getCurrentSprite(), tempHero.getX() - scrollX, tempHero.getY() - scrollY, tempHero.getPanel());
+            }
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            Hero tempHero=player.getHero();
+            if(tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.standing)){
+                tempHero.drawRange(g, scrollX, scrollY);
+
+            } else if (tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.attacking)) {
+                tempHero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPathOnHero(g,tempHero,rangeCell, scrollX, scrollY, tempHero.getPanel());
+            }
+            if (tempHero.getIsChosen()) {
+                g.drawImage(tempHero.getCurrentSprite(), tempHero.getX() - scrollX, tempHero.getY() - scrollY, tempHero.getPanel());
+            }
+        }
+
+    }
 
     public void setGameMap(GameMap gameMap) {
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             player.getHero().setPanel(gameMap);
+            for(Skill skill:player.getHero().getAllSkills()){
+                skill.setPanel(gameMap);
+            }
         }
         for (Iterator it = team1.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             player.getHero().setPanel(gameMap);
+            for(Skill skill:player.getHero().getAllSkills()){
+                skill.setPanel(gameMap);
+            }
         }
     }
     public Hero getHeroByCord(int row,int col){
@@ -219,10 +261,26 @@ public class GameMatch implements Serializable, Cloneable {
     }
     public void handleHeroMoveRequest(HeroMoveRequest request){
         int slot=request.getSlotIndex();
-        //getPlayer(slot).getHero().moveCharacter(request.getHero().getCol(),request.getHero().getRow());
-        //getPlayer(slot).getHero().setShortestPathSelect(request.getHero().getShortestPathSelect());
+        //set Hero new position
+        getPlayer(slot).getHero().setRow(request.getSelectedCell().getRowPos());
+        getPlayer(slot).getHero().setCol(request.getSelectedCell().getColPos());
+        getPlayer(slot).getHero().setX(request.getSelectedCell().getColPos()* Utilizer.TILE_SIZE);
+        getPlayer(slot).getHero().setY(request.getSelectedCell().getRowPos()* Utilizer.TILE_SIZE);
         //send move request to other player
-        System.out.println("receive:"+request.getHero().getShortestPathSelect());
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+    }
+    public void handleHeroAttackRequest(HeroAttackRequest request){
+        int slot=request.getSlotIndex();
+        System.out.println("receive path:"+request.getHero().getCurrentSkill().getPath());
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             //if(player.getSlotIndex()!=request.getSlotIndex())

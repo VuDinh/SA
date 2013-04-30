@@ -153,6 +153,10 @@ public class ClientThread extends Thread {
                 HeroMoveRequest request=(HeroMoveRequest) o;
                 game.getGameMap().handleHeroMoveRequest(request);
             }
+            else if(o instanceof HeroAttackRequest){
+                HeroAttackRequest request=(HeroAttackRequest) o;
+                game.getGameMap().handleHeroAttackRequest(request);
+            }
             else if(o instanceof HeroChoosingRequest){
                 final HeroChoosingRequest m=(HeroChoosingRequest)o;
                 facade.setGameIndex(m.getGameIndex());

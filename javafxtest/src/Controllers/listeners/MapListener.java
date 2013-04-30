@@ -1,6 +1,7 @@
 package Controllers.listeners;
 
 import Controllers.Communicator;
+import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
 import View.Ingame.Cell;
 import View.Ingame.ControlPanel;
@@ -12,14 +13,12 @@ import model.HeroSystem.Hero;
 import model.HeroSystem.HeroAttackThread;
 import model.HeroSystem.HeroMoveThread;
 import model.HeroSystem.HeroStatus;
-import model.Skills.AOESkill;
-import model.Skills.NormalSkill;
-import model.Skills.SkillStatus;
-import model.Skills.SkillThread;
+import model.Skills.*;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -67,20 +66,14 @@ public class MapListener implements MouseListener,MouseMotionListener {
         }
         Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
         mainHero = panel.getFacade().getMainHero();
-        if(clickedHero!=null){
-            controlPanel.setHero(clickedHero);
+        if(clickedHero!=null && mainHero.getStatus().equals(HeroStatus.standing)){
+            if(!mainHero.getIsChosen()) controlPanel.setHero(clickedHero);
             panel.getFacade().setCurrentHero(clickedHero);
             if(clickedHero.equals(mainHero)){
                 mainHero.setIsChosen(true);
                 mainHero.setStatus(HeroStatus.standing);
                 mainHero.resetPath();
-                System.out.println("Hero AP:"+ mainHero.getAP() +" row:"+ mainHero.getRow()+"col:"+ mainHero.getCol());
                 mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
-
-                System.out.println("Main Hero"+mainHero);
-                System.out.println("Name:"+mainHero.getName());
-                System.out.println("Shortest path:"+mainHero.calculateShortestPath(selectCell));
-                System.out.println("range:"+mainHero.getRange());
                 if(( mainHero.getCurrentSkill())!=null){
                     if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
                 }
@@ -108,11 +101,11 @@ public class MapListener implements MouseListener,MouseMotionListener {
             HeroMoveRequest moveRequest= null;
             try {
                 moveRequest = new HeroMoveRequest(gameIndex,heroSlot,mainHero.clone());
+                moveRequest.setSelectedCell(selectCell.clone());
                 com.write(moveRequest);
             } catch (CloneNotSupportedException e1) {
                 e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
-            System.out.println("sending shortest path:"+moveRequest.getHero().getShortestPathSelect());
 
             //HeroAnimation.move(mainHero,panel);
             if(( mainHero.getCurrentSkill())!=null){
@@ -126,8 +119,25 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 && mainHero.getCurrentSkill()!=null
                 && Utilizer.inRange(selectCell, mainHero.getCurrentSkill().getRangeCell())){
             Cell c = new Cell(panel.getMonster().getCol(),panel.getMonster().getRow());
+            //send attack request
+            int gameIndex=panel.getFacade().getGameIndex();
+            int heroSlot=panel.getFacade().getHeroSlot();
+            if(selectCell.getColPos() < mainHero.getCol())
+                mainHero.setCurrentSprite(16);
+            else mainHero.setCurrentSprite(20);
+            HeroAttackRequest attackReq=null;
+            try {
+                Hero cloneHero=mainHero.clone();
 
-            HeroAnimation.attack(panel.getHero(),panel);
+                //cloneHero.getCurrentSkill().clonePath(mainHero.getCurrentSkill().getPath());
+                attackReq = new HeroAttackRequest(gameIndex,heroSlot,cloneHero);
+                attackReq.setSelectedCell(selectCell.clone());
+                System.out.println("sending skill path:"+ cloneHero.getCurrentSkill().getPath());
+                com.write(attackReq);
+            } catch (CloneNotSupportedException e1) {
+                e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+
             if(mainHero.getCurrentSkill() instanceof NormalSkill) mainHero.getCurrentSkill().getDmgCell().clear();
             mainHero.getCurrentSkill().getDmgCell().add(selectCell);
             if(Utilizer.inRange(new Cell(panel.getMonster().getCol(),panel.getMonster().getRow()),

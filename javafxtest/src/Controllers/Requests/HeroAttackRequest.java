@@ -8,18 +8,19 @@ import java.io.Serializable;
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
- * Date: 4/27/13
- * Time: 1:58 PM
+ * Date: 4/28/13
+ * Time: 4:31 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HeroMoveRequest implements Serializable {
+public class HeroAttackRequest implements Serializable {
     private int gameIndex,slotIndex;
     private Hero hero;
     private Cell selectedCell;
-    public HeroMoveRequest(int gameIndex,int slotIndex,Hero hero){
+
+    public HeroAttackRequest(int gameIndex, int slotIndex, Hero hero) {
         this.gameIndex = gameIndex;
         this.slotIndex = slotIndex;
-        this.hero=hero;
+        this.hero = hero;
     }
 
     public int getGameIndex() {
@@ -45,10 +46,12 @@ public class HeroMoveRequest implements Serializable {
     public void setHero(Hero hero) {
         this.hero = hero;
     }
-    public void setSelectedCell(Cell cell){
-        this.selectedCell=cell;
-    }
-    public Cell getSelectedCell(){
+
+    public Cell getSelectedCell() {
         return selectedCell;
+    }
+
+    public void setSelectedCell(Cell selectedCell) {
+        this.selectedCell = selectedCell;
     }
 }

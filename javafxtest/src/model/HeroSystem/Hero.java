@@ -164,7 +164,10 @@ public class Hero extends Character implements Serializable,Cloneable {
         this.row=row;
         resetPath();
     }
-
+    //get All skills
+    public ArrayList<Skill> getAllSkills(){
+        return skills;
+    }
     //move 1/4 cell and decrease ap
     @Override
     public void move() {
@@ -310,7 +313,12 @@ public class Hero extends Character implements Serializable,Cloneable {
         range.clear();
     }
     public Hero clone() throws CloneNotSupportedException{
-        return (Hero)super.clone();
+        Hero hero= (Hero)super.clone();
+        hero.skills=new ArrayList<Skill>();
+        for(Skill skill:this.skills){
+            hero.skills.add(skill.clone());
+        }
+        return hero;
     }
     public boolean isThere(int row, int col){
         if(row==this.row && col==this.col){
