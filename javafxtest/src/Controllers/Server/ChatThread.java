@@ -120,30 +120,27 @@ public class ChatThread extends Thread {
 
     //sending message to all
     public void sendToAll(Message mes) {
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+        /*for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
             if (tempCom.getAccount() != com.getAccount()) {
                 tempCom.write(mes);
             }
-        }
+        }*/
+        handler.getGameManager().sendMessageToAll(mes);
     }
     //sending to the team
     public void sendToTeam(Message mes) {
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
-            Communicator tempCom = (Communicator) it.next();
-            if (tempCom.getAccount() != com.getAccount() && tempCom.getAccount().getTeam() == com.getAccount().getTeam()) {
-                tempCom.write(mes);
-            }
-        }
+        handler.getGameManager().sendMessageToTeam(mes);
     }
     //sending to the one
     public void sendToOne(Message mes) {
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+        /*for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
             if (tempCom.getAccount().getUsername().equals(mes.getReceiver().getUsername())) {
                 tempCom.write(mes);
             }
-        }
+        }*/
+        handler.getGameManager().sendMessageToPlayer(mes);
     }
     //warn the others about quitters
     public void announceQuitter() {

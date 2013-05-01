@@ -9,6 +9,7 @@ import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStatus;
+import model.MessageSystem.Message;
 import model.Skills.Skill;
 import org.springframework.util.SerializationUtils;
 
@@ -30,7 +31,7 @@ public class GameMatch implements Serializable, Cloneable {
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
-    private static final int MAX_PLAYER = 2;
+
     private int gameIndex;
 
     public GameMatch(int index) {
@@ -61,8 +62,8 @@ public class GameMatch implements Serializable, Cloneable {
     }
 
     public void addPlayer(Communicator com) {
-        if (counter < MAX_PLAYER) {
-            if (counter < MAX_PLAYER / 2) {
+        if (counter < Utilizer.MAXPLAYER) {
+            if (counter < Utilizer.MAXPLAYER / 2) {
                 team1.add(new Player(com, counter, Team.team1));
             } else {
                 team2.add(new Player(com, counter, Team.team2));
@@ -70,7 +71,7 @@ public class GameMatch implements Serializable, Cloneable {
             counter++;
             announceFingdingMatchRequest();
         }
-        if (counter == MAX_PLAYER) {
+        if (counter == Utilizer.MAXPLAYER) {
             isFull = true;
             announceHeroChoosingRequest();
             initiateCountDown();
@@ -177,10 +178,10 @@ public class GameMatch implements Serializable, Cloneable {
     }
 
     public Player getPlayer(int heroSlotIndex) {
-        if (heroSlotIndex < MAX_PLAYER / 2) {
+        if (heroSlotIndex < Utilizer.MAXPLAYER / 2) {
             return team1.get(heroSlotIndex);
         } else {
-            return team2.get(heroSlotIndex - (MAX_PLAYER / 2));
+            return team2.get(heroSlotIndex - (Utilizer.MAXPLAYER / 2));
         }
     }
 
@@ -290,6 +291,45 @@ public class GameMatch implements Serializable, Cloneable {
             Player player = (Player) it.next();
             //if(player.getSlotIndex()!=request.getSlotIndex())
             player.getCom().write(request);
+        }
+    }
+    public void sendMessageToTeam(Message mes){
+        Player p=getPlayer(mes.getSlotIndex());
+        ArrayList<Player> team;
+        if(p.getTeam().equals(Team.team1)) team=team1;
+        else team=team2;
+        for (Iterator it = team.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getSlotIndex()!=mes.getSlotIndex())
+            player.getCom().write(mes);
+        }
+    }
+    public void sendMessageToAll(Message mes){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getSlotIndex()!=mes.getSlotIndex())
+            player.getCom().write(mes);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getSlotIndex()!=mes.getSlotIndex())
+            player.getCom().write(mes);
+        }
+    }
+    public void sendMessageToPlayer(Message mes){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getCom().getAccount().getUsername().equals(mes.getReceiver().getUsername()))
+            player.getCom().write(mes);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getCom().getAccount().getUsername().equals(mes.getReceiver().getUsername()))
+            player.getCom().write(mes);
         }
     }
 

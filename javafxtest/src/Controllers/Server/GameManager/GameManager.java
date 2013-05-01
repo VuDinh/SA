@@ -6,6 +6,7 @@ import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
 import Controllers.Server.AccountDao;
 import Utilities.Utilizer;
+import model.MessageSystem.Message;
 
 import java.util.ArrayList;
 
@@ -63,5 +64,14 @@ public class GameManager {
     }
     public void handleHeroAttackRequest(HeroAttackRequest request){
         gameMatches.get(request.getGameIndex()).handleHeroAttackRequest(request);
+    }
+    public void sendMessageToTeam(Message mes){
+        gameMatches.get(mes.getGameIndex()).sendMessageToTeam(mes);
+    }
+    public void sendMessageToAll(Message mes){
+        gameMatches.get(mes.getGameIndex()).sendMessageToAll(mes);
+    }
+    public void sendMessageToPlayer(Message mes){
+        gameMatches.get(mes.getGameIndex()).sendMessageToPlayer(mes);
     }
 }

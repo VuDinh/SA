@@ -88,7 +88,9 @@ public class Client implements Runnable {
         LoginListener loginListener = new LoginListener(com, login);
         ControlListener controlListener = new ControlListener(inGame.getGameMap());
 
+
         mainMenuGUI.addChatListener(new BroadcastChatListener(mainMenuGUI,com));
+        mainMenuGUI.addLogoutListener(new LogoutListener(com,mainMenuGUI));
         mainMenuGUI.addFindMatchListener(new FindingMatchListener(mainMenuGUI,com));
 
         HeroChoosingFactory heroChoosingFactory=new HeroChoosingFactory(heroChoosingGUI,com);

@@ -27,7 +27,9 @@ public class BroadcastChatListener implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         //To change body of implemented methods use File | Settings | File Templates.
+        System.out.println("pressed");
         if(keyEvent.getCode() == KeyCode.ENTER){
+            System.out.println("haha");
             ChatPane2 chatPanel=mainMenuGUI.getChatPane();
             Message mess=new Message(mainMenuGUI.getFacade().getClientAccount(),
                     null,chatPanel.getChatMessage());

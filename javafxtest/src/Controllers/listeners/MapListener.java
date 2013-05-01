@@ -63,15 +63,15 @@ public class MapListener implements MouseListener,MouseMotionListener {
         panel.requestFocus();
         if(e.isMetaDown()){
             panel.getFacade().getMainHero().setIsChosen(false);
+
         }
         Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
         mainHero = panel.getFacade().getMainHero();
-        if(clickedHero!=null && mainHero.getStatus().equals(HeroStatus.standing)){
-            if(!mainHero.getIsChosen()) controlPanel.setHero(clickedHero);
+        if(clickedHero!=null && !mainHero.getStatus().equals(HeroStatus.attacking)){
+            if(mainHero.getStatus().equals(HeroStatus.standing)) controlPanel.setHero(clickedHero);
             panel.getFacade().setCurrentHero(clickedHero);
             if(clickedHero.equals(mainHero)){
                 mainHero.setIsChosen(true);
-                mainHero.setStatus(HeroStatus.standing);
                 mainHero.resetPath();
                 mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
                 if(( mainHero.getCurrentSkill())!=null){
@@ -132,7 +132,8 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 //cloneHero.getCurrentSkill().clonePath(mainHero.getCurrentSkill().getPath());
                 attackReq = new HeroAttackRequest(gameIndex,heroSlot,cloneHero);
                 attackReq.setSelectedCell(selectCell.clone());
-                System.out.println("sending skill path:"+ cloneHero.getCurrentSkill().getPath());
+                attackReq.setPath(mainHero.getCurrentSkill().getPath());
+                System.out.println("sending skill path:"+ attackReq.getPath());
                 com.write(attackReq);
             } catch (CloneNotSupportedException e1) {
                 e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

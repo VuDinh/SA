@@ -257,13 +257,12 @@ public class GameMap extends JPanel {
         temp.setIsChosen(true);
         temp.setStatus(HeroStatus.attacking);
         temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
-        temp.getCurrentSkill().setPath(request.getHero().getCurrentSkill().getPath());
-        System.out.println("receive path:"+request.getHero().getCurrentSkill().getPath());
+        temp.getCurrentSkill().setPath(request.getPath());
+        System.out.println("receive path:"+request.getPath());
         temp.getCurrentSkill().setStatus(SkillStatus.after);
         temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
         selectedCell = request.getSelectedCell();
         System.out.println(selectedCell);
-        temp.getCurrentSkill().setPath(request.getHero().getCurrentSkill().getPath());
         HeroAnimation.attack(temp, this);
     }
 

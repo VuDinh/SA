@@ -14,6 +14,7 @@ import model.AccountSystem.Account;
 import model.Facade.Facade;
 import model.MessageSystem.Message;
 import model.AccountSystem.Status;
+import model.MessageSystem.MessageStatus;
 
 import java.util.Iterator;
 import java.util.List;
@@ -64,7 +65,13 @@ public class ClientThread extends Thread {
                     @Override
                     public void run() {
                         //To change body of implemented methods use File | Settings | File Templates.
-                        chatPanel.addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        if(mes.getStatus().equals(MessageStatus.broadcast)  && mainMenuGUI.getStage().isShowing() ){
+                            mainMenuGUI.getChatPane().addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        }
+                        if(mes.getStatus().equals(MessageStatus.team) && heroChoosingGUI.getStage().isShowing()){
+                            heroChoosingGUI.getChatPane().addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        }
+                        if(game.isVisible()) chatPanel.addChatMessage(mes.getSender().getUsername(), mes.getContent());
                     }
                 });
             }
@@ -110,6 +117,7 @@ public class ClientThread extends Thread {
                             login.setVisible(false);
                             Stage stage=new Stage();
                             mainMenuGUI.start(stage);
+                            mainMenuGUI.setPlayer(temp);
                         }
                     });
                     facade.setUsername(temp.getUsername());

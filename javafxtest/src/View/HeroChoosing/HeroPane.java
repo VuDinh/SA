@@ -149,6 +149,7 @@ public class HeroPane extends BorderPane {
         for (int i = 0; i < heroButtons.length; i++) {
             heroButtons[i].setOnAction(heroChoosingFactory.heroChoosingListener(i));
         }
+        chatPane.addChatListener(heroChoosingFactory.chatListener());
     }
 
     public void addHeroHoveringListener(HeroChoosingFactory heroChoosingFactory) {
@@ -184,6 +185,9 @@ public class HeroPane extends BorderPane {
             desText += hero.getDescription() + "\n";
             taHeroDesc.setText(desText);
         }
+    }
+    public ChatPane2 getChatPane(){
+        return chatPane;
     }
 
     public void setHoveredSkill(int index) {

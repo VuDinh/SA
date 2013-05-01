@@ -77,6 +77,7 @@ public class Utilizer {
     public static final int TILE_ROWS = 397;
     public static final int TILE_COLS = 8;
     public static final int TELEPORT_SPRITE = 7;
+    public static final int MAXPLAYER=2;
 
     public static final String CONTROL1 = "Images/Animation/control1.png";
     public static final String CONTROL2 = "Images/Animation/control2.png";

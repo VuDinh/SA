@@ -4,6 +4,7 @@ import View.Ingame.Cell;
 import model.HeroSystem.Hero;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +17,7 @@ public class HeroAttackRequest implements Serializable {
     private int gameIndex,slotIndex;
     private Hero hero;
     private Cell selectedCell;
-
+    private ArrayList<Cell> path;
     public HeroAttackRequest(int gameIndex, int slotIndex, Hero hero) {
         this.gameIndex = gameIndex;
         this.slotIndex = slotIndex;
@@ -53,5 +54,18 @@ public class HeroAttackRequest implements Serializable {
 
     public void setSelectedCell(Cell selectedCell) {
         this.selectedCell = selectedCell;
+    }
+    public void setPath(ArrayList<Cell> path){
+        this.path=new ArrayList<Cell>();
+        for(Cell cell:path){
+            try {
+                this.path.add(cell.clone());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+    }
+    public ArrayList<Cell> getPath(){
+        return path;
     }
 }

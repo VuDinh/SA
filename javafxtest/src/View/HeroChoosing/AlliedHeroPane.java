@@ -20,7 +20,6 @@ import java.awt.image.BufferedImage;
 public class AlliedHeroPane extends GridPane {
     ImageView[] images;
     ImageView imgUnknown;
-    private static final int MAXPLAYER=2;
     public AlliedHeroPane(){
         Image unknown=SwingFXUtils.toFXImage(Utilizer.IMG_FACE8,new WritableImage(Utilizer.IMG_FACE8.getWidth()
                 ,Utilizer.IMG_FACE8.getHeight()));
@@ -46,7 +45,7 @@ public class AlliedHeroPane extends GridPane {
     public void setAllyIcon(int index,BufferedImage img){
         Image temp=SwingFXUtils.toFXImage(img,new WritableImage(img.getWidth(),img.getHeight()));
         int actualIndex=index;
-        if(index>=MAXPLAYER/2){
+        if(index>=Utilizer.MAXPLAYER/2){
             actualIndex++;
         }
         images[actualIndex].setImage(temp);

@@ -4,6 +4,7 @@ import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroStatus;
 import model.Skills.AOESkill;
+import model.Skills.CleaveSkill;
 import model.Skills.SkillStatus;
 import sun.security.jca.GetInstance;
 
@@ -40,7 +41,6 @@ public class ScrollListener implements KeyListener {
             mainHero.setAP(mainHero.getMaxAP());
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-
             panel.increaseScrollY();
             mainHero.setCurrentSprite(0);
         }
@@ -64,11 +64,7 @@ public class ScrollListener implements KeyListener {
                 mainHero.setStatus(HeroStatus.attacking);
                 mainHero.getSkill(0).setStatus(SkillStatus.before);
                 mainHero.setCurrentSkill(0);
-                if(mainHero.getCurrentSkill() instanceof AOESkill){
-                    ((AOESkill) mainHero.getCurrentSkill()).calculateRange(mainHero.getRow(),
-                            mainHero.getCol(), mainHero.getCurrentSkill().getRange()+1);
-                    ((AOESkill) mainHero.getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
-                }
+
             }
             if (e.getKeyCode() == KeyEvent.VK_W) {
                 mainHero.setStatus(HeroStatus.attacking);
@@ -84,11 +80,11 @@ public class ScrollListener implements KeyListener {
                 mainHero.setStatus(HeroStatus.attacking);
                 mainHero.getSkill(2).setStatus(SkillStatus.before);
                 mainHero.setCurrentSkill(2);
-                if(mainHero.getCurrentSkill() instanceof AOESkill){
+                /*if(mainHero.getCurrentSkill() instanceof AOESkill){
                     ((AOESkill) mainHero.getCurrentSkill()).calculateRange(mainHero.getRow(),
                             mainHero.getCol(), mainHero.getCurrentSkill().getRange()+1);
                     ((AOESkill) mainHero.getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
-                }
+                }*/
             }
         }
         //System.out.println(mainHero().getStatus());

@@ -43,7 +43,9 @@ public class Player implements Serializable,Cloneable {
         this.slotIndex=slotIndex;
         this.team=team;
     }
-
+    public Team getTeam(){
+        return team;
+    }
     public Communicator getCom() {
         return com;
     }

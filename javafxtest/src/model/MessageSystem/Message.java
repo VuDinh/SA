@@ -16,6 +16,7 @@ public class Message implements Serializable,Comparable {
     private Account sender,receiver;
     private String content;
     private MessageStatus status;
+    private int slotIndex,gameIndex;
 
     public Message(Account sender, Account receiver, String content) {
         this.sender = sender;
@@ -55,8 +56,25 @@ public class Message implements Serializable,Comparable {
         this.content = content;
     }
 
+    public int getSlotIndex() {
+        return slotIndex;
+    }
+
+    public void setSlotIndex(int slotIndex) {
+        this.slotIndex = slotIndex;
+    }
+
+    public int getGameIndex() {
+        return gameIndex;
+    }
+
+    public void setGameIndex(int gameIndex) {
+        this.gameIndex = gameIndex;
+    }
+
     @Override
     public int compareTo(Object o) {
         return content.compareTo(((Message)o).getContent());
     }
+
 }

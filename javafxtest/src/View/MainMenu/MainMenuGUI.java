@@ -9,6 +9,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import model.AccountSystem.Account;
 import model.Facade.Facade;
 
 /**
@@ -36,11 +38,11 @@ public class MainMenuGUI extends Application {
     @Override
     public void start(Stage stage){
         this.stage = stage;
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Control stage");
         BorderPane bP=new BorderPane();
         bP.setId("background");
         bP.setTop(header);
-        chatPane=new ChatPane2();
         bP.setCenter(chatPane);
         bP.setBottom(findingMatchPane);
         Scene scene=new Scene(bP,960,600);
@@ -57,14 +59,11 @@ public class MainMenuGUI extends Application {
     public Facade getFacade(){
         return facade;
     }
-    public void setPlayer(String text){
-        header.setPlayer(text);
+    public void setPlayer(Account account){
+        header.setPlayer(account);
     }
     public void addLogoutListener(EventHandler<ActionEvent> e){
         header.addLogoutListener(e);
-    }
-    public void addSettingListener(EventHandler<ActionEvent> e){
-        header.addSettingListener(e);
     }
     public void setStatusText(String text){
         findingMatchPane.setStatusText(text);
@@ -86,6 +85,7 @@ public class MainMenuGUI extends Application {
         chatPane.addStatusMessage(message);
     }
     public void addChatListener(EventHandler<KeyEvent> e){
+        System.out.println("added listener");
         chatPane.addChatListener(e);
     }
     public Header getHeader(){

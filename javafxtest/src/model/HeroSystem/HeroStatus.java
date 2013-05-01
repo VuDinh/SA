@@ -11,4 +11,5 @@ public enum HeroStatus{
     moving,
     attacking,
     standing,
+    dead
 };
