@@ -138,6 +138,7 @@ public class ClientThread extends Thread {
                 GameMatch pR=(GameMatch) o;
                 System.out.println("Player number:"+pR.getPlayer(0).getHero().getY());
                 facade.setMatch(pR);
+                if(facade.getHeroSlot()==pR.getTurnIndex()) facade.setIsLocked(false);
                 game.setInitialProperties();
                 Platform.runLater(new Runnable() {
                     @Override
@@ -183,6 +184,11 @@ public class ClientThread extends Thread {
                     }
                 });
 
+            }
+            else if(o instanceof TurnControlRequest){
+                TurnControlRequest request=(TurnControlRequest) o;
+                if(facade.getHeroSlot()==request.getTurnIndex()) facade.setIsLocked(false);
+                game.getTurnPanel().setStatusMessage(request.getTurnIndex());
             }
             //invalid account
             else if (o instanceof Status) {

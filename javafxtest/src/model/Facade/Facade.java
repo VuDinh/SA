@@ -24,10 +24,12 @@ public class Facade {
     private GameMatch match;
     private Account account;
     private Hero currentChosen,mainHero;
-    private boolean lock;
+    private boolean isLocked;
+
     public Facade(){
         hL =new HeroLibrary();
         account=new Account();
+        isLocked = true;
     }
     public ArrayList<Hero> getHeroList(){
         return hL.getHeroList();
@@ -53,6 +55,12 @@ public class Facade {
 
     public void setGameIndex(int gameIndex) {
         this.gameIndex = gameIndex;
+    }
+    public boolean getIsLocked(){
+        return isLocked;
+    }
+    public void setIsLocked(boolean isLocked){
+        this.isLocked = isLocked;
     }
     public void setUsername(String username){
         account.setUsername(username);

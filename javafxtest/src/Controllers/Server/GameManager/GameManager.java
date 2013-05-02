@@ -4,6 +4,7 @@ import Controllers.Communicator;
 import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
+import Controllers.Requests.TurnControlRequest;
 import Controllers.Server.AccountDao;
 import Utilities.Utilizer;
 import model.MessageSystem.Message;
@@ -73,5 +74,8 @@ public class GameManager {
     }
     public void sendMessageToPlayer(Message mes){
         gameMatches.get(mes.getGameIndex()).sendMessageToPlayer(mes);
+    }
+    public void nextTurn(TurnControlRequest request){
+        gameMatches.get(request.getGameIndex()).nextTurn();
     }
 }

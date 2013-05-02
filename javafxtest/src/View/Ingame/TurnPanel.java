@@ -24,6 +24,16 @@ public class TurnPanel extends JPanel {
     public void setFacade(Facade facade){
         this.facade = facade;
     }
+    public void setStatusMessage(int turnIndex){
+        if(turnIndex==facade.getHeroSlot()){
+            statusMessage = "Your Turn!";
+        }
+        else{
+            System.out.println("Turn Index:"+ turnIndex);
+            statusMessage= facade.getGame().getPlayer(turnIndex).getPlayerName() +"'s Turn!";
+        }
+        repaint();
+    }
     public void paintComponent(Graphics g){
         g.setColor(Color.DARK_GRAY);
         g.fillRect(0,0,getWidth(),getHeight());
@@ -45,5 +55,9 @@ public class TurnPanel extends JPanel {
         g.setFont(new Font("TimesRoman", Font.BOLD, 15));
         g.setColor(Color.WHITE);
         g.drawString(facade.getUsername(),10,31);
+        //draw Status String
+        g.setFont(new Font("TimesRoman", Font.BOLD, 15));
+        g.setColor(Color.WHITE);
+        g.drawString(statusMessage,900, 31);
     }
 }

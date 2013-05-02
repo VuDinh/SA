@@ -83,7 +83,7 @@ public class Client implements Runnable {
     public void addListeners() {
         //delete later
         MapListener mapListener = new MapListener(com,inGame.getGameMap(),inGame.getControlPanel());
-        ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
+        ScrollListener scrollListener = new ScrollListener(com,inGame.getGameMap());
         ChatListener chatListener = new ChatListener(com, inGame, facade);
         LoginListener loginListener = new LoginListener(com, login);
         ControlListener controlListener = new ControlListener(inGame.getGameMap());

@@ -1,5 +1,7 @@
 package Controllers.listeners;
 
+import Controllers.Communicator;
+import Controllers.Requests.TurnControlRequest;
 import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroStatus;
@@ -23,9 +25,10 @@ public class ScrollListener implements KeyListener {
     int limitX;
     int limitY;
     Hero mainHero;
-
-    public ScrollListener(GameMap panel) {
+    Communicator com;
+    public ScrollListener(Communicator com,GameMap panel) {
         this.panel = panel;
+        this.com=com;
     }
 
     @Override
@@ -39,6 +42,12 @@ public class ScrollListener implements KeyListener {
         mainHero=panel.getFacade().getMainHero();
         if (e.getKeyCode() == KeyEvent.VK_END) {
             mainHero.setAP(mainHero.getMaxAP());
+            if(panel.getFacade().getIsLocked()==false)
+            {
+                TurnControlRequest request=new TurnControlRequest(panel.getFacade().getHeroSlot(),panel.getFacade().getGameIndex());
+                panel.getFacade().setIsLocked(true);
+                com.write(request);
+            }
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             panel.increaseScrollY();

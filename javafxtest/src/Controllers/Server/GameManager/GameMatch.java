@@ -31,7 +31,7 @@ public class GameMatch implements Serializable, Cloneable {
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
-
+    private int turnIndex;
     private int gameIndex;
 
     public GameMatch(int index) {
@@ -40,6 +40,7 @@ public class GameMatch implements Serializable, Cloneable {
         team2 = new ArrayList<Player>();
         isFull = false;
         this.gameIndex = index;
+        turnIndex = 0;
     }
 
     public GameMatch(GameMatch one) {
@@ -54,6 +55,7 @@ public class GameMatch implements Serializable, Cloneable {
         this.counter = one.counter;
         this.isFull = one.isFull;
         this.gameIndex = one.gameIndex;
+        turnIndex = 0;
 
     }
 
@@ -77,6 +79,9 @@ public class GameMatch implements Serializable, Cloneable {
             initiateCountDown();
         }
 
+    }
+    public int getTurnIndex(){
+        return turnIndex;
     }
 
     public void announceFingdingMatchRequest() {
@@ -154,6 +159,7 @@ public class GameMatch implements Serializable, Cloneable {
             Player player = (Player) it.next();
             player.getCom().write(new GameMatch(this));
         }
+
     }
 
     public void initiateCountDown() {
@@ -335,6 +341,22 @@ public class GameMatch implements Serializable, Cloneable {
 
     public GameMatch clone() throws CloneNotSupportedException {
         return (GameMatch) super.clone();
+    }
+
+    public void nextTurn(){
+        if(turnIndex<Utilizer.MAXPLAYER-1)
+        turnIndex++;
+        else turnIndex = 0;
+        TurnControlRequest request=new TurnControlRequest(turnIndex,gameIndex);
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
     }
 
 }
