@@ -3,6 +3,7 @@ package Controllers.Server.GameManager;
 import Controllers.Communicator;
 import Controllers.Requests.*;
 import Controllers.Server.AccountDao;
+import Controllers.Server.GameManager.Comparators.ScoreComparator;
 import Utilities.Utilizer;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
@@ -10,12 +11,14 @@ import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStatus;
 import model.MessageSystem.Message;
+import model.MonsterSystem.Monster;
 import model.Skills.Skill;
 import org.springframework.util.SerializationUtils;
 
 import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -28,6 +31,7 @@ import java.util.Iterator;
 public class GameMatch implements Serializable, Cloneable {
     private ArrayList<Player> team1;
     private ArrayList<Player> team2;
+    private ArrayList<Monster> monsters;
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
@@ -38,6 +42,7 @@ public class GameMatch implements Serializable, Cloneable {
         counter = 0;
         team1 = new ArrayList<Player>();
         team2 = new ArrayList<Player>();
+        monsters = new ArrayList<Monster>();
         isFull = false;
         this.gameIndex = index;
         turnIndex = 0;
@@ -266,6 +271,21 @@ public class GameMatch implements Serializable, Cloneable {
         }
         return null;
     }
+    public Player getPlayerByCord(int row,int col){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getHero().isThere(row,col)){
+                return player;
+            }
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getHero().isThere(row,col)){
+                return player;
+            }
+        }
+        return null;
+    }
     public void handleHeroMoveRequest(HeroMoveRequest request){
         int slot=request.getSlotIndex();
         //set Hero new position
@@ -357,6 +377,13 @@ public class GameMatch implements Serializable, Cloneable {
             //if(player.getSlotIndex()!=request.getSlotIndex())
             player.getCom().write(request);
         }
+    }
+    public ArrayList<Player> getRankingList(){
+        ArrayList<Player> players=new ArrayList<Player>();
+        players.addAll(team1);
+        players.addAll(team2);
+        Collections.sort(players, new ScoreComparator());
+        return players;
     }
 
 }

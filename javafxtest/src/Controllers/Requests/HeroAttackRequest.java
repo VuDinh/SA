@@ -17,7 +17,8 @@ public class HeroAttackRequest implements Serializable {
     private int gameIndex,slotIndex;
     private Hero hero;
     private Cell selectedCell;
-    private ArrayList<Cell> path;
+    private ArrayList<Cell> path,dmgCell;
+
     public HeroAttackRequest(int gameIndex, int slotIndex, Hero hero) {
         this.gameIndex = gameIndex;
         this.slotIndex = slotIndex;
@@ -65,7 +66,20 @@ public class HeroAttackRequest implements Serializable {
             }
         }
     }
+    public void setDmgCell(ArrayList<Cell> dmgCell){
+        this.dmgCell=new ArrayList<Cell>();
+        for(Cell cell:dmgCell){
+            try {
+                this.dmgCell.add(cell.clone());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+    }
     public ArrayList<Cell> getPath(){
         return path;
+    }
+    public ArrayList<Cell> getDmgCell(){
+        return dmgCell;
     }
 }

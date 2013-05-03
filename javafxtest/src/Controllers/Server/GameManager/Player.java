@@ -22,6 +22,7 @@ public class Player implements Serializable,Cloneable {
     private Cell cell;
     private Hero hero;
     private String playerName;
+    private int score;
 
     public Player(Communicator com,int slotIndex,Team team){
         this.com=com;
@@ -29,7 +30,7 @@ public class Player implements Serializable,Cloneable {
         this.slotIndex=slotIndex;
         this.team=team;
         playerName = new String(com.getAccount().getUsername());
-        System.out.println(playerName);
+        score = 0;
     }
     public Player(Player player){
         this.slotIndex=player.slotIndex;
@@ -39,6 +40,7 @@ public class Player implements Serializable,Cloneable {
         this.hero = new Hero(player.hero);
         this.playerName = player.playerName;
         System.out.println(this.hero.getY());
+        this.score = player.score;
     }
     public Player(int slotIndex,Team team){
         isPicked = false;
@@ -107,6 +109,16 @@ public class Player implements Serializable,Cloneable {
         player.setHeroIndex(heroIndex);
         player.hero = new Hero(this.hero);
         player.playerName=this.playerName;
+        player.score = this.score;
         return player;
+    }
+    public int getScore(){
+        return score;
+    }
+    public void setScore(int score){
+        this.score = score;
+    }
+    public void addScore(int amount){
+        score+=amount;
     }
 }

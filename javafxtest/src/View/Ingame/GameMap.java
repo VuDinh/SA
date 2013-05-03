@@ -2,6 +2,7 @@ package View.Ingame;
 
 import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
+import Controllers.Server.GameManager.Player;
 import Utilities.Utilizer;
 import Controllers.listeners.MapListener;
 import Controllers.listeners.ScrollListener;
@@ -15,12 +16,14 @@ import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterStandThread;
 import model.Skills.AOESkill;
 import model.Skills.SkillStatus;
+import sun.text.resources.BreakIteratorInfo_th;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -254,16 +257,34 @@ public class GameMap extends JPanel {
 
     public void handleHeroAttackRequest(HeroAttackRequest request){
         Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
+        Player attackingPlayer=facade.getMatch().getPlayer(request.getSlotIndex());
         temp.setIsChosen(true);
         temp.setStatus(HeroStatus.attacking);
         temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
         temp.getCurrentSkill().setPath(request.getPath());
+        temp.getCurrentSkill().setDamageCell(request.getDmgCell());
         System.out.println("receive path:"+request.getPath());
         temp.getCurrentSkill().setStatus(SkillStatus.after);
         temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
         selectedCell = request.getSelectedCell();
         System.out.println(selectedCell);
         HeroAnimation.attack(temp, this);
+        //look for affected character
+        for(Iterator it=request.getDmgCell().iterator();it.hasNext();){
+            Cell cell=(Cell) it.next();
+            Player player= facade.getPlayerByCord(cell.rowPos,cell.colPos);
+            if(player!=null){
+                if(!player.getTeam().equals(attackingPlayer.getTeam())){
+                    Hero attackedHero=player.getHero();
+                    attackedHero.setHP(attackedHero.getHP()-temp.getCurrentSkill().getDamage(temp));
+                    if(attackedHero.getHP()<=0){
+                        //set dead status
+                        attackedHero.setHP(0);
+                    }
+                }
+            }
+        }
+        repaint();
     }
 
 

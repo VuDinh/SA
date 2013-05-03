@@ -28,8 +28,8 @@ public abstract class Skill implements Serializable, Cloneable {
     protected int imageIndex;
     protected String SE, description;
     protected int AP;
-    protected ArrayList<Cell> rangeCell = new ArrayList<Cell>();
-    protected ArrayList<Cell> dmgCell = new ArrayList<Cell>();
+    protected ArrayList<Cell> rangeCell;
+    protected ArrayList<Cell> dmgCell;
     protected transient GameMap panel;
     protected int imgHeroIndex;
 
@@ -50,6 +50,8 @@ public abstract class Skill implements Serializable, Cloneable {
         this.SE = SE;
         this.AP = AP;
         this.description = description;
+        rangeCell=new ArrayList<Cell>();
+        dmgCell = new ArrayList<Cell>();
     }
 
     public Skill(Skill skill) {
@@ -66,6 +68,8 @@ public abstract class Skill implements Serializable, Cloneable {
         this.SE = skill.SE;
         this.AP = skill.AP;
         this.description = skill.description;
+        rangeCell=new ArrayList<Cell>();
+        dmgCell = new ArrayList<Cell>();
     }
 
     public String getDescription() {
@@ -188,6 +192,9 @@ public abstract class Skill implements Serializable, Cloneable {
 
     public int getCurrentSpriteIndex() {
         return currentSprite;
+    }
+    public void setDamageCell(ArrayList<Cell> dmgCell){
+        this.dmgCell = dmgCell;
     }
 
     public abstract void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel);

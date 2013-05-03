@@ -105,6 +105,9 @@ public class Facade {
     public Hero getHeroByCord(int row,int col){
         return match.getHeroByCord(row,col);
     }
+    public Player getPlayerByCord(int row,int col){
+        return match.getPlayerByCord(row,col);
+    }
     public Hero getHeroBySlotIndex(int index){
         return match.getPlayer(index).getHero();
     }

@@ -125,7 +125,11 @@ public class MapListener implements MouseListener,MouseMotionListener {
             if(selectCell.getColPos() < mainHero.getCol())
                 mainHero.setCurrentSprite(16);
             else mainHero.setCurrentSprite(20);
+
             HeroAttackRequest attackReq=null;
+            if(mainHero.getCurrentSkill() instanceof NormalSkill)
+                mainHero.getCurrentSkill().getDmgCell().clear();
+            mainHero.getCurrentSkill().getDmgCell().add(selectCell);
             try {
                 Hero cloneHero=mainHero.clone();
 
@@ -133,19 +137,20 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 attackReq = new HeroAttackRequest(gameIndex,heroSlot,cloneHero);
                 attackReq.setSelectedCell(selectCell.clone());
                 attackReq.setPath(mainHero.getCurrentSkill().getPath());
+                attackReq.setDmgCell(mainHero.getCurrentSkill().getDmgCell());
                 System.out.println("sending skill path:"+ attackReq.getPath());
                 com.write(attackReq);
             } catch (CloneNotSupportedException e1) {
                 e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
 
-            if(mainHero.getCurrentSkill() instanceof NormalSkill) mainHero.getCurrentSkill().getDmgCell().clear();
+            /*if(mainHero.getCurrentSkill() instanceof NormalSkill) mainHero.getCurrentSkill().getDmgCell().clear();
             mainHero.getCurrentSkill().getDmgCell().add(selectCell);
             if(Utilizer.inRange(new Cell(panel.getMonster().getCol(),panel.getMonster().getRow()),
                     mainHero.getCurrentSkill().getDmgCell()) ){
                 panel.getMonster().setHP(panel.getMonster().getHP()-panel.getHero().getCurrentSkill().getDamage(mainHero));
                 panel.setDamage(mainHero.getCurrentSkill().getDamage(panel.getHero()));
-            }else panel.setDamage(0);
+            }else panel.setDamage(0);*/
         }
 
         /*//cast cleave skill
