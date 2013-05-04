@@ -5,6 +5,7 @@ import Controllers.Requests.*;
 import Controllers.Server.AccountDao;
 import Controllers.Server.GameManager.Comparators.ScoreComparator;
 import Utilities.Utilizer;
+
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
@@ -12,6 +13,7 @@ import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStatus;
 import model.MessageSystem.Message;
 import model.MonsterSystem.Monster;
+import model.MonsterSystem.MonsterFactory;
 import model.Skills.Skill;
 import org.springframework.util.SerializationUtils;
 
@@ -46,16 +48,25 @@ public class GameMatch implements Serializable, Cloneable {
         isFull = false;
         this.gameIndex = index;
         turnIndex = 0;
+
     }
 
     public GameMatch(GameMatch one) {
         this.team1 = new ArrayList<Player>();
         this.team2 = new ArrayList<Player>();
+        this.monsters=new ArrayList<Monster>();
         for (Player player : one.team1) {
             this.team1.add(new Player(player));
         }
         for (Player player : one.team2) {
             this.team2.add(new Player(player));
+        }
+        for(Monster monster:one.monsters){
+            try {
+                this.monsters.add(monster.clone());
+            } catch (CloneNotSupportedException e) {
+
+            }
         }
         this.counter = one.counter;
         this.isFull = one.isFull;
@@ -66,6 +77,7 @@ public class GameMatch implements Serializable, Cloneable {
 
     public void setDao(AccountDao dao) {
         this.dao = dao;
+        createMonsters();
     }
 
     public void addPlayer(Communicator com) {
@@ -240,6 +252,13 @@ public class GameMatch implements Serializable, Cloneable {
 
     }
 
+    public void drawMonsters(Graphics g,int scrollX,int scrollY){
+        for(Iterator it=monsters.iterator();it.hasNext();){
+            Monster monster=(Monster) it.next();
+            monster.draw(g,scrollX, scrollY);
+        }
+    }
+
     public void setGameMap(GameMap gameMap) {
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
@@ -376,6 +395,23 @@ public class GameMatch implements Serializable, Cloneable {
             Player player = (Player) it.next();
             //if(player.getSlotIndex()!=request.getSlotIndex())
             player.getCom().write(request);
+        }
+    }
+    public void createMonsters(){
+        MonsterFactory mF=new MonsterFactory();
+        ArrayList<Cell> t=new ArrayList<Cell>(dao.getAllMonsterPositions());
+        int index=1;
+        for(Iterator it=t.iterator();it.hasNext();){
+            Monster monster=mF.createMonster(index);
+            index++;
+            if(index>3) index = 1;
+            Cell cell=(Cell)it.next();
+            monster.setRow(cell.getRowPos());
+            monster.setCol(cell.getColPos());
+            monster.setX(cell.getColPos() * Utilizer.TILE_SIZE);
+            monster.setY(cell.getRowPos()*Utilizer.TILE_SIZE);
+            monsters.add(monster);
+
         }
     }
     public ArrayList<Player> getRankingList(){

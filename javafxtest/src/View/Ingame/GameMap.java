@@ -40,8 +40,6 @@ public class GameMap extends JPanel {
     Cell selectedCell , rangeCell;
     int startX, startY, maxX, maxY, scrollX, scrollY;
     int damage = 0;
-    Hero hero;
-    Monster monster;
     private Facade facade;
     public int getDamage() {
         return damage;
@@ -63,15 +61,6 @@ public class GameMap extends JPanel {
         scrollX = 0;
         scrollY = 0;
         //test a hero
-        HeroFactory hF = new HeroFactory();
-        //hero = hF.createHero(1);
-        this.hero = hero;
-        this.monster= monster;
-        hero.setPanel(this);
-        HeroStandThread t = new HeroStandThread(hero, this);
-        t.start();
-        MonsterStandThread t2 = new MonsterStandThread(monster, this);
-        t2.start();
     }
 
     public void setStatus(String status) {
@@ -124,7 +113,6 @@ public class GameMap extends JPanel {
     }
 
     public void paintHero(Graphics g) {
-        hero.draw(g, scrollX, scrollY);
         if(facade!=null){
             if(facade.getGame()!=null){
                 facade.drawHeroes(g,scrollX, scrollY);
@@ -133,7 +121,8 @@ public class GameMap extends JPanel {
     }
 
     public void paintMonster(Graphics g){
-        monster.draw(g,scrollX,scrollY);
+        //monster.draw(g,scrollX,scrollY);
+        facade.getGame().drawMonsters(g,scrollX, scrollY);
     }
 
     public void increaseScrollX() {
@@ -213,7 +202,7 @@ public class GameMap extends JPanel {
                 } else if(facade.getMainHero().getIsChosen()){
                     //paintHoveredInRange(g);
                 }
-                if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
+                if (rangeCell.getColPos() == facade.getMainHero().getCol() && rangeCell.getRowPos() == facade.getMainHero().getRow()) {
                     g.drawImage(facade.getMainHero().getCurrentSprite(), facade.getMainHero().getX() - scrollX, facade.getMainHero().getY() - scrollY, this);
                 }
 
@@ -231,14 +220,6 @@ public class GameMap extends JPanel {
 
     public void setRangedCell(Cell rangeCell) {
         this.rangeCell = rangeCell;
-    }
-
-    public Hero getHero() {
-        return hero;
-    }
-
-    public Monster getMonster() {
-        return monster;
     }
     public void addMapListener(MouseListener e){
         this.addMouseListener(e);

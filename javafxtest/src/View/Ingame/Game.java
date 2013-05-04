@@ -65,6 +65,7 @@ public class Game extends JFrame {
     public void setInitialProperties(){
         drawP.setFacade(me);
         turn.setFacade(me);
+        control.setHero(me.getMainHero());
         turn.setStatusMessage(me.getMatch().getTurnIndex());
     }
 }

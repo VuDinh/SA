@@ -18,4 +18,5 @@ public interface AccountDao {
     Account getAccount(Account account);
     void addAccount(Account account);
     public Cell getHeroBeginPosition(int index);
+    public List<Cell> getAllMonsterPositions();
 }
