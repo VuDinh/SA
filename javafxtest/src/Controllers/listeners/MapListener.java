@@ -78,6 +78,10 @@ public class MapListener implements MouseListener,MouseMotionListener {
                     if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
                 }
             }
+            if(panel.getFacade().getIsLocked()) {
+                panel.repaint();
+                return;
+            }
         }
         //To set Hero
         /*if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){
@@ -89,7 +93,10 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
             }
         }*/
-
+        else if(panel.getFacade().getIsLocked()) {
+            panel.repaint();
+            return;
+        }
         else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
         {

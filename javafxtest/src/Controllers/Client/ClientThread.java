@@ -188,7 +188,11 @@ public class ClientThread extends Thread {
             else if(o instanceof TurnControlRequest){
                 TurnControlRequest request=(TurnControlRequest) o;
                 if(facade.getHeroSlot()==request.getTurnIndex()) facade.setIsLocked(false);
+                facade.resetAP(request.getHeroSlot());
+                facade.setTurnIndex(request.getTurnIndex());
                 game.getTurnPanel().setStatusMessage(request.getTurnIndex());
+                game.getControlPanel().repaint();
+
             }
             //invalid account
             else if (o instanceof Status) {

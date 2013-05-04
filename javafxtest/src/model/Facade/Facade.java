@@ -87,7 +87,7 @@ public class Facade {
         match.drawHeroes(g,scrollX,scrollY);
     }
     public void drawHeroEffects(Graphics g, int scrollX,int scrollY,Cell selectedCell,Cell rangeCell){
-        match.drawHeroEffects(g,scrollX, scrollY, selectedCell, rangeCell);
+        match.drawHeroEffects(g, scrollX, scrollY, selectedCell, rangeCell);
     }
     public GameMatch getGame(){
         return match;
@@ -107,12 +107,24 @@ public class Facade {
         return match.getHeroByCord(row,col);
     }
     public Player getPlayerByCord(int row,int col){
-        return match.getPlayerByCord(row,col);
+        return match.getPlayerByCord(row, col);
     }
     public Hero getHeroBySlotIndex(int index){
         return match.getPlayer(index).getHero();
     }
     public Monster getMonsterByCord(int row,int col){
-        return match.getMonsterByCord(row,col);
+        return match.getMonsterByCord(row, col);
+    }
+
+
+    public void resetAP(int heroSlot) {
+        match.getPlayer(heroSlot).getHero().resetAP();
+    }
+
+    public void setTurnIndex(int turnIndex) {
+        match.setTurnIndex(turnIndex);
+    }
+    public int getTurnIndex(){
+        return match.getTurnIndex();
     }
 }

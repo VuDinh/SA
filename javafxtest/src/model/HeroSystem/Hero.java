@@ -371,4 +371,8 @@ public class Hero extends Character implements Serializable, Cloneable {
         calculateSight(row,col,6);
         return sight;
     }
+
+    public void resetAP() {
+        setAP(getMaxAP());
+    }
 }

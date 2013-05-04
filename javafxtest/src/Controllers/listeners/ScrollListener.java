@@ -41,14 +41,16 @@ public class ScrollListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         mainHero=panel.getFacade().getMainHero();
         if (e.getKeyCode() == KeyEvent.VK_END) {
-            mainHero.setAP(mainHero.getMaxAP());
             if(panel.getFacade().getIsLocked()==false)
             {
+                mainHero.setAP(mainHero.getMaxAP());
                 TurnControlRequest request=new TurnControlRequest(panel.getFacade().getHeroSlot(),panel.getFacade().getGameIndex());
+                request.setHeroSlot(panel.getFacade().getHeroSlot());
                 panel.getFacade().setIsLocked(true);
                 com.write(request);
             }
         }
+
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             panel.increaseScrollY();
             mainHero.setCurrentSprite(0);
@@ -67,6 +69,10 @@ public class ScrollListener implements KeyListener {
         }
         if(e.getKeyCode() == KeyEvent.VK_F1){
             panel.setCenterScreenByCord(mainHero.getRow(),mainHero.getCol());
+        }
+        if(panel.getFacade().getIsLocked()) {
+            panel.repaint();
+            return;
         }
         if (mainHero.getIsChosen() && (mainHero.getStatus().equals(HeroStatus.standing) || mainHero.getStatus().equals(HeroStatus.attacking))) {
             if (e.getKeyCode() == KeyEvent.VK_Q) {

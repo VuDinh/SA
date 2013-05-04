@@ -255,7 +255,7 @@ public class GameMatch implements Serializable, Cloneable {
     public void drawMonsters(Graphics g,int scrollX,int scrollY){
         for(Iterator it=monsters.iterator();it.hasNext();){
             Monster monster=(Monster) it.next();
-            monster.draw(g,scrollX, scrollY);
+            monster.draw(g, scrollX, scrollY);
         }
     }
 
@@ -466,4 +466,7 @@ public class GameMatch implements Serializable, Cloneable {
         else                return sight(team2);
     }
 
+    public void setTurnIndex(int index) {
+        this.turnIndex=index;
+    }
 }
