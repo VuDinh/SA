@@ -30,6 +30,7 @@ public class Hero extends Character implements Serializable, Cloneable {
     int currentSkill;
     HeroStatus status;
     ArrayList<Cell> range;
+    ArrayList<Cell> sight;
 
     protected Hero(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col, int imageIndex, String name, String description) {
         super(HP, maxHP, AP, maxAP, Attk, row, col, imageIndex, name, description);
@@ -61,6 +62,7 @@ public class Hero extends Character implements Serializable, Cloneable {
         status = HeroStatus.standing;
         currentSkill = -1;
         range = new ArrayList<Cell>();
+        sight = new ArrayList<Cell>();
     }
 
     protected Hero() {
@@ -341,5 +343,32 @@ public class Hero extends Character implements Serializable, Cloneable {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<Cell> calculateSight(int x, int y, double remaining) {
+        if(remaining == 0)
+            return sight;
+
+        if(Utilizer.SIGHTMAP[x][y] == 0)
+            sight.add(new Cell(x,y));
+        else return sight;
+
+        if(y+1 < 40)
+            calculateSight(x, y + 1, remaining - 1); //up
+        if(x-1 > 0)
+            calculateSight(x - 1, y, remaining - 1); //left
+        if(y-1 > 0)
+            calculateSight(x, y - 1, remaining - 1); //down
+        if(x+1 < 40)
+            calculateSight(x + 1, y, remaining - 1); //right
+        return sight;
+    }
+    public void clearSight(){
+        sight.clear();
+    }
+    public ArrayList<Cell> getSight(){
+        sight.clear();
+        calculateSight(row,col,6);
+        return sight;
     }
 }

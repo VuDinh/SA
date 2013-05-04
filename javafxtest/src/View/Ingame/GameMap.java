@@ -23,6 +23,7 @@ import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 /**
@@ -82,6 +83,7 @@ public class GameMap extends JPanel {
         paintMonster(g);
         paintHero(g);
         paintDamage(g);
+        paintFog(g);
     }
 
     public void paintDamage(Graphics g){
@@ -110,6 +112,21 @@ public class GameMap extends JPanel {
             }
         }
 
+    }
+
+    public void paintFog(Graphics g){
+        //System.out.println(facade.getMatch().seenCells());
+        ArrayList<Cell> cells = facade.getMatch().seenCells();
+        cells.addAll();
+        try {
+            for (Cell cell : cells) {
+                g.clearRect(cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
+                g.drawImage(Utilizer.fogArray[0], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, this);
+                g.drawImage(Utilizer.fogArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, this);
+            }
+        } catch (ConcurrentModificationException ex) {
+
+        }
     }
 
     public void paintHero(Graphics g) {

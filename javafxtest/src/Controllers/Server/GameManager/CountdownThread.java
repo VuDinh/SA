@@ -34,7 +34,7 @@ public class CountdownThread extends Thread {
                 player.getCom().write(request);
                 if(count==0 && !player.isPicked()){
                     player.setPicked(true);
-                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(5)+1);
+                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(7));
                 }
             }
             for (Iterator it = team2.iterator(); it.hasNext(); ) {
@@ -42,7 +42,7 @@ public class CountdownThread extends Thread {
                 player.getCom().write(request);
                 if(count==0 && !player.isPicked()){
                     player.setPicked(true);
-                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(5)+1);
+                    gameMatch.chooseHero(player.getCom(), player.getSlotIndex(),rad.nextInt(7));
                 }
             }
             count--;

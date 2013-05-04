@@ -443,4 +443,18 @@ public class GameMatch implements Serializable, Cloneable {
         }
     }
 
+    public ArrayList<Cell> sight(ArrayList a){
+        ArrayList<Cell> c = new ArrayList<Cell>();
+        Iterator i = a.iterator();
+        while (i.hasNext()){
+            c.addAll(((Player)(i.next())).getHero().getSight());
+        }
+        return c;
+    }
+
+    public ArrayList<Cell> seenCells(){
+        if(turnIndex%2 ==0) return sight(team1);
+        else                return sight(team2);
+    }
+
 }
