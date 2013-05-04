@@ -31,7 +31,7 @@ create table monsterPositions(
     col integer
 );
 --insert into monsterPositions(id,row,col) values(0,13,8);
-insert into monsterPositions(id,row,col) values(0,13,8);
+insert into monsterPositions(id,row,col) values(0,37,4);
 insert into monsterPositions(id,row,col) values(1,9,14);
 insert into monsterPositions(id,row,col) values(2,19,14);
 insert into monsterPositions(id,row,col) values(3,26,8);
