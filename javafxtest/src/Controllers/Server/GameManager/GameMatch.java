@@ -461,8 +461,8 @@ public class GameMatch implements Serializable, Cloneable {
         return c;
     }
 
-    public ArrayList<Cell> seenCells(){
-        if(turnIndex%2 ==0) return sight(team1);
+    public ArrayList<Cell> seenCells(Team team){
+        if(team.equals(Team.team1)) return sight(team1);
         else                return sight(team2);
     }
 

@@ -92,8 +92,6 @@ public class CleaveSkill extends Skill implements Serializable,Cloneable {
     @Override
     public void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
-        System.out.println("path:"+path);
-        System.out.println("to:"+to);
         if (status == SkillStatus.after && path.contains(to)) {
             for (Iterator i = path.iterator(); i.hasNext(); ) {
                 Cell temp = (Cell) i.next();

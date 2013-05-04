@@ -30,6 +30,8 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
     }
     public AOESkill(Skill skill){
         super(skill);
+        this.aoe=((AOESkill)skill).aoe;
+        this.all = ((AOESkill)skill).all;
     }
 
     public int getAoe() {
@@ -41,14 +43,17 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
         path.clear();
         int startRow, endRow, startCol, endCol;
         startRow=Math.max(0,to.getRowPos()-aoe);
-        endRow=Math.min(Utilizer.MAP_ROWS-aoe,to.getRowPos()+aoe);
+        System.out.println("AOE:"+aoe);
+        endRow=Math.min(Utilizer.MAP_ROWS-1,to.getRowPos()+aoe);
         startCol=Math.max(0,to.getColPos()-aoe);
-        endCol=Math.min(Utilizer.MAP_COLS-aoe,to.getColPos()+aoe);
+        endCol=Math.min(Utilizer.MAP_COLS-1,to.getColPos()+aoe);
         for (int i = startRow; i <= endRow; i++) {
-            for (int j = startCol; j <= endCol; j++)
+            for (int j = startCol; j <= endCol; j++)  {
                    path.add(new Cell(i, j));
-        }
 
+            }
+        }
+        System.out.println("AOE skill path size:"+path.size());
         dmgCell = path;
     }
 
