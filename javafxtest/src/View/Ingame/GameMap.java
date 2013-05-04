@@ -122,7 +122,7 @@ public class GameMap extends JPanel {
 
     public void paintMonster(Graphics g){
         //monster.draw(g,scrollX,scrollY);
-        facade.getGame().drawMonsters(g,scrollX, scrollY);
+        facade.getGame().drawMonsters(g, scrollX, scrollY);
     }
 
     public void increaseScrollX() {
@@ -177,7 +177,7 @@ public class GameMap extends JPanel {
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
             }*/
-            facade.drawHeroEffects(g,scrollX,scrollY,selectedCell,rangeCell);
+            facade.drawHeroEffects(g, scrollX, scrollY, selectedCell, rangeCell);
         //}
     }
     void paintHoveredNormal(Graphics g){
@@ -265,6 +265,15 @@ public class GameMap extends JPanel {
                         attackedHero.setHP(0);
                     }
                 }
+            }
+            Monster attackedMonster=facade.getMonsterByCord(cell.getRowPos(),cell.getColPos());
+            if(attackedMonster!=null){
+                attackedMonster.setHP(attackedMonster.getHP()-temp.getCurrentSkill().getDamage(temp));
+                if(attackedMonster.getHP()<=0){
+                    //set dead status
+                    attackedMonster.setHP(0);
+                }
+                System.out.println("Monster HP:"+attackedMonster.getHP());
             }
         }
         repaint();

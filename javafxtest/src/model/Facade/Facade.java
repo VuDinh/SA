@@ -7,6 +7,7 @@ import View.Ingame.GameMap;
 import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroLibrary;
+import model.MonsterSystem.Monster;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -110,5 +111,8 @@ public class Facade {
     }
     public Hero getHeroBySlotIndex(int index){
         return match.getPlayer(index).getHero();
+    }
+    public Monster getMonsterByCord(int row,int col){
+        return match.getMonsterByCord(row,col);
     }
 }

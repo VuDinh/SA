@@ -290,6 +290,15 @@ public class GameMatch implements Serializable, Cloneable {
         }
         return null;
     }
+    public Monster getMonsterByCord(int row,int col){
+        for(Iterator it=monsters.iterator();it.hasNext();){
+            Monster monster=(Monster) it.next();
+            if(monster.getRow()==row && monster.getCol()==col){
+                return monster;
+            }
+        }
+        return null;
+    }
     public Player getPlayerByCord(int row,int col){
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
