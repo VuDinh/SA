@@ -1,6 +1,7 @@
 package Controllers.listeners;
 
 import View.Ingame.GameMap;
+import model.HeroSystem.Hero;
 import model.HeroSystem.HeroStatus;
 import model.Skills.AOESkill;
 import model.Skills.SkillStatus;
@@ -29,38 +30,38 @@ public class ControlListener implements MouseListener {
         Point curPos=e.getPoint();
         double x = curPos.getX();
         double y = curPos.getY();
-
-        if (panel.getHero().getIsChosen() && (panel.getHero().getStatus().equals(HeroStatus.standing) || panel.getHero().getStatus().equals(HeroStatus.attacking))){
+        Hero mainHero=panel.getFacade().getMainHero();
+        if (mainHero.getIsChosen() && (mainHero.getStatus().equals(HeroStatus.standing) || mainHero.getStatus().equals(HeroStatus.attacking))){
         if((405<x && x<485) && (60<y && y<140)){
-            panel.getHero().setStatus(HeroStatus.attacking);
-            panel.getHero().getSkill(0).setStatus(SkillStatus.before);
-            panel.getHero().setCurrentSkill(0);
-            if(panel.getHero().getCurrentSkill() instanceof AOESkill){
-                ((AOESkill) panel.getHero().getCurrentSkill()).calculateRange(panel.getHero().getRow(),
-                        panel.getHero().getCol(), panel.getHero().getCurrentSkill().getRange()+1);
-                ((AOESkill) panel.getHero().getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
+            mainHero.setStatus(HeroStatus.attacking);
+            mainHero.getSkill(0).setStatus(SkillStatus.before);
+            mainHero.setCurrentSkill(0);
+            if(mainHero.getCurrentSkill() instanceof AOESkill){
+                ((AOESkill) mainHero.getCurrentSkill()).calculateRange(mainHero.getRow(),
+                        mainHero.getCol(), mainHero.getCurrentSkill().getRange()+1);
+                ((AOESkill) mainHero.getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
             }
         }
 
         else if((515<x && x<595) && (60<y && y<140)){
-            panel.getHero().setStatus(HeroStatus.attacking);
-            panel.getHero().getSkill(1).setStatus(SkillStatus.before);
-            panel.getHero().setCurrentSkill(1);
-            if(panel.getHero().getCurrentSkill() instanceof AOESkill){
-                ((AOESkill) panel.getHero().getCurrentSkill()).calculateRange(panel.getHero().getRow(),
-                        panel.getHero().getCol(), panel.getHero().getCurrentSkill().getRange()+1);
-                ((AOESkill) panel.getHero().getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
+            mainHero.setStatus(HeroStatus.attacking);
+            mainHero.getSkill(1).setStatus(SkillStatus.before);
+            mainHero.setCurrentSkill(1);
+            if(mainHero.getCurrentSkill() instanceof AOESkill){
+                ((AOESkill) mainHero.getCurrentSkill()).calculateRange(mainHero.getRow(),
+                        mainHero.getCol(), mainHero.getCurrentSkill().getRange()+1);
+                ((AOESkill) mainHero.getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
             }
         }
 
         else if((630<x && x<710) && (60<y && y<140)){
-            panel.getHero().setStatus(HeroStatus.attacking);
-            panel.getHero().getSkill(2).setStatus(SkillStatus.before);
-            panel.getHero().setCurrentSkill(2);
-            if(panel.getHero().getCurrentSkill() instanceof AOESkill){
-                ((AOESkill) panel.getHero().getCurrentSkill()).calculateRange(panel.getHero().getRow(),
-                        panel.getHero().getCol(), panel.getHero().getCurrentSkill().getRange()+1);
-                ((AOESkill) panel.getHero().getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
+            mainHero.setStatus(HeroStatus.attacking);
+            mainHero.getSkill(2).setStatus(SkillStatus.before);
+            mainHero.setCurrentSkill(2);
+            if(mainHero.getCurrentSkill() instanceof AOESkill){
+                ((AOESkill) mainHero.getCurrentSkill()).calculateRange(mainHero.getRow(),
+                        mainHero.getCol(), mainHero.getCurrentSkill().getRange()+1);
+                ((AOESkill) mainHero.getCurrentSkill()).drawRange(panel.getGraphics(),panel.getScrollX(), panel.getScrollY());
             }
         }
         }

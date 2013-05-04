@@ -4,6 +4,7 @@ import model.Character;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +13,7 @@ import java.awt.image.BufferedImage;
  * Time: 9:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Monster extends Character {
+public class Monster extends Character implements Cloneable,Serializable {
 
     protected Monster(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col,int imageIndex,String name, String description){
         super(HP, maxHP, AP, maxAP, Attk, row, col, imageIndex,name,description);
@@ -43,5 +44,8 @@ public class Monster extends Character {
     @Override
     public void resetPath() {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+    public Monster clone() throws CloneNotSupportedException{
+        return (Monster)super.clone();
     }
 }

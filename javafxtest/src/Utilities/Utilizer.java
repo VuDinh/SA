@@ -78,6 +78,10 @@ public class Utilizer {
     public static final int TILE_COLS = 8;
     public static final int TELEPORT_SPRITE = 7;
     public static final int MAXPLAYER=2;
+    public static final int KILLHEROBOUNTY=200;
+    public static final int KILLHEROPENALTY=-100;
+    public static final int MONSTERKILLBOUNTY=100;
+    public static final int MONSTERKILLEDPENALTY=-50;
 
     public static final String CONTROL1 = "Images/Animation/control1.png";
     public static final String CONTROL2 = "Images/Animation/control2.png";
@@ -359,12 +363,7 @@ public class Utilizer {
             BufferedImage imgRange = ImageIO.read(new File(RANGED_TILE));
             BufferedImage imgFog = ImageIO.read(new File(MAP_FOG));
             BufferedImage imgHover = ImageIO.read(new File(MAP_HOVER));
-            //split big images into smaller tile arrays
-            BufferedImage[][] normalGrid = new BufferedImage[TILE_COLS][TILE_ROWS];
-            BufferedImage[][] selectGrid = new BufferedImage[TILE_COLS][TILE_ROWS];
-            BufferedImage[][] hoverGrid = new BufferedImage[TILE_COLS][TILE_ROWS];
-            BufferedImage[][] fogGrid = new BufferedImage[TILE_COLS][TILE_ROWS];
-            BufferedImage[][] rangeGrid = new BufferedImage[TILE_COLS][TILE_ROWS];
+
             normalArray = new BufferedImage[TILE_COLS * TILE_ROWS];
             selectArray = new BufferedImage[TILE_COLS * TILE_ROWS];
             hoverArray = new BufferedImage[TILE_COLS * TILE_ROWS];

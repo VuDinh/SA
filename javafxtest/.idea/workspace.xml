@@ -171,10 +171,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameMap.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="16" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0">
+            <state line="258" column="149" selection-start="9725" selection-end="9725" vertical-scroll-proportion="0.6103152">
               <folding />
             </state>
           </provider>
@@ -183,7 +183,7 @@
       <file leaf-file-name="Facade.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+            <state line="20" column="13" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -209,10 +209,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DbUtilities.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DbUtilities.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Server/DbUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="911" selection-end="911" vertical-scroll-proportion="1.0359116">
+            <state line="20" column="94" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -221,7 +221,7 @@
       <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="78" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
+            <state line="36" column="78" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -230,7 +230,7 @@
       <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="55" selection-start="3459" selection-end="3459" vertical-scroll-proportion="0.0">
+            <state line="104" column="55" selection-start="4102" selection-end="4102" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -239,7 +239,7 @@
       <file leaf-file-name="Utilizer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="285" column="23" selection-start="22385" selection-end="22385" vertical-scroll-proportion="0.0">
+            <state line="287" column="23" selection-start="22466" selection-end="22466" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -248,7 +248,7 @@
       <file leaf-file-name="Hero.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="14" selection-start="2119" selection-end="2119" vertical-scroll-proportion="0.0">
+            <state line="65" column="14" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -257,7 +257,7 @@
       <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="66" selection-start="2341" selection-end="2393" vertical-scroll-proportion="0.0">
+            <state line="91" column="66" selection-start="2343" selection-end="2395" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -808,7 +808,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="View.Ingame.Game" />
@@ -1133,51 +1133,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="16" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+        <state line="20" column="13" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="66" selection-start="2341" selection-end="2393" vertical-scroll-proportion="0.0">
+        <state line="91" column="66" selection-start="2343" selection-end="2395" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Client/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="55" selection-start="3459" selection-end="3459" vertical-scroll-proportion="0.0">
+        <state line="104" column="55" selection-start="4102" selection-end="4102" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="14" selection-start="2119" selection-end="2119" vertical-scroll-proportion="0.0">
+        <state line="65" column="14" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Ingame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="78" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
+        <state line="36" column="78" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="285" column="23" selection-start="22385" selection-end="22385" vertical-scroll-proportion="0.0">
+        <state line="287" column="23" selection-start="22466" selection-end="22466" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1200,7 +1193,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/DbUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="911" selection-end="911" vertical-scroll-proportion="1.0359116">
+        <state line="20" column="94" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="149" selection-start="9725" selection-end="9725" vertical-scroll-proportion="0.6103152">
           <folding />
         </state>
       </provider>

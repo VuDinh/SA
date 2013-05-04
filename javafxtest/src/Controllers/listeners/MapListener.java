@@ -91,7 +91,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
         }*/
 
         else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
-                mainHero.calculateRange(panel.getHero().getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
+                mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
         {
             //send moving request
             int gameIndex=panel.getFacade().getGameIndex();
@@ -118,7 +118,6 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 && (mainHero.getAP()-mainHero.getCurrentSkill().getAP())>=0
                 && mainHero.getCurrentSkill()!=null
                 && Utilizer.inRange(selectCell, mainHero.getCurrentSkill().getRangeCell())){
-            Cell c = new Cell(panel.getMonster().getCol(),panel.getMonster().getRow());
             //send attack request
             int gameIndex=panel.getFacade().getGameIndex();
             int heroSlot=panel.getFacade().getHeroSlot();

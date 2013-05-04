@@ -21,7 +21,7 @@ public class HeroAnimation {
     public static void attack(Hero hero,GameMap panel){
         hero.getCurrentSkill().setStatus(SkillStatus.after);
         Utilizer.playWAV(hero.getCurrentSkill().getSE(), 0);
-        panel.getHero().clearRange();
+        hero.clearRange();
         SkillThread t=new SkillThread(panel,hero);
         HeroAttackThread t2 = new HeroAttackThread(hero,panel);
         t.start();
