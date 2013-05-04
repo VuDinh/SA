@@ -7,7 +7,7 @@
 
 
     <bean id="client" class="Controllers.Client.Client">
-        <property name="port" value="3800"/>
+        <property name="port" value="3900"/>
         <property name="host" value="localhost"/>
     </bean>
 

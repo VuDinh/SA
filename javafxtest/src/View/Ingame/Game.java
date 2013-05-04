@@ -32,7 +32,7 @@ public class Game extends JFrame {
         drawP = new GameMap(hero,monster);
         Graphics g;
         control = new ControlPanel(hero);
-        TurnPanel turn = new TurnPanel();
+        turn = new TurnPanel();
         this.add(BorderLayout.CENTER, drawP);
         this.add(BorderLayout.NORTH, turn);
         this.add(BorderLayout.SOUTH, control);
@@ -64,5 +64,7 @@ public class Game extends JFrame {
     }
     public void setInitialProperties(){
         drawP.setFacade(me);
+        turn.setFacade(me);
+        turn.setStatusMessage(me.getMatch().getTurnIndex());
     }
 }

@@ -13,5 +13,7 @@ public enum Status {
     findingMatch,
     friend,
     quit,
-    already
+    already,
+    locked,
+    unlocked
 }

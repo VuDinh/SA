@@ -1,20 +1,24 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
-import Controllers.Requests.HeroChoosingRequest;
-import Controllers.Requests.HeroPickedRequest;
-import Controllers.Requests.MatchMakingRequest;
-import Controllers.Requests.PlayingGameRequest;
+import Controllers.Requests.*;
 import Controllers.Server.AccountDao;
+import Controllers.Server.GameManager.Comparators.ScoreComparator;
+import Utilities.Utilizer;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
+import model.HeroSystem.HeroStatus;
+import model.MessageSystem.Message;
+import model.MonsterSystem.Monster;
+import model.Skills.Skill;
 import org.springframework.util.SerializationUtils;
 
 import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -27,18 +31,21 @@ import java.util.Iterator;
 public class GameMatch implements Serializable, Cloneable {
     private ArrayList<Player> team1;
     private ArrayList<Player> team2;
+    private ArrayList<Monster> monsters;
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
-    private static final int MAX_PLAYER = 2;
+    private int turnIndex;
     private int gameIndex;
 
     public GameMatch(int index) {
         counter = 0;
         team1 = new ArrayList<Player>();
         team2 = new ArrayList<Player>();
+        monsters = new ArrayList<Monster>();
         isFull = false;
         this.gameIndex = index;
+        turnIndex = 0;
     }
 
     public GameMatch(GameMatch one) {
@@ -53,6 +60,7 @@ public class GameMatch implements Serializable, Cloneable {
         this.counter = one.counter;
         this.isFull = one.isFull;
         this.gameIndex = one.gameIndex;
+        turnIndex = 0;
 
     }
 
@@ -61,8 +69,8 @@ public class GameMatch implements Serializable, Cloneable {
     }
 
     public void addPlayer(Communicator com) {
-        if (counter < MAX_PLAYER) {
-            if (counter < MAX_PLAYER / 2) {
+        if (counter < Utilizer.MAXPLAYER) {
+            if (counter < Utilizer.MAXPLAYER / 2) {
                 team1.add(new Player(com, counter, Team.team1));
             } else {
                 team2.add(new Player(com, counter, Team.team2));
@@ -70,12 +78,15 @@ public class GameMatch implements Serializable, Cloneable {
             counter++;
             announceFingdingMatchRequest();
         }
-        if (counter == MAX_PLAYER) {
+        if (counter == Utilizer.MAXPLAYER) {
             isFull = true;
             announceHeroChoosingRequest();
             initiateCountDown();
         }
 
+    }
+    public int getTurnIndex(){
+        return turnIndex;
     }
 
     public void announceFingdingMatchRequest() {
@@ -153,6 +164,7 @@ public class GameMatch implements Serializable, Cloneable {
             Player player = (Player) it.next();
             player.getCom().write(new GameMatch(this));
         }
+
     }
 
     public void initiateCountDown() {
@@ -177,10 +189,10 @@ public class GameMatch implements Serializable, Cloneable {
     }
 
     public Player getPlayer(int heroSlotIndex) {
-        if (heroSlotIndex < MAX_PLAYER / 2) {
+        if (heroSlotIndex < Utilizer.MAXPLAYER / 2) {
             return team1.get(heroSlotIndex);
         } else {
-            return team2.get(heroSlotIndex - (MAX_PLAYER / 2));
+            return team2.get(heroSlotIndex - (Utilizer.MAXPLAYER / 2));
         }
     }
 
@@ -194,15 +206,54 @@ public class GameMatch implements Serializable, Cloneable {
             player.getHero().draw(g, scrollX, scrollY);
         }
     }
+    public void drawHeroEffects(Graphics g, int scrollX,int scrollY,Cell selectedCell,Cell rangeCell){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            Hero tempHero=player.getHero();
+            if(tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.standing)){
+                tempHero.drawRange(g, scrollX, scrollY);
+
+            } else if (tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.attacking)) {
+                tempHero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPathOnHero(g,tempHero,rangeCell, scrollX, scrollY, tempHero.getPanel());
+            }
+            if (tempHero.getIsChosen()) {
+                g.drawImage(tempHero.getCurrentSprite(), tempHero.getX() - scrollX, tempHero.getY() - scrollY, tempHero.getPanel());
+            }
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            Hero tempHero=player.getHero();
+            if(tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.standing)){
+                tempHero.drawRange(g, scrollX, scrollY);
+
+            } else if (tempHero.getIsChosen() && tempHero.getStatus().equals(HeroStatus.attacking)) {
+                tempHero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, tempHero.getPanel());
+                tempHero.getSkill(tempHero.getCurrentSkillIndex()).drawPathOnHero(g,tempHero,rangeCell, scrollX, scrollY, tempHero.getPanel());
+            }
+            if (tempHero.getIsChosen()) {
+                g.drawImage(tempHero.getCurrentSprite(), tempHero.getX() - scrollX, tempHero.getY() - scrollY, tempHero.getPanel());
+            }
+        }
+
+    }
 
     public void setGameMap(GameMap gameMap) {
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             player.getHero().setPanel(gameMap);
+            for(Skill skill:player.getHero().getAllSkills()){
+                skill.setPanel(gameMap);
+            }
         }
         for (Iterator it = team1.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             player.getHero().setPanel(gameMap);
+            for(Skill skill:player.getHero().getAllSkills()){
+                skill.setPanel(gameMap);
+            }
         }
     }
     public Hero getHeroByCord(int row,int col){
@@ -220,9 +271,119 @@ public class GameMatch implements Serializable, Cloneable {
         }
         return null;
     }
+    public Player getPlayerByCord(int row,int col){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getHero().isThere(row,col)){
+                return player;
+            }
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getHero().isThere(row,col)){
+                return player;
+            }
+        }
+        return null;
+    }
+    public void handleHeroMoveRequest(HeroMoveRequest request){
+        int slot=request.getSlotIndex();
+        //set Hero new position
+        getPlayer(slot).getHero().setRow(request.getSelectedCell().getRowPos());
+        getPlayer(slot).getHero().setCol(request.getSelectedCell().getColPos());
+        getPlayer(slot).getHero().setX(request.getSelectedCell().getColPos()* Utilizer.TILE_SIZE);
+        getPlayer(slot).getHero().setY(request.getSelectedCell().getRowPos()* Utilizer.TILE_SIZE);
+        //send move request to other player
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+    }
+    public void handleHeroAttackRequest(HeroAttackRequest request){
+        int slot=request.getSlotIndex();
+        System.out.println("receive path:"+request.getHero().getCurrentSkill().getPath());
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+    }
+    public void sendMessageToTeam(Message mes){
+        Player p=getPlayer(mes.getSlotIndex());
+        ArrayList<Player> team;
+        if(p.getTeam().equals(Team.team1)) team=team1;
+        else team=team2;
+        for (Iterator it = team.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getSlotIndex()!=mes.getSlotIndex())
+            player.getCom().write(mes);
+        }
+    }
+    public void sendMessageToAll(Message mes){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getSlotIndex()!=mes.getSlotIndex())
+            player.getCom().write(mes);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getSlotIndex()!=mes.getSlotIndex())
+            player.getCom().write(mes);
+        }
+    }
+    public void sendMessageToPlayer(Message mes){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getCom().getAccount().getUsername().equals(mes.getReceiver().getUsername()))
+            player.getCom().write(mes);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            if(player.getCom().getAccount().getUsername().equals(mes.getReceiver().getUsername()))
+            player.getCom().write(mes);
+        }
+    }
 
     public GameMatch clone() throws CloneNotSupportedException {
         return (GameMatch) super.clone();
+    }
+
+    public void nextTurn(){
+        if(turnIndex<Utilizer.MAXPLAYER-1)
+        turnIndex++;
+        else turnIndex = 0;
+        TurnControlRequest request=new TurnControlRequest(turnIndex,gameIndex);
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+    }
+    public ArrayList<Player> getRankingList(){
+        ArrayList<Player> players=new ArrayList<Player>();
+        players.addAll(team1);
+        players.addAll(team2);
+        Collections.sort(players, new ScoreComparator());
+        return players;
     }
 
 }

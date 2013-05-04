@@ -71,16 +71,16 @@ public class ControlPanel extends JPanel {
         int width = 361;
         double no1 = hero.getAP();
         double no2 = hero.getMaxAP();
-        double realWidth = (double)width * (no1/no2);
-
+        double aPWidth = (double)width * (no1/no2);
+        double hPWidth = (double)width * (hero.getHP()/hero.getMaxHP());
         g.setFont(Utilizer.FONT);
         g.drawImage(Utilizer.IMG_BAR,290,2,420,21,this);
         g.drawImage(Utilizer.IMG_BAR,290,24,420,21,this);
 
         g.setColor(new Color(10, 160, 30));
-        g.fillRect(320, 7, width, 11);
+        g.fillRect(320, 7, (int)hPWidth, 11);
         g.setColor(new Color(20, 150, 180));
-        g.fillRect(320, 29, (int)realWidth, 11);
+        g.fillRect(320, 29, (int)aPWidth, 11);
 
         g.setColor(Color.white);
         g.drawString(hero.getHP()+"",470,17);

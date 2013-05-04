@@ -73,6 +73,7 @@ public class Client implements Runnable {
         inGame = new Game(facade);
         login = new LoginFrame(facade);
         mainMenuGUI=new MainMenuGUI();
+        mainMenuGUI.setFacade(facade);
         mainMenuGUI.init();
         heroChoosingGUI = new HeroChoosingGUI();
         heroChoosingGUI.setFacade(facade);
@@ -82,12 +83,14 @@ public class Client implements Runnable {
     public void addListeners() {
         //delete later
         MapListener mapListener = new MapListener(com,inGame.getGameMap(),inGame.getControlPanel());
-        ScrollListener scrollListener = new ScrollListener(inGame.getGameMap());
+        ScrollListener scrollListener = new ScrollListener(com,inGame.getGameMap());
         ChatListener chatListener = new ChatListener(com, inGame, facade);
         LoginListener loginListener = new LoginListener(com, login);
         ControlListener controlListener = new ControlListener(inGame.getGameMap());
 
+
         mainMenuGUI.addChatListener(new BroadcastChatListener(mainMenuGUI,com));
+        mainMenuGUI.addLogoutListener(new LogoutListener(com,mainMenuGUI));
         mainMenuGUI.addFindMatchListener(new FindingMatchListener(mainMenuGUI,com));
 
         HeroChoosingFactory heroChoosingFactory=new HeroChoosingFactory(heroChoosingGUI,com);

@@ -18,7 +18,7 @@ import java.util.Iterator;
  * Time: 2:25 PM
  * To change this template use File | Settings | File Templates.
  */
-public class AOESkill extends Skill implements Serializable {
+public class AOESkill extends Skill implements Serializable,Cloneable {
     int aoe;
     boolean all;
 
@@ -118,6 +118,7 @@ public class AOESkill extends Skill implements Serializable {
     //draw skill range
     public void drawRange(Graphics g,int scrollX,int scrollY){
         ArrayList<Cell> cells=getRangeCell();
+        System.out.println("panel:"+panel);
         for(Cell cell:cells){
             g.clearRect(cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
             g.drawImage(Utilizer.selectArray[0], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);

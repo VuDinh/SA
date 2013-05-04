@@ -1,8 +1,12 @@
 package View.Ingame;
 
+import Controllers.Requests.HeroAttackRequest;
+import Controllers.Requests.HeroMoveRequest;
+import Controllers.Server.GameManager.Player;
 import Utilities.Utilizer;
 import Controllers.listeners.MapListener;
 import Controllers.listeners.ScrollListener;
+import model.Animations.HeroAnimation;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
@@ -11,12 +15,15 @@ import model.HeroSystem.HeroStatus;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterStandThread;
 import model.Skills.AOESkill;
+import model.Skills.SkillStatus;
+import sun.text.resources.BreakIteratorInfo_th;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -161,27 +168,28 @@ public class GameMap extends JPanel {
         return scrollY;
     }
 
-    void paintSelectedNormal(Graphics g){
-        g.clearRect(selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
-        g.drawImage(Utilizer.selectArray[0], selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, this);
-        g.drawImage(Utilizer.selectArray[Utilizer.MAP[selectedCell.getRowPos()][selectedCell.getColPos()] - 1], selectedCell.getX() - scrollX, selectedCell.getY() - scrollY, this);
+    public void setCenterScreenByCord(int row,int col){
+        int scrollRow=Math.max(0,row-8);
+        int scrollCol=Math.max(0,col-13);
+        scrollX=scrollCol*Utilizer.TILE_SIZE;
+        scrollY=scrollRow*Utilizer.TILE_SIZE;
     }
 
     public void paintSelected(Graphics g) {
-        if (status.equals("selected")) {
-            if(hero.getIsChosen() && hero.getStatus().equals(HeroStatus.standing)){
-                hero.drawRange(g,scrollX,scrollY);
-            } else if (hero.getIsChosen() && hero.getStatus().equals(HeroStatus.attacking)) {
-                hero.getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
-                getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
-                getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
-            } else {
-                //paintSelectedNormal(g);
+        //if (status.equals("selected")) {
+            /*if(facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.standing)){
+                facade.getMainHero().drawRange(g, scrollX, scrollY);
+
+            } else if (facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.attacking)) {
+                facade.getMainHero().getCurrentSkill().drawSkill(g, selectedCell, scrollX, scrollY, this);
+                facade.getMainHero().getCurrentSkill().drawPath(g, rangeCell, scrollX, scrollY, this);
+                facade.getMainHero().getCurrentSkill().drawPathOnHero(g,facade.getMainHero(),rangeCell, scrollX, scrollY, this);
             }
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
-            }
-        }
+            }*/
+            facade.drawHeroEffects(g,scrollX,scrollY,selectedCell,rangeCell);
+        //}
     }
     void paintHoveredNormal(Graphics g){
         g.clearRect(rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
@@ -192,21 +200,21 @@ public class GameMap extends JPanel {
     public void paintHovered(Graphics g) {
         if (true) {
             if (rangeCell != null) {
-                if (getHero().getIsChosen() && getHero().getStatus().equals(HeroStatus.attacking)) {
+                if (facade.getMainHero().getIsChosen() && facade.getMainHero().getStatus().equals(HeroStatus.attacking)) {
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
 
-                    if(getHero().getCurrentSkill() instanceof AOESkill){
-                        ((AOESkill) getHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
+                    if(facade.getMainHero().getCurrentSkill() instanceof AOESkill){
+                        ((AOESkill) facade.getMainHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
                         //System.out.println(((AOESkill) getHero().getCurrentSkill()).getRangeCell());
                     }
-                } else if(!getHero().getIsChosen() ) {
+                } else if(!facade.getMainHero().getIsChosen() ) {
                     paintHoveredNormal(g);
-                } else if(getHero().getIsChosen()){
+                } else if(facade.getMainHero().getIsChosen()){
                     //paintHoveredInRange(g);
                 }
                 if (rangeCell.getColPos() == hero.getCol() && rangeCell.getRowPos() == hero.getRow()) {
-                    g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
+                    g.drawImage(facade.getMainHero().getCurrentSprite(), facade.getMainHero().getX() - scrollX, facade.getMainHero().getY() - scrollY, this);
                 }
 
             }
@@ -237,6 +245,46 @@ public class GameMap extends JPanel {
     }
     public void addScrollListener(KeyListener e){
         this.addKeyListener(e);
+    }
+
+    //handle requests
+    //hero move
+    public void handleHeroMoveRequest(HeroMoveRequest request){
+        Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
+        temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
+        HeroAnimation.move(temp,this);
+    }
+
+    public void handleHeroAttackRequest(HeroAttackRequest request){
+        Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
+        Player attackingPlayer=facade.getMatch().getPlayer(request.getSlotIndex());
+        temp.setIsChosen(true);
+        temp.setStatus(HeroStatus.attacking);
+        temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
+        temp.getCurrentSkill().setPath(request.getPath());
+        temp.getCurrentSkill().setDamageCell(request.getDmgCell());
+        System.out.println("receive path:"+request.getPath());
+        temp.getCurrentSkill().setStatus(SkillStatus.after);
+        temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
+        selectedCell = request.getSelectedCell();
+        System.out.println(selectedCell);
+        HeroAnimation.attack(temp, this);
+        //look for affected character
+        for(Iterator it=request.getDmgCell().iterator();it.hasNext();){
+            Cell cell=(Cell) it.next();
+            Player player= facade.getPlayerByCord(cell.rowPos,cell.colPos);
+            if(player!=null){
+                if(!player.getTeam().equals(attackingPlayer.getTeam())){
+                    Hero attackedHero=player.getHero();
+                    attackedHero.setHP(attackedHero.getHP()-temp.getCurrentSkill().getDamage(temp));
+                    if(attackedHero.getHP()<=0){
+                        //set dead status
+                        attackedHero.setHP(0);
+                    }
+                }
+            }
+        }
+        repaint();
     }
 
 

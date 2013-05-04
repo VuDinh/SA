@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import model.AccountSystem.Account;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,18 +21,15 @@ import javafx.scene.text.Text;
  */
 public class Header extends BorderPane {
     Button btnLogout;
-    Button btnSettings;
     Text txtWelcome;
     public Header()
     {
         setId("header");
         setPadding(new Insets(15, 12, 15, 12));
         HBox center=new HBox();
-        center.setSpacing(12);
-        center.setAlignment(Pos.CENTER);
+        center.setAlignment(Pos.CENTER_RIGHT);
         btnLogout=new Button("Log out");
-        btnSettings=new Button("Settings");
-        center.getChildren().addAll(btnLogout,btnSettings);
+        center.getChildren().addAll(btnLogout);
 
         HBox left=new HBox();
         txtWelcome = new Text("Welcome!");
@@ -39,18 +37,14 @@ public class Header extends BorderPane {
 
         left.getChildren().add(txtWelcome);
         btnLogout.setPrefSize(100,20);
-        btnSettings.setPrefSize(100,20);
         setLeft(left);
-        setCenter(center);
+        setRight(center);
 
     }
-    public void setPlayer(String text){
-        txtWelcome.setText(text);
+    public void setPlayer(Account account){
+        txtWelcome.setText("Welcome,"+account.getUsername()+"!");
     }
     public void addLogoutListener(EventHandler<ActionEvent> e){
         btnLogout.setOnAction(e);
-    }
-    public void addSettingListener(EventHandler<ActionEvent> e){
-        btnSettings.setOnAction(e);
     }
 }

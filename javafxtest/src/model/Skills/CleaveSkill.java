@@ -17,7 +17,7 @@ import java.util.Iterator;
  * Time: 9:15 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CleaveSkill extends Skill implements Serializable {
+public class CleaveSkill extends Skill implements Serializable,Cloneable {
 
     public CleaveSkill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier
             , String SE, int AP, String description) {
@@ -70,7 +70,7 @@ public class CleaveSkill extends Skill implements Serializable {
         int count;
 
         if (to.getCurrentSpriteIndex() / 4 == 0) {
-            if(to.getRow()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),40)));
+            if(to.getRow()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),39)));
             else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
         } else if (to.getCurrentSpriteIndex() / 4 == 1) {
             if(to.getCol()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(0,to.getRow())));
@@ -92,6 +92,8 @@ public class CleaveSkill extends Skill implements Serializable {
     @Override
     public void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
+        System.out.println("path:"+path);
+        System.out.println("to:"+to);
         if (status == SkillStatus.after && path.contains(to)) {
             for (Iterator i = path.iterator(); i.hasNext(); ) {
                 Cell temp = (Cell) i.next();
@@ -124,12 +126,16 @@ public class CleaveSkill extends Skill implements Serializable {
         }
     }
 
+    public CleaveSkill clone() throws CloneNotSupportedException{
+        return (CleaveSkill)super.clone();
+    }
+
     @Override
     public void drawSkillOnHero(Graphics g, Hero hero, int scrollX, int scrollY, GameMap panel) {
         //To change body of implemented methods use File | Settings | File Templates.
 
     }
-    public CleaveSkill clone() throws CloneNotSupportedException{
+    /*public CleaveSkill clone() throws CloneNotSupportedException{
         return (CleaveSkill)super.clone();
-    }
+    }*/
 }

@@ -2,6 +2,7 @@ package model.Facade;
 
 import Controllers.Server.GameManager.GameMatch;
 import Controllers.Server.GameManager.Player;
+import View.Ingame.Cell;
 import View.Ingame.GameMap;
 import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
@@ -23,10 +24,12 @@ public class Facade {
     private GameMatch match;
     private Account account;
     private Hero currentChosen,mainHero;
-    private boolean lock;
+    private boolean isLocked;
+
     public Facade(){
         hL =new HeroLibrary();
         account=new Account();
+        isLocked = true;
     }
     public ArrayList<Hero> getHeroList(){
         return hL.getHeroList();
@@ -53,6 +56,12 @@ public class Facade {
     public void setGameIndex(int gameIndex) {
         this.gameIndex = gameIndex;
     }
+    public boolean getIsLocked(){
+        return isLocked;
+    }
+    public void setIsLocked(boolean isLocked){
+        this.isLocked = isLocked;
+    }
     public void setUsername(String username){
         account.setUsername(username);
     }
@@ -76,6 +85,9 @@ public class Facade {
     public void drawHeroes(Graphics g,int scrollX,int scrollY){
         match.drawHeroes(g,scrollX,scrollY);
     }
+    public void drawHeroEffects(Graphics g, int scrollX,int scrollY,Cell selectedCell,Cell rangeCell){
+        match.drawHeroEffects(g,scrollX, scrollY, selectedCell, rangeCell);
+    }
     public GameMatch getGame(){
         return match;
     }
@@ -92,5 +104,11 @@ public class Facade {
     }
     public Hero getHeroByCord(int row,int col){
         return match.getHeroByCord(row,col);
+    }
+    public Player getPlayerByCord(int row,int col){
+        return match.getPlayerByCord(row,col);
+    }
+    public Hero getHeroBySlotIndex(int index){
+        return match.getPlayer(index).getHero();
     }
 }

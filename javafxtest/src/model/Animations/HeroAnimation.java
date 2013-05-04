@@ -23,15 +23,15 @@ public class HeroAnimation {
         Utilizer.playWAV(hero.getCurrentSkill().getSE(), 0);
         panel.getHero().clearRange();
         SkillThread t=new SkillThread(panel,hero);
-        HeroAttackThread t2 = new HeroAttackThread(panel.getHero(),panel);
+        HeroAttackThread t2 = new HeroAttackThread(hero,panel);
         t.start();
         t2.start();
-        hero.setAP(panel.getHero().getAP()-panel.getHero().getCurrentSkill().getAP());
+        hero.setAP(hero.getAP()-hero.getCurrentSkill().getAP());
     }
     public static void move(Hero hero,GameMap panel){
         hero.clearRange();
         hero.setStatus(HeroStatus.moving);
-        hero.setShortestPathSelect(hero.getShortestpathHover());
+        //hero.setShortestPathSelect(hero.getShortestpathHover());
         HeroMoveThread t=new HeroMoveThread(hero, panel);
         t.start();
     }

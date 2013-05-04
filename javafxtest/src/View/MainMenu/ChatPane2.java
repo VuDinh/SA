@@ -72,6 +72,7 @@ public class ChatPane2 extends BorderPane {
     }
 
     public void addChatListener(EventHandler<KeyEvent> e){
+        System.out.println("addded listener");
         txtChat.setOnKeyPressed(e);
     }
     public void announceSelectedHero(String account,String heroName){

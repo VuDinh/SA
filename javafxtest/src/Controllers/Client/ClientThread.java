@@ -14,6 +14,7 @@ import model.AccountSystem.Account;
 import model.Facade.Facade;
 import model.MessageSystem.Message;
 import model.AccountSystem.Status;
+import model.MessageSystem.MessageStatus;
 
 import java.util.Iterator;
 import java.util.List;
@@ -64,7 +65,13 @@ public class ClientThread extends Thread {
                     @Override
                     public void run() {
                         //To change body of implemented methods use File | Settings | File Templates.
-                        chatPanel.addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        if(mes.getStatus().equals(MessageStatus.broadcast)  && mainMenuGUI.getStage().isShowing() ){
+                            mainMenuGUI.getChatPane().addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        }
+                        if(mes.getStatus().equals(MessageStatus.team) && heroChoosingGUI.getStage().isShowing()){
+                            heroChoosingGUI.getChatPane().addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        }
+                        if(game.isVisible()) chatPanel.addChatMessage(mes.getSender().getUsername(), mes.getContent());
                     }
                 });
             }
@@ -110,6 +117,7 @@ public class ClientThread extends Thread {
                             login.setVisible(false);
                             Stage stage=new Stage();
                             mainMenuGUI.start(stage);
+                            mainMenuGUI.setPlayer(temp);
                         }
                     });
                     facade.setUsername(temp.getUsername());
@@ -130,6 +138,7 @@ public class ClientThread extends Thread {
                 GameMatch pR=(GameMatch) o;
                 System.out.println("Player number:"+pR.getPlayer(0).getHero().getY());
                 facade.setMatch(pR);
+                if(facade.getHeroSlot()==pR.getTurnIndex()) facade.setIsLocked(false);
                 game.setInitialProperties();
                 Platform.runLater(new Runnable() {
                     @Override
@@ -149,6 +158,14 @@ public class ClientThread extends Thread {
                 CountDownRequest request=(CountDownRequest) o;
                 heroChoosingGUI.setCountDownTime(request.getCount());
             }
+            else if(o instanceof HeroMoveRequest){
+                HeroMoveRequest request=(HeroMoveRequest) o;
+                game.getGameMap().handleHeroMoveRequest(request);
+            }
+            else if(o instanceof HeroAttackRequest){
+                HeroAttackRequest request=(HeroAttackRequest) o;
+                game.getGameMap().handleHeroAttackRequest(request);
+            }
             else if(o instanceof HeroChoosingRequest){
                 final HeroChoosingRequest m=(HeroChoosingRequest)o;
                 facade.setGameIndex(m.getGameIndex());
@@ -167,6 +184,11 @@ public class ClientThread extends Thread {
                     }
                 });
 
+            }
+            else if(o instanceof TurnControlRequest){
+                TurnControlRequest request=(TurnControlRequest) o;
+                if(facade.getHeroSlot()==request.getTurnIndex()) facade.setIsLocked(false);
+                game.getTurnPanel().setStatusMessage(request.getTurnIndex());
             }
             //invalid account
             else if (o instanceof Status) {

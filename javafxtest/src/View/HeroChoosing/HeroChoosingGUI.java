@@ -1,6 +1,7 @@
 package View.HeroChoosing;
 
 import Controllers.listeners.HeroChoosingFactory;
+import View.MainMenu.ChatPane2;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.AccountSystem.Account;
 import model.Facade.Facade;
 
@@ -44,6 +46,7 @@ public class HeroChoosingGUI extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        this.stage = stage;
+       stage.initStyle(StageStyle.UNDECORATED);
        stage.setTitle("Choosing Hero");
        BorderPane pnlMain=new BorderPane();
        pnlMain.setTop(header);
@@ -85,4 +88,8 @@ public class HeroChoosingGUI extends Application {
     public void announceSelectedHero(String account,String heroName){
         heroPane.announceSelectedHero(account,heroName);
     }
+    public ChatPane2 getChatPane(){
+        return heroPane.getChatPane();
+    }
+
 }

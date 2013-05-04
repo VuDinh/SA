@@ -62,4 +62,17 @@ public class AccountDaoImpl implements AccountDao {
             return null;
         }
     }
+    public Cell getMonsterBeginPosition(int index){
+        try {
+            Cell c = jdbcTemplate.queryForObject("select * from monsterPositions where id=(?)", new CellMapper()
+                    , index);
+            return c;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    public List<Cell> getAllMonsterPositions(){
+        List<Cell> cells = jdbcTemplate.query("select * from monsterPositions",new CellMapper());
+        return cells;
+    }
 }

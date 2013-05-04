@@ -1,9 +1,13 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
+import Controllers.Requests.HeroAttackRequest;
+import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
+import Controllers.Requests.TurnControlRequest;
 import Controllers.Server.AccountDao;
 import Utilities.Utilizer;
+import model.MessageSystem.Message;
 
 import java.util.ArrayList;
 
@@ -55,5 +59,23 @@ public class GameManager {
     }
     public void removePlayer(Communicator com){
 
+    }
+    public void handleHeroMoveRequest(HeroMoveRequest request){
+        gameMatches.get(request.getGameIndex()).handleHeroMoveRequest(request);
+    }
+    public void handleHeroAttackRequest(HeroAttackRequest request){
+        gameMatches.get(request.getGameIndex()).handleHeroAttackRequest(request);
+    }
+    public void sendMessageToTeam(Message mes){
+        gameMatches.get(mes.getGameIndex()).sendMessageToTeam(mes);
+    }
+    public void sendMessageToAll(Message mes){
+        gameMatches.get(mes.getGameIndex()).sendMessageToAll(mes);
+    }
+    public void sendMessageToPlayer(Message mes){
+        gameMatches.get(mes.getGameIndex()).sendMessageToPlayer(mes);
+    }
+    public void nextTurn(TurnControlRequest request){
+        gameMatches.get(request.getGameIndex()).nextTurn();
     }
 }

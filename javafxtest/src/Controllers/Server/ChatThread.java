@@ -1,7 +1,10 @@
 package Controllers.Server;
 
 
+import Controllers.Requests.HeroAttackRequest;
+import Controllers.Requests.HeroMoveRequest;
 import Controllers.Requests.PlayingGameRequest;
+import Controllers.Requests.TurnControlRequest;
 import model.MessageSystem.Message;
 import model.MessageSystem.MessageStatus;
 import model.AccountSystem.Status;
@@ -78,13 +81,25 @@ public class ChatThread extends Thread {
                 if (mes.getStatus().equals(MessageStatus.all)) sendToAll(mes);
                 if (mes.getStatus().equals(MessageStatus.team)) sendToTeam(mes);
                 if (mes.getStatus().equals(MessageStatus.def)) sendToOne(mes);
+                if (mes.getStatus().equals(MessageStatus.broadcast)) sendBroadCast(mes);
             }
 
             if(o instanceof PlayingGameRequest){
                 PlayingGameRequest request=(PlayingGameRequest) o;
                 handler.getGameManager().chooseHero(com, request);
             }
-
+            if(o instanceof HeroMoveRequest){
+                HeroMoveRequest request=(HeroMoveRequest) o;
+                handler.getGameManager().handleHeroMoveRequest(request);
+            }
+            if(o instanceof HeroAttackRequest){
+                HeroAttackRequest request=(HeroAttackRequest) o;
+                handler.getGameManager().handleHeroAttackRequest(request);
+            }
+            if(o instanceof TurnControlRequest){
+                TurnControlRequest request=(TurnControlRequest) o;
+                handler.getGameManager().nextTurn(request);
+            }
             if (o instanceof Status) {
                 Status status = (Status) o;
                 //findingMatch action
@@ -109,30 +124,27 @@ public class ChatThread extends Thread {
 
     //sending message to all
     public void sendToAll(Message mes) {
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+        /*for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
             if (tempCom.getAccount() != com.getAccount()) {
                 tempCom.write(mes);
             }
-        }
+        }*/
+        handler.getGameManager().sendMessageToAll(mes);
     }
     //sending to the team
     public void sendToTeam(Message mes) {
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
-            Communicator tempCom = (Communicator) it.next();
-            if (tempCom.getAccount() != com.getAccount() && tempCom.getAccount().getTeam() == com.getAccount().getTeam()) {
-                tempCom.write(mes);
-            }
-        }
+        handler.getGameManager().sendMessageToTeam(mes);
     }
     //sending to the one
     public void sendToOne(Message mes) {
-        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+        /*for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
             Communicator tempCom = (Communicator) it.next();
             if (tempCom.getAccount().getUsername().equals(mes.getReceiver().getUsername())) {
                 tempCom.write(mes);
             }
-        }
+        }*/
+        handler.getGameManager().sendMessageToPlayer(mes);
     }
     //warn the others about quitters
     public void announceQuitter() {
@@ -144,6 +156,14 @@ public class ChatThread extends Thread {
                 if (tempCom.getAccount() != com.getAccount()) {
                     tempCom.write(acc);
                 }
+            }
+        }
+    }
+    public void sendBroadCast(Message mes){
+        for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
+            Communicator tempCom = (Communicator) it.next();
+            if (tempCom.getAccount() != com.getAccount()) {
+                tempCom.write(mes);
             }
         }
     }

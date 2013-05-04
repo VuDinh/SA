@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,22 +18,24 @@ import java.util.ArrayList;
  * Time: 9:09 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Skill implements Serializable,Cloneable {
-    protected int ID,currentSprite,range;
+public abstract class Skill implements Serializable, Cloneable {
+    protected int ID, currentSprite, range;
     double multiplier;
     protected String name;
-    protected boolean isStun,isSlow;
+    protected boolean isStun, isSlow;
     protected ArrayList<Cell> path;
     protected SkillStatus status;
     protected int imageIndex;
     protected String SE, description;
     protected int AP;
-    protected ArrayList<Cell>rangeCell = new ArrayList<Cell>();
-    protected ArrayList<Cell>dmgCell = new ArrayList<Cell>();
-    protected GameMap panel;
+    protected ArrayList<Cell> rangeCell;
+    protected ArrayList<Cell> dmgCell;
+    protected transient GameMap panel;
     protected int imgHeroIndex;
+
     public Skill() {
     }
+
     protected Skill(int range, String name, boolean stun, boolean slow, int imageIndex, int ID, double multiplier, String SE, int AP, String description) {
         this.range = range;
         this.name = name;
@@ -41,14 +44,17 @@ public abstract class Skill implements Serializable,Cloneable {
         this.ID = ID;
         this.multiplier = multiplier;
         currentSprite = 0;
-        path=new ArrayList<Cell>();
+        path = new ArrayList<Cell>();
         status = SkillStatus.before;
         this.imageIndex = imageIndex;
         this.SE = SE;
         this.AP = AP;
         this.description = description;
+        rangeCell=new ArrayList<Cell>();
+        dmgCell = new ArrayList<Cell>();
     }
-    public Skill(Skill skill){
+
+    public Skill(Skill skill) {
         this.range = skill.range;
         this.name = skill.name;
         isStun = skill.isStun;
@@ -56,19 +62,21 @@ public abstract class Skill implements Serializable,Cloneable {
         this.ID = skill.ID;
         this.multiplier = skill.multiplier;
         currentSprite = 0;
-        path=new ArrayList<Cell>();
+        path = new ArrayList<Cell>();
         status = SkillStatus.before;
         this.imageIndex = skill.imageIndex;
         this.SE = skill.SE;
         this.AP = skill.AP;
         this.description = skill.description;
+        rangeCell=new ArrayList<Cell>();
+        dmgCell = new ArrayList<Cell>();
     }
 
     public String getDescription() {
         return description;
     }
 
-    public int getDamage(Hero hero){
+    public int getDamage(Hero hero) {
         return (int) Math.round(hero.getAttk() * multiplier);
     }
 
@@ -100,9 +108,10 @@ public abstract class Skill implements Serializable,Cloneable {
         this.multiplier = multiplier;
     }
 
-    public void setImgHeroIndex(int imgHeroIndex){
+    public void setImgHeroIndex(int imgHeroIndex) {
         this.imgHeroIndex = imgHeroIndex;
     }
+
     public String getName() {
         return name;
     }
@@ -114,9 +123,11 @@ public abstract class Skill implements Serializable,Cloneable {
     public BufferedImage getIcon() {
         return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getIcon(imageIndex);
     }
-    public int getSkillIndex(){
+
+    public int getSkillIndex() {
         return imageIndex;
     }
+
     public boolean isStun() {
         return isStun;
     }
@@ -147,21 +158,51 @@ public abstract class Skill implements Serializable,Cloneable {
 
     public void setPath(ArrayList<Cell> path) {
         this.path = path;
+
     }
 
-    public void nextSprite(){
-        if(currentSprite % 4 == 3) currentSprite-=3;
+    public void clonePath(ArrayList<Cell> path) {
+        path = new ArrayList<Cell>();
+        try {
+            for (Cell cell : path) {
+                path.add(cell.clone());
+            }
+        } catch (CloneNotSupportedException ex) {
+
+        }
+
+    }
+
+    public void nextSprite() {
+        if (currentSprite % 4 == 3) currentSprite -= 3;
         else currentSprite++;
     }
-    public BufferedImage getCurrentSprite(){
+
+    public BufferedImage getCurrentSprite() {
         return Utilizer.SKILLIMAGEPACK.get(imgHeroIndex).getSprite(imageIndex)[currentSprite];
     }
-    public Skill clone() throws CloneNotSupportedException{
-        return (Skill)super.clone();
+
+    public Skill clone() throws CloneNotSupportedException {
+        return (Skill) super.clone();
     }
-    public abstract void drawSkill(Graphics g,Cell to, int scrollX, int scrollY, GameMap panel);
-    public abstract void drawPath(Graphics g,Cell to,int scrollX,int scrollY,GameMap panel);
-    public abstract void drawPathOnHero(Graphics g,Hero hero,Cell to,int scrollX,int scrollY,GameMap panel);
-    public abstract void drawSkillOnHero(Graphics g,Hero hero,int scrollX,int scrollY,GameMap panel);
+
+    public void setPanel(GameMap panel) {
+        this.panel = panel;
+    }
+
+    public int getCurrentSpriteIndex() {
+        return currentSprite;
+    }
+    public void setDamageCell(ArrayList<Cell> dmgCell){
+        this.dmgCell = dmgCell;
+    }
+
+    public abstract void drawSkill(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel);
+
+    public abstract void drawPath(Graphics g, Cell to, int scrollX, int scrollY, GameMap panel);
+
+    public abstract void drawPathOnHero(Graphics g, Hero hero, Cell to, int scrollX, int scrollY, GameMap panel);
+
+    public abstract void drawSkillOnHero(Graphics g, Hero hero, int scrollX, int scrollY, GameMap panel);
 
 }
