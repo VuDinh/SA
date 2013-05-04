@@ -150,9 +150,9 @@ public class ClientThread extends Thread {
             }
             else if(o instanceof HeroPickedRequest){
                 HeroPickedRequest request=(HeroPickedRequest)o;
-                heroChoosingGUI.setAllyIcon(request.getHeroSlot(),facade.getLibraryHero(request.getHeroIndex()-1).getIcon());
+                heroChoosingGUI.setAllyIcon(request.getHeroSlot(),facade.getLibraryHero(request.getHeroIndex()).getIcon());
                 heroChoosingGUI.announceSelectedHero(request.getPlayerName(),
-                        facade.getLibraryHero(request.getHeroIndex()-1).getName());
+                        facade.getLibraryHero(request.getHeroIndex()).getName());
             }
             else if(o instanceof CountDownRequest){
                 CountDownRequest request=(CountDownRequest) o;

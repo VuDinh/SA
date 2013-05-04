@@ -14,7 +14,7 @@ public class HeroLibrary {
     public HeroLibrary(){
         heroes=new ArrayList<Hero>();
         HeroFactory hF=new HeroFactory();
-        for(int i=1;i<=7;i++){
+        for(int i=0;i<=6;i++){
             heroes.add(hF.createHero(i));
         }
     }
