@@ -263,19 +263,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TurnPanel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Ingame/TurnPanel.java">
+      <file leaf-file-name="Utilizer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="48" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
+            <state line="255" column="50" selection-start="17997" selection-end="17997" vertical-scroll-proportion="-12.84">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utilizer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
+      <file leaf-file-name="RankScoreSystem.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/View/Ingame/RankScoreSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="259" column="49" selection-start="18661" selection-end="18661" vertical-scroll-proportion="0.7749004">
+            <state line="41" column="50" selection-start="1101" selection-end="1101" vertical-scroll-proportion="1.5472223">
               <folding />
             </state>
           </provider>
@@ -923,27 +923,10 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.RankScoreSystem">
     <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="View.Ingame.Game" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="javafxtest" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="LayoutTest2" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="LayoutTest2" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -995,6 +978,23 @@
     <configuration default="false" name="HeroChoosingGUI" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="View.HeroChoosing.HeroChoosingGUI" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="javafxtest" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="RankScoreSystem" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="View.Ingame.RankScoreSystem" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -1092,17 +1092,17 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Client" />
       <item index="1" class="java.lang.String" itemvalue="Application.Server" />
       <item index="2" class="java.lang.String" itemvalue="Application.Game" />
-      <item index="3" class="java.lang.String" itemvalue="Application.LayoutTest2" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ControlPanel" />
-      <item index="5" class="java.lang.String" itemvalue="Application.MainMenuGUI" />
-      <item index="6" class="java.lang.String" itemvalue="Application.HeroChoosingGUI" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ControlPanel" />
+      <item index="4" class="java.lang.String" itemvalue="Application.MainMenuGUI" />
+      <item index="5" class="java.lang.String" itemvalue="Application.HeroChoosingGUI" />
+      <item index="6" class="java.lang.String" itemvalue="Application.RankScoreSystem" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.HeroChoosingGUI" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Game" />
-        <item index="2" class="java.lang.String" itemvalue="Application.MainMenuGUI" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="0" class="java.lang.String" itemvalue="Application.RankScoreSystem" />
+        <item index="1" class="java.lang.String" itemvalue="Application.HeroChoosingGUI" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Game" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MainMenuGUI" />
         <item index="4" class="java.lang.String" itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -1177,7 +1177,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.70868826" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21742424" sideWeight="0.69335604" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30664396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30664396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683983" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1246,13 +1246,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/accounts.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="31" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/MonsterSystem/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="32" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
@@ -1356,7 +1349,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utilities/Utilizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="49" selection-start="18661" selection-end="18661" vertical-scroll-proportion="0.7749004">
+        <state line="255" column="50" selection-start="17997" selection-end="17997" vertical-scroll-proportion="-12.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Ingame/RankScoreSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="50" selection-start="1101" selection-end="1101" vertical-scroll-proportion="1.5472223">
           <folding />
         </state>
       </provider>
