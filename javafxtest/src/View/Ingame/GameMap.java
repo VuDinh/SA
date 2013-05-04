@@ -38,24 +38,29 @@ public class GameMap extends JPanel {
 
     Graphics graphic;
     String status = "normal";
-    Cell selectedCell , rangeCell;
+    Cell selectedCell, rangeCell;
     int startX, startY, maxX, maxY, scrollX, scrollY;
     int damage = 0;
     private Facade facade;
+
     public int getDamage() {
         return damage;
     }
-    public Facade getFacade(){
+
+    public Facade getFacade() {
         return facade;
     }
+
     public void setDamage(int damage) {
         this.damage = damage;
     }
-    public void setFacade(Facade facade){
-        this.facade=facade;
+
+    public void setFacade(Facade facade) {
+        this.facade = facade;
         facade.setGameMap(this);
         repaint();
     }
+
     public GameMap(Hero hero, Monster monster) {
 //Utilizer.playMIDI(Utilizer.SOUND_THEME2,1000);
         //set the start viewing position
@@ -84,18 +89,19 @@ public class GameMap extends JPanel {
         paintHero(g);
         paintDamage(g);
         paintFog(g);
+
     }
 
-    public void paintDamage(Graphics g){
-        if(selectedCell != null){
-        int x = selectedCell.getColPos()*Utilizer.TILE_SIZE+10-this.getScrollX();
-        int y = selectedCell.getRowPos()*Utilizer.TILE_SIZE+20-this.getScrollY();
-        g.setFont(Utilizer.FONT2);
-        g.setColor(Color.white);
-        String s = new String("");
-        if(damage!=0)s= damage+"";
-        else s = "";
-        g.drawString(s,x,y);
+    public void paintDamage(Graphics g) {
+        if (selectedCell != null) {
+            int x = selectedCell.getColPos() * Utilizer.TILE_SIZE + 10 - this.getScrollX();
+            int y = selectedCell.getRowPos() * Utilizer.TILE_SIZE + 20 - this.getScrollY();
+            g.setFont(Utilizer.FONT2);
+            g.setColor(Color.white);
+            String s = new String("");
+            if (damage != 0) s = damage + "";
+            else s = "";
+            g.drawString(s, x, y);
         }
     }
 
@@ -114,15 +120,27 @@ public class GameMap extends JPanel {
 
     }
 
-    public void paintFog(Graphics g){
+    public void paintFog(Graphics g) {
         //System.out.println(facade.getMatch().seenCells());
         ArrayList<Cell> cells = facade.getMatch().seenCells();
         //cells.addAll();
-        try {
+        /*try {
             for (Cell cell : cells) {
                 g.clearRect(cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
-                g.drawImage(Utilizer.fogArray[0], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, this);
-                g.drawImage(Utilizer.fogArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, this);
+                g.drawImage(Utilizer.normalArray[0], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, this);
+                g.drawImage(Utilizer.normalArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, this);
+            }
+        } catch (ConcurrentModificationException ex) {
+
+        }*/
+        try {
+            for (int i = startX; i < maxX; i++) {
+                for (int j = startY; j < maxY; j++) {
+                    Cell tempCell = new Cell(j, i);
+                    if (cells.contains(tempCell)) continue;
+                    g.drawImage(Utilizer.fogArray[0], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
+                    g.drawImage(Utilizer.fogArray[Utilizer.MAP[j][i] - 1], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
+                }
             }
         } catch (ConcurrentModificationException ex) {
 
@@ -130,14 +148,14 @@ public class GameMap extends JPanel {
     }
 
     public void paintHero(Graphics g) {
-        if(facade!=null){
-            if(facade.getGame()!=null){
-                facade.drawHeroes(g,scrollX, scrollY);
+        if (facade != null) {
+            if (facade.getGame() != null) {
+                facade.drawHeroes(g, scrollX, scrollY);
             }
         }
     }
 
-    public void paintMonster(Graphics g){
+    public void paintMonster(Graphics g) {
         //monster.draw(g,scrollX,scrollY);
         facade.getGame().drawMonsters(g, scrollX, scrollY);
     }
@@ -174,11 +192,11 @@ public class GameMap extends JPanel {
         return scrollY;
     }
 
-    public void setCenterScreenByCord(int row,int col){
-        int scrollRow=Math.max(0,row-8);
-        int scrollCol=Math.max(0,col-13);
-        scrollX=scrollCol*Utilizer.TILE_SIZE;
-        scrollY=scrollRow*Utilizer.TILE_SIZE;
+    public void setCenterScreenByCord(int row, int col) {
+        int scrollRow = Math.max(0, row - 8);
+        int scrollCol = Math.max(0, col - 13);
+        scrollX = scrollCol * Utilizer.TILE_SIZE;
+        scrollY = scrollRow * Utilizer.TILE_SIZE;
     }
 
     public void paintSelected(Graphics g) {
@@ -194,10 +212,11 @@ public class GameMap extends JPanel {
             if (hero.getIsChosen()) {
                 g.drawImage(hero.getCurrentSprite(), hero.getX() - scrollX, hero.getY() - scrollY, this);
             }*/
-            facade.drawHeroEffects(g, scrollX, scrollY, selectedCell, rangeCell);
+        facade.drawHeroEffects(g, scrollX, scrollY, selectedCell, rangeCell);
         //}
     }
-    void paintHoveredNormal(Graphics g){
+
+    void paintHoveredNormal(Graphics g) {
         g.clearRect(rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
         g.drawImage(Utilizer.hoverArray[0], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
         g.drawImage(Utilizer.hoverArray[Utilizer.MAP[rangeCell.getRowPos()][rangeCell.getColPos()] - 1], rangeCell.getX() - scrollX, rangeCell.getY() - scrollY, this);
@@ -210,13 +229,13 @@ public class GameMap extends JPanel {
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPath(g, rangeCell, scrollX, scrollY, this);
                     //getHero().getSkill(hero.getCurrentSkillIndex()).drawPathOnHero(g,getHero(),rangeCell, scrollX, scrollY, this);
 
-                    if(facade.getMainHero().getCurrentSkill() instanceof AOESkill){
-                        ((AOESkill) facade.getMainHero().getCurrentSkill()).drawRange( g,scrollX,scrollY);
+                    if (facade.getMainHero().getCurrentSkill() instanceof AOESkill) {
+                        ((AOESkill) facade.getMainHero().getCurrentSkill()).drawRange(g, scrollX, scrollY);
                         //System.out.println(((AOESkill) getHero().getCurrentSkill()).getRangeCell());
                     }
-                } else if(!facade.getMainHero().getIsChosen() ) {
+                } else if (!facade.getMainHero().getIsChosen()) {
                     paintHoveredNormal(g);
-                } else if(facade.getMainHero().getIsChosen()){
+                } else if (facade.getMainHero().getIsChosen()) {
                     //paintHoveredInRange(g);
                 }
                 if (rangeCell.getColPos() == facade.getMainHero().getCol() && rangeCell.getRowPos() == facade.getMainHero().getRow()) {
@@ -238,59 +257,61 @@ public class GameMap extends JPanel {
     public void setRangedCell(Cell rangeCell) {
         this.rangeCell = rangeCell;
     }
-    public void addMapListener(MouseListener e){
+
+    public void addMapListener(MouseListener e) {
         this.addMouseListener(e);
     }
-    public void addScrollListener(KeyListener e){
+
+    public void addScrollListener(KeyListener e) {
         this.addKeyListener(e);
     }
 
     //handle requests
     //hero move
-    public void handleHeroMoveRequest(HeroMoveRequest request){
-        Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
-        Utilizer.MOVEMAP[temp.getRow()][temp.getCol()]=0;
+    public void handleHeroMoveRequest(HeroMoveRequest request) {
+        Hero temp = facade.getHeroBySlotIndex(request.getSlotIndex());
+        Utilizer.MOVEMAP[temp.getRow()][temp.getCol()] = 0;
         temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
-        HeroAnimation.move(temp,this);
+        HeroAnimation.move(temp, this);
 
     }
 
-    public void handleHeroAttackRequest(HeroAttackRequest request){
-        Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
-        Player attackingPlayer=facade.getMatch().getPlayer(request.getSlotIndex());
+    public void handleHeroAttackRequest(HeroAttackRequest request) {
+        Hero temp = facade.getHeroBySlotIndex(request.getSlotIndex());
+        Player attackingPlayer = facade.getMatch().getPlayer(request.getSlotIndex());
         temp.setIsChosen(true);
         temp.setStatus(HeroStatus.attacking);
         temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
         temp.getCurrentSkill().setPath(request.getPath());
         temp.getCurrentSkill().setDamageCell(request.getDmgCell());
-        System.out.println("receive path:"+request.getPath());
+        System.out.println("receive path:" + request.getPath());
         temp.getCurrentSkill().setStatus(SkillStatus.after);
         temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
         selectedCell = request.getSelectedCell();
         System.out.println(selectedCell);
         HeroAnimation.attack(temp, this);
         //look for affected character
-        for(Iterator it=request.getDmgCell().iterator();it.hasNext();){
-            Cell cell=(Cell) it.next();
-            Player player= facade.getPlayerByCord(cell.rowPos,cell.colPos);
-            if(player!=null){
-                if(!player.getTeam().equals(attackingPlayer.getTeam())){
-                    Hero attackedHero=player.getHero();
-                    attackedHero.setHP(attackedHero.getHP()-temp.getCurrentSkill().getDamage(temp));
-                    if(attackedHero.getHP()<=0){
+        for (Iterator it = request.getDmgCell().iterator(); it.hasNext(); ) {
+            Cell cell = (Cell) it.next();
+            Player player = facade.getPlayerByCord(cell.rowPos, cell.colPos);
+            if (player != null) {
+                if (!player.getTeam().equals(attackingPlayer.getTeam())) {
+                    Hero attackedHero = player.getHero();
+                    attackedHero.setHP(attackedHero.getHP() - temp.getCurrentSkill().getDamage(temp));
+                    if (attackedHero.getHP() <= 0) {
                         //set dead status
                         attackedHero.setHP(0);
                     }
                 }
             }
-            Monster attackedMonster=facade.getMonsterByCord(cell.getRowPos(),cell.getColPos());
-            if(attackedMonster!=null){
-                attackedMonster.setHP(attackedMonster.getHP()-temp.getCurrentSkill().getDamage(temp));
-                if(attackedMonster.getHP()<=0){
+            Monster attackedMonster = facade.getMonsterByCord(cell.getRowPos(), cell.getColPos());
+            if (attackedMonster != null) {
+                attackedMonster.setHP(attackedMonster.getHP() - temp.getCurrentSkill().getDamage(temp));
+                if (attackedMonster.getHP() <= 0) {
                     //set dead status
                     attackedMonster.setHP(0);
                 }
-                System.out.println("Monster HP:"+attackedMonster.getHP());
+                System.out.println("Monster HP:" + attackedMonster.getHP());
             }
         }
         repaint();
