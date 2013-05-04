@@ -117,7 +117,7 @@ public class GameMap extends JPanel {
     public void paintFog(Graphics g){
         //System.out.println(facade.getMatch().seenCells());
         ArrayList<Cell> cells = facade.getMatch().seenCells();
-        cells.addAll();
+        //cells.addAll();
         try {
             for (Cell cell : cells) {
                 g.clearRect(cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);

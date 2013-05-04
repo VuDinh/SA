@@ -200,7 +200,7 @@
       <file leaf-file-name="GameMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="51" selection-start="4327" selection-end="4327" vertical-scroll-proportion="0.7096774">
+            <state line="119" column="10" selection-start="3654" selection-end="3654" vertical-scroll-proportion="0.41935483">
               <folding />
             </state>
           </provider>
@@ -1354,7 +1354,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="51" selection-start="4327" selection-end="4327" vertical-scroll-proportion="0.7096774">
+        <state line="119" column="10" selection-start="3654" selection-end="3654" vertical-scroll-proportion="0.41935483">
           <folding />
         </state>
       </provider>
