@@ -286,17 +286,21 @@ public class Hero extends Character implements Serializable, Cloneable {
         if (remaining == 0)
             return range;
 
-        if (Utilizer.MOVEMAP[x][y] == 0)
-            range.add(new Cell(x, y));
-        else return range;
+        range.add(new Cell(x,y));
 
-        if (y + 1 < 40)
-            calculateRange(x, y + 1, remaining - 1); //up
+
+        if (y + 1 < 40 )
+            if(Utilizer.MOVEMAP[x][y+1]==0){
+                calculateRange(x, y + 1, remaining - 1); //up
+            }
         if (x - 1 > 0)
+            if(Utilizer.MOVEMAP[x-1][y]==0)
             calculateRange(x - 1, y, remaining - 1); //left
         if (y - 1 > 0)
+            if(Utilizer.MOVEMAP[x][y-1]==0)
             calculateRange(x, y - 1, remaining - 1); //down
         if (x + 1 < 40)
+            if(Utilizer.MOVEMAP[x+1][y]==0)
             calculateRange(x + 1, y, remaining - 1); //right
         return range;
     }

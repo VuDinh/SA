@@ -1,5 +1,6 @@
 package model.HeroSystem;
 
+import Utilities.Utilizer;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
 
@@ -41,6 +42,7 @@ public class HeroMoveThread extends Thread {
             }
         }
         hero.setStatus(HeroStatus.standing);
+        Utilizer.MOVEMAP[hero.getRow()][hero.getCol()]=12;
         new HeroStandThread(hero,panel).start();
 
     }

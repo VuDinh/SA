@@ -67,5 +67,8 @@ public class Game extends JFrame {
         turn.setFacade(me);
         control.setHero(me.getMainHero());
         turn.setStatusMessage(me.getMatch().getTurnIndex());
+        me.getGame().resetMoveMap();
+        //set MoveMap base on the position
+
     }
 }

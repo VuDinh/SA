@@ -421,5 +421,26 @@ public class GameMatch implements Serializable, Cloneable {
         Collections.sort(players, new ScoreComparator());
         return players;
     }
+    public void resetMoveMap(){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            int row=player.getHero().getRow();
+            int col=player.getHero().getCol();
+            Utilizer.MOVEMAP[row][col]=12;
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            int row=player.getHero().getRow();
+            int col=player.getHero().getCol();
+            Utilizer.MOVEMAP[row][col]=12;
+        }
+        for(Iterator it =monsters.iterator();it.hasNext();){
+            Monster monster=(Monster) it.next();
+            int row=monster.getRow();
+            int col=monster.getCol();
+            Utilizer.MOVEMAP[row][col]=12;
+        }
+    }
 
 }

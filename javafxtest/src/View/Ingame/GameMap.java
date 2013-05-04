@@ -232,8 +232,10 @@ public class GameMap extends JPanel {
     //hero move
     public void handleHeroMoveRequest(HeroMoveRequest request){
         Hero temp=facade.getHeroBySlotIndex(request.getSlotIndex());
+        Utilizer.MOVEMAP[temp.getRow()][temp.getCol()]=0;
         temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
         HeroAnimation.move(temp,this);
+
     }
 
     public void handleHeroAttackRequest(HeroAttackRequest request){
