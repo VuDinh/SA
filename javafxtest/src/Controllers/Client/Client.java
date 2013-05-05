@@ -104,6 +104,7 @@ public class Client implements Runnable {
         inGame.getGameMap().addMouseListener(mapListener);
         inGame.getGameMap().addMouseMotionListener(mapListener);
         inGame.getControlPanel().addMouseListener(controlListener);
+        inGame.getControlPanel().addMouseMotionListener(controlListener);
         //sending quitting status to the server when closing
         login.addWindowListener(new WindowAdapter() {
             @Override

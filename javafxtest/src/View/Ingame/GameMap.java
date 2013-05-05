@@ -198,6 +198,11 @@ public class GameMap extends JPanel {
     public int getScrollY() {
         return scrollY;
     }
+    public void setScroll(int scrollX,int scrollY){
+        this.scrollX=scrollX;
+        this.scrollY=scrollY;
+        repaint();
+    }
 
     public void setCenterScreenByCord(int row, int col) {
         int scrollRow = Math.max(0, row - 8);
@@ -318,6 +323,7 @@ public class GameMap extends JPanel {
                         //set dead status
                         attackedHero.setHP(0);
                         attackedHero.setImageIndex(11);
+                        attackedHero.setStatus(HeroStatus.dead);
                     }
                 }
             }
@@ -328,6 +334,7 @@ public class GameMap extends JPanel {
                     //set dead status
                     attackedMonster.setHP(0);
                     attackedMonster.setImageIndex(11);
+
                 }
             }
         }

@@ -193,7 +193,7 @@
       <file leaf-file-name="GameMap.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="17" selection-start="13092" selection-end="13092" vertical-scroll-proportion="0.0">
+            <state line="336" column="17" selection-start="13277" selection-end="13277" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -208,10 +208,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenuGUI.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainMenuGUI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/MainMenu/MainMenuGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="55" selection-start="2713" selection-end="2713" vertical-scroll-proportion="0.34074074">
+            <state line="88" column="137" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -264,10 +264,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AOESkill.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AOESkill.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Skills/AOESkill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="45" selection-start="4679" selection-end="4679" vertical-scroll-proportion="0.0">
+            <state line="113" column="17" selection-start="4371" selection-end="4371" vertical-scroll-proportion="0.83870965">
               <folding />
             </state>
           </provider>
@@ -303,11 +303,11 @@
         <option value="$PROJECT_DIR$/src/Controllers/listeners/HeroChoosingFactory.java" />
         <option value="$PROJECT_DIR$/src/Controllers/listeners/MapListener.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java" />
-        <option value="$PROJECT_DIR$/src/model/Skills/AOESkill.java" />
         <option value="$PROJECT_DIR$/src/model/Skills/CleaveSkill.java" />
         <option value="$PROJECT_DIR$/src/View/Ingame/GameMap.java" />
         <option value="$PROJECT_DIR$/src/View/MainMenu/ChatPane2.java" />
         <option value="$PROJECT_DIR$/src/View/MainMenu/MainMenuGUI.java" />
+        <option value="$PROJECT_DIR$/src/model/Skills/AOESkill.java" />
       </list>
     </option>
   </component>
@@ -1348,13 +1348,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Skills/AOESkill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="45" selection-start="4679" selection-end="4679" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Skills/CleaveSkill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="113" column="32" selection-start="4971" selection-end="4971" vertical-scroll-proportion="0.0">
@@ -1364,7 +1357,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="17" selection-start="13092" selection-end="13092" vertical-scroll-proportion="0.0">
+        <state line="336" column="17" selection-start="13277" selection-end="13277" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1378,7 +1371,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/MainMenu/MainMenuGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="55" selection-start="2713" selection-end="2713" vertical-scroll-proportion="0.34074074">
+        <state line="88" column="137" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Skills/AOESkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="17" selection-start="4371" selection-end="4371" vertical-scroll-proportion="0.83870965">
           <folding />
         </state>
       </provider>

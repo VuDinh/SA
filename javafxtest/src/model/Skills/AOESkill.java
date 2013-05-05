@@ -109,9 +109,9 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
 
         if(y+1 < 40)
             calculateRange(x, y + 1, remaining - 1); //up
-        if(x-1 > 0)
+        if(x-1 >= 0)
             calculateRange(x - 1, y, remaining - 1); //left
-        if(y-1 > 0)
+        if(y-1 >= 0)
             calculateRange(x, y - 1, remaining - 1); //down
         if(x+1 < 40)
             calculateRange(x + 1, y, remaining - 1); //right
