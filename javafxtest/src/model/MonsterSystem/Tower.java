@@ -18,15 +18,16 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class Tower extends Character implements Cloneable,Serializable {
-    private boolean main;
+    private boolean main, broken;
     private ArrayList<Cell> sight = new ArrayList<Cell>();
     private ArrayList<Cell> self = new ArrayList<Cell>();
     private Team team;
 
     public Tower(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col,int imageIndex,String name,
-                    String description,Cell start, Cell end, Team team, boolean main){
+                    String description,Cell start, Cell end, Team team, boolean main, boolean broken){
         super(HP, maxHP, AP, maxAP, Attk, row, col, imageIndex,name,description);
         this.main = main;
+        this.broken = broken;
         this.team = team;
         for (int i = start.getRowPos(); i <= end.getRowPos(); i++) {
             for (int j = start.getColPos(); j <= end.getColPos(); j++)  {
@@ -37,6 +38,14 @@ public class Tower extends Character implements Cloneable,Serializable {
 
     public ArrayList<Cell> getSelf() {
         return self;
+    }
+
+    public boolean isBroken() {
+        return broken;
+    }
+
+    public void setBroken(boolean broken) {
+        this.broken = broken;
     }
 
     public void setSelf(ArrayList<Cell> self) {

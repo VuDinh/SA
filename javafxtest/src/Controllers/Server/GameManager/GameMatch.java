@@ -44,7 +44,20 @@ public class GameMatch implements Serializable, Cloneable {
         add(new Teleport(38,6,Team.team2,4));
     }};
     private static  ArrayList<Tower> tower = new ArrayList<Tower>(){{
-        add(new Tower(1000,1000,0,0,100,35,4,0,"","",new Cell(33,3), new Cell(36,5),Team.team1,true));
+        add(new Tower(1000,1000,0,0,100,35,4,0,"","",new Cell(33,3), new Cell(36,5),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,5,35,0,"","",new Cell(3,34), new Cell(6,36),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,3,7,0,"","",new Cell(3,7), new Cell(4,7),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,6,3,0,"","",new Cell(6,3), new Cell(7,3),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,4,19,0,"","",new Cell(4,19), new Cell(5,19),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,20,5,0,"","",new Cell(20,5), new Cell(21,5),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,20,17,0,"","",new Cell(20,17), new Cell(21,17),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,18,22,0,"","",new Cell(18,22), new Cell(19,22),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,26,11,0,"","",new Cell(26,11), new Cell(27,11),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,13,27,0,"","",new Cell(13,27), new Cell(14,27),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,34,18,0,"","",new Cell(34,18), new Cell(35,18),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,19,34,0,"","",new Cell(19,34), new Cell(20,34),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,35,32,0,"","",new Cell(35,32), new Cell(36,32),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,32,36,0,"","",new Cell(32,36), new Cell(33,36),Team.team2,true,false));
     }};
     int counter;
     private boolean isFull;
@@ -502,7 +515,7 @@ public class GameMatch implements Serializable, Cloneable {
         Iterator i = tower.iterator();
         while (i.hasNext()){
             Tower t = (Tower) i.next();
-            if(t.getTeam()==team) c.addAll(t.getSight());
+            if(t.getTeam()==team && t.isBroken()==false) c.addAll(t.getSight());
         }
         return c;
     }
