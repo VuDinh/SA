@@ -70,7 +70,7 @@ public class Utilizer {
     public static final String THUNDERSTRIKE_SKILL = "Images/Skills/ThunderStrike.png";
     public static final String SPARK_SKILL = "Images/Skills/Spark.png";
 
-    public static final int SPRITE_ROWS = 6;
+    public static final int SPRITE_ROWS = 7;
     public static final int SPRITE_COLS = 4;
     public static final int SKILL_SIZE = 4;
     public static final int TILE_SIZE = 48;

@@ -37,10 +37,10 @@ public class GameMatch implements Serializable, Cloneable {
     private ArrayList<Player> team2;
     private ArrayList<Monster> monsters;
     private ArrayList<Teleport> teleport = new ArrayList<Teleport>(){{
-        add(new Teleport(35,2,Team.team1,1));
-        add(new Teleport(30,5,Team.team1,1));
-        add(new Teleport(35,10,Team.team2,2));
-        add(new Teleport(30,7,Team.team2,2));
+        add(new Teleport(35,1,Team.team1,1));
+        add(new Teleport(33,1,Team.team1,2));
+        add(new Teleport(38,4,Team.team2,3));
+        add(new Teleport(38,6,Team.team2,4));
     }};
     int counter;
     private boolean isFull;
@@ -368,7 +368,6 @@ public class GameMatch implements Serializable, Cloneable {
     }
     public void handleHeroAttackRequest(HeroAttackRequest request){
         int slot=request.getSlotIndex();
-        System.out.println("receive path:"+request.getHero().getCurrentSkill().getPath());
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             //if(player.getSlotIndex()!=request.getSlotIndex())

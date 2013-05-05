@@ -112,7 +112,6 @@ public class CleaveSkill extends Skill implements Serializable,Cloneable {
     public void drawPathOnHero(Graphics g, Hero hero, Cell to, int scrollX, int scrollY, GameMap panel) {
         if (status == SkillStatus.before) {
             calculatePath(hero);
-            System.out.println(path);
             for (Iterator i = path.iterator(); i.hasNext(); ) {
                 Cell temp = (Cell) i.next();
                 g.clearRect(temp.getColPos() * Utilizer.TILE_SIZE - scrollX, temp.getRowPos() * Utilizer.TILE_SIZE

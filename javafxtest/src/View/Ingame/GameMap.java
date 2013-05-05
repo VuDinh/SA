@@ -85,10 +85,10 @@ public class GameMap extends JPanel {
         paintHovered(g);
         paintSelected(g);
         paintMonster(g);
-        paintTeleportation(g);
         paintHero(g);
         paintDamage(g);
         paintFog(g);
+        //paintTeleportation(g);
 
     }
 
@@ -133,7 +133,6 @@ public class GameMap extends JPanel {
         } catch (ConcurrentModificationException ex) {
 
         }*/
-        try {
             for (int i = startX; i < maxX; i++) {
                 for (int j = startY; j < maxY; j++) {
                     Cell tempCell = new Cell(j, i);
@@ -142,9 +141,7 @@ public class GameMap extends JPanel {
                     g.drawImage(Utilizer.fogArray[Utilizer.MAP[j][i] - 1], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
                 }
             }
-        } catch (ConcurrentModificationException ex) {
 
-        }
     }
 
     public void paintTeleportation(Graphics g){
@@ -153,7 +150,7 @@ public class GameMap extends JPanel {
             //System.out.println(t);
             int row = t.getRow();
             int col = t.getCol();
-            g.drawImage(Utilizer.IMG_TELEPORT, row*Utilizer.TILE_SIZE-scrollX, col*Utilizer.TILE_SIZE-scrollY, this);
+            g.drawImage(Utilizer.IMG_TELEPORT, col*Utilizer.TILE_SIZE-scrollX, row*Utilizer.TILE_SIZE-scrollY, this);
 
         }
     }
@@ -289,18 +286,22 @@ public class GameMap extends JPanel {
         Utilizer.MOVEMAP[temp.getRow()][temp.getCol()] = 0;
         temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
         HeroAnimation.move(temp, this);
-
+//        try{
 //        Team team = facade.getMatch().getPlayer(request.getSlotIndex()).getTeam();
 //        ArrayList<Teleport> tele = facade.getMatch().getTeleport();
 //        for(Iterator i = tele.iterator(); i.hasNext(); ) {
-//            Teleport t = (Teleport) i.next();
-//            if(temp.getCol()==t.getCol() && t.getRow()==t.getRow() && t.getTeam()==team){
-//                HeroAnimation.teleport(temp,this,t);
-//                Teleport dest = t.getDestination(t,tele);
-//                temp.setRow(dest.getRow());
-//                temp.setCol(dest.getCol());
+//            Teleport loc = (Teleport) i.next();
+//            System.out.println(temp.getCol()+":"+loc.getCol()+","+temp.getRow()+":"+loc.getRow()+","+team+":"+loc.getTeam());
+//            if(temp.getCol()==loc.getCol() && loc.getRow()==loc.getRow() && loc.getTeam()==team){
+//                Teleport dest = loc.getDestination(loc,tele);
+//                if(dest!=null){
+//                    HeroAnimation.teleport(temp,loc,dest,this);
+//                }
+//                break;
 //            }
 //        }
+//        }catch(Exception e){e.printStackTrace();}
+//        System.out.println(temp.getCol()+":"+temp.getRow());
     }
 
     public void handleHeroAttackRequest(HeroAttackRequest request) {
@@ -311,11 +312,9 @@ public class GameMap extends JPanel {
         temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
         temp.getCurrentSkill().setPath(request.getPath());
         temp.getCurrentSkill().setDamageCell(request.getDmgCell());
-        System.out.println("receive path:" + request.getPath());
         temp.getCurrentSkill().setStatus(SkillStatus.after);
         temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
         selectedCell = request.getSelectedCell();
-        System.out.println(selectedCell);
         HeroAnimation.attack(temp, this);
         //look for affected character
         for (Iterator it = request.getDmgCell().iterator(); it.hasNext(); ) {
@@ -342,7 +341,6 @@ public class GameMap extends JPanel {
                     attackedMonster.setImageIndex(11);
 
                 }
-                System.out.println("Monster HP:" + attackedMonster.getHP());
             }
         }
         repaint();

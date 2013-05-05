@@ -144,7 +144,6 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 attackReq.setSelectedCell(selectCell.clone());
                 attackReq.setPath(mainHero.getCurrentSkill().getPath());
                 attackReq.setDmgCell(mainHero.getCurrentSkill().getDmgCell());
-                System.out.println("sending skill path:"+ attackReq.getPath());
                 com.write(attackReq);
             } catch (CloneNotSupportedException e1) {
                 e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

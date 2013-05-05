@@ -36,7 +36,6 @@ public class ChatListener implements EventHandler<KeyEvent> {
             mess.setStatus(chatPanel.getSelectedOption());
             mess.setGameIndex(facade.getGameIndex());
             mess.setSlotIndex(facade.getHeroSlot());
-            System.out.println(facade.getUsername());
             chatPanel.addChatMessage(facade.getUsername(),chatPanel.getChatMessage());
             com.write(mess);
         }

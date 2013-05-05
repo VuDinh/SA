@@ -43,7 +43,6 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
         path.clear();
         int startRow, endRow, startCol, endCol;
         startRow=Math.max(0,to.getRowPos()-aoe);
-        System.out.println("AOE:"+aoe);
         endRow=Math.min(Utilizer.MAP_ROWS-1,to.getRowPos()+aoe);
         startCol=Math.max(0,to.getColPos()-aoe);
         endCol=Math.min(Utilizer.MAP_COLS-1,to.getColPos()+aoe);
@@ -53,7 +52,6 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
 
             }
         }
-        System.out.println("AOE skill path size:"+path.size());
         dmgCell = path;
     }
 
@@ -111,9 +109,9 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
 
         if(y+1 < 40)
             calculateRange(x, y + 1, remaining - 1); //up
-        if(x-1 > 0)
+        if(x-1 >= 0)
             calculateRange(x - 1, y, remaining - 1); //left
-        if(y-1 > 0)
+        if(y-1 >= 0)
             calculateRange(x, y - 1, remaining - 1); //down
         if(x+1 < 40)
             calculateRange(x + 1, y, remaining - 1); //right
@@ -123,7 +121,6 @@ public class AOESkill extends Skill implements Serializable,Cloneable {
     //draw skill range
     public void drawRange(Graphics g,int scrollX,int scrollY){
         ArrayList<Cell> cells=getRangeCell();
-        System.out.println("panel:"+panel);
         for(Cell cell:cells){
             g.clearRect(cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
             g.drawImage(Utilizer.selectArray[0], cell.getColPos()*Utilizer.TILE_SIZE - scrollX, cell.getRowPos()*Utilizer.TILE_SIZE - scrollY, panel);
