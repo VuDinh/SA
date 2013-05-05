@@ -29,6 +29,7 @@ public class Hero extends Character implements Serializable, Cloneable {
     ArrayList<Cell> shortestpathHover, shortestPathSelect;
     int currentSkill;
     HeroStatus status;
+    int respawnTurnNum;
     ArrayList<Cell> range;
     ArrayList<Cell> sight;
 
@@ -42,6 +43,7 @@ public class Hero extends Character implements Serializable, Cloneable {
         status = HeroStatus.standing;
         currentSkill = -1;
         range = new ArrayList<Cell>();
+        respawnTurnNum=1;
     }
 
     public Hero(Hero hero) {
@@ -63,6 +65,7 @@ public class Hero extends Character implements Serializable, Cloneable {
         currentSkill = -1;
         range = new ArrayList<Cell>();
         sight = new ArrayList<Cell>();
+        respawnTurnNum=1;
     }
 
     protected Hero() {
@@ -74,6 +77,7 @@ public class Hero extends Character implements Serializable, Cloneable {
         shortestpathHover = new ArrayList<Cell>();
         status = HeroStatus.standing;
         currentSkill = -1;
+        respawnTurnNum=1;
     }
 
     public ArrayList<Cell> getShortestPathSelect() {
@@ -100,6 +104,16 @@ public class Hero extends Character implements Serializable, Cloneable {
         this.status = status;
     }
 
+    public void setRespawnTurnNum(int num){
+        respawnTurnNum = num;
+    }
+    public void decreaseRespawnNum(){
+        respawnTurnNum--;
+    }
+    public int getRespawnTurnNum(){
+        return respawnTurnNum;
+    }
+
     //draw hero
     @Override
     public void draw(Graphics g, int scrollX, int scrollY) {
@@ -113,7 +127,11 @@ public class Hero extends Character implements Serializable, Cloneable {
                 g.drawImage(Utilizer.selectArray[Utilizer.MAP[temp.getRowPos()][temp.getColPos()] - 1], temp.getColPos() * Utilizer.TILE_SIZE - scrollX, temp.getRowPos() * Utilizer.TILE_SIZE - scrollY, getPanel());
             }
         }
+        if(!status.equals(HeroStatus.dead))
         g.drawImage(getCurrentSprite(), getX() - scrollX, getY() - scrollY, getPanel());
+        else{
+            g.drawImage(Utilizer.dieArray[0], getX() - scrollX, getY() - scrollY, getPanel());
+        }
     }
 
     //set next sprite
@@ -374,5 +392,9 @@ public class Hero extends Character implements Serializable, Cloneable {
 
     public void resetAP() {
         setAP(getMaxAP());
+    }
+
+    public void resetHP() {
+        setHP(getMaxHP());
     }
 }

@@ -97,6 +97,7 @@ public abstract class Character implements Serializable {
     }
 
     public BufferedImage getCurrentSprite() {
+        System.out.println("Image Index:"+ imageIndex +" , currentSprite:"+currentSprite);
         return Utilizer.HEROIMAGEPACK.get(imageIndex).getSprite()[currentSprite];
     }
 

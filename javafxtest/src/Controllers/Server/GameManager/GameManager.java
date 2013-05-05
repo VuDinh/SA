@@ -1,10 +1,7 @@
 package Controllers.Server.GameManager;
 
 import Controllers.Communicator;
-import Controllers.Requests.HeroAttackRequest;
-import Controllers.Requests.HeroMoveRequest;
-import Controllers.Requests.PlayingGameRequest;
-import Controllers.Requests.TurnControlRequest;
+import Controllers.Requests.*;
 import Controllers.Server.AccountDao;
 import Utilities.Utilizer;
 import model.MessageSystem.Message;
@@ -77,5 +74,9 @@ public class GameManager {
     }
     public void nextTurn(TurnControlRequest request){
         gameMatches.get(request.getGameIndex()).nextTurn();
+    }
+
+    public void handleHeroRespawnRequest(HeroRespawnRequest request) {
+        gameMatches.get(request.getGameIndex()).handleHeroRespawnRequest(request);
     }
 }

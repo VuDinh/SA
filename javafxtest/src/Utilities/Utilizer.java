@@ -461,7 +461,7 @@ public class Utilizer {
             monster1Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             monster2Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             monster3Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
-            dieArray = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            dieArray = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             teleportArray = new BufferedImage[TELEPORT_SPRITE];
             for (int i = 0; i < SPRITE_ROWS; i++)
                 for (int j = 0; j < SPRITE_COLS; j++) {
@@ -473,6 +473,7 @@ public class Utilizer {
                     hero5Array[index] = hero5.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     hero6Array[index] = hero6.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     hero7Array[index] = hero7.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                    dieArray[index]      =      die.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                 }
             for (int i = 0; i < SPRITE_COLS; i++)
                 for (int j = 0; j < SPRITE_COLS; j++) {
@@ -480,7 +481,6 @@ public class Utilizer {
                     monster1Array[index] = monster1.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     monster2Array[index] = monster2.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     monster3Array[index] = monster3.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-                    dieArray[index]      =      die.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
                 }
             for(int i = 0; i<TELEPORT_SPRITE; i++){

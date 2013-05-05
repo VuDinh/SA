@@ -12,6 +12,7 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 import model.AccountSystem.Account;
 import model.Facade.Facade;
+import model.HeroSystem.HeroStatus;
 import model.MessageSystem.Message;
 import model.AccountSystem.Status;
 import model.MessageSystem.MessageStatus;
@@ -35,14 +36,14 @@ public class ClientThread extends Thread {
     MainMenuGUI mainMenuGUI;
     Facade facade;
 
-    public ClientThread(Facade facade, Communicator com, LoginFrame login,MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
+    public ClientThread(Facade facade, Communicator com, LoginFrame login, MainMenuGUI mainMenuGUI, HeroChoosingGUI heroChoosingGUI, Game game) {
         this.com = com;
         this.login = login;
         this.game = game;
         this.heroChoosingGUI = heroChoosingGUI;
-        this.mainMenuGUI=mainMenuGUI;
+        this.mainMenuGUI = mainMenuGUI;
         chatPanel = game.getChatPanel();
-        this.facade=facade;
+        this.facade = facade;
     }
 
     //add all online accounts to the player list
@@ -65,13 +66,13 @@ public class ClientThread extends Thread {
                     @Override
                     public void run() {
                         //To change body of implemented methods use File | Settings | File Templates.
-                        if(mes.getStatus().equals(MessageStatus.broadcast)  && mainMenuGUI.getStage().isShowing() ){
+                        if (mes.getStatus().equals(MessageStatus.broadcast) && mainMenuGUI.getStage().isShowing()) {
                             mainMenuGUI.getChatPane().addChatMessage(mes.getSender().getUsername(), mes.getContent());
                         }
-                        if(mes.getStatus().equals(MessageStatus.team) && heroChoosingGUI.getStage().isShowing()){
+                        if (mes.getStatus().equals(MessageStatus.team) && heroChoosingGUI.getStage().isShowing()) {
                             heroChoosingGUI.getChatPane().addChatMessage(mes.getSender().getUsername(), mes.getContent());
                         }
-                        if(game.isVisible()) chatPanel.addChatMessage(mes.getSender().getUsername(), mes.getContent());
+                        if (game.isVisible()) chatPanel.addChatMessage(mes.getSender().getUsername(), mes.getContent());
                     }
                 });
             }
@@ -115,16 +116,15 @@ public class ClientThread extends Thread {
                         @Override
                         public void run() {
                             login.setVisible(false);
-                            Stage stage=new Stage();
+                            Stage stage = new Stage();
                             mainMenuGUI.start(stage);
                             mainMenuGUI.setPlayer(temp);
                         }
                     });
                     facade.setUsername(temp.getUsername());
                 }
-            }
-            else if(o instanceof MatchMakingRequest){
-                final MatchMakingRequest mR=(MatchMakingRequest) o;
+            } else if (o instanceof MatchMakingRequest) {
+                final MatchMakingRequest mR = (MatchMakingRequest) o;
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -133,12 +133,11 @@ public class ClientThread extends Thread {
                     }
                 });
 
-            }
-            else if(o instanceof GameMatch){
-                GameMatch pR=(GameMatch) o;
-                System.out.println("Player number:"+pR.getPlayer(0).getHero().getY());
+            } else if (o instanceof GameMatch) {
+                GameMatch pR = (GameMatch) o;
+                System.out.println("Player number:" + pR.getPlayer(0).getHero().getY());
                 facade.setMatch(pR);
-                if(facade.getHeroSlot()==pR.getTurnIndex()) facade.setIsLocked(false);
+                if (facade.getHeroSlot() == pR.getTurnIndex()) facade.setIsLocked(false);
                 game.setInitialProperties();
                 Platform.runLater(new Runnable() {
                     @Override
@@ -147,27 +146,22 @@ public class ClientThread extends Thread {
                     }
                 });
                 game.setVisible(true);
-            }
-            else if(o instanceof HeroPickedRequest){
-                HeroPickedRequest request=(HeroPickedRequest)o;
-                heroChoosingGUI.setAllyIcon(request.getHeroSlot(),facade.getLibraryHero(request.getHeroIndex()).getIcon());
+            } else if (o instanceof HeroPickedRequest) {
+                HeroPickedRequest request = (HeroPickedRequest) o;
+                heroChoosingGUI.setAllyIcon(request.getHeroSlot(), facade.getLibraryHero(request.getHeroIndex()).getIcon());
                 heroChoosingGUI.announceSelectedHero(request.getPlayerName(),
                         facade.getLibraryHero(request.getHeroIndex()).getName());
-            }
-            else if(o instanceof CountDownRequest){
-                CountDownRequest request=(CountDownRequest) o;
+            } else if (o instanceof CountDownRequest) {
+                CountDownRequest request = (CountDownRequest) o;
                 heroChoosingGUI.setCountDownTime(request.getCount());
-            }
-            else if(o instanceof HeroMoveRequest){
-                HeroMoveRequest request=(HeroMoveRequest) o;
+            } else if (o instanceof HeroMoveRequest) {
+                HeroMoveRequest request = (HeroMoveRequest) o;
                 game.getGameMap().handleHeroMoveRequest(request);
-            }
-            else if(o instanceof HeroAttackRequest){
-                HeroAttackRequest request=(HeroAttackRequest) o;
+            } else if (o instanceof HeroAttackRequest) {
+                HeroAttackRequest request = (HeroAttackRequest) o;
                 game.getGameMap().handleHeroAttackRequest(request);
-            }
-            else if(o instanceof HeroChoosingRequest){
-                final HeroChoosingRequest m=(HeroChoosingRequest)o;
+            } else if (o instanceof HeroChoosingRequest) {
+                final HeroChoosingRequest m = (HeroChoosingRequest) o;
                 facade.setGameIndex(m.getGameIndex());
                 facade.setHeroSlot(m.getHeroSlot());
                 Platform.runLater(new Runnable() {
@@ -175,7 +169,7 @@ public class ClientThread extends Thread {
                     public void run() {
                         //To change body of implemented methods use File | Settings | File Templates.
                         mainMenuGUI.getStage().close();
-                        Stage stage=new Stage();
+                        Stage stage = new Stage();
                         try {
                             heroChoosingGUI.start(stage);
                         } catch (Exception e) {
@@ -184,15 +178,29 @@ public class ClientThread extends Thread {
                     }
                 });
 
-            }
-            else if(o instanceof TurnControlRequest){
-                TurnControlRequest request=(TurnControlRequest) o;
-                if(facade.getHeroSlot()==request.getTurnIndex()) facade.setIsLocked(false);
+            } else if (o instanceof TurnControlRequest) {
+                TurnControlRequest request = (TurnControlRequest) o;
+                if (facade.getHeroSlot() == request.getTurnIndex()) {
+                    if (!facade.getMainHero().getStatus().equals(HeroStatus.dead))
+                        facade.setIsLocked(false);
+                    else {
+                        if (facade.getMainHero().getRespawnTurnNum() == 0) {
+                            com.write(new HeroRespawnRequest(facade.getGameIndex(),facade.getHeroSlot()));
+                            facade.setIsLocked(false);
+                        } else {
+                            facade.getMainHero().decreaseRespawnNum();
+                            com.write(new TurnControlRequest(facade.getHeroSlot(),facade.getGameIndex()));
+                        }
+                    }
+                }
                 facade.resetAP(request.getHeroSlot());
                 facade.setTurnIndex(request.getTurnIndex());
                 game.getTurnPanel().setStatusMessage(request.getTurnIndex());
                 game.getControlPanel().repaint();
 
+            } else if(o instanceof HeroRespawnRequest){
+                HeroRespawnRequest request=(HeroRespawnRequest) o;
+                game.getGameMap().handleHeroRespawnRequest(request);
             }
             //invalid account
             else if (o instanceof Status) {

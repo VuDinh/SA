@@ -2,6 +2,7 @@ package View.Ingame;
 
 import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
+import Controllers.Requests.HeroRespawnRequest;
 import Controllers.Server.GameManager.Player;
 import Controllers.Server.GameManager.Team;
 import Utilities.Utilizer;
@@ -327,8 +328,8 @@ public class GameMap extends JPanel {
                     if (attackedHero.getHP() <= 0) {
                         //set dead status
                         attackedHero.setHP(0);
-                        attackedHero.setImageIndex(11);
                         attackedHero.setStatus(HeroStatus.dead);
+                        attackedHero.setRespawnTurnNum(1);
                     }
                 }
             }
@@ -352,4 +353,17 @@ public class GameMap extends JPanel {
 
     }
 
+    public void handleHeroRespawnRequest(HeroRespawnRequest request) {
+        Hero hero=facade.getHeroBySlotIndex(request.getHeroSlot());
+        hero.setStatus(HeroStatus.standing);
+        hero.resetHP();
+        hero.resetAP();
+        Utilizer.MOVEMAP[hero.getRow()][hero.getCol()]=0;
+        hero.setRow(request.getRespawnPos().getRowPos());
+        hero.setCol(request.getRespawnPos().getColPos());
+        hero.setX(request.getRespawnPos().getX());
+        hero.setY(request.getRespawnPos().getY());
+        Utilizer.MOVEMAP[hero.getRow()][hero.getCol()]=12;
+        repaint();
+    }
 }

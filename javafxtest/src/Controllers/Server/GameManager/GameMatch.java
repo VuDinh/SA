@@ -16,6 +16,7 @@ import model.MessageSystem.Message;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterFactory;
 import model.Skills.Skill;
+import model.Character;
 import org.springframework.util.SerializationUtils;
 
 import java.awt.*;
@@ -301,6 +302,27 @@ public class GameMatch implements Serializable, Cloneable {
         }
         return null;
     }
+    public Character getCharacterByCord(int row,int col){
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getHero().isThere(row,col)){
+                return player.getHero();
+            }
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(player.getHero().isThere(row,col)){
+                return player.getHero();
+            }
+        }
+        for(Iterator it=monsters.iterator();it.hasNext();){
+            Monster monster=(Monster) it.next();
+            if(monster.getRow()== row && monster.getCol()==col){
+                return monster;
+            }
+        }
+        return null;
+    }
     public Monster getMonsterByCord(int row,int col){
         for(Iterator it=monsters.iterator();it.hasNext();){
             Monster monster=(Monster) it.next();
@@ -480,4 +502,25 @@ public class GameMatch implements Serializable, Cloneable {
     public void setTurnIndex(int index) {
         this.turnIndex=index;
     }
+
+    public void handleHeroRespawnRequest(HeroRespawnRequest request) {
+        Cell cell=dao.getHeroBeginPosition(request.getHeroSlot());
+        cell.setX(cell.getColPos()*Utilizer.TILE_SIZE);
+        cell.setY(cell.getRowPos()*Utilizer.TILE_SIZE);
+        try {
+            request.setRespawnPos(cell.clone());
+            for (Iterator it = team2.iterator(); it.hasNext(); ) {
+                Player player = (Player) it.next();
+                player.getCom().write(request);
+            }
+            for (Iterator it = team1.iterator(); it.hasNext(); ) {
+                Player player = (Player) it.next();
+                //if(player.getSlotIndex()!=request.getSlotIndex())
+                player.getCom().write(request);
+            }
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+    }
+
 }
