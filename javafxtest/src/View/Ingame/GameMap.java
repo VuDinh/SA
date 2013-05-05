@@ -137,7 +137,7 @@ public class GameMap extends JPanel {
                 for (int j = startY; j < maxY; j++) {
                     Cell tempCell = new Cell(j, i);
                     if (cells.contains(tempCell)) continue;
-                    g.drawImage(Utilizer.fogArray[0], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
+                    g.drawImage(Utilizer.normalArray[0], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
                     g.drawImage(Utilizer.fogArray[Utilizer.MAP[j][i] - 1], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
                 }
             }
@@ -281,28 +281,7 @@ public class GameMap extends JPanel {
 
     //handle requests
     //hero move
-    public void handleHeroMoveRequest(HeroMoveRequest request) {
-        Hero temp = facade.getHeroBySlotIndex(request.getSlotIndex());
-        Utilizer.MOVEMAP[temp.getRow()][temp.getCol()] = 0;
-        temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
-        HeroAnimation.move(temp, this);
-//        try{
-//        Team team = facade.getMatch().getPlayer(request.getSlotIndex()).getTeam();
-//        ArrayList<Teleport> tele = facade.getMatch().getTeleport();
-//        for(Iterator i = tele.iterator(); i.hasNext(); ) {
-//            Teleport loc = (Teleport) i.next();
-//            System.out.println(temp.getCol()+":"+loc.getCol()+","+temp.getRow()+":"+loc.getRow()+","+team+":"+loc.getTeam());
-//            if(temp.getCol()==loc.getCol() && loc.getRow()==loc.getRow() && loc.getTeam()==team){
-//                Teleport dest = loc.getDestination(loc,tele);
-//                if(dest!=null){
-//                    HeroAnimation.teleport(temp,loc,dest,this);
-//                }
-//                break;
-//            }
-//        }
-//        }catch(Exception e){e.printStackTrace();}
-//        System.out.println(temp.getCol()+":"+temp.getRow());
-    }
+
 
     public void handleHeroAttackRequest(HeroAttackRequest request) {
         Hero temp = facade.getHeroBySlotIndex(request.getSlotIndex());

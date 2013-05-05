@@ -156,7 +156,7 @@ public class ClientThread extends Thread {
                 heroChoosingGUI.setCountDownTime(request.getCount());
             } else if (o instanceof HeroMoveRequest) {
                 HeroMoveRequest request = (HeroMoveRequest) o;
-                game.getGameMap().handleHeroMoveRequest(request);
+                game.handleHeroMoveRequest(request);
             } else if (o instanceof HeroAttackRequest) {
                 HeroAttackRequest request = (HeroAttackRequest) o;
                 game.getGameMap().handleHeroAttackRequest(request);

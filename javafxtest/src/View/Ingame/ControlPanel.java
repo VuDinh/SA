@@ -87,7 +87,7 @@ public class ControlPanel extends JPanel {
         double no1 = character.getAP();
         double no2 = character.getMaxAP();
         double aPWidth = (double) width * (no1 / no2);
-        double hPWidth = (double) width * (character.getHP() / character.getMaxHP());
+        double hPWidth = (double) width * ((double)character.getHP() / character.getMaxHP());
         g.setFont(Utilizer.FONT);
         g.drawImage(Utilizer.IMG_BAR, 290, 2, 420, 21, this);
         g.drawImage(Utilizer.IMG_BAR, 290, 24, 420, 21, this);

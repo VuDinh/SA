@@ -1,6 +1,9 @@
 package View.Ingame;
 
+import Controllers.Requests.HeroMoveRequest;
+import Utilities.Utilizer;
 import model.AccountSystem.Account;
+import model.Animations.HeroAnimation;
 import model.Facade.Facade;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
@@ -65,10 +68,16 @@ public class Game extends JFrame {
     public void setInitialProperties(){
         drawP.setFacade(me);
         turn.setFacade(me);
-        control.setHero(me.getMainHero());
+        control.setCharacter(me.getMainHero());
         turn.setStatusMessage(me.getMatch().getTurnIndex());
         me.getGame().resetMoveMap();
         //set MoveMap base on the position
 
+    }
+    public void handleHeroMoveRequest(HeroMoveRequest request) {
+        Hero temp = me.getHeroBySlotIndex(request.getSlotIndex());
+        Utilizer.MOVEMAP[temp.getRow()][temp.getCol()] = 0;
+        temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
+        HeroAnimation.move(temp, this);
     }
 }

@@ -28,57 +28,62 @@ import java.util.Iterator;
  * Time: 11:29 PM
  * To change this template use File | Settings | File Templates.
  */
-public class MapListener implements MouseListener,MouseMotionListener {
+public class MapListener implements MouseListener, MouseMotionListener {
     GameMap panel;
     Point pressed;
     ControlPanel controlPanel;
     boolean lock;
     Communicator com;
     Hero mainHero;
-    public MapListener(Communicator com,GameMap panel,ControlPanel controlPanel)
-    {
-        this.com=com;
-        this.panel=panel;
-        this.controlPanel=controlPanel;
-        lock=false;
+
+    public MapListener(Communicator com, GameMap panel, ControlPanel controlPanel) {
+        this.com = com;
+        this.panel = panel;
+        this.controlPanel = controlPanel;
+        lock = false;
     }
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
 
         //To change body of implemented methods use File | Settings | File Templates.
-        GameMap temp= panel;
+        GameMap temp = panel;
         temp.setStatus("selected");
-        Cell selectCell= new Cell();
-        Point curPos=e.getPoint();
-        int x=(curPos.x + panel.getScrollX())/ Utilizer.TILE_SIZE;
+        Cell selectCell = new Cell();
+        Point curPos = e.getPoint();
+        int x = (curPos.x + panel.getScrollX()) / Utilizer.TILE_SIZE;
         selectCell.setColPos(x);
-        x=x*Utilizer.TILE_SIZE;
+        x = x * Utilizer.TILE_SIZE;
         selectCell.setX(x);
-        int y=(curPos.y + panel.getScrollY())/Utilizer.TILE_SIZE;
+        int y = (curPos.y + panel.getScrollY()) / Utilizer.TILE_SIZE;
         selectCell.setRowPos(y);
-        y=y*Utilizer.TILE_SIZE;
+        y = y * Utilizer.TILE_SIZE;
         selectCell.setY(y);
         temp.setSelectedCell(selectCell);
         panel.requestFocus();
-        if(e.isMetaDown()){
+        if (e.isMetaDown()) {
             panel.getFacade().getMainHero().setIsChosen(false);
 
         }
-        Hero clickedHero=panel.getFacade().getHeroByCord(selectCell.getRowPos(),selectCell.getColPos());
+        model.Character clickedCharacter = panel.getFacade().getCharacterByCord(selectCell.getRowPos(), selectCell.getColPos());
         mainHero = panel.getFacade().getMainHero();
-        if(clickedHero!=null && !mainHero.getStatus().equals(HeroStatus.attacking)){
-            if(mainHero.getStatus().equals(HeroStatus.standing)) controlPanel.setCharacter(clickedHero);
-            panel.getFacade().setCurrentHero(clickedHero);
-            if(clickedHero.equals(mainHero)){
-                mainHero.setIsChosen(true);
-                mainHero.resetPath();
-                mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
-                if(( mainHero.getCurrentSkill())!=null){
-                    if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
+        if (clickedCharacter != null && !mainHero.getStatus().equals(HeroStatus.attacking)) {
+            if (mainHero.getStatus().equals(HeroStatus.standing)) controlPanel.setCharacter(clickedCharacter);
+            //panel.getFacade().setCurrentHero(clickedHero);
+            if (clickedCharacter instanceof Hero) {
+                Hero clickedHero = (Hero) clickedCharacter;
+                if (clickedHero.equals(mainHero)) {
+                    mainHero.setIsChosen(true);
+                    mainHero.resetPath();
+                    mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
+                    if ((mainHero.getCurrentSkill()) != null) {
+                        if (mainHero.getCurrentSkill() instanceof AOESkill)
+                            ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
+                    }
                 }
             }
-            if(panel.getFacade().getIsLocked()) {
+            if (panel.getFacade().getIsLocked()) {
                 panel.repaint();
                 return;
             }
@@ -93,21 +98,19 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
             }
         }*/
-        else if(panel.getFacade().getIsLocked()) {
+        else if (panel.getFacade().getIsLocked()) {
             panel.repaint();
             return;
-        }
-        else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
-                mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
-        {
+        } else if (mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
+                mainHero.getRange())) {
             //send moving request
-            int gameIndex=panel.getFacade().getGameIndex();
-            int heroSlot=panel.getFacade().getHeroSlot();
+            int gameIndex = panel.getFacade().getGameIndex();
+            int heroSlot = panel.getFacade().getHeroSlot();
             mainHero.setShortestPathSelect(mainHero.getShortestpathHover());
 
-            HeroMoveRequest moveRequest= null;
+            HeroMoveRequest moveRequest = null;
             try {
-                moveRequest = new HeroMoveRequest(gameIndex,heroSlot,mainHero.clone());
+                moveRequest = new HeroMoveRequest(gameIndex, heroSlot, mainHero.clone());
                 moveRequest.setSelectedCell(selectCell.clone());
                 com.write(moveRequest);
             } catch (CloneNotSupportedException e1) {
@@ -115,32 +118,34 @@ public class MapListener implements MouseListener,MouseMotionListener {
             }
 
             //HeroAnimation.move(mainHero,panel);
-            if(( mainHero.getCurrentSkill())!=null){
-                if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();  }
+            if ((mainHero.getCurrentSkill()) != null) {
+                if (mainHero.getCurrentSkill() instanceof AOESkill)
+                    ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
+            }
         }
         //cast AOE skill
-        else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.attacking)
+        else if (mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.attacking)
                 && mainHero.getCurrentSkill().getStatus().equals(SkillStatus.before)
                 && mainHero.getCurrentSkill().getPath().contains(selectCell)
-                && (mainHero.getAP()-mainHero.getCurrentSkill().getAP())>=0
-                && mainHero.getCurrentSkill()!=null
-                && Utilizer.inRange(selectCell, mainHero.getCurrentSkill().getRangeCell())){
+                && (mainHero.getAP() - mainHero.getCurrentSkill().getAP()) >= 0
+                && mainHero.getCurrentSkill() != null
+                && Utilizer.inRange(selectCell, mainHero.getCurrentSkill().getRangeCell())) {
             //send attack request
-            int gameIndex=panel.getFacade().getGameIndex();
-            int heroSlot=panel.getFacade().getHeroSlot();
-            if(selectCell.getColPos() < mainHero.getCol())
+            int gameIndex = panel.getFacade().getGameIndex();
+            int heroSlot = panel.getFacade().getHeroSlot();
+            if (selectCell.getColPos() < mainHero.getCol())
                 mainHero.setCurrentSprite(16);
             else mainHero.setCurrentSprite(20);
 
-            HeroAttackRequest attackReq=null;
-            if(mainHero.getCurrentSkill() instanceof NormalSkill)
+            HeroAttackRequest attackReq = null;
+            if (mainHero.getCurrentSkill() instanceof NormalSkill)
                 mainHero.getCurrentSkill().getDmgCell().clear();
             mainHero.getCurrentSkill().getDmgCell().add(selectCell);
             try {
-                Hero cloneHero=mainHero.clone();
+                Hero cloneHero = mainHero.clone();
 
                 //cloneHero.getCurrentSkill().clonePath(mainHero.getCurrentSkill().getPath());
-                attackReq = new HeroAttackRequest(gameIndex,heroSlot,cloneHero);
+                attackReq = new HeroAttackRequest(gameIndex, heroSlot, cloneHero);
                 attackReq.setSelectedCell(selectCell.clone());
                 attackReq.setPath(mainHero.getCurrentSkill().getPath());
                 attackReq.setDmgCell(mainHero.getCurrentSkill().getDmgCell());
@@ -193,7 +198,7 @@ public class MapListener implements MouseListener,MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         //To change body of implemented methods use File | Settings | File Templates.
-        pressed=e.getPoint();
+        pressed = e.getPoint();
     }
 
     @Override
@@ -214,19 +219,19 @@ public class MapListener implements MouseListener,MouseMotionListener {
     // schroll the map using mouse
     @Override
     public void mouseDragged(MouseEvent e) {
-        Point dragged= e.getPoint();
-        int x=dragged.x-pressed.x;
-        int y=dragged.y-pressed.y;
-        if( y>0 ){
-           panel.decreaseScrollY();
+        Point dragged = e.getPoint();
+        int x = dragged.x - pressed.x;
+        int y = dragged.y - pressed.y;
+        if (y > 0) {
+            panel.decreaseScrollY();
         }
-        if(y <0){
-           panel.increaseScrollY();
+        if (y < 0) {
+            panel.increaseScrollY();
         }
-        if(x>0){
+        if (x > 0) {
             panel.decreaseScrollX();
         }
-        if(x<0){
+        if (x < 0) {
             panel.increaseScrollX();
         }
         panel.repaint();
@@ -236,29 +241,28 @@ public class MapListener implements MouseListener,MouseMotionListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         //set relative position of the cell that cursor points to base on actual map
-        GameMap temp=(GameMap) panel;
-        Cell rangeCell= new Cell();
-        Point curPos=e.getPoint();
-        int x=(curPos.x + panel.getScrollX()) / Utilizer.TILE_SIZE;
+        GameMap temp = (GameMap) panel;
+        Cell rangeCell = new Cell();
+        Point curPos = e.getPoint();
+        int x = (curPos.x + panel.getScrollX()) / Utilizer.TILE_SIZE;
         rangeCell.setColPos(x);
-        x=x*Utilizer.TILE_SIZE;
+        x = x * Utilizer.TILE_SIZE;
         rangeCell.setX(x);
-        int y=(curPos.y+panel.getScrollY())/Utilizer.TILE_SIZE;
+        int y = (curPos.y + panel.getScrollY()) / Utilizer.TILE_SIZE;
         rangeCell.setRowPos(y);
-        y=y*Utilizer.TILE_SIZE;
+        y = y * Utilizer.TILE_SIZE;
         rangeCell.setY(y);
-        if(rangeCell.getRowPos()>=0
-                && rangeCell.getRowPos()<=39
-                && rangeCell.getColPos()>=0
-                && rangeCell.getColPos()<=39)
-        temp.setRangedCell(rangeCell);
+        if (rangeCell.getRowPos() >= 0
+                && rangeCell.getRowPos() <= 39
+                && rangeCell.getColPos() >= 0
+                && rangeCell.getColPos() <= 39)
+            temp.setRangedCell(rangeCell);
         else return;
 
         //set hero movement
-        if(panel.getFacade().getMainHero().getIsChosen()
-                //&& inRange(selectCell,panel.getHero().calculateRange(panel.getHero().getRow(),panel.getHero().getCol(),(panel.getHero().getAP()/2) +1 ))
-                )
-        {
+        if (panel.getFacade().getMainHero().getIsChosen()
+            //&& inRange(selectCell,panel.getHero().calculateRange(panel.getHero().getRow(),panel.getHero().getCol(),(panel.getHero().getAP()/2) +1 ))
+                ) {
             mainHero.calculateShortestPath(rangeCell);
         }
         panel.repaint();

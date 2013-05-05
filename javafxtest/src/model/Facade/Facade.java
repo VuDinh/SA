@@ -4,6 +4,7 @@ import Controllers.Server.GameManager.GameMatch;
 import Controllers.Server.GameManager.Player;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
+import model.*;
 import model.AccountSystem.Account;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroLibrary;
@@ -114,6 +115,9 @@ public class Facade {
     }
     public Monster getMonsterByCord(int row,int col){
         return match.getMonsterByCord(row, col);
+    }
+    public model.Character getCharacterByCord(int row, int col){
+        return match.getCharacterByCord(row,col);
     }
 
 
