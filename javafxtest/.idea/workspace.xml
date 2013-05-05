@@ -48,7 +48,7 @@
     <file path="/SkillStatus.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364198312574" ignored="false" />
     <file path="/SkillFactory.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1365696055079" ignored="false" />
     <file path="/SkillThread.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367232973127" ignored="false" />
-    <file path="/CleaveSkill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367435094338" ignored="false" />
+    <file path="/CleaveSkill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1367728588356" ignored="false" />
     <file path="/NormalSkill.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1366879719394" ignored="false" />
     <file path="/a.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364271551082" ignored="false" />
     <file path="/sample.java" changelist="a738f362-0444-4976-b142-407a3f683449" time="1364271550402" ignored="false" />
@@ -190,28 +190,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameMap.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameMap.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="312" column="42" selection-start="12030" selection-end="12030" vertical-scroll-proportion="-0.3548387">
+            <state line="239" column="11" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CleaveSkill.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="NormalSkill.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Skills/NormalSkill.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="25" selection-start="1330" selection-end="1347" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CleaveSkill.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Skills/CleaveSkill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="100" selection-start="5632" selection-end="5632" vertical-scroll-proportion="0.0">
+            <state line="78" column="35" selection-start="3261" selection-end="3261" vertical-scroll-proportion="-0.15">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroAnimation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Animations/HeroAnimation.java">
+      <file leaf-file-name="ControlPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Ingame/ControlPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="28" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+            <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -256,27 +265,18 @@
       <file leaf-file-name="GameMatch.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="16" selection-start="1362" selection-end="1374" vertical-scroll-proportion="0.0">
+            <state line="256" column="0" selection-start="9304" selection-end="9304" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#17877#17883#0" expanded="true" />
+                <element signature="e#17878#17884#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/Player.java">
+      <file leaf-file-name="Facade.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Client/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="26" selection-start="4518" selection-end="4518" vertical-scroll-proportion="0.0">
+            <state line="89" column="0" selection-start="2231" selection-end="2231" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -292,8 +292,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/model/HeroSystem/HeroMoveThread.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Server/accounts.sql" />
         <option value="$PROJECT_DIR$/src/Controllers/Client/ClientThread.java" />
         <option value="$PROJECT_DIR$/src/model/HeroSystem/HeroFactory.java" />
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java" />
@@ -308,6 +306,8 @@
         <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java" />
         <option value="$PROJECT_DIR$/src/model/HeroSystem/HeroStandThread.java" />
         <option value="$PROJECT_DIR$/src/View/Ingame/GameMap.java" />
+        <option value="$PROJECT_DIR$/src/model/Skills/NormalSkill.java" />
+        <option value="$PROJECT_DIR$/src/model/Skills/CleaveSkill.java" />
       </list>
     </option>
   </component>
@@ -1269,27 +1269,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Communicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/CountdownThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/ControlListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/listeners/FindingMatchListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="13" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
@@ -1322,15 +1301,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="13" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="16" selection-start="1362" selection-end="1374" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#17877#17883#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1369,16 +1339,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Skills/CleaveSkill.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="100" selection-start="5632" selection-end="5632" vertical-scroll-proportion="0.0">
+        <state line="256" column="0" selection-start="9304" selection-end="9304" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#17878#17884#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Facade/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="0" selection-start="2231" selection-end="2231" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Skills/NormalSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="25" selection-start="1330" selection-end="1347" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Ingame/ControlPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="312" column="42" selection-start="12030" selection-end="12030" vertical-scroll-proportion="-0.3548387">
+        <state line="239" column="11" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Skills/CleaveSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="35" selection-start="3261" selection-end="3261" vertical-scroll-proportion="-0.15">
           <folding />
         </state>
       </provider>

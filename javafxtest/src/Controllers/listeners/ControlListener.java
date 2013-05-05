@@ -31,6 +31,11 @@ public class ControlListener implements MouseListener {
         double x = curPos.getX();
         double y = curPos.getY();
         Hero mainHero=panel.getFacade().getMainHero();
+        if(panel.getFacade().getIsLocked())
+        {
+            panel.repaint();
+            return;
+        }
         if (mainHero.getIsChosen() && (mainHero.getStatus().equals(HeroStatus.standing) || mainHero.getStatus().equals(HeroStatus.attacking))){
         if((405<x && x<485) && (60<y && y<140)){
             mainHero.setStatus(HeroStatus.attacking);

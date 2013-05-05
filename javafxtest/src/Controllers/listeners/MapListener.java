@@ -78,6 +78,10 @@ public class MapListener implements MouseListener,MouseMotionListener {
                     if( mainHero.getCurrentSkill() instanceof AOESkill) ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
                 }
             }
+            if(panel.getFacade().getIsLocked()) {
+                panel.repaint();
+                return;
+            }
         }
         //To set Hero
         /*if(selectCell.getRowPos()==panel.getHero().getRow() && selectCell.getColPos()==panel.getHero().getCol()){
@@ -89,7 +93,10 @@ public class MapListener implements MouseListener,MouseMotionListener {
                 if( panel.getHero().getCurrentSkill() instanceof AOESkill) ((AOESkill) panel.getHero().getCurrentSkill()).clearRangeCell();
             }
         }*/
-
+        else if(panel.getFacade().getIsLocked()) {
+            panel.repaint();
+            return;
+        }
         else if(mainHero.getIsChosen() && mainHero.getStatus().equals(HeroStatus.standing) && Utilizer.inRange(selectCell,
                 mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int)mainHero.getAP() / 2) + 1)))
         {
@@ -241,13 +248,12 @@ public class MapListener implements MouseListener,MouseMotionListener {
         rangeCell.setRowPos(y);
         y=y*Utilizer.TILE_SIZE;
         rangeCell.setY(y);
+        if(rangeCell.getRowPos()>=0
+                && rangeCell.getRowPos()<=39
+                && rangeCell.getColPos()>=0
+                && rangeCell.getColPos()<=39)
         temp.setRangedCell(rangeCell);
-
-        Cell selectCell = new Cell();
-        selectCell.setColPos(x);
-        selectCell.setX(x);
-        selectCell.setRowPos(y);
-        selectCell.setY(y);
+        else return;
 
         //set hero movement
         if(panel.getFacade().getMainHero().getIsChosen()
@@ -258,10 +264,4 @@ public class MapListener implements MouseListener,MouseMotionListener {
         }
         panel.repaint();
     }
-
-
-
-
-
-
 }

@@ -121,7 +121,7 @@ public class GameMap extends JPanel {
 
     public void paintFog(Graphics g) {
         //System.out.println(facade.getMatch().seenCells());
-        ArrayList<Cell> cells = facade.getMatch().seenCells();
+        ArrayList<Cell> cells = facade.getMatch().seenCells(facade.getClientPlayer().getTeam());
         //cells.addAll();
         /*try {
             for (Cell cell : cells) {
