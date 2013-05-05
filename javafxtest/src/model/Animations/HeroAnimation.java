@@ -35,5 +35,9 @@ public class HeroAnimation {
         HeroMoveThread t=new HeroMoveThread(hero, panel);
         t.start();
     }
+    public static void teleport(Hero hero,GameMap panel, Teleport teleport){
+        TeleportThread t = new TeleportThread(teleport,panel);
+        t.start();
+    }
 
 }

@@ -11,6 +11,7 @@ import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroFactory;
 import model.HeroSystem.HeroStatus;
+import model.HeroSystem.Teleport;
 import model.MessageSystem.Message;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterFactory;
@@ -34,11 +35,21 @@ public class GameMatch implements Serializable, Cloneable {
     private ArrayList<Player> team1;
     private ArrayList<Player> team2;
     private ArrayList<Monster> monsters;
+    private ArrayList<Teleport> teleport = new ArrayList<Teleport>(){{
+        add(new Teleport(35,2,Team.team1,1));
+        add(new Teleport(30,5,Team.team1,1));
+        add(new Teleport(35,10,Team.team2,2));
+        add(new Teleport(30,7,Team.team2,2));
+    }};
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
     private int turnIndex;
     private int gameIndex;
+
+    public ArrayList<Teleport> getTeleport() {
+        return teleport;
+    }
 
     public GameMatch(int index) {
         counter = 0;
@@ -456,7 +467,7 @@ public class GameMatch implements Serializable, Cloneable {
         ArrayList<Cell> c = new ArrayList<Cell>();
         Iterator i = a.iterator();
         while (i.hasNext()){
-            c.addAll(((Player)(i.next())).getHero().getSight());
+            c.addAll(((Player) (i.next())).getHero().getSight());
         }
         return c;
     }

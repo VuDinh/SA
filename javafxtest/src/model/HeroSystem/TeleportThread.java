@@ -35,7 +35,8 @@ public class TeleportThread extends  Thread {
 
             }
         }
-        new TeleportThread(teleport,panel).start();
+
+        //new TeleportThread(teleport,panel).start();
 
     }
 }

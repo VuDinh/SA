@@ -20,6 +20,10 @@ public class HeroStandThread extends Thread {
     //run hero standing thread
     @Override
     public void run(){
+        if(hero.getHP()<=0){
+            hero.setImageIndex(11);
+            panel.repaint();
+        }
         while(hero.getStatus().equals(HeroStatus.standing)){
             hero.nextSprite();
             panel.repaint();
