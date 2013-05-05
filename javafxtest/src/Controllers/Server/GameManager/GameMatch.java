@@ -346,7 +346,6 @@ public class GameMatch implements Serializable, Cloneable {
     }
     public void handleHeroAttackRequest(HeroAttackRequest request){
         int slot=request.getSlotIndex();
-        System.out.println("receive path:"+request.getHero().getCurrentSkill().getPath());
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
             //if(player.getSlotIndex()!=request.getSlotIndex())

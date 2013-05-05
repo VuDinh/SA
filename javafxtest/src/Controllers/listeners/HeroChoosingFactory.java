@@ -76,7 +76,6 @@ public class HeroChoosingFactory {
             @Override
             public void handle(KeyEvent keyEvent) {
                 if(keyEvent.getCode() == KeyCode.ENTER){
-                    System.out.println("haha");
                     ChatPane2 chatPanel=gui.getChatPane();
                     Message mess=new Message(gui.getFacade().getClientAccount(),
                             null,chatPanel.getChatMessage());

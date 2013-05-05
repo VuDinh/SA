@@ -132,7 +132,6 @@ public class GameMap extends JPanel {
         } catch (ConcurrentModificationException ex) {
 
         }*/
-        try {
             for (int i = startX; i < maxX; i++) {
                 for (int j = startY; j < maxY; j++) {
                     Cell tempCell = new Cell(j, i);
@@ -141,9 +140,7 @@ public class GameMap extends JPanel {
                     g.drawImage(Utilizer.fogArray[Utilizer.MAP[j][i] - 1], i * Utilizer.TILE_SIZE - scrollX, j * Utilizer.TILE_SIZE - scrollY, this);
                 }
             }
-        } catch (ConcurrentModificationException ex) {
 
-        }
     }
 
     public void paintTeleportation(Graphics g){
@@ -305,11 +302,9 @@ public class GameMap extends JPanel {
         temp.setCurrentSkill(request.getHero().getCurrentSkillIndex());
         temp.getCurrentSkill().setPath(request.getPath());
         temp.getCurrentSkill().setDamageCell(request.getDmgCell());
-        System.out.println("receive path:" + request.getPath());
         temp.getCurrentSkill().setStatus(SkillStatus.after);
         temp.setCurrentSprite(request.getHero().getCurrentSpriteIndex());
         selectedCell = request.getSelectedCell();
-        System.out.println(selectedCell);
         HeroAnimation.attack(temp, this);
         //look for affected character
         for (Iterator it = request.getDmgCell().iterator(); it.hasNext(); ) {
@@ -334,7 +329,6 @@ public class GameMap extends JPanel {
                     attackedMonster.setHP(0);
                     attackedMonster.setImageIndex(11);
                 }
-                System.out.println("Monster HP:" + attackedMonster.getHP());
             }
         }
         repaint();

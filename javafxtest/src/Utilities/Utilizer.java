@@ -461,7 +461,7 @@ public class Utilizer {
             monster1Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             monster2Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             monster3Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
-            dieArray = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            dieArray = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             teleportArray = new BufferedImage[TELEPORT_SPRITE];
             for (int i = 0; i < SPRITE_ROWS; i++)
                 for (int j = 0; j < SPRITE_COLS; j++) {

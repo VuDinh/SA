@@ -310,15 +310,12 @@ public class Hero extends Character implements Serializable, Cloneable {
     //draw movement range
     public void drawRange(Graphics g, int scrollX, int scrollY) {
         ArrayList<Cell> cells = getRange();
-        try {
+
             for (Cell cell : cells) {
                 g.clearRect(cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, Utilizer.TILE_SIZE, Utilizer.TILE_SIZE);
                 g.drawImage(Utilizer.rangeArray[0], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, panel);
                 g.drawImage(Utilizer.rangeArray[Utilizer.MAP[cell.getRowPos()][cell.getColPos()] - 1], cell.getColPos() * Utilizer.TILE_SIZE - scrollX, cell.getRowPos() * Utilizer.TILE_SIZE - scrollY, panel);
             }
-        } catch (ConcurrentModificationException ex) {
-
-        }
     }
 
     public ArrayList<Cell> getRange() {

@@ -85,7 +85,6 @@ public class MainMenuGUI extends Application {
         chatPane.addStatusMessage(message);
     }
     public void addChatListener(EventHandler<KeyEvent> e){
-        System.out.println("added listener");
         chatPane.addChatListener(e);
     }
     public Header getHeader(){
