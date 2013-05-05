@@ -43,7 +43,7 @@ public class ScrollListener implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_END) {
             if(panel.getFacade().getIsLocked()==false)
             {
-                mainHero.setAP(mainHero.getMaxAP());
+                mainHero.resetAP();
                 TurnControlRequest request=new TurnControlRequest(panel.getFacade().getHeroSlot(),panel.getFacade().getGameIndex());
                 request.setHeroSlot(panel.getFacade().getHeroSlot());
                 panel.getFacade().setIsLocked(true);

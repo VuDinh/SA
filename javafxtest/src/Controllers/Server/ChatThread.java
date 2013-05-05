@@ -1,10 +1,7 @@
 package Controllers.Server;
 
 
-import Controllers.Requests.HeroAttackRequest;
-import Controllers.Requests.HeroMoveRequest;
-import Controllers.Requests.PlayingGameRequest;
-import Controllers.Requests.TurnControlRequest;
+import Controllers.Requests.*;
 import model.MessageSystem.Message;
 import model.MessageSystem.MessageStatus;
 import model.AccountSystem.Status;
@@ -99,6 +96,10 @@ public class ChatThread extends Thread {
             if(o instanceof TurnControlRequest){
                 TurnControlRequest request=(TurnControlRequest) o;
                 handler.getGameManager().nextTurn(request);
+            }
+            if(o instanceof HeroRespawnRequest){
+                HeroRespawnRequest request=(HeroRespawnRequest) o;
+                handler.getGameManager().handleHeroRespawnRequest(request);
             }
             if (o instanceof Status) {
                 Status status = (Status) o;

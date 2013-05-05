@@ -2,6 +2,8 @@ package model.HeroSystem;
 
 import Utilities.Utilizer;
 import View.Ingame.Cell;
+import View.Ingame.ControlPanel;
+import View.Ingame.Game;
 import View.Ingame.GameMap;
 
 import java.util.Iterator;
@@ -15,10 +17,10 @@ import java.util.Iterator;
  */
 public class HeroMoveThread extends Thread {
     Hero hero;
-    GameMap panel;
-    public HeroMoveThread(Hero hero,GameMap panel){
+    Game game;
+    public HeroMoveThread(Hero hero,Game game){
         this.hero = hero;
-        this.panel = panel;
+        this.game = game;
         hero.setStatus(HeroStatus.moving);
     }
 
@@ -32,8 +34,8 @@ public class HeroMoveThread extends Thread {
             while(hero.getDistanceX()!=0 ||hero.getDistanceY()!=0){
                 hero.move();
                 hero.nextSprite();
-                panel.repaint();
-
+                game.getGameMap().repaint();
+                game.getControlPanel().repaint();
                 try {
                     Thread.sleep(80);
                 } catch (InterruptedException e) {
@@ -42,8 +44,9 @@ public class HeroMoveThread extends Thread {
             }
         }
         hero.setStatus(HeroStatus.standing);
+        hero.calculateRange(hero.getRow(), hero.getCol(), ((int) hero.getAP() / 2) + 1);
         Utilizer.MOVEMAP[hero.getRow()][hero.getCol()]=12;
-        new HeroStandThread(hero,panel).start();
+        new HeroStandThread(hero,game.getGameMap()).start();
 
     }
 }

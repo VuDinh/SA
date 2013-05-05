@@ -10,7 +10,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 public class TurnControlRequest implements Serializable {
-    private int turnIndex,gameIndex, heroSlot;
+    private int turnIndex,gameIndex, heroSlot,heroIndex;
     public TurnControlRequest(int turnIndex,int gameIndex){
         this.turnIndex=turnIndex;
         this.gameIndex = gameIndex;
@@ -38,5 +38,11 @@ public class TurnControlRequest implements Serializable {
 
     public void setHeroSlot(int heroSlot) {
         this.heroSlot = heroSlot;
+    }
+    public void setHeroIndex(int heroIndex){
+        this.heroIndex = heroIndex;
+    }
+    public int getHeroIndex(){
+        return heroIndex;
     }
 }

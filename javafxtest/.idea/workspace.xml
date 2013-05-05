@@ -194,7 +194,7 @@
       <file leaf-file-name="GameMap.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="298" column="48" selection-start="11406" selection-end="11406" vertical-scroll-proportion="0.0">
+            <state line="279" column="48" selection-start="10385" selection-end="10385" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -212,7 +212,7 @@
       <file leaf-file-name="HeroAnimation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Animations/HeroAnimation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="33" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0">
+            <state line="35" column="33" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -221,7 +221,7 @@
       <file leaf-file-name="HeroMoveThread.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/HeroMoveThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="26" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+            <state line="32" column="26" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -230,12 +230,15 @@
       <file leaf-file-name="GameMatch.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="486" column="50" selection-start="18529" selection-end="18529" vertical-scroll-proportion="14.305503">
+            <state line="59" column="53" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.49905124">
               <folding>
-                <element signature="e#1184#1194#0" expanded="true" />
-                <element signature="e#1449#1456#0" expanded="true" />
-                <element signature="e#18271#18277#0" expanded="true" />
-                <element signature="e#18571#18577#0" expanded="true" />
+                <element signature="e#1208#1218#0" expanded="true" />
+                <element signature="e#1473#1480#0" expanded="true" />
+                <element signature="e#17060#17066#0" expanded="true" />
+                <element signature="e#17686#17694#0" expanded="true" />
+                <element signature="e#18798#18804#0" expanded="true" />
+                <element signature="e#19064#19070#0" expanded="true" />
+                <element signature="e#19364#19370#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -244,7 +247,7 @@
       <file leaf-file-name="GameManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0">
+            <state line="29" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -286,8 +289,11 @@
       <file leaf-file-name="Hero.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="370" column="22" selection-start="12193" selection-end="12961" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="392" column="22" selection-start="13512" selection-end="13512" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#6883#6889#0" expanded="false" />
+                <element signature="e#9505#9511#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -316,8 +322,8 @@
         <option value="$PROJECT_DIR$/src/Utilities/Utilizer.java" />
         <option value="$PROJECT_DIR$/src/model/Skills/SkillFactory.java" />
         <option value="$PROJECT_DIR$/src/model/HeroSystem/HeroFactory.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java" />
         <option value="$PROJECT_DIR$/src/model/MonsterSystem/Tower.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java" />
       </list>
     </option>
   </component>
@@ -1323,14 +1329,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/HeroMoveThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="26" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+        <state line="32" column="26" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Animations/HeroAnimation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="33" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0">
+        <state line="35" column="33" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1344,15 +1350,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Ingame/GameMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="298" column="48" selection-start="11406" selection-end="11406" vertical-scroll-proportion="0.0">
+        <state line="279" column="48" selection-start="10385" selection-end="10385" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/HeroSystem/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="370" column="22" selection-start="12193" selection-end="12961" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="392" column="22" selection-start="13512" selection-end="13512" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#6883#6889#0" expanded="false" />
+            <element signature="e#9505#9511#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1372,7 +1381,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0">
+        <state line="29" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1392,12 +1401,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Server/GameManager/GameMatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="486" column="50" selection-start="18529" selection-end="18529" vertical-scroll-proportion="14.305503">
+        <state line="59" column="53" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.49905124">
           <folding>
-            <element signature="e#1184#1194#0" expanded="true" />
-            <element signature="e#1449#1456#0" expanded="true" />
-            <element signature="e#18271#18277#0" expanded="true" />
-            <element signature="e#18571#18577#0" expanded="true" />
+            <element signature="e#1208#1218#0" expanded="true" />
+            <element signature="e#1473#1480#0" expanded="true" />
+            <element signature="e#17060#17066#0" expanded="true" />
+            <element signature="e#17686#17694#0" expanded="true" />
+            <element signature="e#18798#18804#0" expanded="true" />
+            <element signature="e#19064#19070#0" expanded="true" />
+            <element signature="e#19364#19370#0" expanded="true" />
           </folding>
         </state>
       </provider>

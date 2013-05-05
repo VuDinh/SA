@@ -1,6 +1,7 @@
 package model.Animations;
 
 import Utilities.Utilizer;
+import View.Ingame.Game;
 import View.Ingame.GameMap;
 import model.HeroSystem.*;
 import model.Skills.SkillStatus;
@@ -28,7 +29,7 @@ public class HeroAnimation {
         t2.start();
         hero.setAP(hero.getAP()-hero.getCurrentSkill().getAP());
     }
-    public static void move(Hero hero,GameMap panel){
+    public static void move(Hero hero,Game panel){
         hero.clearRange();
         hero.setStatus(HeroStatus.moving);
         //hero.setShortestPathSelect(hero.getShortestpathHover());
