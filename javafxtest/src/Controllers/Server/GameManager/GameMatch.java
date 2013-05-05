@@ -15,6 +15,7 @@ import model.HeroSystem.Teleport;
 import model.MessageSystem.Message;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterFactory;
+import model.MonsterSystem.Tower;
 import model.Skills.Skill;
 import model.Character;
 import org.springframework.util.SerializationUtils;
@@ -41,6 +42,9 @@ public class GameMatch implements Serializable, Cloneable {
         add(new Teleport(33,1,Team.team1,2));
         add(new Teleport(38,4,Team.team2,3));
         add(new Teleport(38,6,Team.team2,4));
+    }};
+    private static  ArrayList<Tower> tower = new ArrayList<Tower>(){{
+        add(new Tower(1000,1000,0,0,100,35,4,0,"","",new Cell(33,3), new Cell(36,5),Team.team1,true));
     }};
     int counter;
     private boolean isFull;
@@ -484,7 +488,7 @@ public class GameMatch implements Serializable, Cloneable {
         }
     }
 
-    public ArrayList<Cell> sight(ArrayList a){
+    public ArrayList<Cell> sightHero(ArrayList a){
         ArrayList<Cell> c = new ArrayList<Cell>();
         Iterator i = a.iterator();
         while (i.hasNext()){
@@ -493,9 +497,26 @@ public class GameMatch implements Serializable, Cloneable {
         return c;
     }
 
+    public ArrayList<Cell> sightTower(Team team){
+        ArrayList<Cell> c = new ArrayList<Cell>();
+        Iterator i = tower.iterator();
+        while (i.hasNext()){
+            Tower t = (Tower) i.next();
+            if(t.getTeam()==team) c.addAll(t.getSight());
+        }
+        return c;
+    }
     public ArrayList<Cell> seenCells(Team team){
-        if(team.equals(Team.team1)) return sight(team1);
-        else                return sight(team2);
+        ArrayList<Cell> c = new ArrayList<Cell>();
+        if(team.equals(Team.team1)){
+            c.addAll(sightHero(team1));
+            c.addAll(sightTower(Team.team1));
+        }
+        else{
+            c.addAll(sightHero(team2));
+            c.addAll(sightTower(Team.team2));
+        }
+        return  c;
     }
 
     public void setTurnIndex(int index) {
