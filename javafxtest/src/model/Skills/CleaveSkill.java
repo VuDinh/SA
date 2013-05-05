@@ -70,16 +70,16 @@ public class CleaveSkill extends Skill implements Serializable,Cloneable {
         int count;
 
         if (to.getCurrentSpriteIndex() / 4 == 0) {
-            if(to.getRow()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),39)));
+            if(to.getRow()+range>39)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),39)));
             else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()+range)));
         } else if (to.getCurrentSpriteIndex() / 4 == 1) {
-            if(to.getCol()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(0,to.getRow())));
+            if(to.getCol()-range<=0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(0,to.getRow())));
             else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()-range,to.getRow())));
         } else if (to.getCurrentSpriteIndex() / 4 == 2) {
-            if(to.getCol()+range>40)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(40,to.getRow())));
+            if(to.getCol()+range>39)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(39,to.getRow())));
             else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol()+range,to.getRow())));
         } else if(to.getCurrentSpriteIndex() / 4 == 3){
-            if(to.getRow()-range<0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),0)));
+            if(to.getRow()-range<=0)path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),0)));
             else path.addAll(Utilizer.straightPath(new Cell(to.getCol(),to.getRow()),new Cell(to.getCol(),to.getRow()-range)));
         }
         if(!path.isEmpty())
@@ -112,6 +112,7 @@ public class CleaveSkill extends Skill implements Serializable,Cloneable {
     public void drawPathOnHero(Graphics g, Hero hero, Cell to, int scrollX, int scrollY, GameMap panel) {
         if (status == SkillStatus.before) {
             calculatePath(hero);
+            System.out.println(path);
             for (Iterator i = path.iterator(); i.hasNext(); ) {
                 Cell temp = (Cell) i.next();
                 g.clearRect(temp.getColPos() * Utilizer.TILE_SIZE - scrollX, temp.getRowPos() * Utilizer.TILE_SIZE

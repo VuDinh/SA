@@ -30,13 +30,13 @@ public class NormalSkill extends Skill implements Serializable,Cloneable {
     public void calculatePath(Hero to) {
         path.clear();
         if (to.getRow() > 0)
-            if (Utilizer.MOVEMAP[to.getRow() - 1][to.getCol()] == 0) path.add(new Cell(to.getRow() - 1, to.getCol()));
+            path.add(new Cell(to.getRow() - 1, to.getCol()));
         if (to.getCol() < Utilizer.MAP_COLS - 1)
-            if (Utilizer.MOVEMAP[to.getRow()][to.getCol() + 1] == 0) path.add(new Cell(to.getRow(), to.getCol() + 1));
+            path.add(new Cell(to.getRow(), to.getCol() + 1));
         if (to.getRow() < Utilizer.MAP_ROWS - 1)
-            if (Utilizer.MOVEMAP[to.getRow() + 1][to.getCol()] == 0) path.add(new Cell(to.getRow() + 1, to.getCol()));
+            path.add(new Cell(to.getRow() + 1, to.getCol()));
         if (to.getCol() > 0)
-            if (Utilizer.MOVEMAP[to.getRow()][to.getCol() - 1] == 0) path.add(new Cell(to.getRow(), to.getCol() - 1));
+            path.add(new Cell(to.getRow(), to.getCol() - 1));
 
         rangeCell = path;
     }

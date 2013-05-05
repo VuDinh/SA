@@ -3,15 +3,13 @@ package View.Ingame;
 import Controllers.Requests.HeroAttackRequest;
 import Controllers.Requests.HeroMoveRequest;
 import Controllers.Server.GameManager.Player;
+import Controllers.Server.GameManager.Team;
 import Utilities.Utilizer;
 import Controllers.listeners.MapListener;
 import Controllers.listeners.ScrollListener;
 import model.Animations.HeroAnimation;
 import model.Facade.Facade;
-import model.HeroSystem.Hero;
-import model.HeroSystem.HeroFactory;
-import model.HeroSystem.HeroStandThread;
-import model.HeroSystem.HeroStatus;
+import model.HeroSystem.*;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterStandThread;
 import model.Skills.AOESkill;
@@ -86,6 +84,7 @@ public class GameMap extends JPanel {
         paintHovered(g);
         paintSelected(g);
         paintMonster(g);
+        paintTeleportation(g);
         paintHero(g);
         paintDamage(g);
         paintFog(g);
@@ -143,6 +142,17 @@ public class GameMap extends JPanel {
                 }
             }
         } catch (ConcurrentModificationException ex) {
+
+        }
+    }
+
+    public void paintTeleportation(Graphics g){
+        for(Iterator i = facade.getMatch().getTeleport().iterator(); i.hasNext();){
+            Teleport t = (Teleport)i.next();
+            //System.out.println(t);
+            int row = t.getRow();
+            int col = t.getCol();
+            g.drawImage(Utilizer.IMG_TELEPORT, row*Utilizer.TILE_SIZE-scrollX, col*Utilizer.TILE_SIZE-scrollY, this);
 
         }
     }
@@ -279,6 +289,17 @@ public class GameMap extends JPanel {
         temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
         HeroAnimation.move(temp, this);
 
+//        Team team = facade.getMatch().getPlayer(request.getSlotIndex()).getTeam();
+//        ArrayList<Teleport> tele = facade.getMatch().getTeleport();
+//        for(Iterator i = tele.iterator(); i.hasNext(); ) {
+//            Teleport t = (Teleport) i.next();
+//            if(temp.getCol()==t.getCol() && t.getRow()==t.getRow() && t.getTeam()==team){
+//                HeroAnimation.teleport(temp,this,t);
+//                Teleport dest = t.getDestination(t,tele);
+//                temp.setRow(dest.getRow());
+//                temp.setCol(dest.getCol());
+//            }
+//        }
     }
 
     public void handleHeroAttackRequest(HeroAttackRequest request) {
@@ -306,6 +327,8 @@ public class GameMap extends JPanel {
                     if (attackedHero.getHP() <= 0) {
                         //set dead status
                         attackedHero.setHP(0);
+                        attackedHero.setImageIndex(11);
+                        attackedHero.setStatus(HeroStatus.dead);
                     }
                 }
             }
@@ -315,6 +338,8 @@ public class GameMap extends JPanel {
                 if (attackedMonster.getHP() <= 0) {
                     //set dead status
                     attackedMonster.setHP(0);
+                    attackedMonster.setImageIndex(11);
+
                 }
                 System.out.println("Monster HP:" + attackedMonster.getHP());
             }
@@ -322,5 +347,9 @@ public class GameMap extends JPanel {
         repaint();
     }
 
+    public void tele(){
+        ArrayList<Teleport> teleport =facade.getMatch().getTeleport();
+
+    }
 
 }

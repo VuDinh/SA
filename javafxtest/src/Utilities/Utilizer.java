@@ -103,6 +103,10 @@ public class Utilizer {
     public static final String AVATAR5 = "Images/Hero/avatar5.png";
     public static final String AVATAR6 = "Images/Hero/avatar6.png";
     public static final String AVATAR7 = "Images/Hero/avatar7.png";
+    public static final String AVATAR_MONSTER1 = "Images/Hero/monsterAvatar1.png";
+    public static final String AVATAR_MONSTER2 = "Images/Hero/monsterAvatar2.png";
+    public static final String AVATAR_MONSTER3 = "Images/Hero/monsterAvatar3.png";
+
 
     public static final String SKILL1 = "Images/Animation/icon2.png";
     public static final String SKILL2 = "Images/Animation/skill3.png";
@@ -159,6 +163,9 @@ public class Utilizer {
     public static BufferedImage IMG_AVATAR5 = null;
     public static BufferedImage IMG_AVATAR6 = null;
     public static BufferedImage IMG_AVATAR7 = null;
+    public static BufferedImage IMG_AVATAR_MONSTER1 = null;
+    public static BufferedImage IMG_AVATAR_MONSTER3 = null;
+    public static BufferedImage IMG_AVATAR_MONSTER2 = null;
     public static BufferedImage IMG_SKILL1 = null;
     public static BufferedImage IMG_SKILL2 = null;
     public static BufferedImage IMG_TURN = null;
@@ -354,6 +361,9 @@ public class Utilizer {
             IMG_AVATAR5 = ImageIO.read(new File(AVATAR5));
             IMG_AVATAR6 = ImageIO.read(new File(AVATAR6));
             IMG_AVATAR7 = ImageIO.read(new File(AVATAR7));
+            IMG_AVATAR_MONSTER1 = ImageIO.read(new File(AVATAR_MONSTER1));
+            IMG_AVATAR_MONSTER2 = ImageIO.read(new File(AVATAR_MONSTER2));
+            IMG_AVATAR_MONSTER3 = ImageIO.read(new File(AVATAR_MONSTER3));
             IMG_CONTROL1 = ImageIO.read(new File(CONTROL1));
             IMG_CONTROL2 = ImageIO.read(new File(CONTROL2));
             IMG_FACE1 = ImageIO.read(new File(FACE1));
@@ -637,9 +647,9 @@ public class Utilizer {
         HEROIMAGEPACK.add(new HeroImage(hero6Array,IMG_AVATAR6,IMG_FACE6,IMG_CHOOSING6));
         HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE7,IMG_CHOOSING7));
         HEROIMAGEPACK.add(new HeroImage(hero7Array,IMG_AVATAR7,IMG_FACE8,null));
-        HEROIMAGEPACK.add(new HeroImage(monster1Array,null,null,null));
-        HEROIMAGEPACK.add(new HeroImage(monster2Array,null,null,null));
-        HEROIMAGEPACK.add(new HeroImage(monster3Array,null,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster1Array,IMG_AVATAR_MONSTER1,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster2Array,IMG_AVATAR_MONSTER2,null,null));
+        HEROIMAGEPACK.add(new HeroImage(monster3Array,IMG_AVATAR_MONSTER3,null,null));
         HEROIMAGEPACK.add(new HeroImage(dieArray,null,null,null));
     }
     public static void addingSkillImage(){

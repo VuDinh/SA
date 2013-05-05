@@ -33,7 +33,7 @@ public class SkillFactory {
         }else if (type == 7) {
             skill = new AOESkill(4, "Blizzard", false, false, 10, 7, 1.5, Utilizer.SOUND_BLIZZARD, 3, "Cast blizzard",1, true);
         }else if (type == 8) {
-            skill = new AOESkill(4, "Spark", false, false, 11, 8, 1.5, Utilizer.SOUND_SPARK, 3,"Cast spark", 1, false);
+            skill = new AOESkill(4, "Spark", false, false, 11, 8, 1.5, Utilizer.SOUND_SPARK, 3,"Cast spark", 2, false);
         }
         return skill;
     }
