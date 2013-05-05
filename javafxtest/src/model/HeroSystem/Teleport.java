@@ -68,9 +68,13 @@ public class Teleport implements Serializable {
         int row = t.getRow();
         int col = t.getCol();
         int te = t.getTeleport();
+        Team team = t.getTeam();
+        System.out.println("station 1:"+t);
         for(Iterator i = a.iterator(); i.hasNext();){
             Teleport tele = (Teleport) i.next();
-            if( te==tele.getTeleport() && row!=tele.getRow() && col!=tele.getCol()){
+            System.out.println("station 2?"+tele);
+            if( tele.getTeam()==team && te%2==1 && tele.getTeleport()==te+1){
+                System.out.println("station2:"+tele);
                 return tele;
             }
         }

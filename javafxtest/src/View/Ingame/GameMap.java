@@ -84,10 +84,10 @@ public class GameMap extends JPanel {
         paintHovered(g);
         paintSelected(g);
         paintMonster(g);
-        paintTeleportation(g);
         paintHero(g);
         paintDamage(g);
         paintFog(g);
+        //paintTeleportation(g);
 
     }
 
@@ -149,7 +149,7 @@ public class GameMap extends JPanel {
             //System.out.println(t);
             int row = t.getRow();
             int col = t.getCol();
-            g.drawImage(Utilizer.IMG_TELEPORT, row*Utilizer.TILE_SIZE-scrollX, col*Utilizer.TILE_SIZE-scrollY, this);
+            g.drawImage(Utilizer.IMG_TELEPORT, col*Utilizer.TILE_SIZE-scrollX, row*Utilizer.TILE_SIZE-scrollY, this);
 
         }
     }
@@ -285,18 +285,22 @@ public class GameMap extends JPanel {
         Utilizer.MOVEMAP[temp.getRow()][temp.getCol()] = 0;
         temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
         HeroAnimation.move(temp, this);
-
+//        try{
 //        Team team = facade.getMatch().getPlayer(request.getSlotIndex()).getTeam();
 //        ArrayList<Teleport> tele = facade.getMatch().getTeleport();
 //        for(Iterator i = tele.iterator(); i.hasNext(); ) {
-//            Teleport t = (Teleport) i.next();
-//            if(temp.getCol()==t.getCol() && t.getRow()==t.getRow() && t.getTeam()==team){
-//                HeroAnimation.teleport(temp,this,t);
-//                Teleport dest = t.getDestination(t,tele);
-//                temp.setRow(dest.getRow());
-//                temp.setCol(dest.getCol());
+//            Teleport loc = (Teleport) i.next();
+//            System.out.println(temp.getCol()+":"+loc.getCol()+","+temp.getRow()+":"+loc.getRow()+","+team+":"+loc.getTeam());
+//            if(temp.getCol()==loc.getCol() && loc.getRow()==loc.getRow() && loc.getTeam()==team){
+//                Teleport dest = loc.getDestination(loc,tele);
+//                if(dest!=null){
+//                    HeroAnimation.teleport(temp,loc,dest,this);
+//                }
+//                break;
 //            }
 //        }
+//        }catch(Exception e){e.printStackTrace();}
+//        System.out.println(temp.getCol()+":"+temp.getRow());
     }
 
     public void handleHeroAttackRequest(HeroAttackRequest request) {

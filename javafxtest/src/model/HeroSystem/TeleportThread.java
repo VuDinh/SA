@@ -1,6 +1,7 @@
 package model.HeroSystem;
 
 import Utilities.Utilizer;
+import View.HeroChoosing.HeroPane;
 import View.Ingame.Cell;
 import View.Ingame.GameMap;
 
@@ -15,9 +16,13 @@ import java.util.Iterator;
  */
 public class TeleportThread extends  Thread {
     GameMap panel;
-    Teleport teleport;
-    public TeleportThread(Teleport teleport,GameMap panel){
-        this.teleport = teleport;
+    Teleport loc;
+    Teleport des;
+    Hero hero;
+    public TeleportThread(Hero hero, Teleport loc, Teleport des,GameMap panel){
+        this.hero = hero;
+        this.loc = loc;
+        this.des = des;
         this.panel = panel;
     }
 
@@ -25,7 +30,7 @@ public class TeleportThread extends  Thread {
     public void run() {
         //To change body of implemented methods use File | Settings | File Templates.
         for(int i = 0 ; i < Utilizer.TELEPORT_SPRITE; i++){
-                teleport.nextSprite();
+                loc.nextSprite();
                 panel.repaint();
 
                 try {
@@ -35,7 +40,11 @@ public class TeleportThread extends  Thread {
 
             }
         }
-
+        hero.setRow(des.getRow());
+        hero.setCol(des.getCol());
+        hero.setX(des.getCol()*Utilizer.TILE_SIZE);
+        hero.setX(des.getCol()*Utilizer.TILE_SIZE);
+        panel.repaint();
         //new TeleportThread(teleport,panel).start();
 
     }
