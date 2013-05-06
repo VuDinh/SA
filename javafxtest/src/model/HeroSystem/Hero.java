@@ -302,7 +302,7 @@ public class Hero extends Character implements Serializable, Cloneable {
     }
 
     //calculate movement Range
-    public ArrayList<Cell> calculateRange(int x, int y, double remaining) {
+    public ArrayList<Cell> calculateRange(int x, int y, int remaining) {
         if (remaining == 0)
             return range;
 
