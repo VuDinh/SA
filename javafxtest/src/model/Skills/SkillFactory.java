@@ -19,21 +19,21 @@ public class SkillFactory {
     public AOESkill createAOESkill(int type) {
         AOESkill skill = null;
         if (type == 1) {
-            skill = new AOESkill(3, "Fire", false, false, 1, 1, 1.5, Utilizer.SOUND_FIRE, 3,"Cast fire", 1, false);
+            skill = new AOESkill(3, "Fire", false, false, 1, 1, 1.5, Utilizer.SOUND_FIRE, 2,"Cast fire", 1, false);
         } else if (type == 2) {
-            skill = new AOESkill(3, "Thunder", false, false, 2, 2, 1.5, Utilizer.SOUND_THUNDER, 3, "Cast thunder",1, false);
+            skill = new AOESkill(3, "Thunder", false, false, 2, 2, 1.5, Utilizer.SOUND_THUNDER, 2, "Cast thunder",1, false);
         } else if (type == 3) {
-            skill = new AOESkill(3, "Wind", false, false, 3, 3, 1.5, Utilizer.SOUND_WIND, 3, "Cast wind",1, false);
+            skill = new AOESkill(3, "Wind", false, false, 3, 3, 1.5, Utilizer.SOUND_WIND, 2, "Cast wind",1, false);
         }else if (type == 4) {
-            skill = new AOESkill(3, "Earth", false, false, 4, 4, 1.5, Utilizer.SOUND_EARTH, 3,"Cast earth", 1, false);
+            skill = new AOESkill(3, "Earth", false, false, 4, 4, 1.5, Utilizer.SOUND_EARTH, 2,"Cast earth", 1, false);
         }else if (type == 5) {
-            skill = new AOESkill(3, "Ice", false, false, 5, 5, 1.5, Utilizer.SOUND_ICE, 3, "Cast ice",1, false);
+            skill = new AOESkill(3, "Ice", false, false, 5, 5, 1.5, Utilizer.SOUND_ICE, 2, "Cast ice",1, false);
         } else if (type == 6) {
-            skill = new AOESkill(4, "Explosion", false, false, 9, 6, 1.5, Utilizer.SOUND_EXPLODE, 3, "Cast explosion",1, true);
+            skill = new AOESkill(4, "Explosion", false, false, 9, 6, 1.5, Utilizer.SOUND_EXPLODE, 4, "Cast explosion",1, true);
         }else if (type == 7) {
-            skill = new AOESkill(4, "Blizzard", false, false, 10, 7, 1.5, Utilizer.SOUND_BLIZZARD, 3, "Cast blizzard",1, true);
+            skill = new AOESkill(4, "Blizzard", false, false, 10, 7, 1.5, Utilizer.SOUND_BLIZZARD, 4, "Cast blizzard",1, true);
         }else if (type == 8) {
-            skill = new AOESkill(4, "Spark", false, false, 11, 8, 1.5, Utilizer.SOUND_SPARK, 3,"Cast spark", 2, false);
+            skill = new AOESkill(4, "Spark", false, false, 11, 8, 1.5, Utilizer.SOUND_SPARK, 4,"Cast spark", 2, false);
         }
         return skill;
     }

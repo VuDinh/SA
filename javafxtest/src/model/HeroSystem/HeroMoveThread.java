@@ -42,6 +42,7 @@ public class HeroMoveThread extends Thread {
                     e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }
             }
+            //hero.setAP(hero.getAP() - 2);
         }
         hero.setStatus(HeroStatus.standing);
         hero.calculateRange(hero.getRow(), hero.getCol(), ((int) hero.getAP() / 2) + 1);

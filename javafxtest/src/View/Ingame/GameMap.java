@@ -13,6 +13,7 @@ import model.Facade.Facade;
 import model.HeroSystem.*;
 import model.MonsterSystem.Monster;
 import model.MonsterSystem.MonsterStandThread;
+import model.MonsterSystem.Tower;
 import model.Skills.AOESkill;
 import model.Skills.SkillStatus;
 import sun.text.resources.BreakIteratorInfo_th;
@@ -326,6 +327,19 @@ public class GameMap extends JPanel {
                     attackedMonster.setImageIndex(11);
 
                 }
+            }
+        }
+        for(Iterator it = facade.getMatch().getTower().iterator(); it.hasNext();){
+            Tower attackedTower = (Tower)it.next();
+            if(attackedTower.isHit(request.getDmgCell())){
+                attackedTower.setHP(attackedTower.getHP() - temp.getCurrentSkill().getDamage(temp));
+                if (attackedTower.getHP() <= 0) {
+                    //set dead status
+                    attackedTower.setHP(0);
+                    //attackedTower.setImageIndex(11);
+
+                }
+                break;
             }
         }
         repaint();

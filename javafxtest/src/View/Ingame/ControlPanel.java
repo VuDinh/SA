@@ -5,6 +5,7 @@ import model.HeroSystem.Hero;
 import model.Character;
 import model.HeroSystem.HeroFactory;
 import model.MonsterSystem.Monster;
+import model.MonsterSystem.Tower;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,7 +58,7 @@ public class ControlPanel extends JPanel {
 
         g.setFont(Utilizer.FONT);
         g.fillRect(0, 0, getWidth(), getHeight());
-        g.clearRect(10,10,130,130);
+        g.clearRect(10, 10, 130, 130);
         g.drawImage(Utilizer.IMG_MINI_MAP, 10, 10, this);
         if(clickedCell!=null){
             g.drawRect(clickedCell.getX(),clickedCell.getY(),30,15);
@@ -77,15 +78,25 @@ public class ControlPanel extends JPanel {
             g.drawString(hero.getMaxAP() + "", 340, 140);
             g.drawString(hero.getName(), 195, 30);
         }
-        else if(character instanceof Monster){
-            monster=(Monster) character;
-            g.drawImage(monster.getAvatar(), 190, 50, this);
+        else if(character instanceof Monster || character instanceof  Tower){
+            //monster=(Monster) character;
+
+            g.drawImage(character.getAvatar(), 190, 50, this);
             g.setColor(Color.WHITE);
-            g.drawString(monster.getAttk() + "", 320, 75);
-            g.drawString(monster.getMaxHP() + "", 295, 140);
-            g.drawString(monster.getMaxAP() + "", 340, 140);
-            g.drawString(monster.getName(), 195, 30);
+            g.drawString(character.getAttk() + "", 320, 75);
+            g.drawString(character.getMaxHP() + "", 295, 140);
+            g.drawString(character.getMaxAP() + "", 340, 140);
+            g.drawString(character.getName(), 195, 30);
         }
+//        else if (character instanceof Tower){
+//            Tower tower = (Tower) character;
+//            g.drawImage(monster.getAvatar(), 190, 50, this);
+//            g.setColor(Color.WHITE);
+//            g.drawString(monster.getAttk() + "", 320, 75);
+//            g.drawString(monster.getMaxHP() + "", 295, 140);
+//            g.drawString(monster.getMaxAP() + "", 340, 140);
+//            g.drawString(monster.getName(), 195, 30);
+//        }
         drawHPAP(g);
 
         repaint();

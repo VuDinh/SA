@@ -344,6 +344,12 @@ public class GameMatch implements Serializable, Cloneable {
                 return monster;
             }
         }
+        for(Iterator it = tower.iterator(); it.hasNext();){
+            Tower t = (Tower)it.next();
+            if(t.getSelf().contains(new Cell(row,col))){
+                return t;
+            }
+        }
         return null;
     }
     public Monster getMonsterByCord(int row,int col){
@@ -542,6 +548,10 @@ public class GameMatch implements Serializable, Cloneable {
         this.turnIndex=index;
     }
 
+    public void resetHeroSight(Team team){
+
+    }
+
     public void handleHeroRespawnRequest(HeroRespawnRequest request) {
         Cell cell=dao.getHeroBeginPosition(request.getHeroSlot());
         cell.setX(cell.getColPos()*Utilizer.TILE_SIZE);
@@ -581,5 +591,9 @@ public class GameMatch implements Serializable, Cloneable {
     public ArrayList<Cell> getSightTeam(Team team){
         if(team==Team.team1)return sightTeam1;
         else return sightTeam2;
+    }
+
+    public ArrayList<Tower> getTower() {
+        return tower;
     }
 }
