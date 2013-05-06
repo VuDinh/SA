@@ -7,6 +7,7 @@ import model.*;
 import model.Character;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class Tower extends Character implements Cloneable,Serializable {
     private ArrayList<Cell> sight = new ArrayList<Cell>();
     private ArrayList<Cell> self = new ArrayList<Cell>();
     private Team team;
+    private Cell start,end;
 
     public Tower(int HP, int maxHP, int AP, int maxAP, int Attk, int row, int col,int imageIndex,String name,
                     String description,Cell start, Cell end, Team team, boolean main, boolean broken){
@@ -29,11 +31,29 @@ public class Tower extends Character implements Cloneable,Serializable {
         this.main = main;
         this.broken = broken;
         this.team = team;
+        this.start = start;
+        this.end = end;
         for (int i = start.getRowPos(); i <= end.getRowPos(); i++) {
             for (int j = start.getColPos(); j <= end.getColPos(); j++)  {
                 self.add(new Cell(i, j));
             }
         }
+    }
+
+    public Cell getStart() {
+        return start;
+    }
+
+    public void setStart(Cell start) {
+        this.start = start;
+    }
+
+    public Cell getEnd() {
+        return end;
+    }
+
+    public void setEnd(Cell end) {
+        this.end = end;
     }
 
     public ArrayList<Cell> getSelf() {
@@ -136,29 +156,30 @@ public class Tower extends Character implements Cloneable,Serializable {
         temp.addAll(path);
         dump.addAll(self);
         dump.retainAll(temp);
-        if(self.size()!=dump.size()){
+        if(!dump.isEmpty()){
             return true;
         }
         return false;
     }
-
-//    public static void main (String args[] ){
-//        ArrayList<Cell>c= new ArrayList<Cell>(){{
-//            add(new Cell(0,1));
-//            add(new Cell(1,1));
-//            add(new Cell(2,1));
-//        }};
-//        ArrayList<Cell>d= new ArrayList<Cell>(){{
-//            add(new Cell(1,0));
-//            add(new Cell(1,3));
-//            add(new Cell(1,2));
-//            add(new Cell(0,1));
-//            add(new Cell(1,1));
-//            //add(new Cell(2,1));
-//        }};
-//        System.out.println(c);
-//        System.out.println(c.retainAll(d));
-//        System.out.println(c);
-//    }
+//        public static void main(String args[]){
+//            ArrayList<Cell> path = new ArrayList<Cell>(){{
+//                add(new Cell(1,1));
+//                add(new Cell(2,2));
+//                add(new Cell(3,3));
+//            }};
+//            ArrayList<Cell> self = new ArrayList<Cell>(){{
+//                //add(new Cell(1,1));
+//                //add(new Cell(2,2));
+//                add(new Cell(4,4));
+//            }};
+//            ArrayList<Cell> temp = new ArrayList<Cell>();
+//            ArrayList<Cell> dump = new ArrayList<Cell>();
+//            temp.addAll(path);
+//            dump.addAll(self);
+//            dump.retainAll(temp);
+//            System.out.println(self.size()!=dump.size());
+//            System.out.println(dump.isEmpty());
+//            System.out.println(dump);
+//        }
 
 }

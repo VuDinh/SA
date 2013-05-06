@@ -87,6 +87,7 @@ public class GameMap extends JPanel {
         paintSelected(g);
         paintMonster(g);
         paintHero(g);
+        paintTower(g);
         paintDamage(g);
         paintFog(g);
         //paintTeleportation(g);
@@ -119,6 +120,22 @@ public class GameMap extends JPanel {
             }
         }
 
+    }
+
+    public void paintTower(Graphics g){
+        ArrayList<Tower> towers = facade.getMatch().getTower();
+        for(Iterator it = towers.iterator(); it.hasNext();){
+            Tower t = (Tower)it.next();
+            if(!t.isMain()){
+                if(!t.isBroken()){
+                    g.drawImage(Utilizer.normalArray[2405], t.getStart().getColPos()*Utilizer.TILE_SIZE-scrollX,t.getStart().getRowPos()*Utilizer.TILE_SIZE-scrollY,this);
+                    g.drawImage(Utilizer.normalArray[2413], t.getEnd().getColPos()*Utilizer.TILE_SIZE-scrollX,t.getEnd().getRowPos()*Utilizer.TILE_SIZE-scrollY,this);
+                }else{
+                    g.drawImage(Utilizer.normalArray[1877], t.getStart().getColPos()*Utilizer.TILE_SIZE-scrollX,t.getStart().getRowPos()*Utilizer.TILE_SIZE-scrollY,this);
+                    g.drawImage(Utilizer.normalArray[1885], t.getEnd().getColPos()*Utilizer.TILE_SIZE-scrollX,t.getEnd().getRowPos()*Utilizer.TILE_SIZE-scrollY,this);
+                }
+            }
+        }
     }
 
     public void paintFog(Graphics g) {
@@ -332,13 +349,16 @@ public class GameMap extends JPanel {
         for(Iterator it = facade.getMatch().getTower().iterator(); it.hasNext();){
             Tower attackedTower = (Tower)it.next();
             System.out.println("out if"+attackedTower.getTeam()+":"+attackingPlayer.getTeam());
-            if(attackedTower.getTeam()!=attackingPlayer.getTeam() && attackedTower.isHit(request.getDmgCell())){
+            if(attackedTower.getTeam()!=attackingPlayer.getTeam() && attackedTower.isHit(request.getDmgCell())==true){
                 System.out.println("in if"+attackedTower.getTeam()+":"+attackingPlayer.getTeam());
                 attackedTower.setHP(attackedTower.getHP() - temp.getCurrentSkill().getDamage(temp));
                 if (attackedTower.getHP() <= 0) {
                     //set dead status
                     attackedTower.setHP(0);
                     attackedTower.setImageIndex(13);
+                    attackedTower.setBroken(true);
+                    facade.getMatch().resetSightTeam1();
+                    facade.getMatch().resetSightTeam2();
                 }
                 break;
             }
