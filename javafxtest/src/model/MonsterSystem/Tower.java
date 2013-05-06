@@ -141,6 +141,7 @@ public class Tower extends Character implements Cloneable,Serializable {
         }
         return false;
     }
+
 //    public static void main (String args[] ){
 //        ArrayList<Cell>c= new ArrayList<Cell>(){{
 //            add(new Cell(0,1));

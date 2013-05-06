@@ -208,40 +208,44 @@ public class Hero extends Character implements Serializable, Cloneable {
         map[row][col].setMinPath(0);
         PriorityQueue<Cell> queue = new PriorityQueue<Cell>();
         queue.add(map[row][col]);
+        int tempAP=(int)AP;
+        tempAP=tempAP/2;
         while (!queue.isEmpty()) {
             Cell temp = queue.poll();
-            int precost = temp.getMinPath() + 1;
+            if(temp.getMinPath()>tempAP) continue;
+            int preCost = temp.getMinPath() + 1;
+
             if (temp.getRowPos() > 0) {
-                if (Utilizer.MOVEMAP[temp.getRowPos() - 1][temp.getColPos()] == 0 && map[temp.getRowPos() - 1][temp.getColPos()].getMinPath() > precost) {
+                if (Utilizer.MOVEMAP[temp.getRowPos() - 1][temp.getColPos()] == 0 && map[temp.getRowPos() - 1][temp.getColPos()].getMinPath() > preCost) {
                     //queue.remove(map[temp.getRowPos()-1][temp.getColPos()]);
-                    map[temp.getRowPos() - 1][temp.getColPos()].setMinPath(precost);
+                    map[temp.getRowPos() - 1][temp.getColPos()].setMinPath(preCost);
                     map[temp.getRowPos() - 1][temp.getColPos()].setPrevious(temp);
                     queue.add(map[temp.getRowPos() - 1][temp.getColPos()]);
                 }
             }
 
             if (temp.getRowPos() < map.length - 1) {
-                if (Utilizer.MOVEMAP[temp.getRowPos() + 1][temp.getColPos()] == 0 && map[temp.getRowPos() + 1][temp.getColPos()].getMinPath() > precost) {
+                if (Utilizer.MOVEMAP[temp.getRowPos() + 1][temp.getColPos()] == 0 && map[temp.getRowPos() + 1][temp.getColPos()].getMinPath() > preCost) {
                     //queue.remove(map[temp.getRowPos()+1][temp.getColPos()]);
-                    map[temp.getRowPos() + 1][temp.getColPos()].setMinPath(precost);
+                    map[temp.getRowPos() + 1][temp.getColPos()].setMinPath(preCost);
                     map[temp.getRowPos() + 1][temp.getColPos()].setPrevious(temp);
                     queue.add(map[temp.getRowPos() + 1][temp.getColPos()]);
                 }
             }
 
             if (temp.getColPos() > 0) {
-                if (Utilizer.MOVEMAP[temp.getRowPos()][temp.getColPos() - 1] == 0 && map[temp.getRowPos()][temp.getColPos() - 1].getMinPath() > precost) {
+                if (Utilizer.MOVEMAP[temp.getRowPos()][temp.getColPos() - 1] == 0 && map[temp.getRowPos()][temp.getColPos() - 1].getMinPath() > preCost) {
                     //queue.remove(map[temp.getRowPos()][temp.getColPos()-1]);
-                    map[temp.getRowPos()][temp.getColPos() - 1].setMinPath(precost);
+                    map[temp.getRowPos()][temp.getColPos() - 1].setMinPath(preCost);
                     map[temp.getRowPos()][temp.getColPos() - 1].setPrevious(temp);
                     queue.add(map[temp.getRowPos()][temp.getColPos() - 1]);
                 }
             }
 
             if (temp.getColPos() < map[0].length - 1) {
-                if (Utilizer.MOVEMAP[temp.getRowPos()][temp.getColPos() + 1] == 0 && map[temp.getRowPos()][temp.getColPos() + 1].getMinPath() > precost) {
+                if (Utilizer.MOVEMAP[temp.getRowPos()][temp.getColPos() + 1] == 0 && map[temp.getRowPos()][temp.getColPos() + 1].getMinPath() > preCost) {
                     //queue.remove(map[temp.getRowPos()][temp.getColPos()+1]);
-                    map[temp.getRowPos()][temp.getColPos() + 1].setMinPath(precost);
+                    map[temp.getRowPos()][temp.getColPos() + 1].setMinPath(preCost);
                     map[temp.getRowPos()][temp.getColPos() + 1].setPrevious(temp);
                     queue.add(map[temp.getRowPos()][temp.getColPos() + 1]);
                 }
@@ -303,7 +307,8 @@ public class Hero extends Character implements Serializable, Cloneable {
 
     //calculate movement Range
     public ArrayList<Cell> calculateRange(int x, int y, int remaining) {
-        if (remaining == 0)
+        System.out.println("remaining:"+remaining);
+        if (remaining <= 0)
             return range;
 
         range.add(new Cell(x,y));

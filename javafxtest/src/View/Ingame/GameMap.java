@@ -331,13 +331,14 @@ public class GameMap extends JPanel {
         }
         for(Iterator it = facade.getMatch().getTower().iterator(); it.hasNext();){
             Tower attackedTower = (Tower)it.next();
+            System.out.println("out if"+attackedTower.getTeam()+":"+attackingPlayer.getTeam());
             if(attackedTower.getTeam()!=attackingPlayer.getTeam() && attackedTower.isHit(request.getDmgCell())){
+                System.out.println("in if"+attackedTower.getTeam()+":"+attackingPlayer.getTeam());
                 attackedTower.setHP(attackedTower.getHP() - temp.getCurrentSkill().getDamage(temp));
                 if (attackedTower.getHP() <= 0) {
                     //set dead status
                     attackedTower.setHP(0);
                     attackedTower.setImageIndex(13);
-
                 }
                 break;
             }

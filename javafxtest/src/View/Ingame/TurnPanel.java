@@ -1,5 +1,6 @@
 package View.Ingame;
 
+import Controllers.Server.GameManager.Team;
 import Utilities.Utilizer;
 import model.Facade.Facade;
 
@@ -54,7 +55,11 @@ public class TurnPanel extends JPanel {
         //draw Player Name
         g.setFont(new Font("TimesRoman", Font.BOLD, 15));
         g.setColor(Color.WHITE);
-        g.drawString(facade.getUsername(),10,31);
+        String teamName="";
+        if(facade.getClientPlayer().getTeam().equals(Team.team1))
+            teamName="(Team 1)";
+        else teamName="(Team 2)";
+        g.drawString(facade.getUsername()+teamName,10,31);
         //draw Status String
         g.setFont(new Font("TimesRoman", Font.BOLD, 15));
         g.setColor(Color.WHITE);
