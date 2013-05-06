@@ -123,7 +123,7 @@ public class GameMap extends JPanel {
 
     public void paintFog(Graphics g) {
         //System.out.println(facade.getMatch().seenCells());
-        ArrayList<Cell> cells = facade.getMatch().getSightTeam(facade.getClientPlayer().getTeam());
+        ArrayList<Cell> cells = facade.getMatch().seenCells(facade.getClientPlayer().getTeam());
         //cells.addAll();
         /*try {
             for (Cell cell : cells) {
@@ -331,12 +331,12 @@ public class GameMap extends JPanel {
         }
         for(Iterator it = facade.getMatch().getTower().iterator(); it.hasNext();){
             Tower attackedTower = (Tower)it.next();
-            if(attackedTower.isHit(request.getDmgCell())){
+            if(attackedTower.getTeam()!=attackingPlayer.getTeam() && attackedTower.isHit(request.getDmgCell())){
                 attackedTower.setHP(attackedTower.getHP() - temp.getCurrentSkill().getDamage(temp));
                 if (attackedTower.getHP() <= 0) {
                     //set dead status
                     attackedTower.setHP(0);
-                    //attackedTower.setImageIndex(11);
+                    attackedTower.setImageIndex(13);
 
                 }
                 break;

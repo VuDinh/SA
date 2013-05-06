@@ -18,7 +18,6 @@ import model.MonsterSystem.MonsterFactory;
 import model.MonsterSystem.Tower;
 import model.Skills.Skill;
 import model.Character;
-import org.springframework.util.SerializationUtils;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -59,8 +58,8 @@ public class GameMatch implements Serializable, Cloneable {
         add(new Tower(1000,1000,0,0,100,35,32,12,"","",new Cell(35,32), new Cell(36,32),Team.team1,false,false));
         add(new Tower(1000,1000,0,0,100,32,36,12,"","",new Cell(32,36), new Cell(33,36),Team.team2,false,false));
     }};
-    private ArrayList<Cell> sightTeam1 = new ArrayList<Cell>();
-    private ArrayList<Cell> sightTeam2 = new ArrayList<Cell>();
+    private ArrayList<Cell> sightTower1 = new ArrayList<Cell>();
+    private ArrayList<Cell> sightTower2 = new ArrayList<Cell>();
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
@@ -80,8 +79,8 @@ public class GameMatch implements Serializable, Cloneable {
         this.gameIndex = index;
         turnIndex = 0;
 
-        sightTeam1 = seenCells(Team.team1);
-        sightTeam2 = seenCells(Team.team2);
+        sightTower1 = sightTower(Team.team1);
+        sightTower2 = sightTower(Team.team2);
     }
 
     public GameMatch(GameMatch one) {
@@ -106,8 +105,8 @@ public class GameMatch implements Serializable, Cloneable {
         this.gameIndex = one.gameIndex;
         turnIndex = 0;
 
-        sightTeam1 = seenCells(Team.team1);
-        sightTeam2 = seenCells(Team.team2);
+        sightTower1 = sightTower(Team.team1);
+        sightTower2 = sightTower(Team.team2);
     }
 
     public void setDao(AccountDao dao) {
@@ -534,12 +533,12 @@ public class GameMatch implements Serializable, Cloneable {
     public ArrayList<Cell> seenCells(Team team){
         ArrayList<Cell> c = new ArrayList<Cell>();
         if(team.equals(Team.team1)){
+            c.addAll(sightTower1);
             c.addAll(sightHero(team1));
-            c.addAll(sightTower(Team.team1));
         }
         else{
+            c.addAll(sightTower2);
             c.addAll(sightHero(team2));
-            c.addAll(sightTower(Team.team2));
         }
         return  c;
     }
@@ -572,25 +571,25 @@ public class GameMatch implements Serializable, Cloneable {
         }
     }
 
-    public ArrayList<Cell> getSightTeam1() {
-        return sightTeam1;
+    public ArrayList<Cell> getSightTower1() {
+        return sightTower1;
     }
 
     public void resetSightTeam1() {
-        this.sightTeam1 = seenCells(Team.team1);
+        this.sightTower1 = sightTower(Team.team1);
     }
 
-    public ArrayList<Cell> getSightTeam2() {
-        return sightTeam2;
+    public ArrayList<Cell> getSightTower2() {
+        return sightTower2;
     }
 
     public void resetSightTeam2() {
-        this.sightTeam2 = seenCells(Team.team2);
+        this.sightTower2 = sightTower(Team.team2);
     }
 
     public ArrayList<Cell> getSightTeam(Team team){
-        if(team==Team.team1)return sightTeam1;
-        else return sightTeam2;
+        if(team==Team.team1)return sightTower1;
+        else return sightTower2;
     }
 
     public ArrayList<Tower> getTower() {

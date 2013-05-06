@@ -54,6 +54,8 @@ public class Utilizer {
     public static final String MONSTER_3 = "Images/Hero/monster03.png";
     public static final String TOWER = "Images/Hero/tower.png";
     public static final String TOWER_AVATAR = "Images/tower.png";
+    public static final String BROKEN = "Images/Hero/broken.png";
+    public static final String BROKEN_AVATAR = "Images/broken.png";
     public static final String MAP_FILE = "map.txt";
 
     public static final String TELEPORT = "Images/Skills/teleport station.png";
@@ -196,6 +198,8 @@ public class Utilizer {
     public static BufferedImage IMG_TELEPORT = null;
     public static BufferedImage IMG_TOWER = null;
     public static BufferedImage IMG_TOWER_AVATAR = null;
+    public static BufferedImage IMG_BROKEN = null;
+    public static BufferedImage IMG_BROKEN_AVATAR = null;
 
     public static final String DECS_HERO1 = "A Blade Master who wanders on the Eastern land after his hometown is destroyed. " +
             "Seeking vengeance, he travels throughout the land in order to find the Dark Monster, which put the end for his " +
@@ -334,7 +338,7 @@ public class Utilizer {
     public static final int MAP_COLS = 40;
     public static BufferedImage[] normalArray, selectArray, hoverArray, fogArray, rangeArray, dieArray,
             hero1Array, hero2Array, hero3Array, hero4Array, hero5Array, hero6Array, hero7Array,
-            monster1Array,monster2Array, monster3Array, teleportArray, towerArray,
+            monster1Array,monster2Array, monster3Array, teleportArray, towerArray, brokenArray,
             earthSkillArray, thunderSkillArray, windSkillArray, fireSkillArray, iceSkillArray, explodeSkillArray,
             blizzardSkillArray, firestrikeSkillArray, icestrikeSkillArray, thunderstrikeSkillArray, sparkSkillArray,
             defaultSkillArray;
@@ -406,6 +410,7 @@ public class Utilizer {
             IMG_VS = ImageIO.read(new File(VS));
             IMG_TELEPORT = ImageIO.read(new File(TELEPORT));
             IMG_TOWER_AVATAR = ImageIO.read(new File(TOWER_AVATAR));
+            IMG_BROKEN_AVATAR = ImageIO.read(new File(BROKEN_AVATAR));
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -468,6 +473,7 @@ public class Utilizer {
             monster2Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             monster3Array = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             towerArray = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
+            brokenArray = new BufferedImage[SPRITE_COLS * SPRITE_COLS];
             dieArray = new BufferedImage[SPRITE_COLS * SPRITE_ROWS];
             teleportArray = new BufferedImage[TELEPORT_SPRITE];
             for (int i = 0; i < SPRITE_ROWS; i++)
@@ -489,6 +495,7 @@ public class Utilizer {
                     monster2Array[index] = monster2.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     monster3Array[index] = monster3.getSubimage(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     towerArray[index]    = tower.getSubimage   (j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                    brokenArray[index]    = tower.getSubimage   (j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
                 }
             for(int i = 0; i<TELEPORT_SPRITE; i++){
@@ -660,6 +667,7 @@ public class Utilizer {
         HEROIMAGEPACK.add(new HeroImage(monster3Array,IMG_AVATAR_MONSTER3,null,null));
         HEROIMAGEPACK.add(new HeroImage(dieArray,null,null,null));
         HEROIMAGEPACK.add(new HeroImage(towerArray,IMG_TOWER_AVATAR,null,null));
+        HEROIMAGEPACK.add(new HeroImage(brokenArray,IMG_BROKEN_AVATAR,null,null));
     }
     public static void addingSkillImage(){
         SKILLIMAGEPACK=new ArrayList<SkillImage>();
