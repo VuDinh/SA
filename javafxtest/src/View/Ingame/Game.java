@@ -74,10 +74,5 @@ public class Game extends JFrame {
         //set MoveMap base on the position
 
     }
-    public void handleHeroMoveRequest(HeroMoveRequest request) {
-        Hero temp = me.getHeroBySlotIndex(request.getSlotIndex());
-        Utilizer.MOVEMAP[temp.getRow()][temp.getCol()] = 0;
-        temp.setShortestPathSelect(request.getHero().getShortestPathSelect());
-        HeroAnimation.move(temp, this);
-    }
+
 }

@@ -36,6 +36,7 @@ public class GameMatch implements Serializable, Cloneable {
     private ArrayList<Player> team1;
     private ArrayList<Player> team2;
     private ArrayList<Monster> monsters;
+    private transient int quitNum;
     private ArrayList<Teleport> teleport = new ArrayList<Teleport>(){{
         add(new Teleport(35,1,Team.team1,1));
         add(new Teleport(33,1,Team.team1,2));
@@ -78,7 +79,7 @@ public class GameMatch implements Serializable, Cloneable {
         isFull = false;
         this.gameIndex = index;
         turnIndex = 0;
-
+        quitNum=0;
         sightTower1 = sightTower(Team.team1);
         sightTower2 = sightTower(Team.team2);
     }
@@ -186,6 +187,8 @@ public class GameMatch implements Serializable, Cloneable {
         HeroFactory hF = new HeroFactory();
         for (Iterator it = team2.iterator(); it.hasNext(); ) {
             Player player = (Player) it.next();
+            System.out.println("slot Index:"+player.getSlotIndex());
+            System.out.println("dao:"+ dao);
             Cell c = dao.getHeroBeginPosition(player.getSlotIndex());
             player.setPosition(c);
             System.out.println("hero Index:" + player.getHeroIndex());
@@ -595,4 +598,42 @@ public class GameMatch implements Serializable, Cloneable {
     public ArrayList<Tower> getTower() {
         return tower;
     }
+
+    public void handleMatchResultRequest(MatchResultRequest request) {
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            player.getCom().write(request);
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            //if(player.getSlotIndex()!=request.getSlotIndex())
+            player.getCom().write(request);
+        }
+    }
+
+    public void handleQuitRequest(QuitRequest request) {
+        Player p=getPlayer(request.getHeroSlot());
+        p.getCom().close();
+        for (Iterator it = team2.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(!player.getCom().isClosed()){
+                player.getCom().write(request);
+                System.out.println("announce quit to:"+player.getCom().getAccount().getUsername());
+            }
+        }
+        for (Iterator it = team1.iterator(); it.hasNext(); ) {
+            Player player = (Player) it.next();
+            if(!player.getCom().isClosed()){
+                player.getCom().write(request);
+                System.out.println("announce quit to:"+player.getCom().getAccount().getUsername());
+            }
+        }
+        //getPlayer(request.getHeroSlot()).getCom().close();
+        quitNum++;
+
+    }
+    public boolean isAllQuit(){
+        return quitNum==Utilizer.MAXPLAYER;
+    }
+
 }

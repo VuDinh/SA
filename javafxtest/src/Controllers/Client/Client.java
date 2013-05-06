@@ -1,6 +1,7 @@
 package Controllers.Client;
 
 import Controllers.Communicator;
+import Controllers.Requests.QuitRequest;
 import Controllers.listeners.*;
 import Utilities.Utilizer;
 import View.HeroChoosing.HeroChoosingGUI;
@@ -109,6 +110,7 @@ public class Client implements Runnable {
         login.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
+
                 com.close();
                 login.dispose();
                 System.exit(0);
@@ -118,10 +120,11 @@ public class Client implements Runnable {
         inGame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                com.write(Status.quit);
-                com.close();
-                inGame.dispose();
-                System.exit(0);
+                //com.write(Status.quit);
+                com.write(new QuitRequest(facade.getGameIndex(),facade.getHeroSlot()));
+                //com.close();
+                //inGame.dispose();
+                //System.exit(0);
             }
 
         });

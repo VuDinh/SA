@@ -65,4 +65,12 @@ public class TurnPanel extends JPanel {
         g.setColor(Color.WHITE);
         g.drawString(statusMessage,900, 31);
     }
+
+    public void setResultStatus(Team winTeam) {
+        if(winTeam.equals(Team.team1)){
+            statusMessage="Team 1 wins";
+        }
+        else statusMessage="Team 2 wins";
+        repaint();
+    }
 }

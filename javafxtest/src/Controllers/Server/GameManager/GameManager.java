@@ -40,6 +40,7 @@ public class GameManager {
             else{
                 GameMatch newGameMatch =new GameMatch(gameNum);
                 newGameMatch.addPlayer(com);
+                newGameMatch.setDao(dao);
                 gameMatches.add(newGameMatch);
                 gameNum++;
             }
@@ -78,5 +79,20 @@ public class GameManager {
 
     public void handleHeroRespawnRequest(HeroRespawnRequest request) {
         gameMatches.get(request.getGameIndex()).handleHeroRespawnRequest(request);
+    }
+
+    public void handleMatchResultRequest(MatchResultRequest request) {
+        gameMatches.get(request.getGameIndex()).handleMatchResultRequest(request);
+    }
+
+    public void handleQuitRequest(QuitRequest request) {
+        GameMatch match=gameMatches.get(request.getGameIndex());
+        if(match!=null){
+            match.handleQuitRequest(request);
+            if(match.isAllQuit()){
+                gameMatches.remove(match);
+                gameNum--;
+            }
+        }
     }
 }

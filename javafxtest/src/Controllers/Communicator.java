@@ -47,6 +47,10 @@ public class Communicator{
             return null;
         }
     }
+    public boolean isClosed(){
+        if(socket.isClosed()) return true;
+        else return false;
+    }
 
     public void close() {
         try {

@@ -101,6 +101,15 @@ public class ChatThread extends Thread {
                 HeroRespawnRequest request=(HeroRespawnRequest) o;
                 handler.getGameManager().handleHeroRespawnRequest(request);
             }
+            if(o instanceof MatchResultRequest){
+                MatchResultRequest request=(MatchResultRequest) o;
+                handler.getGameManager().handleMatchResultRequest(request);
+            }
+            if(o instanceof QuitRequest){
+                QuitRequest request=(QuitRequest)o;
+                handler.getGameManager().handleQuitRequest(request);
+                break;
+            }
             if (o instanceof Status) {
                 Status status = (Status) o;
                 //findingMatch action
@@ -115,8 +124,7 @@ public class ChatThread extends Thread {
             }
             o = com.read();
         }
-        //inform to the others about the quitter
-        announceQuitter();
+        if(!com.isClosed())
         com.close();
         handler.removeActiveAccount(com.getAccount());
         handler.removeCom(com);
@@ -125,12 +133,6 @@ public class ChatThread extends Thread {
 
     //sending message to all
     public void sendToAll(Message mes) {
-        /*for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
-            Communicator tempCom = (Communicator) it.next();
-            if (tempCom.getAccount() != com.getAccount()) {
-                tempCom.write(mes);
-            }
-        }*/
         handler.getGameManager().sendMessageToAll(mes);
     }
     //sending to the team
@@ -139,26 +141,7 @@ public class ChatThread extends Thread {
     }
     //sending to the one
     public void sendToOne(Message mes) {
-        /*for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
-            Communicator tempCom = (Communicator) it.next();
-            if (tempCom.getAccount().getUsername().equals(mes.getReceiver().getUsername())) {
-                tempCom.write(mes);
-            }
-        }*/
         handler.getGameManager().sendMessageToPlayer(mes);
-    }
-    //warn the others about quitters
-    public void announceQuitter() {
-        if (com.getAccount() != null) {
-            Account acc = new Account(com.getAccount().getUsername(), "unknown", com.getAccount().getTeam());
-            acc.setStatus(Status.quit);
-            for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
-                Communicator tempCom = (Communicator) it.next();
-                if (tempCom.getAccount() != com.getAccount()) {
-                    tempCom.write(acc);
-                }
-            }
-        }
     }
     public void sendBroadCast(Message mes){
         for (Iterator it = handler.getComs().iterator(); it.hasNext(); ) {
