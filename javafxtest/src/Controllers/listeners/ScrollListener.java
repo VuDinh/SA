@@ -69,6 +69,13 @@ public class ScrollListener implements KeyListener {
         }
         if(e.getKeyCode() == KeyEvent.VK_F1){
             panel.setCenterScreenByCord(mainHero.getRow(),mainHero.getCol());
+            mainHero.setIsChosen(true);
+            mainHero.resetPath();
+            mainHero.calculateRange(mainHero.getRow(), mainHero.getCol(), ((int) mainHero.getAP() / 2) + 1);
+            if ((mainHero.getCurrentSkill()) != null) {
+                if (mainHero.getCurrentSkill() instanceof AOESkill)
+                    ((AOESkill) mainHero.getCurrentSkill()).clearRangeCell();
+            }
         }
         if(panel.getFacade().getIsLocked()) {
             panel.repaint();

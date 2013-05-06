@@ -122,7 +122,7 @@ public class GameMap extends JPanel {
 
     public void paintFog(Graphics g) {
         //System.out.println(facade.getMatch().seenCells());
-        ArrayList<Cell> cells = facade.getMatch().seenCells(facade.getClientPlayer().getTeam());
+        ArrayList<Cell> cells = facade.getMatch().getSightTeam(facade.getClientPlayer().getTeam());
         //cells.addAll();
         /*try {
             for (Cell cell : cells) {
@@ -206,10 +206,16 @@ public class GameMap extends JPanel {
     }
 
     public void setCenterScreenByCord(int row, int col) {
-        int scrollRow = Math.max(0, row - 8);
-        int scrollCol = Math.max(0, col - 13);
+        /*int scrollRow = Math.max(0, row - 4);
+        int scrollCol = Math.max(0, col - 14);
+        scrollRow=Math.min(scrollRow,Utilizer.MAP_ROWS-7);
+        scrollCol=Math.min(scrollCol,Utilizer.MAP_COLS-13);
         scrollX = scrollCol * Utilizer.TILE_SIZE;
-        scrollY = scrollRow * Utilizer.TILE_SIZE;
+        scrollY = scrollRow * Utilizer.TILE_SIZE;*/
+        scrollX=Math.max(0,col * Utilizer.TILE_SIZE - getWidth()/2);
+        scrollY=Math.max(0,row * Utilizer.TILE_SIZE - getHeight()/2);
+        scrollX=Math.min(scrollX,Utilizer.MAP_COLS*Utilizer.TILE_SIZE - getWidth());
+        scrollY=Math.min(scrollY,Utilizer.MAP_ROWS*Utilizer.TILE_SIZE - getHeight());
     }
 
     public void paintSelected(Graphics g) {
@@ -303,7 +309,7 @@ public class GameMap extends JPanel {
                 if (!player.getTeam().equals(attackingPlayer.getTeam())) {
                     Hero attackedHero = player.getHero();
                     attackedHero.setHP(attackedHero.getHP() - temp.getCurrentSkill().getDamage(temp));
-                    if (attackedHero.getHP() <= 0) {
+                    if (attackedHero.getHP() <= 0 && !attackedHero.getStatus().equals(HeroStatus.dead)) {
                         //set dead status
                         attackedHero.setHP(0);
                         attackedHero.setStatus(HeroStatus.dead);

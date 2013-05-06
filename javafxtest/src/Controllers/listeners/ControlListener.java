@@ -1,6 +1,8 @@
 package Controllers.listeners;
 
 import Utilities.Utilizer;
+import View.Ingame.Cell;
+import View.Ingame.ControlPanel;
 import View.Ingame.GameMap;
 import model.HeroSystem.Hero;
 import model.HeroSystem.HeroStatus;
@@ -21,10 +23,13 @@ import java.awt.event.MouseMotionListener;
  */
 public class ControlListener implements MouseListener,MouseMotionListener {
     GameMap panel;
+    ControlPanel controlPanel;
     Point pressed;
-
-    public ControlListener(GameMap panel) {
+    Cell clickedCell;
+    public ControlListener(GameMap panel,ControlPanel controlPanel) {
         this.panel = panel;
+        this.controlPanel=controlPanel;
+        clickedCell=new Cell();
     }
 
     @Override
@@ -44,6 +49,10 @@ public class ControlListener implements MouseListener,MouseMotionListener {
             int actualScrollX=Math.min(scrollX,Utilizer.MAP_COLS*Utilizer.TILE_SIZE - panel.getWidth());
             int actualScrollY=Math.min(scrollY,Utilizer.MAP_ROWS*Utilizer.TILE_SIZE - panel.getHeight());
             panel.setScroll(actualScrollX, actualScrollY);
+            clickedCell.setX(e.getX()-15);
+            clickedCell.setY(e.getY()-7);
+            controlPanel.setClickedCell(clickedCell);
+            controlPanel.repaint();
 
         }
         if (panel.getFacade().getIsLocked()) {
@@ -119,7 +128,10 @@ public class ControlListener implements MouseListener,MouseMotionListener {
             int actualScrollX=Math.min(scrollX,Utilizer.MAP_COLS*Utilizer.TILE_SIZE - panel.getWidth());
             int actualScrollY=Math.min(scrollY,Utilizer.MAP_ROWS*Utilizer.TILE_SIZE - panel.getHeight());
             panel.setScroll(actualScrollX, actualScrollY);
-
+            clickedCell.setX(e.getX()-15);
+            clickedCell.setY(e.getY()-7);
+            controlPanel.setClickedCell(clickedCell);
+            controlPanel.repaint();
         }
         panel.repaint();
     }

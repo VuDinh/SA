@@ -44,21 +44,23 @@ public class GameMatch implements Serializable, Cloneable {
         add(new Teleport(38,6,Team.team2,4));
     }};
     private static  ArrayList<Tower> tower = new ArrayList<Tower>(){{
-        add(new Tower(1000,1000,0,0,100,35,4,0,"","",new Cell(33,3), new Cell(36,5),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,5,35,0,"","",new Cell(3,34), new Cell(6,36),Team.team2,true,false));
-        add(new Tower(1000,1000,0,0,100,3,7,0,"","",new Cell(3,7), new Cell(4,7),Team.team2,true,false));
-        add(new Tower(1000,1000,0,0,100,6,3,0,"","",new Cell(6,3), new Cell(7,3),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,4,19,0,"","",new Cell(4,19), new Cell(5,19),Team.team2,true,false));
-        add(new Tower(1000,1000,0,0,100,20,5,0,"","",new Cell(20,5), new Cell(21,5),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,20,17,0,"","",new Cell(20,17), new Cell(21,17),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,18,22,0,"","",new Cell(18,22), new Cell(19,22),Team.team2,true,false));
-        add(new Tower(1000,1000,0,0,100,26,11,0,"","",new Cell(26,11), new Cell(27,11),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,13,27,0,"","",new Cell(13,27), new Cell(14,27),Team.team2,true,false));
-        add(new Tower(1000,1000,0,0,100,34,18,0,"","",new Cell(34,18), new Cell(35,18),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,19,34,0,"","",new Cell(19,34), new Cell(20,34),Team.team2,true,false));
-        add(new Tower(1000,1000,0,0,100,35,32,0,"","",new Cell(35,32), new Cell(36,32),Team.team1,true,false));
-        add(new Tower(1000,1000,0,0,100,32,36,0,"","",new Cell(32,36), new Cell(33,36),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,35,4,12,"","",new Cell(33,3), new Cell(36,5),Team.team1,true,false));
+        add(new Tower(1000,1000,0,0,100,5,35,12,"","",new Cell(3,34), new Cell(6,36),Team.team2,true,false));
+        add(new Tower(1000,1000,0,0,100,3,7,12,"","",new Cell(3,7), new Cell(4,7),Team.team2,false,false));
+        add(new Tower(1000,1000,0,0,100,6,3,12,"","",new Cell(6,3), new Cell(7,3),Team.team1,false,false));
+        add(new Tower(1000,1000,0,0,100,4,19,12,"","",new Cell(4,19), new Cell(5,19),Team.team2,false,false));
+        add(new Tower(1000,1000,0,0,100,20,5,12,"","",new Cell(20,5), new Cell(21,5),Team.team1,false,false));
+        add(new Tower(1000,1000,0,0,100,20,17,12,"","",new Cell(20,17), new Cell(21,17),Team.team1,false,false));
+        add(new Tower(1000,1000,0,0,100,18,22,12,"","",new Cell(18,22), new Cell(19,22),Team.team2,false,false));
+        add(new Tower(1000,1000,0,0,100,26,11,12,"","",new Cell(26,11), new Cell(27,11),Team.team1,false,false));
+        add(new Tower(1000,1000,0,0,100,13,27,12,"","",new Cell(13,27), new Cell(14,27),Team.team2,false,false));
+        add(new Tower(1000,1000,0,0,100,34,18,12,"","",new Cell(34,18), new Cell(35,18),Team.team1,false,false));
+        add(new Tower(1000,1000,0,0,100,19,34,12,"","",new Cell(19,34), new Cell(20,34),Team.team2,false,false));
+        add(new Tower(1000,1000,0,0,100,35,32,12,"","",new Cell(35,32), new Cell(36,32),Team.team1,false,false));
+        add(new Tower(1000,1000,0,0,100,32,36,12,"","",new Cell(32,36), new Cell(33,36),Team.team2,false,false));
     }};
+    private ArrayList<Cell> sightTeam1 = new ArrayList<Cell>();
+    private ArrayList<Cell> sightTeam2 = new ArrayList<Cell>();
     int counter;
     private boolean isFull;
     private transient AccountDao dao;
@@ -78,6 +80,8 @@ public class GameMatch implements Serializable, Cloneable {
         this.gameIndex = index;
         turnIndex = 0;
 
+        sightTeam1 = seenCells(Team.team1);
+        sightTeam2 = seenCells(Team.team2);
     }
 
     public GameMatch(GameMatch one) {
@@ -102,6 +106,8 @@ public class GameMatch implements Serializable, Cloneable {
         this.gameIndex = one.gameIndex;
         turnIndex = 0;
 
+        sightTeam1 = seenCells(Team.team1);
+        sightTeam2 = seenCells(Team.team2);
     }
 
     public void setDao(AccountDao dao) {
@@ -556,5 +562,24 @@ public class GameMatch implements Serializable, Cloneable {
         }
     }
 
+    public ArrayList<Cell> getSightTeam1() {
+        return sightTeam1;
+    }
 
+    public void resetSightTeam1() {
+        this.sightTeam1 = seenCells(Team.team1);
+    }
+
+    public ArrayList<Cell> getSightTeam2() {
+        return sightTeam2;
+    }
+
+    public void resetSightTeam2() {
+        this.sightTeam2 = seenCells(Team.team2);
+    }
+
+    public ArrayList<Cell> getSightTeam(Team team){
+        if(team==Team.team1)return sightTeam1;
+        else return sightTeam2;
+    }
 }

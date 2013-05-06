@@ -21,6 +21,7 @@ public class ControlPanel extends JPanel {
 
     Character character;
     ChatPanel chatPanel;
+    private Cell clickedCell;
 
     public static BufferedImage image;
 
@@ -35,11 +36,18 @@ public class ControlPanel extends JPanel {
                 add(chatPanel, BorderLayout.EAST);
             }
         });
+
     }
 
     public void setCharacter(Character hero) {
         this.character = hero;
         repaint();
+    }
+    public void setClickedCell(Cell cell){
+        clickedCell=cell;
+    }
+    public Cell getClickedCell(){
+        return clickedCell;
     }
 
     //paint components and hero's stat
@@ -49,8 +57,11 @@ public class ControlPanel extends JPanel {
 
         g.setFont(Utilizer.FONT);
         g.fillRect(0, 0, getWidth(), getHeight());
-
+        g.clearRect(10,10,130,130);
         g.drawImage(Utilizer.IMG_MINI_MAP, 10, 10, this);
+        if(clickedCell!=null){
+            g.drawRect(clickedCell.getX(),clickedCell.getY(),30,15);
+        }
         g.drawImage(Utilizer.IMG_CONTROL1, 0, 0, this);
         g.drawImage(Utilizer.IMG_CONTROL2, 275, 0, this);
         Hero hero = null;

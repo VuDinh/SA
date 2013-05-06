@@ -41,6 +41,7 @@ public class MapListener implements MouseListener, MouseMotionListener {
         this.panel = panel;
         this.controlPanel = controlPanel;
         lock = false;
+
     }
 
     @Override
@@ -242,6 +243,7 @@ public class MapListener implements MouseListener, MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         //set relative position of the cell that cursor points to base on actual map
         GameMap temp = (GameMap) panel;
+        mainHero = panel.getFacade().getMainHero();
         Cell rangeCell = new Cell();
         Point curPos = e.getPoint();
         int x = (curPos.x + panel.getScrollX()) / Utilizer.TILE_SIZE;
